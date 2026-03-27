@@ -5,6 +5,7 @@ Core Agent Module - 智能体核心模块
 """
 
 import asyncio
+import os
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
@@ -167,8 +168,8 @@ class AgentConfig(BaseModel):
     model: str = "gpt-4o-mini"
     temperature: float = 0.8
 
-    # 记忆配置
-    memory_retention_turns: int = 10
+    # 记忆配置（从环境变量读取）
+    memory_retention_turns: int = int(os.getenv("MEMORY_RETENTION_TURNS", "10"))
 
     # 人格配置
     personality: PersonalityProfile | None = None

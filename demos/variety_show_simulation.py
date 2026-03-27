@@ -57,11 +57,11 @@ class VarietyShowSimulation:
         # 创建 Agent
         self.agents = self._create_agents()
 
-        # 创建事件循环
+        # 创建事件循环（从环境变量读取配置）
         config = EventLoopConfig(
-            tick_interval=0.5,
+            tick_interval=float(os.getenv("SIMULATION_TICK_INTERVAL", "0.5")),
             max_turns=20,
-            agents_per_turn=len(names),
+            agents_per_turn=len(names),  # 所有 agent 每回合都行动
             enable_parallel=False
         )
         self.event_loop = SequentialEventLoop(self.environment, config)
@@ -284,7 +284,7 @@ async def main():
     parser.add_argument("--provider", default="gemini", help="LLM 提供商 (gemini, openai, anthropic)")
     parser.add_argument("--model", help="LLM 模型名称")
     parser.add_argument("--turns", type=int, default=int(os.getenv("DEFAULT_TURNS", "15")), help="仿真回合数")
-    parser.add_argument("--agents", type=int, default=5, help="Agent 数量 (默认 5)")
+    parser.add_argument("--agents", type=int, default=int(os.getenv("MAX_AGENTS", "5")), help="Agent 数量")
     parser.add_argument("--names", nargs="+", help="自定义 Agent 名称列表")
     args = parser.parse_args()
 
