@@ -1,0 +1,91 @@
+{
+  "scraped_at": "2026-03-26T22:45:57.898482",
+  "total_celebrities": 10,
+  "celebrities": [
+    {
+      "name": "肖战",
+      "occupation": [
+        "演员",
+        "歌手"
+      ],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    },
+    {
+      "name": "王一博",
+      "occupation": [
+        "演员",
+        "歌手"
+      ],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    },
+    {
+      "name": "杨幂",
+      "occupation": [],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    },
+    {
+      "name": "赵丽颖",
+      "occupation": [
+        "演员"
+      ],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    },
+    {
+      "name": "迪丽热巴",
+      "occupation": [],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    },
+    {
+      "name": "唐嫣",
+      "occupation": [
+        "演员"
+      ],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    },
+    {
+      "name": "罗晋",
+      "occupation": [
+        "演员"
+      ],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    },
+    {
+      "name": "李小璐",
+      "occupation": [
+        "演员",
+        "歌手"
+      ],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    },
+    {
+      "name": "贾乃亮",
+      "occupation": [],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    },
+    {
+      "name": "PG One",
+      "occupation": [],
+      "works_count": 0,
+      "relationships_count": 0,
+      "has_biography": true
+    }
+  ]
+}
