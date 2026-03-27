@@ -142,10 +142,18 @@ class VarietyShowSimulation:
         """运行仿真"""
         self._print_intro()
 
-        # 设置初始任务
-        self.environment.set_task(
-            "在预算有限的情况下，团队需要决定晚餐吃什么。",
-            deadline_hours=24
+        # 设置初始任务 - 八瓜话题
+        topic = """今天录制闲聊环节，话题是当年的娱乐圈大瓜：李小璐、贾乃亮、PG One三角恋事件。
+
+背景：2017年，李小璐被拍到与说唱歌手PG One深夜亲密互动，引发轰动。随后贾乃亮在直播中说"相信我老婆"，但最终还是离婚收场。这件事至今仍是娱乐圈的热门讨论话题。"""
+
+        self.environment.set_task(topic, deadline_hours=2)
+
+        # 广播背景信息
+        self.environment.broadcast(
+            "导演组宣布：今天咱们不聊工作，就聊八卦！大家对李小璐贾乃亮PG One这事怎么看？",
+            source="director",
+            importance=0.9
         )
 
         # 运行
