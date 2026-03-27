@@ -6,8 +6,13 @@ Variety Show Simulation Demo - 综艺节目修罗场模拟
 """
 
 import asyncio
+import os
 import sys
 from pathlib import Path
+
+# 加载 .env 文件
+from dotenv import load_dotenv
+load_dotenv()
 
 # 添加项目根目录到路径
 sys.path.insert(0, str(Path(__file__).parent.parent))
