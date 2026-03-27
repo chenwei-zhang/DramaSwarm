@@ -111,7 +111,7 @@ class VarietyShowSimulation:
             """行动回调"""
             self.observer.observe_action(action.to_dict())
 
-        def on_turn_end(turn_number, result):
+        async def on_turn_end(turn_number, result):
             """回合结束回调"""
             self.observer.observe_turn(result)
             self._print_turn_summary(turn_number, result)
