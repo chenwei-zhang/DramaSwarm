@@ -560,13 +560,231 @@ class SimpleAgent(Agent):
         return response
 
 
-def create_agent(name: str, role: str | AgentRole, **kwargs) -> Agent:
+class LLMAgent(Agent):
+    """
+    使用 LLM 驱动的 Agent
+
+    通过 LLM API 生成更智能、更自然的响应。
+    支持多种 LLM 提供商（Gemini, OpenAI, Anthropic 等）。
+    """
+
+    def __init__(
+        self,
+        name: str,
+        role: AgentRole,
+        llm_client: Any = None,
+        llm_provider: str = "gemini",
+        llm_model: str | None = None,
+        **kwargs
+    ):
+        # 创建配置
+        config = AgentConfig(
+            name=name,
+            role=role,
+            **kwargs
+        )
+
+        super().__init__(config)
+
+        # LLM 配置
+        self.llm_provider = llm_provider
+        self.llm_model = llm_model
+        self._llm_client = llm_client
+        self._conversation_history: list[tuple[str, str]] = []  # (role, content)
+
+    @property
+    def llm_client(self) -> Any:
+        """延迟加载 LLM 客户端"""
+        if self._llm_client is None:
+            from swarmsim.llm import get_client
+            self._llm_client = get_client(
+                provider=self.llm_provider,
+                model=self.llm_model
+            )
+        return self._llm_client
+
+    def get_system_prompt(self) -> str:
+        """获取系统提示词"""
+        base_prompt = f"""你是 {self.name}，一个在多智能体仿真环境中的角色。
+
+【角色类型】
+{self.role.value}
+
+【性格特征】
+{', '.join(self.personality.traits)}
+
+【说话风格】
+{self.personality.speech_style}
+
+【行为模式】
+{chr(10).join(f'- {p}' for p in self.personality.behavior_patterns[:5])}
+
+【重要规则】
+1. 完全代入角色，不要扮演 AI 助手
+2. 回复要简洁自然，通常不超过 50 字
+3. 根据你的性格特征做出符合人设的反应
+4. 可以表现出情绪、压力、疲劳等状态
+5. 与其他角色互动时要考虑关系和语境
+"""
+
+        if self.personality.system_prompt:
+            base_prompt += f"\n【额外设定】\n{self.personality.system_prompt}"
+
+        return base_prompt
+
+    async def speak(self, context: dict, prompt: str | None = None) -> str:
+        """
+        使用 LLM 生成发言
+
+        Args:
+            context: 当前情境信息
+            prompt: 可选的外部提示
+
+        Returns:
+            发言内容
+        """
+        self.state = AgentState.SPEAKING
+        self._notify_state_change()
+
+        # 构建提示词
+        system_prompt = self.get_system_prompt()
+        memory_context = self.memory.get_context_summary()
+
+        # 构建情境描述
+        situation = f"""【当前情况】
+回合: {context.get('turn', 'N/A')}
+环境: {context.get('environment', '未知')}
+
+【最近记忆】
+{memory_context}
+"""
+
+        if prompt:
+            situation += f"\n【需要回应】\n{prompt}"
+
+        # 添加关系信息
+        relationships = []
+        for other_id, relation in self.personality.relationships.items():
+            relationships.append(f"- {other_id}: {relation}")
+        if relationships:
+            situation += f"\n【人际关系】\n{chr(10).join(relationships)}"
+
+        # 添加状态信息
+        state_desc = self.get_state_description()
+        situation += f"\n【你的状态】\n{state_desc}"
+
+        try:
+            # 调用 LLM
+            response = await self.llm_client.generate_async(
+                prompt=situation,
+                system_prompt=system_prompt
+            )
+
+            content = response.content.strip()
+
+            # 清理可能的格式标记
+            if content.startswith("```"):
+                content = content.split("```", 2)[-1].strip()
+            if content.startswith('"') and content.endswith('"'):
+                content = content[1:-1]
+            if content.startswith("'") and content.endswith("'"):
+                content = content[1:-1]
+
+            # 限制长度
+            if len(content) > 200:
+                content = content[:197] + "..."
+
+        except Exception as e:
+            # 降级到简单响应
+            content = await self._fallback_response()
+
+        # 记录
+        self.memory.add(
+            content=f"我说: {content}",
+            source="self",
+            importance=0.6,
+            tags=["speech", "llm"]
+        )
+
+        # 更新对话历史
+        self._conversation_history.append(("assistant", content))
+
+        self.state = AgentState.IDLE
+        self._notify_state_change()
+
+        return content
+
+    async def _fallback_response(self) -> str:
+        """降级响应（LLM 失败时使用）"""
+        fallback_responses = {
+            AgentRole.LEADER: ["我们需要一个计划。", "让我来处理。"],
+            AgentRole.PEACEMAKER: ["大家都冷静一下。", "我们可以商量。"],
+            AgentRole.DRAMA_QUEEN: ["这太疯狂了！", "我无法接受！"],
+            AgentRole.SLACKER: ["嗯...随便吧。", "你们决定。"],
+            AgentRole.PERFECTIONIST: ["这里有问题。", "需要仔细考虑。"],
+            AgentRole.WILDCARD: ["等等，我有想法。", "换个思路？"]
+        }
+        import random
+        return random.choice(fallback_responses.get(self.role, ["好吧。"]))
+
+    async def think(self, context: dict) -> str:
+        """使用 LLM 进行思考"""
+        self.state = AgentState.THINKING
+        self._notify_state_change()
+
+        system_prompt = f"""你是 {self.name}，正在思考当前情况。
+请用简短的内心独白表达你的想法（不超过 30 字）。
+完全代入角色，体现你的性格特征。"""
+
+        situation = f"""【当前情况】
+{context.get('environment', '未知')}
+
+【最近的记忆】
+{self.memory.get_context_summary()}
+"""
+
+        try:
+            response = await self.llm_client.generate_async(
+                prompt=situation,
+                system_prompt=system_prompt
+            )
+            thought = response.content.strip()
+        except Exception:
+            thought = "正在观察局势..."
+
+        self.state = AgentState.IDLE
+        self._notify_state_change()
+
+        return thought
+
+    def listen(self, speaker_id: str, content: str) -> None:
+        """倾听他人发言"""
+        self.state = AgentState.LISTENING
+
+        # 记录到对话历史
+        self._conversation_history.append((speaker_id, content))
+
+        # 调用父类的 listen 方法
+        super().listen(speaker_id, content)
+
+        self.state = AgentState.IDLE
+
+
+def create_agent(
+    name: str,
+    role: str | AgentRole,
+    use_llm: bool = False,
+    llm_provider: str = "gemini",
+    **kwargs
+) -> Agent:
     """
     便捷函数：创建 Agent
 
     Args:
         name: Agent 名称
         role: 角色类型
+        use_llm: 是否使用 LLM
+        llm_provider: LLM 提供商 (gemini, openai, anthropic)
         **kwargs: 其他配置参数
 
     Returns:
@@ -574,5 +792,13 @@ def create_agent(name: str, role: str | AgentRole, **kwargs) -> Agent:
     """
     if isinstance(role, str):
         role = AgentRole(role)
+
+    if use_llm:
+        return LLMAgent(
+            name=name,
+            role=role,
+            llm_provider=llm_provider,
+            **kwargs
+        )
 
     return SimpleAgent(name=name, role=role, **kwargs)

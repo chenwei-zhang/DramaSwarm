@@ -17,7 +17,7 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
 
-from swarmsim.core.agent import SimpleAgent, AgentRole
+from swarmsim.core.agent import SimpleAgent, LLMAgent, AgentRole, create_agent
 from swarmsim.core.environment import VarietyShowEnvironment
 from swarmsim.core.event_loop import SequentialEventLoop, EventLoopConfig
 from swarmsim.core.factory import VarietyShowFactory
@@ -30,11 +30,17 @@ class VarietyShowSimulation:
     def __init__(
         self,
         names: list[str],
-        template: str = "sisters_trip"
+        template: str = "sisters_trip",
+        use_llm: bool = False,
+        llm_provider: str = "gemini",
+        llm_model: str | None = None
     ):
         self.console = Console()
         self.names = names
         self.template = template
+        self.use_llm = use_llm
+        self.llm_provider = llm_provider
+        self.llm_model = llm_model
 
         # 创建环境
         self.environment = VarietyShowEnvironment(
@@ -44,8 +50,7 @@ class VarietyShowSimulation:
         )
 
         # 创建 Agent
-        self.factory = VarietyShowFactory()
-        self.agents = self.factory.create_cast(template, names)
+        self.agents = self._create_agents()
 
         # 创建事件循环
         config = EventLoopConfig(
@@ -66,6 +71,34 @@ class VarietyShowSimulation:
 
         # 设置回调
         self._setup_callbacks()
+
+    def _create_agents(self) -> list:
+        """创建 Agent 列表"""
+        factory = VarietyShowFactory()
+
+        # 首先获取角色分配
+        template_info = factory.CAST_TEMPLATES.get(self.template, {})
+        roles = template_info.get("roles", ["leader", "perfectionist", "drama_queen", "slacker", "peacemaker"])
+        roles = roles[:len(self.names)]
+
+        agents = []
+        for name, role_str in zip(self.names, roles):
+            if self.use_llm:
+                agent = LLMAgent(
+                    name=name,
+                    role=AgentRole(role_str),
+                    llm_provider=self.llm_provider,
+                    llm_model=self.llm_model
+                )
+            else:
+                agent = SimpleAgent(name=name, role=AgentRole(role_str))
+            agents.append(agent)
+
+        # 应用关系
+        relationships = template_info.get("relationships", [])
+        factory._apply_template_relationships(agents, relationships)
+
+        return agents
 
     def _setup_callbacks(self):
         """设置回调函数"""
@@ -237,6 +270,15 @@ class VarietyShowSimulation:
 
 async def main():
     """主程序入口"""
+    import argparse
+
+    parser = argparse.ArgumentParser(description="综艺节目修罗场模拟")
+    parser.add_argument("--llm", action="store_true", help="使用 LLM 驱动 Agent")
+    parser.add_argument("--provider", default="gemini", help="LLM 提供商 (gemini, openai, anthropic)")
+    parser.add_argument("--model", help="LLM 模型名称")
+    parser.add_argument("--turns", type=int, default=15, help="仿真回合数")
+    args = parser.parse_args()
+
     # 定义参与成员
     names = [
         "队长张三",
@@ -246,9 +288,23 @@ async def main():
         "和事佬孙七"
     ]
 
+    # 显示 LLM 状态
+    if args.llm:
+        provider = args.provider
+        model = args.model or ("gemini-2.0-flash-exp" if provider == "gemini" else "gpt-4o-mini")
+        print(f"🤖 使用 LLM: {provider} ({model})")
+    else:
+        print("📝 使用规则引擎（快速模式）")
+
     # 创建并运行仿真
-    sim = VarietyShowSimulation(names, template="sisters_trip")
-    await sim.run(turns=15)
+    sim = VarietyShowSimulation(
+        names,
+        template="sisters_trip",
+        use_llm=args.llm,
+        llm_provider=args.provider,
+        llm_model=args.model
+    )
+    await sim.run(turns=args.turns)
 
 
 if __name__ == "__main__":
