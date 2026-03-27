@@ -1,0 +1,32 @@
+# Multi-Agent Simulation Engine - Dependencies
+
+# Core LLM Framework
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-openai>=0.2.0
+anthropic>=0.40.0
+
+# Async Support
+asyncio>=3.4.3
+aiohttp>=3.10.0
+
+# Data & Memory
+pydantic>=2.9.0
+numpy>=1.26.0
+
+# Knowledge Graph (GraphRAG)
+networkx>=3.3.0
+
+# Optional: For advanced memory
+# chromadb>=0.5.0
+# pinecone-client>=5.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0.2
+rich>=13.9.0
+tenacity>=8.5.0
+
+# Testing
+pytest>=8.3.0
+pytest-asyncio>=0.24.0

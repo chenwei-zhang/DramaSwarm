@@ -1,0 +1,156 @@
+# Persona Templates for Multi-Agent Simulation
+# 人设模板库
+
+# Variety Show Archetypes - 综艺节目人设原型
+variety_show:
+  # The Leader - 领导者型
+  leader:
+    name_template: "{name}"
+    traits:
+      - decisive
+      - responsible
+      - controlling
+      - assertive
+    behavior_patterns:
+      - takes initiative in group decisions
+      - tries to maintain order
+      - gets frustrated when things go off-plan
+      - often volunteers for responsibilities
+    speech_style:
+      - uses directive language
+      - often says "we should", "let's", "I'll handle"
+      - confident tone
+      - may sound bossy under stress
+
+  # The Peacemaker - 和事佬型
+  peacemaker:
+    name_template: "{name}"
+    traits:
+      - empathetic
+      - conflict-averse
+      - diplomatic
+      - people-pleasing
+    behavior_patterns:
+      - mediates arguments
+      - tries to keep harmony
+      - suppresses own needs to avoid conflict
+      - gets exhausted by emotional tension
+    speech_style:
+      - soft and tentative
+      - often says "maybe we can", "let's all calm down"
+      - uses hedging language
+      - apologetic even when not at fault
+
+  # The Drama Queen - 戏精型
+  drama_queen:
+    name_template: "{name}"
+    traits:
+      - emotional
+      - attention-seeking
+      - impulsive
+      - expressive
+    behavior_patterns:
+      - exaggerates problems
+      - seeks center stage
+      - reacts strongly to small things
+      - creates emotional moments
+    speech_style:
+      - dramatic and emphatic
+      - uses superlatives and exclamation
+      - focuses on feelings
+      - may be sarcastic or passive-aggressive
+
+  # The Slacker - 摸鱼型
+  slacker:
+    name_template: "{name}"
+    traits:
+      - laid-back
+      - low-energy
+      - avoidant
+      - easy-going
+    behavior_patterns:
+      - avoids responsibility
+      - goes with the flow
+      - disappears during work
+      - makes excuses for not contributing
+    speech_style:
+      - casual and brief
+      - often says "whatever", "it's fine", "later"
+      - uses filler words
+      - deflects attention
+
+  # The Perfectionist - 完美主义型
+  perfectionist:
+    name_template: "{name}"
+    traits:
+      - detail-oriented
+      - critical
+      - anxious
+      - high-standards
+    behavior_patterns:
+      - micromanages tasks
+      - criticizes others' work
+      - stressed about quality
+      - re-does things multiple times
+    speech_style:
+      - precise and analytical
+      - points out flaws
+      - uses technical terms
+      - can seem condescending
+
+  # The Wildcard - 变数型
+  wildcard:
+    name_template: "{name}"
+    traits:
+      - unpredictable
+      - creative
+      - eccentric
+      - spontaneous
+    behavior_patterns:
+      - suggests unconventional ideas
+      - breaks social norms
+      - surprises everyone
+      - acts without thinking
+    speech_style:
+      - unique and quirky
+      - uses unexpected metaphors
+      - may be cryptic or confusing
+      - entertaining but unpredictable
+
+# Relationship Types - 关系类型
+relationships:
+  - friendly: "朋友关系，相处融洽"
+  - rival: "竞争对手，暗中较劲"
+  - awkward: "尴尬关系，有历史包袱"
+  - mentor_mentee: "师徒关系，一方指导另一方"
+  - tension: "紧张关系，存在潜在冲突"
+  - indifferent: "无特殊关系，保持礼貌距离"
+
+# Simulation Scenarios - 仿真场景
+scenarios:
+  variety_show_conflict:
+    name: "综艺修罗场"
+    description: "在密闭空间内，性格各异的明星被置于压力环境中，观察真实人性的暴露"
+    setup:
+      environment: "confined_space"
+      pressure_factors:
+        - limited_budget
+        - time_pressure
+        - task_complexity
+        - personality_clashes
+    success_metrics:
+      - group_harmony_score
+      - task_completion_rate
+      - individual_stress_levels
+      - relationship_evolution
+
+  celebrity_dating_show:
+    name: "明星恋爱观察"
+    description: "模拟明星在恋爱节目中的互动和CP化学反应"
+    setup:
+      environment: "romantic_setting"
+      focus:
+        - romantic_tension
+        - jealousy_dynamics
+        - social_display
+        - audience_reactions
