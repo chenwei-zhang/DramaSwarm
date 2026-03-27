@@ -1,10 +1,10 @@
-# SwarmSim - 多智能体群体仿真引擎
+# DramaSwarm - 多智能体群体仿真引擎
 
 > 基于 MiroFish 概念的垂直领域实现：**综艺节目修罗场/CP感推演器**
 
 ## 项目简介
 
-SwarmSim 是一个轻量级的多智能体仿真引擎，专注于模拟复杂社交场景中的群体行为。本项目采用**垂直切入**策略，首先实现综艺节目场景的推演能力。
+DramaSwarm 是一个轻量级的多智能体仿真引擎，专注于模拟复杂社交场景中的群体行为。本项目采用**垂直切入**策略，首先实现综艺节目场景的推演能力。
 
 ### 核心特性
 
@@ -26,14 +26,17 @@ pip install -r requirements.txt
 创建 `.env` 文件：
 
 ```bash
-# OpenAI API (可选)
-OPENAI_API_KEY=your_key_here
-
-# Anthropic API (可选)
-ANTHROPIC_API_KEY=your_key_here
+# Gemini API（主要使用）
+GEMINI_API_KEY=your_key_here
 
 # 默认使用模型
-DEFAULT_MODEL=gpt-4o-mini
+LLM_MODEL=gemini-3-flash-preview
+
+# 仿真参数
+MAX_AGENTS=50
+SIMULATION_TICK_INTERVAL=1.0
+MEMORY_RETENTION_TURNS=10
+DEFAULT_TURNS=50
 ```
 
 ### 运行 Demo
@@ -41,27 +44,60 @@ DEFAULT_MODEL=gpt-4o-mini
 ```bash
 # 综艺节目修罗场模拟
 python -m demos.variety_show_simulation
+
+# 明星数据爬虫（模拟模式）
+python test_scraper.py mock 杨幂
+
+# 明星数据爬虫（真实爬取）
+python test_scraper.py real 杨幂
 ```
 
 ## 项目结构
 
 ```
-swarmsim/
-├── core/
-│   ├── agent.py          # Agent 基类与核心逻辑
-│   ├── environment.py    # 环境模块
-│   ├── event_loop.py     # 事件驱动引擎
-│   ├── factory.py        # Agent 工厂
-│   └── observer.py       # 观测总结模块
-├── memory/
-│   ├── base.py           # 记忆基类
-│   └── vector_store.py   # 向量存储
-├── prompts/
-│   └── personas.yaml     # 人设模板
+DramaSwarm/
+├── .env                          # 环境变量配置
+├── .env.example                  # 环境变量示例
+├── requirements.txt              # Python 依赖
+├── prompt.txt                    # 项目需求文档
+├── test_scraper.py               # 爬虫测试脚本
+│
+├── swarmsim/                     # 多智能体仿真引擎
+│   ├── core/
+│   │   ├── agent.py              # Agent 基类与 LLM Agent
+│   │   ├── environment.py        # 环境模块（上帝视角）
+│   │   ├── event_loop.py         # 事件驱动引擎
+│   │   ├── factory.py            # Agent 工厂
+│   │   └── observer.py           # 观测总结模块
+│   ├── llm/
+│   │   └── client.py             # LLM 客户端（Gemini/OpenAI/Anthropic）
+│   └── memory/
+│       └── base.py               # 记忆基类
+│
+├── celebrity_scraper/            # 明星数据爬虫
+│   ├── scraper.py                # 爬虫主调度器
+│   ├── models.py                 # 数据模型定义
+│   ├── mock_data.py              # 模拟数据生成器
+│   ├── spiders/
+│   │   ├── baidu_baike.py        # 百度百科
+│   │   ├── weibo.py              # 微博
+│   │   ├── zhihu.py              # 知乎
+│   │   ├── douban.py             # 豆瓣
+│   │   └── news.py               # 娱乐新闻聚合
+│   ├── utils/
+│   │   └── anti_spider.py        # 反爬虫工具
+│   └── data/                     # 爬取数据（JSON）
+│       ├── 肖战.json
+│       ├── 杨幂.json
+│       ├── 李小璐.json
+│       ├── summary.json
+│       └── ...
+│
 ├── demos/
-│   └── variety_show_simulation.py
+│   └── variety_show_simulation.py # 综艺修罗场模拟 Demo
+│
 └── tests/
-    └── test_agent.py
+    └── test_agent.py             # 单元测试
 ```
 
 ## 开发路线图
