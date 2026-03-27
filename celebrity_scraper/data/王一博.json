@@ -1,24 +1,1283 @@
 {
   "celebrity": {
     "name": "王一博",
-    "english_name": "",
-    "birth_date": "1997-8-5",
+    "english_name": "Wang Yibo",
+    "birth_date": "1997-08-05",
     "birth_place": "河南省洛阳市",
+    "age": 0,
+    "zodiac": "牛",
+    "constellation": "狮子座",
     "occupation": [
       "演员",
-      "歌手"
+      "歌手",
+      "摩托车赛车手",
+      "舞者"
     ],
-    "company": "",
-    "height": "",
-    "zodiac": "",
-    "biography": "王一博（YiBo），1997年8月5日出生于河南省洛阳市，中国内地影视男演员、流行乐歌手、职业赛车手，EVISU独家签约赛车手、男子演唱组合UNIQ成员。2014年，以UNIQ组合成员身份正式出道。2015年，因主演影片《梦想合伙人》而进军影视界。2016年，随组合凭歌曲《EOEO》获美国“International-K Music”音乐奖最佳编舞奖；同年，加入综艺《天天向上》常驻主持阵容“天天兄弟”；主演都市爱情剧《人间至味是清欢》。2018年担任竞演类真人秀节目《创造101》舞蹈导师。2019年，主演仙侠古装剧《陈情令》；同年，发行个人音乐单曲《无感》，该曲刷新数字单曲销量最快破1000万纪录。2020年，主演古装武侠剧《有翡》播出；同年，凭青春励志剧《陪你到世界之巅》获第30届中国电视金鹰奖观众喜爱的男演员奖。2021年起，主演的古装悬疑剧《风起洛阳》、刑侦剧《冰雨火》相继播出。20",
+    "company": "乐华娱乐",
+    "agency": "",
+    "height": "180cm",
+    "weight": "",
+    "blood_type": "",
+    "biography": "王一博，中国内地男演员、歌手、主持人、职业摩托车赛车手。2014年，以UNIQ组合成员身份正式出道。2019年，主演古装仙侠剧《陈情令》蓝忘机一角而走红。",
     "education": "",
+    "alma_mater": "",
     "works": [],
-    "sources": [
-      "https://baike.baidu.com/item/%E7%8E%8B%E4%B8%80%E5%8D%9A/15818247"
+    "famous_works": [
+      "陈情令",
+      "有翡",
+      "风起洛阳",
+      "无名",
+      "长空之王",
+      "热烈"
     ],
-    "updated_at": "2026-03-26T22:44:26.577826"
+    "weibo_id": "",
+    "weibo_followers": 40000000,
+    "avatar_url": "",
+    "popularity_score": 0.0,
+    "hot_search_count": 0,
+    "sources": [],
+    "updated_at": "2026-03-27T10:27:58.067701"
   },
-  "gossips": [],
-  "relationships": []
+  "gossips": [
+    {
+      "title": "王一博新剧《陈情令》热播",
+      "content": "王一博主演的新剧《陈情令》正在热播，演技获得观众好评，话题度持续走高。",
+      "gossip_type": "other",
+      "date": "2026-03-15",
+      "involved_celebrities": [
+        "王一博"
+      ],
+      "tags": [],
+      "importance": 0.6,
+      "verified": true,
+      "sentiment": "positive",
+      "sentiment_score": 0.5,
+      "source_url": "",
+      "source_type": "sina"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "王一博",
+      "person_b": "肖战",
+      "relation_type": "搭档",
+      "start_date": null,
+      "end_date": null,
+      "is_current": true,
+      "description": "《陈情令》合作主演",
+      "confidence": 0.85,
+      "strength": 0.8
+    }
+  ],
+  "social_media_posts": [
+    {
+      "id": "wb_王一博_0",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "感恩相遇，一路同行",
+      "likes": 98211,
+      "reposts": 41361,
+      "comments": 8574,
+      "publish_time": "2025-10-06",
+      "source_url": "https://weibo.com/王一博/0",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "工作",
+        "努力"
+      ]
+    },
+    {
+      "id": "wb_王一博_1",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "路演现场见，不见不散",
+      "likes": 355487,
+      "reposts": 10306,
+      "comments": 6085,
+      "publish_time": "2025-05-23",
+      "source_url": "https://weibo.com/王一博/1",
+      "tags": [
+        "正能量",
+        "公益"
+      ],
+      "topics": [
+        "正能量",
+        "公益"
+      ]
+    },
+    {
+      "id": "wb_王一博_2",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "今天的夕阳很美",
+      "likes": 374299,
+      "reposts": 26414,
+      "comments": 1349,
+      "publish_time": "2025-04-27",
+      "source_url": "https://weibo.com/王一博/2",
+      "tags": [
+        "工作",
+        "努力"
+      ],
+      "topics": [
+        "工作",
+        "努力"
+      ]
+    },
+    {
+      "id": "wb_王一博_3",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "工作花絮分享~",
+      "likes": 97126,
+      "reposts": 44184,
+      "comments": 585,
+      "publish_time": "2025-10-13",
+      "source_url": "https://weibo.com/王一博/3",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
+      ]
+    },
+    {
+      "id": "wb_王一博_4",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "努力成为更好的自己",
+      "likes": 235510,
+      "reposts": 13548,
+      "comments": 7380,
+      "publish_time": "2025-08-29",
+      "source_url": "https://weibo.com/王一博/4",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_王一博_5",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "剧组杀青啦！",
+      "likes": 298113,
+      "reposts": 48643,
+      "comments": 928,
+      "publish_time": "2025-05-11",
+      "source_url": "https://weibo.com/王一博/5",
+      "tags": [
+        "工作",
+        "努力"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_王一博_6",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "新剧开机，加油！",
+      "likes": 377067,
+      "reposts": 46269,
+      "comments": 6181,
+      "publish_time": "2026-03-04",
+      "source_url": "https://weibo.com/王一博/6",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "健身",
+        "运动"
+      ]
+    },
+    {
+      "id": "wb_王一博_7",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "工作日常记录",
+      "likes": 348408,
+      "reposts": 14936,
+      "comments": 716,
+      "publish_time": "2026-03-05",
+      "source_url": "https://weibo.com/王一博/7",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_王一博_8",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "健身打卡第N天",
+      "likes": 331928,
+      "reposts": 7989,
+      "comments": 7609,
+      "publish_time": "2025-06-12",
+      "source_url": "https://weibo.com/王一博/8",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_王一博_9",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "收工啦，晚安！",
+      "likes": 467531,
+      "reposts": 18546,
+      "comments": 6345,
+      "publish_time": "2026-01-01",
+      "source_url": "https://weibo.com/王一博/9",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "正能量",
+        "公益"
+      ]
+    },
+    {
+      "id": "wb_王一博_10",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "新戏角色挑战，正在努力中",
+      "likes": 227202,
+      "reposts": 18540,
+      "comments": 3698,
+      "publish_time": "2025-06-30",
+      "source_url": "https://weibo.com/王一博/10",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "生活",
+        "记录"
+      ]
+    },
+    {
+      "id": "wb_王一博_11",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "后台准备中💪",
+      "likes": 197080,
+      "reposts": 8292,
+      "comments": 7603,
+      "publish_time": "2026-03-17",
+      "source_url": "https://weibo.com/王一博/11",
+      "tags": [
+        "正能量",
+        "公益"
+      ],
+      "topics": [
+        "健身",
+        "运动"
+      ]
+    },
+    {
+      "id": "wb_王一博_12",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "新作品即将上线，敬请期待！",
+      "likes": 363775,
+      "reposts": 44693,
+      "comments": 8971,
+      "publish_time": "2025-12-10",
+      "source_url": "https://weibo.com/王一博/12",
+      "tags": [
+        "健身",
+        "运动"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_王一博_13",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "感谢粉丝们的生日祝福！",
+      "likes": 136655,
+      "reposts": 46008,
+      "comments": 7423,
+      "publish_time": "2025-11-25",
+      "source_url": "https://weibo.com/王一博/13",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "正能量",
+        "公益"
+      ]
+    },
+    {
+      "id": "wb_王一博_14",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "公益活动，传递正能量",
+      "likes": 274780,
+      "reposts": 29677,
+      "comments": 3631,
+      "publish_time": "2026-01-14",
+      "source_url": "https://weibo.com/王一博/14",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_王一博_15",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "新歌听听看，希望大家喜欢",
+      "likes": 94166,
+      "reposts": 22930,
+      "comments": 7169,
+      "publish_time": "2026-03-18",
+      "source_url": "https://weibo.com/王一博/15",
+      "tags": [
+        "正能量",
+        "公益"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_王一博_16",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "今天的阳光真好☀️",
+      "likes": 314038,
+      "reposts": 38478,
+      "comments": 901,
+      "publish_time": "2025-05-17",
+      "source_url": "https://weibo.com/王一博/16",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
+      ]
+    },
+    {
+      "id": "wb_王一博_17",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "感谢品牌方的邀请",
+      "likes": 244442,
+      "reposts": 36861,
+      "comments": 4866,
+      "publish_time": "2025-08-06",
+      "source_url": "https://weibo.com/王一博/17",
+      "tags": [
+        "工作",
+        "努力"
+      ],
+      "topics": [
+        "健身",
+        "运动"
+      ]
+    },
+    {
+      "id": "wb_王一博_18",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "今天的拍摄很顺利，感谢大家的支持！",
+      "likes": 57586,
+      "reposts": 34795,
+      "comments": 7182,
+      "publish_time": "2025-10-27",
+      "source_url": "https://weibo.com/王一博/18",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "健身",
+        "运动"
+      ]
+    },
+    {
+      "id": "wb_王一博_19",
+      "platform": "douyin",
+      "author": "王一博",
+      "content": "享受当下，不负时光",
+      "likes": 318024,
+      "reposts": 21064,
+      "comments": 2382,
+      "publish_time": "2025-10-21",
+      "source_url": "https://weibo.com/王一博/19",
+      "tags": [
+        "健身",
+        "运动"
+      ],
+      "topics": [
+        "工作",
+        "努力"
+      ]
+    },
+    {
+      "id": "wb_王一博_20",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "期待与大家再次见面",
+      "likes": 369155,
+      "reposts": 25119,
+      "comments": 784,
+      "publish_time": "2025-11-05",
+      "source_url": "https://weibo.com/王一博/20",
+      "tags": [
+        "健身",
+        "运动"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_王一博_21",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "久违的假期，好好休息",
+      "likes": 314674,
+      "reposts": 5496,
+      "comments": 3353,
+      "publish_time": "2025-11-03",
+      "source_url": "https://weibo.com/王一博/21",
+      "tags": [
+        "工作",
+        "努力"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_王一博_22",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 5750,
+      "reposts": 15531,
+      "comments": 3960,
+      "publish_time": "2025-08-14",
+      "source_url": "https://weibo.com/王一博/22",
+      "tags": [
+        "感恩",
+        "粉丝"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_王一博_23",
+      "platform": "weibo",
+      "author": "王一博",
+      "content": "录制综艺节目中...",
+      "likes": 113228,
+      "reposts": 8696,
+      "comments": 9262,
+      "publish_time": "2026-01-12",
+      "source_url": "https://weibo.com/王一博/23",
+      "tags": [
+        "健身",
+        "运动"
+      ],
+      "topics": [
+        "健身",
+        "运动"
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "content": "加油鸭！",
+      "author": "用户5628",
+      "likes": 536,
+      "replies": 96,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "一直支持",
+      "author": "用户2744",
+      "likes": 3400,
+      "replies": 98,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新歌/新剧什么时候出？",
+      "author": "用户9874",
+      "likes": 1556,
+      "replies": 79,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "从XX剧就开始喜欢你了",
+      "author": "用户4372",
+      "likes": 558,
+      "replies": 34,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX年开始追的粉",
+      "author": "用户4695",
+      "likes": 607,
+      "replies": 49,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博的演技越来越好了",
+      "author": "用户2186",
+      "likes": 2547,
+      "replies": 27,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "支持到底",
+      "author": "用户8189",
+      "likes": 2464,
+      "replies": 13,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天也很帅气",
+      "author": "用户1994",
+      "likes": 2394,
+      "replies": 49,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "一直支持",
+      "author": "用户7030",
+      "likes": 3292,
+      "replies": 27,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX年开始追的粉",
+      "author": "用户3654",
+      "likes": 4087,
+      "replies": 70,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX剧就开始喜欢你了",
+      "author": "用户1403",
+      "likes": 3529,
+      "replies": 15,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "一直支持",
+      "author": "用户7464",
+      "likes": 325,
+      "replies": 2,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "王一博的演技越来越好了",
+      "author": "用户2593",
+      "likes": 12,
+      "replies": 88,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户6583",
+      "likes": 4558,
+      "replies": 37,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博真好看",
+      "author": "用户4234",
+      "likes": 1897,
+      "replies": 19,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持王一博！加油💪",
+      "author": "用户7447",
+      "likes": 474,
+      "replies": 51,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博永远的神",
+      "author": "用户8588",
+      "likes": 4072,
+      "replies": 10,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "支持王一博！加油💪",
+      "author": "用户7352",
+      "likes": 3682,
+      "replies": 77,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待！",
+      "author": "用户3351",
+      "likes": 4765,
+      "replies": 35,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博永远的神",
+      "author": "用户9093",
+      "likes": 4917,
+      "replies": 13,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博的演技越来越好了",
+      "author": "用户4329",
+      "likes": 4934,
+      "replies": 96,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新歌/新剧什么时候出？",
+      "author": "用户2514",
+      "likes": 3999,
+      "replies": 99,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户9164",
+      "likes": 878,
+      "replies": 31,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户1288",
+      "likes": 4338,
+      "replies": 3,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天也很帅气",
+      "author": "用户9447",
+      "likes": 1174,
+      "replies": 1,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天也很帅气",
+      "author": "用户9827",
+      "likes": 920,
+      "replies": 43,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX剧就开始喜欢你了",
+      "author": "用户5114",
+      "likes": 1702,
+      "replies": 73,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待！",
+      "author": "用户8991",
+      "likes": 2427,
+      "replies": 65,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待！",
+      "author": "用户4776",
+      "likes": 2772,
+      "replies": 97,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "加油鸭！",
+      "author": "用户5294",
+      "likes": 486,
+      "replies": 26,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天也很帅气",
+      "author": "用户7930",
+      "likes": 546,
+      "replies": 27,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新歌/新剧什么时候出？",
+      "author": "用户4223",
+      "likes": 1402,
+      "replies": 50,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户4392",
+      "likes": 2306,
+      "replies": 46,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX剧就开始喜欢你了",
+      "author": "用户2286",
+      "likes": 2084,
+      "replies": 69,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX年开始追的粉",
+      "author": "用户1047",
+      "likes": 4139,
+      "replies": 75,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX年开始追的粉",
+      "author": "用户8757",
+      "likes": 3161,
+      "replies": 19,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "支持到底",
+      "author": "用户7413",
+      "likes": 826,
+      "replies": 5,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天也很帅气",
+      "author": "用户4058",
+      "likes": 4356,
+      "replies": 100,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博永远的神",
+      "author": "用户6254",
+      "likes": 848,
+      "replies": 67,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户9709",
+      "likes": 1345,
+      "replies": 34,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "加油鸭！",
+      "author": "用户7683",
+      "likes": 716,
+      "replies": 81,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户6016",
+      "likes": 2908,
+      "replies": 58,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博永远的神",
+      "author": "用户8770",
+      "likes": 595,
+      "replies": 27,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博的演技越来越好了",
+      "author": "用户7453",
+      "likes": 1889,
+      "replies": 68,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "一直支持",
+      "author": "用户2015",
+      "likes": 2197,
+      "replies": 75,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博永远的神",
+      "author": "用户9693",
+      "likes": 3983,
+      "replies": 32,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "王一博的演技越来越好了",
+      "author": "用户4996",
+      "likes": 2293,
+      "replies": 23,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待！",
+      "author": "用户5349",
+      "likes": 3629,
+      "replies": 54,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX年开始追的粉",
+      "author": "用户1216",
+      "likes": 2490,
+      "replies": 40,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "从XX剧就开始喜欢你了",
+      "author": "用户3348",
+      "likes": 1017,
+      "replies": 29,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX年开始追的粉",
+      "author": "用户1886",
+      "likes": 2677,
+      "replies": 74,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持到底",
+      "author": "用户5912",
+      "likes": 2686,
+      "replies": 85,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博的演技越来越好了",
+      "author": "用户4834",
+      "likes": 2090,
+      "replies": 77,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "从XX剧就开始喜欢你了",
+      "author": "用户1553",
+      "likes": 4826,
+      "replies": 37,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "王一博的演技越来越好了",
+      "author": "用户3115",
+      "likes": 1745,
+      "replies": 81,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "一直支持",
+      "author": "用户9890",
+      "likes": 2083,
+      "replies": 41,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "王一博好棒！",
+      "author": "用户1393",
+      "likes": 4483,
+      "replies": 75,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "加油鸭！",
+      "author": "用户8713",
+      "likes": 4584,
+      "replies": 50,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "王一博好棒！",
+      "author": "用户6225",
+      "likes": 3467,
+      "replies": 72,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "从XX剧就开始喜欢你了",
+      "author": "用户7007",
+      "likes": 2990,
+      "replies": 31,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "一直支持",
+      "author": "用户4476",
+      "likes": 2362,
+      "replies": 36,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户8764",
+      "likes": 649,
+      "replies": 54,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博的演技越来越好了",
+      "author": "用户1496",
+      "likes": 3875,
+      "replies": 77,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博好棒！",
+      "author": "用户2150",
+      "likes": 1354,
+      "replies": 90,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持到底",
+      "author": "用户6421",
+      "likes": 1460,
+      "replies": 17,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "一直支持",
+      "author": "用户1540",
+      "likes": 2596,
+      "replies": 18,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待！",
+      "author": "用户9944",
+      "likes": 2353,
+      "replies": 4,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "王一博永远的神",
+      "author": "用户8736",
+      "likes": 2171,
+      "replies": 42,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新歌/新剧什么时候出？",
+      "author": "用户6592",
+      "likes": 3003,
+      "replies": 85,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    }
+  ],
+  "news_articles": [
+    {
+      "title": "王一博工作室发声明澄清传闻",
+      "summary": "王一博新动态曝光",
+      "content": "王一博工作室今日发布官方声明，就近期网络传闻进行澄清，呼吁不信谣不传谣。",
+      "publish_date": "2025-11-15",
+      "source": "凤凰网娱乐",
+      "source_url": "https://example.com/news/0",
+      "sentiment": "neutral",
+      "sentiment_score": 0.36542829716862996,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "王一博新剧官宣，粉丝期待值拉满",
+      "summary": "王一博近日活动引发关注",
+      "content": "王一博新剧正式官宣，与实力派演员合作，引发粉丝热烈讨论，期待值拉满。",
+      "publish_date": "2025-11-24",
+      "source": "腾讯娱乐",
+      "source_url": "https://example.com/news/1",
+      "sentiment": "positive",
+      "sentiment_score": 0.43242783053243056,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "王一博晒生活照，引发网友热议",
+      "summary": "王一博相关话题上热搜",
+      "content": "王一博在社交媒体晒出生活照，展现真实一面，引发网友热议和点赞。",
+      "publish_date": "2026-01-28",
+      "source": "腾讯娱乐",
+      "source_url": "https://example.com/news/2",
+      "sentiment": "neutral",
+      "sentiment_score": 0.22832929088382625,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "王一博做客综艺，爆料趣事",
+      "summary": "王一博近日活动引发关注",
+      "content": "王一博做客某综艺节目，现场爆料拍摄趣事，引发观众爆笑。",
+      "publish_date": "2026-01-05",
+      "source": "凤凰网娱乐",
+      "source_url": "https://example.com/news/3",
+      "sentiment": "neutral",
+      "sentiment_score": 0.03257143845843913,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "王一博新片开机，挑战全新角色",
+      "summary": "王一博相关话题上热搜",
+      "content": "王一博主演的新片正式开机，此次将挑战与以往完全不同的角色类型，引发期待。",
+      "publish_date": "2026-03-22",
+      "source": "搜狐娱乐",
+      "source_url": "https://example.com/news/4",
+      "sentiment": "neutral",
+      "sentiment_score": 0.11850602227440754,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "王一博化身推荐官，助力家乡",
+      "summary": "王一博新动态曝光",
+      "content": "王一博成为家乡旅游推荐官，发文助力家乡发展，获网友点赞。",
+      "publish_date": "2026-01-01",
+      "source": "搜狐娱乐",
+      "source_url": "https://example.com/news/5",
+      "sentiment": "neutral",
+      "sentiment_score": 0.12689919103467828,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "王一博演唱会门票秒空",
+      "summary": "网友热议王一博近况",
+      "content": "王一博巡回演唱会门票开票即秒空，展现强大票房号召力。",
+      "publish_date": "2025-11-04",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/6",
+      "sentiment": "neutral",
+      "sentiment_score": 0.48213454440362286,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "王一博公益行动，传递正能量",
+      "summary": "王一博近日活动引发关注",
+      "content": "王一博参与公益活动，用实际行动传递正能量，获得网友一致好评。",
+      "publish_date": "2025-09-30",
+      "source": "网易娱乐",
+      "source_url": "https://example.com/news/7",
+      "sentiment": "positive",
+      "sentiment_score": -0.044664273019601713,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "王一博登封面，气场全开",
+      "summary": "王一博成为焦点",
+      "content": "王一博登上某时尚杂志封面，大片造型气场全开，展现独特时尚品味。",
+      "publish_date": "2026-02-20",
+      "source": "网易娱乐",
+      "source_url": "https://example.com/news/8",
+      "sentiment": "neutral",
+      "sentiment_score": 0.29310625991500133,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "王一博现身机场，身穿休闲装状态佳",
+      "summary": "王一博近日活动引发关注",
+      "content": "王一博今日现身首都机场，身穿简约休闲装，状态看起来十分不错，引来粉丝围观拍照。",
+      "publish_date": "2025-10-06",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/9",
+      "sentiment": "neutral",
+      "sentiment_score": -0.04084421753747103,
+      "category": "",
+      "tags": []
+    }
+  ],
+  "statistics": {
+    "data_completeness": 0.95,
+    "total_posts": 24,
+    "total_comments": 69,
+    "total_news": 10,
+    "total_relationships": 1,
+    "total_gossips": 1
+  }
 }

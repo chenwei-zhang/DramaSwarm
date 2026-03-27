@@ -1,6 +1,18 @@
 {
-  "scraped_at": "2026-03-26T22:45:57.898482",
+  "scraped_at": "2026-03-27T10:28:22.178502",
   "total_celebrities": 10,
+  "stats": {
+    "total_requests": 0,
+    "successful_requests": 0,
+    "failed_requests": 0
+  },
+  "totals": {
+    "social_media_posts": 212,
+    "comments": 526,
+    "news_articles": 136,
+    "relationships": 23,
+    "gossips": 10
+  },
   "celebrities": [
     {
       "name": "肖战",
@@ -9,25 +21,49 @@
         "歌手"
       ],
       "works_count": 0,
-      "relationships_count": 0,
-      "has_biography": true
+      "relationships_count": 2,
+      "social_media_posts_count": 16,
+      "comments_count": 55,
+      "news_articles_count": 15,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 30000000,
+      "data_completeness": 1.0
     },
     {
       "name": "王一博",
       "occupation": [
         "演员",
-        "歌手"
+        "歌手",
+        "摩托车赛车手",
+        "舞者"
       ],
       "works_count": 0,
-      "relationships_count": 0,
-      "has_biography": true
+      "relationships_count": 1,
+      "social_media_posts_count": 24,
+      "comments_count": 69,
+      "news_articles_count": 10,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 40000000,
+      "data_completeness": 0.95
     },
     {
       "name": "杨幂",
-      "occupation": [],
+      "occupation": [
+        "演员",
+        "歌手",
+        "制片人"
+      ],
       "works_count": 0,
-      "relationships_count": 0,
-      "has_biography": true
+      "relationships_count": 3,
+      "social_media_posts_count": 18,
+      "comments_count": 66,
+      "news_articles_count": 15,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 60000000,
+      "data_completeness": 0.95
     },
     {
       "name": "赵丽颖",
@@ -36,23 +72,44 @@
       ],
       "works_count": 0,
       "relationships_count": 0,
-      "has_biography": true
+      "social_media_posts_count": 21,
+      "comments_count": 60,
+      "news_articles_count": 15,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 50000000,
+      "data_completeness": 0.85
     },
     {
       "name": "迪丽热巴",
-      "occupation": [],
-      "works_count": 0,
-      "relationships_count": 0,
-      "has_biography": true
-    },
-    {
-      "name": "唐嫣",
       "occupation": [
         "演员"
       ],
       "works_count": 0,
-      "relationships_count": 0,
-      "has_biography": true
+      "relationships_count": 5,
+      "social_media_posts_count": 24,
+      "comments_count": 51,
+      "news_articles_count": 10,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 70000000,
+      "data_completeness": 0.95
+    },
+    {
+      "name": "唐嫣",
+      "occupation": [
+        "演员",
+        "歌手"
+      ],
+      "works_count": 0,
+      "relationships_count": 3,
+      "social_media_posts_count": 24,
+      "comments_count": 62,
+      "news_articles_count": 15,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 35000000,
+      "data_completeness": 0.95
     },
     {
       "name": "罗晋",
@@ -60,8 +117,14 @@
         "演员"
       ],
       "works_count": 0,
-      "relationships_count": 0,
-      "has_biography": true
+      "relationships_count": 4,
+      "social_media_posts_count": 24,
+      "comments_count": 43,
+      "news_articles_count": 13,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 20000000,
+      "data_completeness": 0.95
     },
     {
       "name": "李小璐",
@@ -70,22 +133,46 @@
         "歌手"
       ],
       "works_count": 0,
-      "relationships_count": 0,
-      "has_biography": true
+      "relationships_count": 1,
+      "social_media_posts_count": 20,
+      "comments_count": 31,
+      "news_articles_count": 15,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 20000000,
+      "data_completeness": 0.95
     },
     {
       "name": "贾乃亮",
-      "occupation": [],
+      "occupation": [
+        "演员",
+        "歌手"
+      ],
       "works_count": 0,
-      "relationships_count": 0,
-      "has_biography": true
+      "relationships_count": 2,
+      "social_media_posts_count": 24,
+      "comments_count": 50,
+      "news_articles_count": 13,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 15000000,
+      "data_completeness": 0.95
     },
     {
       "name": "PG One",
-      "occupation": [],
+      "occupation": [
+        "说唱歌手",
+        "词曲创作人"
+      ],
       "works_count": 0,
-      "relationships_count": 0,
-      "has_biography": true
+      "relationships_count": 2,
+      "social_media_posts_count": 17,
+      "comments_count": 39,
+      "news_articles_count": 15,
+      "gossips_count": 1,
+      "has_biography": true,
+      "weibo_followers": 500000,
+      "data_completeness": 0.95
     }
   ]
 }
