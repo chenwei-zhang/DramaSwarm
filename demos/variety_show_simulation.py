@@ -296,7 +296,7 @@ async def main():
     # 显示 LLM 状态
     if args.llm:
         provider = args.provider
-        model = args.model or ("gemini-2.0-flash-exp" if provider == "gemini" else "gpt-4o-mini")
+        model = args.model or os.getenv("LLM_MODEL", "gemini-2.0-flash-exp")
         print(f"🤖 使用 LLM: {provider} ({model})")
     else:
         print("📝 使用规则引擎（快速模式）")
