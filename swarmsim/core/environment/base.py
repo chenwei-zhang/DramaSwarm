@@ -108,6 +108,9 @@ class Environment:
         # 多层反应系统
         self.reaction_bus = ReactionBus()
 
+        # 知识图谱（可选，由外部设置）
+        self.knowledge_graph = None  # KnowledgeGraph | None
+
     def register_agent(self, agent_id: str, agent: Any) -> None:
         """注册 Agent 到环境（含反应系统）"""
         self.agents[agent_id] = agent
@@ -175,6 +178,17 @@ class Environment:
             self.state.update_mood(-avg_severity * 0.1)
             self.state.update_tension(avg_severity * 0.1)
 
+        # 记录到知识图谱
+        if self.knowledge_graph and source != "environment":
+            mentioned = self.knowledge_graph.find_mentioned_names(description)
+            for target_name in mentioned:
+                if target_name != source:
+                    self.knowledge_graph.add_simulation_event(
+                        from_name=source, to_name=target_name,
+                        action_type=event_type, content=description,
+                        turn=self.current_turn, severity=severity,
+                    )
+
         return event
 
     def broadcast(
@@ -230,6 +244,10 @@ class Environment:
         # 反应层数据衰减
         self.reaction_bus.decay()
 
+        # 知识图谱仿真边衰减
+        if self.knowledge_graph:
+            self.knowledge_graph.decay_simulation_edges()
+
         # 拍摄快照
         self.reaction_bus.take_snapshot(self.current_turn)
 
@@ -267,8 +285,19 @@ class Environment:
         return base
 
     def get_agent_reaction_context(self, agent_id: str) -> str:
-        """获取某 agent 的个性化反应感知"""
-        return self.reaction_bus.get_perception_for_agent(agent_id)
+        """获取某 agent 的个性化反应感知（含知识图谱上下文）"""
+        parts = [self.reaction_bus.get_perception_for_agent(agent_id)]
+
+        # 注入知识图谱上下文
+        if self.knowledge_graph:
+            agent = self.agents.get(agent_id)
+            agent_name = getattr(agent, "name", "") if agent else ""
+            if agent_name:
+                graph_ctx = self.knowledge_graph.to_context_string(agent_name, max_chars=200)
+                if graph_ctx:
+                    parts.append(graph_ctx)
+
+        return "\n".join(p for p in parts if p)
 
     def _describe_mood(self) -> str:
         mood = self.state.global_mood

@@ -201,6 +201,9 @@ class Agent:
         # 记忆系统
         self.memory = AgentMemory(retention_turns=config.memory_retention_turns)
 
+        # 图谱上下文（由 EventLoop perception 阶段注入）
+        self._graph_context: str = ""
+
         # 回调函数
         self.on_speak: Callable | None = None
         self.on_act: Callable | None = None
@@ -255,6 +258,11 @@ class Agent:
         event_type = event.get("type", "unknown")
         content = event.get("content", "")
         source = event.get("source", "environment")
+
+        # 图谱上下文直接存储，不写入记忆
+        if event_type == "graph_context":
+            self._graph_context = str(content) if content else ""
+            return
 
         # 根据事件类型和性格决定记忆重要性
         importance = 0.5
@@ -669,6 +677,10 @@ class LLMAgent(Agent):
             relationships.append(f"- {other_id}: {relation}")
         if relationships:
             situation += f"\n【人际关系】\n{chr(10).join(relationships)}"
+
+        # 添加知识图谱上下文（如有）
+        if self._graph_context:
+            situation += f"\n【关系图谱背景】\n{self._graph_context}"
 
         # 添加状态信息
         state_desc = self.get_state_description()

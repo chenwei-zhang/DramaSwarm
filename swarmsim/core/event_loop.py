@@ -453,7 +453,7 @@ class EventLoop:
         self.environment.reaction_bus.decay()
 
     def _estimate_severity(self, action: TurnAction) -> float:
-        """根据行动内容估算严重度"""
+        """根据行动内容估算严重度（含图谱增强）"""
         content = action.content
         severity = 0.4
 
@@ -471,6 +471,12 @@ class EventLoop:
             if word in content:
                 severity -= 0.15
                 break
+
+        # 图谱增强：涉及亲密关系的事件影响更大
+        kg = getattr(self.environment, "knowledge_graph", None)
+        if kg:
+            impact = kg.get_event_impact(content, action.agent_name)
+            severity += impact.get("severity_delta", 0.0)
 
         return max(0.1, min(1.0, severity))
 

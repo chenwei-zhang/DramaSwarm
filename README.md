@@ -80,6 +80,8 @@ DramaSwarm/
 │   │   ├── event_loop.py         # 事件驱动引擎
 │   │   ├── factory.py            # Agent 工厂
 │   │   └── observer.py           # 观测总结模块
+│   ├── graph/                   # 知识图谱模块（GraphRAG）
+│   │   └── knowledge_graph.py   # networkx 图引擎 + 查询 + 上下文生成
 │   ├── llm/
 │   │   └── client.py             # LLM 客户端（Gemini/OpenAI/Anthropic）
 │   └── memory/
@@ -115,7 +117,7 @@ DramaSwarm/
 
 - [x] Phase 1: 基础框架 - 3-5 个 Agent 的简单对话
 - [x] Phase 2: 多层反应系统 - 公众舆论/媒体/热搜/监管/品牌五层链式反应
-- [ ] Phase 3: 引入知识图谱 - 基于 GraphRAG 的关系管理
+- [x] Phase 3: 知识图谱 - 基于 GraphRAG 的关系管理与图推理上下文注入
 - [ ] Phase 4: 扩展规模 - 支持 50+ Agent 并行交互
 - [ ] Phase 5: 垂直场景 - 综艺节目推演完整功能
 
@@ -141,11 +143,20 @@ DramaSwarm/
 │  │                                                      │   │
 │  │  ──→ 反馈到 Agent.perceive() 影响后续行为             │   │
 │  └──────────────────────────────────────────────────────┘   │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │           KnowledgeGraph 知识图谱 (GraphRAG)          │   │
+│  │   celebrity_scraper/data/*.json → networkx 图         │   │
+│  │   节点: Celebrity / GossipEvent / Work                 │   │
+│  │   边: relationship / involved_in / simulation_event    │   │
+│  │   → 查询关系上下文 / 事件影响 / 最短路径推理            │   │
+│  │   → 注入 Agent.perceive() 的 graph_context             │   │
+│  └──────────────────────────────────────────────────────┘   │
 └─────┬───────────────┬───────────────────┬──────────────────┘
       │               │                   │
 ┌─────▼─────┐   ┌────▼────┐      ┌──────▼──────┐
 │  Agent A  │   │ Agent B │      │  Agent N    │
 │  人设+记忆 │   │ 人设+记忆│      │  人设+记忆   │
+│ +图谱上下文│   │+图谱上下文│      │ +图谱上下文  │
 └───────────┘   └─────────┘      └─────────────┘
       │               │                   │
       └───────────────┴───────────────────┘

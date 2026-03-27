@@ -27,6 +27,7 @@ from swarmsim.core.environment import VarietyShowEnvironment
 from swarmsim.core.event_loop import SequentialEventLoop, EventLoopConfig
 from swarmsim.core.factory import VarietyShowFactory
 from swarmsim.core.observer import Observer, Reporter
+from swarmsim.graph import KnowledgeGraph
 
 
 class VarietyShowSimulation:
@@ -54,6 +55,9 @@ class VarietyShowSimulation:
             task_complexity=0.6
         )
 
+        # 加载知识图谱
+        self._load_knowledge_graph()
+
         # 创建 Agent
         self.agents = self._create_agents()
 
@@ -76,6 +80,21 @@ class VarietyShowSimulation:
 
         # 设置回调
         self._setup_callbacks()
+
+    def _load_knowledge_graph(self):
+        """从爬虫数据加载知识图谱"""
+        data_dir = os.path.join(
+            os.path.dirname(os.path.dirname(__file__)), "celebrity_scraper", "data"
+        )
+        if os.path.exists(data_dir):
+            kg = KnowledgeGraph()
+            stats = kg.load_from_json_dir(data_dir)
+            if stats["celebrities"] > 0:
+                self.environment.knowledge_graph = kg
+                self.console.print(
+                    f"[dim]知识图谱已加载: {stats['celebrities']}位明星, "
+                    f"{stats['relationships']}条关系, {stats['gossips']}个事件[/dim]"
+                )
 
     def _create_agents(self) -> list:
         """创建 Agent 列表"""
