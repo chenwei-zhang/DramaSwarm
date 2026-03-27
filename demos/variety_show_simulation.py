@@ -282,16 +282,20 @@ async def main():
     parser.add_argument("--provider", default="gemini", help="LLM 提供商 (gemini, openai, anthropic)")
     parser.add_argument("--model", help="LLM 模型名称")
     parser.add_argument("--turns", type=int, default=int(os.getenv("DEFAULT_TURNS", "15")), help="仿真回合数")
+    parser.add_argument("--agents", type=int, default=5, help="Agent 数量 (默认 5)")
+    parser.add_argument("--names", nargs="+", help="自定义 Agent 名称列表")
     args = parser.parse_args()
 
     # 定义参与成员
-    names = [
-        "队长张三",
-        "完美主义李四",
-        "戏精王五",
-        "摸鱼赵六",
-        "和事佬孙七"
-    ]
+    if args.names:
+        names = args.names
+    else:
+        # 默认名称生成
+        default_names = [
+            "队长张三", "完美主义李四", "戏精王五", "摸鱼赵六", "和事佬孙七",
+            "变数阿八", "实干家小九", "乐天派小十"
+        ]
+        names = default_names[:args.agents]
 
     # 显示 LLM 状态
     if args.llm:
