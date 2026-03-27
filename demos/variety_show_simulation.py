@@ -83,8 +83,10 @@ class VarietyShowSimulation:
 
         # 首先获取角色分配
         template_info = factory.CAST_TEMPLATES.get(self.template, {})
-        roles = template_info.get("roles", ["leader", "perfectionist", "drama_queen", "slacker", "peacemaker"])
-        roles = roles[:len(self.names)]
+        base_roles = template_info.get("roles", ["leader", "perfectionist", "drama_queen", "slacker", "peacemaker"])
+
+        # 如果 agent 数量超过角色数量，循环分配角色
+        roles = [base_roles[i % len(base_roles)] for i in range(len(self.names))]
 
         agents = []
         for name, role_str in zip(self.names, roles):
@@ -290,12 +292,17 @@ async def main():
     if args.names:
         names = args.names
     else:
-        # 默认名称生成
-        default_names = [
+        # 默认名称生成（动态生成足够多的名字）
+        base_names = [
             "队长张三", "完美主义李四", "戏精王五", "摸鱼赵六", "和事佬孙七",
             "变数阿八", "实干家小九", "乐天派小十"
         ]
-        names = default_names[:args.agents]
+        # 如果需要更多名字，自动生成
+        while len(base_names) < args.agents:
+            num = len(base_names) + 1
+            base_names.append(f"成员{num}")
+
+        names = base_names[:args.agents]
 
     # 显示 LLM 状态
     if args.llm:
