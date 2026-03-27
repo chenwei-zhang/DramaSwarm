@@ -281,7 +281,7 @@ async def main():
     parser.add_argument("--llm", action="store_true", help="使用 LLM 驱动 Agent")
     parser.add_argument("--provider", default="gemini", help="LLM 提供商 (gemini, openai, anthropic)")
     parser.add_argument("--model", help="LLM 模型名称")
-    parser.add_argument("--turns", type=int, default=15, help="仿真回合数")
+    parser.add_argument("--turns", type=int, default=int(os.getenv("DEFAULT_TURNS", "15")), help="仿真回合数")
     args = parser.parse_args()
 
     # 定义参与成员
