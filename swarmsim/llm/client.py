@@ -137,16 +137,9 @@ class GeminiClient(LLMClient):
             raise ValueError("API key not found. Set GEMINI_API_KEY environment variable.")
 
         try:
-            # 临时屏蔽 GOOGLE_API_KEY（避免库的自动检测消息）
-            original_google_key = os.environ.pop("GOOGLE_API_KEY", None)
-
             from google import genai
             self.genai = genai
             self.client = genai.Client(api_key=api_key)
-
-            # 恢复环境变量（如果用户同时设置了 GOOGLE_API_KEY）
-            if original_google_key:
-                os.environ["GOOGLE_API_KEY"] = original_google_key
         except ImportError:
             raise ImportError(
                 "Google Genai SDK not installed. "
