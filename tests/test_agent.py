@@ -9,7 +9,7 @@ from swarmsim.core.agent import SimpleAgent, AgentRole, AgentState
 from swarmsim.core.environment import Environment, VarietyShowEnvironment
 from swarmsim.core.event_loop import EventLoop, TurnAction
 from swarmsim.core.factory import AgentFactory, VarietyShowFactory
-from swarmsim.core.observer import Observer, ObservationType
+from swarmsim.core.observer import Observer, Observation, ObservationType
 
 
 class TestAgent:
@@ -104,7 +104,7 @@ class TestEnvironment:
 
         assert event.type == "test"
         assert event.description == "测试事件"
-        assert len(env.events) == 1
+        assert len(env.events) >= 1  # 原始事件 + 反应层产生的事件
 
     def test_broadcast(self):
         """测试广播"""
@@ -306,17 +306,16 @@ class TestObserver:
 
     def test_group_dynamics(self):
         """测试群体动态分析"""
+        from swarmsim.core.observer import Observation
         observer = Observer()
 
         # 添加一些观测
-        observer.add_observation(
-            observer.observations.__class__(
-                type=ObservationType.CONFLICT,
-                description="测试冲突",
-                participants=["a", "b"],
-                importance=0.8
-            ) if False else None
-        )
+        observer.add_observation(Observation(
+            type=ObservationType.CONFLICT,
+            description="测试冲突",
+            participants=["a", "b"],
+            importance=0.8
+        ))
 
         dynamics = observer.analyze_group_dynamics()
 

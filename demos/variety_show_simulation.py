@@ -138,6 +138,16 @@ class VarietyShowSimulation:
                     f"[dim]* {agent_name} {content}[/dim]"
                 )
 
+        # 显示反应层摘要
+        reaction_desc = self.environment.reaction_bus.get_description()
+        if reaction_desc.strip():
+            self.console.print(Panel(
+                reaction_desc,
+                title="[bold magenta]社会反应[/bold magenta]",
+                border_style="dim",
+                padding=(0, 1),
+            ))
+
     async def run(self, turns: int = 10):
         """运行仿真"""
         self._print_intro()
@@ -281,6 +291,31 @@ class VarietyShowSimulation:
             self.environment.get_description(),
             border_style="dim"
         ))
+
+        # 反应系统最终状态
+        reaction_state = self.environment.reaction_bus.get_state()
+
+        # 热搜历史
+        hot_search = reaction_state.get("social_platform", {}).get("hot_search", [])
+        if hot_search:
+            self.console.print("\n[bold]最终热搜榜:[/bold]")
+            for t in hot_search[:5]:
+                change_icon = {"rising": "↑", "falling": "↓", "new_entry": "★"}.get(t.get("change", ""), "→")
+                self.console.print(f"  {t['rank']}. {change_icon} {t['title']} (热度{t['heat'] // 1000}k)")
+
+        # 品牌状态
+        brand_statuses = reaction_state.get("commercial", {}).get("brand_statuses", {})
+        if brand_statuses:
+            self.console.print("\n[bold]品牌代言状态:[/bold]")
+            table = Table(show_header=True, header_style="bold magenta")
+            table.add_column("明星", style="cyan")
+            table.add_column("商业价值", style="green")
+            table.add_column("品牌状态", style="yellow")
+            table.add_column("收入影响", style="red")
+            for name, status in brand_statuses.items():
+                brands_str = ", ".join(f"{b}:{a}" for b, a in status.get("brands", {}).items())
+                table.add_row(name, status.get("commercial_value", "?"), brands_str, status.get("revenue_impact", "0"))
+            self.console.print(table)
 
 
 async def main():

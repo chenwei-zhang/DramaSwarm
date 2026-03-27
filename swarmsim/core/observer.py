@@ -196,6 +196,31 @@ class Observer:
                 importance=0.9
             ))
 
+        # 观测反应系统状态
+        if hasattr(environment, "reaction_bus"):
+            bus = environment.reaction_bus
+            reaction_state = bus.get_state()
+
+            # 监管事件
+            gov = reaction_state.get("government", {})
+            if gov.get("escalation_level", 0) >= 3:
+                self.add_observation(Observation(
+                    type=ObservationType.TENSION_SPIKE,
+                    description=f"监管升级: 级别{gov['escalation_level']}, 措施{gov.get('current_action', 'none')}",
+                    importance=0.85
+                ))
+
+            # 品牌解约
+            comm = reaction_state.get("commercial", {})
+            for name, status in comm.get("brand_statuses", {}).items():
+                for brand, action in status.get("brands", {}).items():
+                    if action in ("已解约", "索赔起诉"):
+                        self.add_observation(Observation(
+                            type=ObservationType.CONFLICT,
+                            description=f"商业变动: {name}的{brand}{action}",
+                            importance=0.7
+                        ))
+
     def observe_turn(self, turn_result: Any) -> None:
         """观测一个回合的结果"""
         for action in turn_result.actions:

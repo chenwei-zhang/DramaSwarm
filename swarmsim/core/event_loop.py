@@ -288,7 +288,7 @@ class EventLoop:
                 })
 
     async def _phase_perception(self, result: TurnResult) -> None:
-        """感知阶段：Agent 感知环境信息"""
+        """感知阶段：Agent 感知环境信息和反应层动态"""
         active_agent_ids = result.metadata.get("active_agents", [])
 
         # 收集环境信息
@@ -306,11 +306,21 @@ class EventLoop:
         for agent_id in active_agent_ids:
             agent = self.environment.agents.get(agent_id)
             if agent and hasattr(agent, "perceive"):
+                # 通用环境上下文
                 agent.perceive({
                     "type": "context_update",
                     "content": context,
                     "source": "environment"
                 })
+
+                # 个性化反应感知（热搜、媒体、品牌、监管）
+                reaction_context = self.environment.get_agent_reaction_context(agent_id)
+                if reaction_context:
+                    agent.perceive({
+                        "type": "reaction_update",
+                        "content": reaction_context,
+                        "source": "reaction_system"
+                    })
 
     async def _phase_decision(self, result: TurnResult) -> None:
         """决策阶段：Agent 进行思考和决策"""
@@ -360,6 +370,15 @@ class EventLoop:
             if action:
                 result.actions.append(action)
                 self.action_history.append(action)
+
+                # 将行动桥接为环境事件，触发多层反应
+                if action.action_type in ("speak", "act") and action.content:
+                    self.environment.add_event(
+                        event_type=action.action_type,
+                        description=action.content,
+                        severity=self._estimate_severity(action),
+                        source=action.agent_name,
+                    )
 
                 # 让其他 Agent 倾听
                 if action.action_type == "speak":
@@ -429,6 +448,31 @@ class EventLoop:
         # 限制历史记录大小
         if len(self.action_history) > 1000:
             self.action_history = self.action_history[-500:]
+
+        # 反应层数据衰减（热度下降、排名降）
+        self.environment.reaction_bus.decay()
+
+    def _estimate_severity(self, action: TurnAction) -> float:
+        """根据行动内容估算严重度"""
+        content = action.content
+        severity = 0.4
+
+        # 负面关键词提升严重度
+        negative_words = ["怒怼", "吵架", "撕", "出轨", "劈腿", "骂", "打",
+                         "批评", "嘲讽", "翻车", "塌房", "封杀"]
+        for word in negative_words:
+            if word in content:
+                severity += 0.15
+                break
+
+        # 正面关键词降低严重度
+        positive_words = ["感谢", "支持", "加油", "喜欢", "朋友", "合作"]
+        for word in positive_words:
+            if word in content:
+                severity -= 0.15
+                break
+
+        return max(0.1, min(1.0, severity))
 
     def get_action_summary(self, last_n: int = 10) -> list[dict]:
         """获取最近的行动摘要"""
