@@ -12,6 +12,7 @@ DramaSwarm 是一个轻量级的多智能体仿真引擎，专注于模拟复杂
 - **多层反应系统**: 事件触发公众舆论→媒体报道→热搜发酵→政府监管→品牌解约的连锁反应
 - **事件驱动引擎**: 控制智能体交互的节拍和状态流转
 - **观测总结模块**: 实时分析群体动态并生成推演报告
+- **GraphRAG 可视化**: Web 界面交互式探索知识图谱，D3.js 力导向图展示明星关系网络
 
 ## 快速开始
 
@@ -44,6 +45,15 @@ DEFAULT_TURNS=50
 ```bash
 # 综艺节目修罗场模拟
 python -m demos.variety_show_simulation
+
+# 知识图谱可视化（Web 界面）
+python run_viz.py
+# 浏览器打开 http://localhost:8765
+
+# 知识图谱交互式探索（CLI）
+python explore_graph.py
+python explore_graph.py 杨幂
+python explore_graph.py path 杨幂 PG One
 
 # 明星数据爬虫（模拟模式）
 python test_scraper.py mock 杨幂
@@ -82,6 +92,13 @@ DramaSwarm/
 │   │   └── observer.py           # 观测总结模块
 │   ├── graph/                   # 知识图谱模块（GraphRAG）
 │   │   └── knowledge_graph.py   # networkx 图引擎 + 查询 + 上下文生成
+│   ├── viz/                     # 可视化模块（FastAPI + D3.js）
+│   │   ├── server.py            # FastAPI 应用
+│   │   ├── api_graph.py         # 图谱 API 路由
+│   │   ├── api_simulation.py    # 仿真 API 路由
+│   │   └── serializer.py        # networkx → D3 JSON 转换
+│   ├── static/
+│   │   └── index.html           # D3.js 力导向图可视化页面
 │   ├── llm/
 │   │   └── client.py             # LLM 客户端（Gemini/OpenAI/Anthropic）
 │   └── memory/
@@ -146,7 +163,7 @@ DramaSwarm/
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │           KnowledgeGraph 知识图谱 (GraphRAG)          │   │
 │  │   celebrity_scraper/data/*.json → networkx 图         │   │
-│  │   节点: Celebrity / GossipEvent / Work                 │   │
+│  │   节点: Celebrity / GossipEvent / News                │   │
 │  │   边: relationship / involved_in / simulation_event    │   │
 │  │   → 查询关系上下文 / 事件影响 / 最短路径推理            │   │
 │  │   → 注入 Agent.perceive() 的 graph_context             │   │
@@ -164,7 +181,18 @@ DramaSwarm/
             ┌────────▼────────┐
             │   Event Loop    │
             │  (事件驱动引擎)  │
-            └─────────────────┘
+            └────────┬────────┘
+                     │
+       ┌─────────────▼──────────────┐
+       │   FastAPI Visualization     │
+       │   ┌─────────────────────┐  │
+       │   │  D3.js 力导向图     │  │
+       │   │  明星关系 · 八卦事件 │  │
+       │   │  路径查找 · 仿真仪表 │  │
+       │   └─────────────────────┘  │
+       │   GET /api/graph/*         │
+       │   GET /api/sim/*           │
+       └────────────────────────────┘
 ```
 
 ## 许可证

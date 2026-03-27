@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DramaSwarm - GraphRAG 知识图谱可视化</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #0f1923;
+  color: #e0e0e0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ── Header ── */
+#header {
+  height: 52px;
+  background: linear-gradient(135deg, #1a2332, #0f1923);
+  border-bottom: 1px solid #2a3a4a;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 16px;
+  z-index: 100;
+}
+#header h1 {
+  font-size: 16px;
+  color: #4FC3F7;
+  white-space: nowrap;
+}
+#header h1 span { color: #FF7043; }
+
+.header-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-group label {
+  font-size: 12px;
+  color: #8899aa;
+}
+
+.header-group select, .header-group input {
+  background: #1a2a3a;
+  color: #e0e0e0;
+  border: 1px solid #2a3a4a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  outline: none;
+}
+.header-group select:focus, .header-group input:focus {
+  border-color: #4FC3F7;
+}
+
+#search-input {
+  width: 120px;
+}
+
+.btn {
+  background: #1a3a5a;
+  color: #4FC3F7;
+  border: 1px solid #2a4a6a;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:hover { background: #2a4a6a; }
+.btn.active { background: #4FC3F7; color: #0f1923; border-color: #4FC3F7; }
+.btn.danger { color: #FF7043; border-color: #FF7043; }
+.btn.danger:hover { background: #FF7043; color: #0f1923; }
+
+/* ── Main Layout ── */
+#main {
+  display: grid;
+  grid-template-columns: 280px 1fr 340px;
+  height: calc(100vh - 52px);
+}
+
+/* ── Left Sidebar ── */
+#left-sidebar {
+  background: #141e2a;
+  border-right: 1px solid #2a3a4a;
+  overflow-y: auto;
+  padding: 12px;
+}
+#left-sidebar::-webkit-scrollbar { width: 4px; }
+#left-sidebar::-webkit-scrollbar-thumb { background: #2a3a4a; border-radius: 2px; }
+
+.sidebar-section {
+  margin-bottom: 16px;
+}
+.sidebar-section h3 {
+  font-size: 12px;
+  color: #8899aa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #1a2a3a;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.stat-card {
+  background: #1a2a3a;
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+.stat-card .value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4FC3F7;
+}
+.stat-card .label {
+  font-size: 10px;
+  color: #667788;
+  margin-top: 2px;
+}
+
+.agent-card {
+  background: #1a2a3a;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.agent-card:hover { background: #2a3a4a; }
+.agent-card.selected { background: #1a3a5a; border: 1px solid #4FC3F7; }
+.agent-card .emoji { font-size: 16px; }
+.agent-card .info { flex: 1; }
+.agent-card .name { font-size: 13px; font-weight: 500; }
+.agent-card .role { font-size: 10px; color: #667788; }
+.agent-card .bars { display: flex; gap: 4px; align-items: center; }
+.mini-bar {
+  width: 30px; height: 4px;
+  background: #2a3a4a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.mini-bar .fill { height: 100%; border-radius: 2px; }
+.mini-bar.stress .fill { background: #FF7043; }
+.mini-bar.energy .fill { background: #66BB6A; }
+
+.reaction-layer {
+  background: #1a2a3a;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.reaction-header {
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+.reaction-header:hover { background: #2a3a4a; }
+.reaction-header .icon { margin-right: 6px; }
+.reaction-body {
+  padding: 6px 10px 10px;
+  font-size: 11px;
+  line-height: 1.6;
+  display: none;
+}
+.reaction-body.open { display: block; }
+
+.hot-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+}
+.hot-item .rank { color: #FF7043; font-weight: bold; width: 20px; }
+.hot-item .rank.up { color: #66BB6A; }
+.hot-item .rank.down { color: #FF7043; }
+.hot-item .heat { color: #667788; margin-left: auto; font-size: 10px; }
+
+/* ── Canvas ── */
+#canvas-container {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle, #1a2a3a 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+#canvas-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Right Sidebar ── */
+#right-sidebar {
+  background: #141e2a;
+  border-left: 1px solid #2a3a4a;
+  overflow-y: auto;
+  padding: 16px;
+}
+#right-sidebar::-webkit-scrollbar { width: 4px; }
+#right-sidebar::-webkit-scrollbar-thumb { background: #2a3a4a; border-radius: 2px; }
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.detail-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #1a3a5a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.detail-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.detail-subtitle {
+  font-size: 12px;
+  color: #667788;
+}
+
+.detail-section {
+  margin-bottom: 16px;
+}
+.detail-section h4 {
+  font-size: 12px;
+  color: #8899aa;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-tag {
+  display: inline-block;
+  background: #1a3a5a;
+  color: #4FC3F7;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  margin: 2px;
+}
+
+.rel-item {
+  background: #1a2a3a;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.rel-item:hover { background: #2a3a4a; }
+.rel-type {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #fff;
+  white-space: nowrap;
+}
+.rel-name { font-size: 13px; flex: 1; }
+.rel-bars { display: flex; gap: 4px; }
+.rel-bar {
+  width: 40px; height: 3px;
+  background: #2a3a4a;
+  border-radius: 1px;
+  overflow: hidden;
+}
+.rel-bar .fill { height: 100%; border-radius: 1px; }
+
+.event-item {
+  background: #1a2a3a;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+.event-item .title { font-size: 13px; margin-bottom: 2px; }
+.event-item .meta { font-size: 10px; color: #667788; }
+
+.path-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+.path-step .arrow { color: #4FC3F7; font-size: 16px; }
+.path-step .node-label {
+  background: #1a3a5a;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.path-step .edge-label {
+  color: #FF7043;
+  font-size: 11px;
+}
+
+/* ── Legend ── */
+#legend {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(20, 30, 42, 0.92);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 11px;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+#legend .item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+}
+#legend .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+#legend .diamond {
+  width: 10px;
+  height: 10px;
+  background: #FF7043;
+  transform: rotate(45deg);
+}
+
+/* ── Simulation Controls ── */
+.sim-controls {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+#inject-form {
+  margin-top: 8px;
+}
+#inject-form textarea {
+  width: 100%;
+  background: #1a2a3a;
+  color: #e0e0e0;
+  border: 1px solid #2a3a4a;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 12px;
+  resize: vertical;
+  min-height: 40px;
+  outline: none;
+}
+#inject-form textarea:focus { border-color: #4FC3F7; }
+
+/* ── Empty state ── */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #667788;
+}
+.empty-state .icon { font-size: 32px; margin-bottom: 8px; }
+.empty-state p { font-size: 13px; }
+
+/* ── Tooltip ── */
+#tooltip {
+  position: absolute;
+  background: rgba(20, 30, 42, 0.95);
+  border: 1px solid #2a3a4a;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 11px;
+  pointer-events: none;
+  z-index: 200;
+  display: none;
+  max-width: 200px;
+  backdrop-filter: blur(8px);
+}
+
+/* ── Search dropdown ── */
+#search-dropdown {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  right: 0;
+  background: #141e2a;
+  border: 1px solid #2a3a4a;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 150;
+  display: none;
+}
+.search-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.search-item:hover { background: #1a3a5a; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div id="header">
+  <h1><span>DramaSwarm</span> GraphRAG</h1>
+
+  <div class="header-group">
+    <label>过滤:</label>
+    <select id="filter-select">
+      <option value="celebrity">名人关系</option>
+      <option value="all">全部节点</option>
+    </select>
+  </div>
+
+  <div class="header-group">
+    <label>路径:</label>
+    <select id="path-from"><option value="">起点</option></select>
+    <span style="color:#667788">→</span>
+    <select id="path-to"><option value="">终点</option></select>
+    <button class="btn" id="path-btn">查找</button>
+  </div>
+
+  <div class="header-group" style="margin-left:auto;">
+    <input type="text" id="search-input" placeholder="搜索名人...">
+  </div>
+
+  <button class="btn" id="refresh-btn">刷新</button>
+</div>
+
+<!-- Main -->
+<div id="main">
+  <!-- Left Sidebar -->
+  <div id="left-sidebar">
+    <div class="sidebar-section">
+      <h3>图谱统计</h3>
+      <div class="stat-grid" id="stats-grid"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>仿真控制</h3>
+      <div class="sim-controls">
+        <button class="btn" id="sim-start-btn">启动仿真</button>
+        <button class="btn" id="sim-pause-btn">暂停</button>
+        <button class="btn danger" id="sim-stop-btn">停止</button>
+      </div>
+      <div id="inject-form">
+        <textarea id="inject-text" placeholder="注入事件内容..."></textarea>
+        <button class="btn" id="inject-btn" style="margin-top:4px;width:100%">注入事件</button>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Agent 状态</h3>
+      <div id="agent-list"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>社会反应</h3>
+      <div id="reaction-layers"></div>
+    </div>
+  </div>
+
+  <!-- Canvas -->
+  <div id="canvas-container">
+    <svg></svg>
+    <div id="tooltip"></div>
+    <div id="legend"></div>
+  </div>
+
+  <!-- Right Sidebar -->
+  <div id="right-sidebar">
+    <div id="detail-content">
+      <div class="empty-state">
+        <div class="icon">👆</div>
+        <p>点击图谱中的节点查看详情</p>
+        <p style="margin-top:8px;font-size:11px;color:#556677">拖拽移动 · 滚轮缩放 · 点击选择</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Constants ──
+const NODE_COLORS = {
+  celebrity: '#4FC3F7',
+  gossip: '#FF7043',
+  news: '#66BB6A',
+};
+const RELATION_COLORS = {
+  '配偶': '#E91E63', '前夫': '#9C27B0', '前妻': '#9C27B0',
+  '前任': '#9C27B0', '绯闻': '#FF4081', '传闻': '#FF4081',
+  '搭档': '#2196F3', '合作': '#42A5F5', '合作伙伴': '#42A5F5',
+  '好友': '#4CAF50', '闺蜜': '#4CAF50', '朋友': '#4CAF50',
+  '对手': '#F44336', '竞争对手': '#EF5350', '宿敌': '#F44336',
+  '亲属': '#FF9800', '家人': '#FF9800',
+  '同事': '#78909C', '同学': '#78909C',
+  'rumored': '#FF4081', 'partner': '#42A5F5', 'former': '#9C27B0',
+  'colleague': '#78909C', 'friend': '#4CAF50', 'rival': '#F44336',
+};
+const SENTIMENT_ICONS = { positive: '🟢', negative: '🔴', neutral: '⚪', mixed: '🟡' };
+
+// ── State ──
+let simulation = null;
+let graphData = { nodes: [], edges: [] };
+let selectedNode = null;
+let celebrities = [];
+let pathHighlight = null;
+
+// ── Init ──
+document.addEventListener('DOMContentLoaded', () => {
+  loadStats();
+  loadGraph();
+  setupEventListeners();
+});
+
+// ── API ──
+async function api(url) {
+  const res = await fetch(url);
+  return res.json();
+}
+
+async function apiPost(url, body) {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  return res.json();
+}
+
+// ── Stats ──
+async function loadStats() {
+  const stats = await api('/api/graph/stats');
+  const grid = document.getElementById('stats-grid');
+  grid.innerHTML = `
+    <div class="stat-card"><div class="value">${stats.total_nodes || 0}</div><div class="label">节点</div></div>
+    <div class="stat-card"><div class="value">${stats.total_edges || 0}</div><div class="label">边</div></div>
+    <div class="stat-card"><div class="value">${(stats.node_types||{}).celebrity || 0}</div><div class="label">名人</div></div>
+    <div class="stat-card"><div class="value">${(stats.node_types||{}).gossip || 0}</div><div class="label">事件</div></div>
+  `;
+
+  celebrities = stats.celebrities || [];
+  populateSelects();
+}
+
+function populateSelects() {
+  const fromSel = document.getElementById('path-from');
+  const toSel = document.getElementById('path-to');
+  [fromSel, toSel].forEach(sel => {
+    sel.innerHTML = '<option value="">选择</option>';
+    celebrities.forEach(name => {
+      sel.innerHTML += `<option value="${name}">${name}</option>`;
+    });
+  });
+}
+
+// ── Graph ──
+async function loadGraph(filter) {
+  filter = filter || document.getElementById('filter-select').value;
+  graphData = await api(`/api/graph/data?filter=${filter}`);
+  renderGraph(graphData);
+  updateLegend();
+}
+
+function renderGraph(data) {
+  const container = document.getElementById('canvas-container');
+  const svg = d3.select('#canvas-container svg');
+  svg.selectAll('*').remove();
+
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+
+  svg.attr('width', width).attr('height', height);
+
+  // Zoom
+  const g = svg.append('g');
+  svg.call(d3.zoom()
+    .scaleExtent([0.1, 4])
+    .on('zoom', (event) => g.attr('transform', event.transform)));
+
+  // Prepare nodes with initial positions
+  const nodes = data.nodes.map(d => ({ ...d, x: width/2 + (Math.random()-0.5)*100, y: height/2 + (Math.random()-0.5)*100 }));
+  const edges = data.edges.map(d => ({ ...d }));
+
+  // Force simulation
+  if (simulation) simulation.stop();
+  simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(edges).id(d => d.id)
+      .distance(d => {
+        if (d.edge_type === 'relationship') return 120 - (d.strength || 0.5) * 40;
+        if (d.edge_type === 'involved_in') return 80;
+        return 100;
+      })
+      .strength(d => {
+        if (d.edge_type === 'relationship') return 0.3 + (d.strength || 0.5) * 0.5;
+        return 0.15;
+      }))
+    .force('charge', d3.forceManyBody().strength(-350).distanceMax(600))
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collide', d3.forceCollide().radius(d => (d.radius || 20) + 8).strength(0.8))
+    .force('x', d3.forceX(width / 2).strength(0.04))
+    .force('y', d3.forceY(height / 2).strength(0.04))
+    .alphaDecay(0.02);
+
+  // Edges
+  // Group multi-edges between same pair
+  const edgeGroup = {};
+  edges.forEach(e => {
+    const key = [e.source.id || e.source, e.target.id || e.target].sort().join('||');
+    if (!edgeGroup[key]) edgeGroup[key] = [];
+    edgeGroup[key].push(e);
+  });
+  // Assign curve offsets
+  Object.values(edgeGroup).forEach(group => {
+    const count = group.length;
+    if (count === 1) { group[0].curve_offset = 0; return; }
+    group.forEach((e, i) => {
+      const offset = (i - (count - 1) / 2) * 0.15;
+      e.curve_offset = offset;
+    });
+  });
+
+  const linkGroup = g.append('g').attr('class', 'links');
+  const linkElements = linkGroup.selectAll('path')
+    .data(edges)
+    .join('path')
+    .attr('fill', 'none')
+    .attr('stroke', d => getEdgeColor(d))
+    .attr('stroke-width', d => d.edge_type === 'relationship' ? 1.5 + (d.strength || 0.5) * 1.5 : 1)
+    .attr('stroke-dasharray', d => d.edge_type === 'involved_in' ? '4,4' : d.edge_type === 'simulation_event' ? '6,3' : null)
+    .attr('opacity', 0.6);
+
+  // Edge labels
+  const labelGroup = g.append('g').attr('class', 'edge-labels');
+  const edgeLabels = labelGroup.selectAll('g')
+    .data(edges.filter(d => d.edge_type === 'relationship' && d.relation_type))
+    .join('g');
+
+  edgeLabels.append('rect')
+    .attr('fill', 'rgba(15,25,35,0.85)')
+    .attr('rx', 2);
+
+  edgeLabels.append('text')
+    .text(d => d.relation_type || '')
+    .attr('fill', d => getEdgeColor(d))
+    .attr('font-size', '9px')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '0.3em');
+
+  // Nodes
+  const nodeGroup = g.append('g').attr('class', 'nodes');
+
+  // Gossip nodes: diamond shape
+  const gossipNodes = nodes.filter(d => d.type === 'gossip');
+  const gossipGroup = nodeGroup.selectAll('g.gossip')
+    .data(gossipNodes)
+    .join('g')
+    .attr('class', 'gossip');
+
+  gossipGroup.append('rect')
+    .attr('width', d => (d.radius || 12) * 1.6)
+    .attr('height', d => (d.radius || 12) * 1.6)
+    .attr('x', d => -(d.radius || 12) * 0.8)
+    .attr('y', d => -(d.radius || 12) * 0.8)
+    .attr('fill', d => NODE_COLORS[d.type] || '#888')
+    .attr('stroke', '#0f1923')
+    .attr('stroke-width', 2)
+    .attr('rx', 2)
+    .attr('transform', 'rotate(45)');
+
+  // Celebrity + news nodes: circles
+  const circleNodes = nodes.filter(d => d.type !== 'gossip');
+  const circleGroup = nodeGroup.selectAll('g.circle')
+    .data(circleNodes)
+    .join('g')
+    .attr('class', 'circle');
+
+  circleGroup.append('circle')
+    .attr('r', d => d.radius || 20)
+    .attr('fill', d => NODE_COLORS[d.type] || '#888')
+    .attr('stroke', '#0f1923')
+    .attr('stroke-width', 2)
+    .attr('opacity', 0.9);
+
+  // Node labels
+  const allNodeGroups = nodeGroup.selectAll('g');
+
+  allNodeGroups.append('text')
+    .text(d => d.name || (d.title || '').substring(0, 8))
+    .attr('text-anchor', 'middle')
+    .attr('dy', d => (d.radius || 20) + 14)
+    .attr('fill', '#c0c8d0')
+    .attr('font-size', '11px')
+    .attr('font-weight', d => d.type === 'celebrity' ? '600' : '400')
+    .attr('pointer-events', 'none');
+
+  // Drag behavior
+  const drag = d3.drag()
+    .on('start', (event, d) => {
+      d._dragStartX = event.x;
+      d._dragStartY = event.y;
+      d._isDragging = false;
+    })
+    .on('drag', (event, d) => {
+      const dx = event.x - d._dragStartX;
+      const dy = event.y - d._dragStartY;
+      if (Math.sqrt(dx*dx + dy*dy) > 3) d._isDragging = true;
+      if (!d._isDragging) return;
+      d.fx = event.x;
+      d.fy = event.y;
+      simulation.alphaTarget(0.3).restart();
+    })
+    .on('end', (event, d) => {
+      if (!d._isDragging) return;
+      d.fx = null;
+      d.fy = null;
+      simulation.alphaTarget(0);
+    });
+
+  allNodeGroups.call(drag);
+
+  // Click
+  allNodeGroups.on('click', (event, d) => {
+    if (d._isDragging) return;
+    event.stopPropagation();
+    selectNode(d);
+  });
+
+  // Hover tooltip
+  allNodeGroups.on('mouseenter', (event, d) => {
+    const tooltip = document.getElementById('tooltip');
+    let html = '';
+    if (d.type === 'celebrity') {
+      html = `<strong>${d.name}</strong>`;
+      if (d.occupation && d.occupation.length) html += `<br><span style="color:#8899aa">${d.occupation.join(' ')}</span>`;
+    } else {
+      html = `<strong>${(d.title || '').substring(0, 30)}</strong>`;
+      if (d.importance) html += `<br><span style="color:#8899aa">重要度: ${d.importance.toFixed(1)}</span>`;
+    }
+    tooltip.innerHTML = html;
+    tooltip.style.display = 'block';
+    tooltip.style.left = (event.pageX + 12) + 'px';
+    tooltip.style.top = (event.pageY - 10) + 'px';
+  }).on('mouseleave', () => {
+    document.getElementById('tooltip').style.display = 'none';
+  });
+
+  // Background click to deselect
+  svg.on('click', () => {
+    deselectNode();
+  });
+
+  // Tick
+  simulation.on('tick', () => {
+    linkElements.attr('d', d => {
+      const sx = d.source.x, sy = d.source.y;
+      const tx = d.target.x, ty = d.target.y;
+      const dx = tx - sx, dy = ty - sy;
+      const dr = Math.sqrt(dx*dx + dy*dy) * (d.curve_offset || 0);
+      if (!dr) return `M${sx},${sy}L${tx},${ty}`;
+      return `M${sx},${sy}A${dr},${dr} 0 0,1 ${tx},${ty}`;
+    });
+
+    edgeLabels.each(function(d) {
+      const el = d3.select(this);
+      const sx = d.source.x, sy = d.source.y;
+      const tx = d.target.x, ty = d.target.y;
+      const dx = tx - sx, dy = ty - sy;
+      const dr = Math.sqrt(dx*dx + dy*dy) * (d.curve_offset || 0);
+      let mx, my;
+      if (!dr) { mx = (sx+tx)/2; my = (sy+ty)/2; }
+      else {
+        // Quadratic bezier midpoint
+        const cx = sx + (dx/2) + dr * (-dy / Math.sqrt(dx*dx+dy*dy+1));
+        const cy = sy + (dy/2) + dr * (dx / Math.sqrt(dx*dx+dy*dy+1));
+        mx = 0.25*sx + 0.5*cx + 0.25*tx;
+        my = 0.25*sy + 0.5*cy + 0.25*ty;
+      }
+      el.select('text').attr('x', mx).attr('y', my);
+      const bbox = el.select('text').node().getBBox();
+      el.select('rect').attr('x', bbox.x - 3).attr('y', bbox.y - 1).attr('width', bbox.width + 6).attr('height', bbox.height + 2);
+    });
+
+    gossipGroup.attr('transform', d => `translate(${d.x},${d.y})`);
+    circleGroup.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+
+  // Restore selection if node still exists
+  if (selectedNode) {
+    const found = nodes.find(n => n.id === selectedNode.id);
+    if (found) selectNode(found);
+    else deselectNode();
+  }
+}
+
+function getEdgeColor(d) {
+  if (d.edge_type === 'involved_in') return '#556677';
+  if (d.edge_type === 'simulation_event') return '#FF5252';
+  return RELATION_COLORS[d.relation_type] || '#4a6a8a';
+}
+
+function selectNode(d) {
+  selectedNode = d;
+
+  // Visual highlight
+  const allG = d3.selectAll('.nodes g');
+  const connectedIds = new Set([d.id]);
+
+  graphData.edges.forEach(e => {
+    const sid = e.source.id || e.source;
+    const tid = e.target.id || e.target;
+    if (sid === d.id) connectedIds.add(tid);
+    if (tid === d.id) connectedIds.add(sid);
+  });
+
+  allG.transition().duration(200)
+    .attr('opacity', n => connectedIds.has(n.id) ? 1 : 0.15);
+
+  d3.selectAll('.links path').transition().duration(200)
+    .attr('opacity', e => {
+      const sid = e.source.id || e.source;
+      const tid = e.target.id || e.target;
+      return (sid === d.id || tid === d.id) ? 0.9 : 0.05;
+    });
+
+  d3.selectAll('.edge-labels g').transition().duration(200)
+    .attr('opacity', e => {
+      const sid = e.source.id || e.source;
+      const tid = e.target.id || e.target;
+      return (sid === d.id || tid === d.id) ? 1 : 0.1;
+    });
+
+  // Highlight selected node stroke
+  allG.select('circle, rect').attr('stroke', n => n.id === d.id ? '#fff' : '#0f1923')
+    .attr('stroke-width', n => n.id === d.id ? 3 : 2);
+
+  // Load detail
+  loadDetail(d);
+}
+
+function deselectNode() {
+  selectedNode = null;
+  d3.selectAll('.nodes g').transition().duration(200).attr('opacity', 1);
+  d3.selectAll('.links path').transition().duration(200).attr('opacity', 0.6);
+  d3.selectAll('.edge-labels g').transition().duration(200).attr('opacity', 1);
+  d3.selectAll('.nodes g').select('circle, rect').attr('stroke', '#0f1923').attr('stroke-width', 2);
+  document.getElementById('detail-content').innerHTML = `
+    <div class="empty-state">
+      <div class="icon">👆</div>
+      <p>点击图谱中的节点查看详情</p>
+    </div>`;
+}
+
+async function loadDetail(d) {
+  const panel = document.getElementById('detail-content');
+
+  if (d.type === 'celebrity') {
+    const data = await api(`/api/graph/person/${encodeURIComponent(d.name)}`);
+    if (data.error) { panel.innerHTML = `<p>${data.error}</p>`; return; }
+
+    let html = `
+      <div class="detail-header">
+        <div class="detail-avatar">👤</div>
+        <div>
+          <div class="detail-name">${data.name}</div>
+          <div class="detail-subtitle">${(data.occupation || []).join(' · ')}</div>
+        </div>
+      </div>`;
+
+    if (data.company) html += `<div style="margin-bottom:8px;font-size:12px;color:#8899aa">公司: ${data.company}</div>`;
+    if (data.weibo_followers) {
+      const f = data.weibo_followers;
+      const text = f >= 1e8 ? (f/1e8).toFixed(1) + '亿' : f >= 1e4 ? (f/1e4).toFixed(0) + '万' : f;
+      html += `<div style="margin-bottom:12px;font-size:12px;color:#8899aa">微博粉丝: ${text}</div>`;
+    }
+    if (data.famous_works && data.famous_works.length) {
+      html += `<div class="detail-section"><h4>代表作品</h4><div>${data.famous_works.slice(0,8).map(w => `<span class="detail-tag">${w}</span>`).join('')}</div></div>`;
+    }
+
+    // Relationships
+    if (data.relationships && data.relationships.length) {
+      html += `<div class="detail-section"><h4>关系 (${data.relationships.length})</h4>`;
+      data.relationships.forEach(r => {
+        const color = RELATION_COLORS[r.relation_type] || '#4a6a8a';
+        const strPct = Math.round((r.strength || 0.5) * 100);
+        const confPct = Math.round((r.confidence || 0.5) * 100);
+        html += `
+          <div class="rel-item" onclick="navigateToNode('${r.name}')">
+            <span class="rel-type" style="background:${color}">${r.relation_type}</span>
+            <span class="rel-name">${r.name}</span>
+            <div class="rel-bars">
+              <div class="rel-bar"><div class="fill" style="width:${strPct}%;background:${color}"></div></div>
+              <div class="rel-bar"><div class="fill" style="width:${confPct}%;background:#4FC3F7"></div></div>
+            </div>
+          </div>`;
+      });
+      html += '</div>';
+    }
+
+    // Events
+    if (data.events && data.events.length) {
+      html += `<div class="detail-section"><h4>关联事件 (${data.events.length})</h4>`;
+      data.events.slice(0, 8).forEach(e => {
+        const icon = SENTIMENT_ICONS[e.sentiment] || '⚪';
+        html += `
+          <div class="event-item">
+            <div class="title">${icon} ${e.title}</div>
+            <div class="meta">${e.type} · 重要度 ${typeof e.importance === 'number' ? e.importance.toFixed(1) : '?'}</div>
+          </div>`;
+      });
+      html += '</div>';
+    }
+
+    // Graph context
+    if (data.graph_context) {
+      html += `<div class="detail-section"><h4>Agent 上下文</h4><div style="font-size:11px;line-height:1.6;color:#8899aa;background:#1a2a3a;padding:8px;border-radius:4px;white-space:pre-wrap">${data.graph_context}</div></div>`;
+    }
+
+    panel.innerHTML = html;
+
+  } else {
+    // Gossip/News node
+    const icon = d.type === 'gossip' ? '🔥' : '📰';
+    let html = `
+      <div class="detail-header">
+        <div class="detail-avatar">${icon}</div>
+        <div>
+          <div class="detail-name" style="font-size:14px">${d.title || '未知事件'}</div>
+          <div class="detail-subtitle">${d.type === 'gossip' ? '八卦事件' : '新闻'}</div>
+        </div>
+      </div>`;
+
+    if (d.gossip_type) html += `<div class="detail-tag" style="margin-bottom:8px">${d.gossip_type}</div>`;
+    if (d.importance !== undefined) html += `<div style="font-size:12px;color:#8899aa;margin-bottom:8px">重要度: ${d.importance.toFixed(1)}</div>`;
+
+    // Find connected celebrities
+    const connected = [];
+    graphData.edges.forEach(e => {
+      const sid = e.source.id || e.source;
+      const tid = e.target.id || e.target;
+      if (tid === d.id && e.edge_type === 'involved_in') {
+        const node = graphData.nodes.find(n => n.id === sid);
+        if (node) connected.push({ name: node.name, role: e.role });
+      }
+      if (sid === d.id && e.edge_type === 'involved_in') {
+        const node = graphData.nodes.find(n => n.id === tid);
+        if (node) connected.push({ name: node.name, role: e.role });
+      }
+    });
+    if (connected.length) {
+      html += `<div class="detail-section"><h4>涉及人物</h4>`;
+      connected.forEach(c => {
+        html += `<div class="rel-item" onclick="navigateToNode('${c.name}')">
+          <span class="rel-type" style="background:#556677">${c.role || '关联'}</span>
+          <span class="rel-name">${c.name}</span>
+        </div>`;
+      });
+      html += '</div>';
+    }
+
+    panel.innerHTML = html;
+  }
+}
+
+function navigateToNode(name) {
+  // Find the node in current graph data
+  const nodeId = `celebrity:${name}`;
+  const node = graphData.nodes.find(n => n.id === nodeId);
+  if (node && simulation) {
+    selectNode(node);
+    // Zoom to it
+    const svg = d3.select('#canvas-container svg');
+    const g = svg.select('g');
+    const container = document.getElementById('canvas-container');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    const scale = 1.5;
+    const transform = d3.zoomIdentity
+      .translate(width / 2 - node.x * scale, height / 2 - node.y * scale)
+      .scale(scale);
+    svg.transition().duration(500).call(d3.zoom().on('zoom', (e) => g.attr('transform', e.transform)).transform, transform);
+  } else {
+    // Not in current view, switch to person's neighborhood
+    loadPersonGraph(name);
+  }
+}
+
+async function loadPersonGraph(name) {
+  graphData = await api(`/api/graph/data?filter=celebrity&name=${encodeURIComponent(name)}&depth=2`);
+  renderGraph(graphData);
+  updateLegend();
+  // Select the person
+  const nodeId = `celebrity:${name}`;
+  const node = graphData.nodes.find(n => n.id === nodeId);
+  if (node) setTimeout(() => selectNode(node), 300);
+}
+
+// ── Path Finding ──
+async function findPath() {
+  const from = document.getElementById('path-from').value;
+  const to = document.getElementById('path-to').value;
+  if (!from || !to) return;
+
+  const result = await api(`/api/graph/path?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`);
+
+  const panel = document.getElementById('detail-content');
+  if (!result.nodes || !result.nodes.length) {
+    panel.innerHTML = `<div class="empty-state"><div class="icon">❌</div><p>未找到 ${from} → ${to} 的路径</p></div>`;
+    return;
+  }
+
+  // Highlight path
+  pathHighlight = new Set(result.nodes.map(n => n.id));
+  const pathEdgeSet = new Set();
+  result.edges.forEach(e => {
+    pathEdgeSet.add(e.source + '||' + e.target);
+    pathEdgeSet.add(e.target + '||' + e.source);
+  });
+
+  d3.selectAll('.nodes g').transition().duration(300)
+    .attr('opacity', n => pathHighlight.has(n.id) ? 1 : 0.12);
+
+  d3.selectAll('.links path').transition().duration(300)
+    .attr('opacity', e => {
+      const sid = e.source.id || e.source;
+      const tid = e.target.id || e.target;
+      return pathEdgeSet.has(sid + '||' + tid) ? 0.9 : 0.03;
+    });
+
+  d3.selectAll('.nodes g').select('circle, rect')
+    .attr('stroke', n => pathHighlight.has(n.id) ? '#FFD54F' : '#0f1923')
+    .attr('stroke-width', n => pathHighlight.has(n.id) ? 3 : 2);
+
+  // Display path
+  let html = `
+    <div class="detail-header">
+      <div class="detail-avatar">🔗</div>
+      <div>
+        <div class="detail-name" style="font-size:14px">${from} → ${to}</div>
+        <div class="detail-subtitle">路径长度: ${result.length} 跳</div>
+      </div>
+    </div>
+    <div class="detail-section"><h4>关系路径</h4>`;
+
+  result.nodes.forEach((node, i) => {
+    const typeIcon = node.type === 'celebrity' ? '👤' : node.type === 'gossip' ? '🔥' : '📰';
+    const label = node.name || node.title || node.id;
+    if (i === 0) {
+      html += `<div class="path-step"><span class="node-label">${typeIcon} ${label}</span></div>`;
+    } else {
+      const edge = result.edges[i - 1];
+      const edgeLabel = edge ? (edge.relation_type || edge.role || '') : '';
+      html += `<div class="path-step">
+        <span class="arrow">→</span>
+        ${edgeLabel ? `<span class="edge-label">${edgeLabel}</span>` : ''}
+        <span class="node-label">${typeIcon} ${label}</span>
+      </div>`;
+    }
+  });
+  html += '</div>';
+  panel.innerHTML = html;
+}
+
+// ── Legend ──
+function updateLegend() {
+  const legend = document.getElementById('legend');
+  const types = {};
+  graphData.nodes.forEach(n => { types[n.type] = (types[n.type] || 0) + 1; });
+
+  let html = '';
+  if (types.celebrity) html += `<div class="item"><div class="dot" style="background:${NODE_COLORS.celebrity}"></div>名人 (${types.celebrity})</div>`;
+  if (types.gossip) html += `<div class="item"><div class="diamond"></div>八卦 (${types.gossip})</div>`;
+  if (types.news) html += `<div class="item"><div class="dot" style="background:${NODE_COLORS.news}"></div>新闻 (${types.news})</div>`;
+
+  // Show top relation types
+  const relTypes = {};
+  graphData.edges.filter(e => e.edge_type === 'relationship' && e.relation_type).forEach(e => {
+    relTypes[e.relation_type] = (relTypes[e.relation_type] || 0) + 1;
+  });
+  Object.entries(relTypes).slice(0, 5).forEach(([type, count]) => {
+    const color = RELATION_COLORS[type] || '#4a6a8a';
+    html += `<div class="item"><div style="width:16px;height:2px;background:${color}"></div>${type} (${count})</div>`;
+  });
+
+  legend.innerHTML = html;
+}
+
+// ── Simulation ──
+async function startSim() {
+  const names = celebrities.length >= 5 ? celebrities.slice(0, 5) : ['杨幂', '李小璐', '贾乃亮', 'PG One', '唐嫣'];
+  const result = await apiPost('/api/sim/start', { names, turns: 15, use_llm: false });
+  if (result.status === 'started') {
+    document.getElementById('sim-start-btn').classList.add('active');
+    pollSimState();
+  } else {
+    alert('启动失败: ' + (result.message || JSON.stringify(result)));
+  }
+}
+
+async function pollSimState() {
+  const state = await api('/api/sim/state');
+  renderSimState(state);
+  if (state.loop_stats && state.loop_stats.total_turns < 15) {
+    setTimeout(pollSimState, 2000);
+  } else {
+    document.getElementById('sim-start-btn').classList.remove('active');
+  }
+}
+
+function renderSimState(state) {
+  // Agents
+  const agentList = document.getElementById('agent-list');
+  if (state.agents && state.agents.length) {
+    const stateEmojis = { idle: '😊', thinking: '🤔', speaking: '💬', listening: '👂', acting: '🎬', stressed: '😫', withdrawn: '🙍' };
+    agentList.innerHTML = state.agents.map(a => `
+      <div class="agent-card" onclick="navigateToNode('${a.name}')">
+        <span class="emoji">${stateEmojis[a.state] || '❓'}</span>
+        <div class="info">
+          <div class="name">${a.name}</div>
+          <div class="role">${a.role}</div>
+        </div>
+        <div class="bars">
+          <div class="mini-bar stress"><div class="fill" style="width:${Math.round(a.stress_level*100)}%"></div></div>
+          <div class="mini-bar energy"><div class="fill" style="width:${Math.round(a.energy_level*100)}%"></div></div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Reaction layers
+  const layersDiv = document.getElementById('reaction-layers');
+  if (state.environment && state.environment.reactions) {
+    const reactions = state.environment.reactions;
+    let html = '';
+
+    // Public Opinion
+    if (reactions.public_opinion) {
+      const po = reactions.public_opinion;
+      const sentiment = po.sentiment || {};
+      html += `
+        <div class="reaction-layer">
+          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
+            <span><span class="icon">👥</span>公众舆论</span>
+            <span style="color:#4FC3F7">热度 ${(sentiment.heat_index || 0).toFixed(0)}</span>
+          </div>
+          <div class="reaction-body">
+            <div>正面: ${((sentiment.positive_ratio || 0) * 100).toFixed(0)}% | 负面: ${((sentiment.negative_ratio || 0) * 100).toFixed(0)}%</div>
+            ${Object.entries(po.approval_scores || {}).map(([k,v]) => `<div style="margin-top:2px">${k}: ${(v*100).toFixed(0)}%</div>`).join('')}
+          </div>
+        </div>`;
+    }
+
+    // Hot Search
+    if (reactions.social_platform) {
+      const sp = reactions.social_platform;
+      const hot = sp.hot_search || [];
+      html += `
+        <div class="reaction-layer">
+          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
+            <span><span class="icon">🔥</span>热搜榜</span>
+            <span style="color:#FF7043">${hot.length}条</span>
+          </div>
+          <div class="reaction-body">
+            ${hot.slice(0, 8).map(t => `
+              <div class="hot-item">
+                <span class="rank">${t.rank || '?'}</span>
+                <span style="flex:1;font-size:11px">${(t.title || '').substring(0, 20)}</span>
+                <span class="heat">${((t.heat || 0) / 1000).toFixed(0)}k</span>
+              </div>`).join('')}
+          </div>
+        </div>`;
+    }
+
+    // Media
+    if (reactions.media) {
+      const med = reactions.media;
+      const headlines = med.headlines || [];
+      html += `
+        <div class="reaction-layer">
+          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
+            <span><span class="icon">📰</span>媒体报道</span>
+            <span style="color:#66BB6A">${headlines.length}条</span>
+          </div>
+          <div class="reaction-body">
+            ${headlines.slice(0, 5).map(h => `<div style="margin-bottom:4px">${SENTIMENT_ICONS[h.sentiment] || '⚪'} ${h.headline || ''}</div>`).join('')}
+          </div>
+        </div>`;
+    }
+
+    // Government
+    if (reactions.government) {
+      const gov = reactions.government;
+      html += `
+        <div class="reaction-layer">
+          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
+            <span><span class="icon">🏛️</span>监管</span>
+            <span style="color:${(gov.escalation_level || 0) > 2 ? '#FF7043' : '#66BB6A'}">等级 ${gov.escalation_level || 0}</span>
+          </div>
+          <div class="reaction-body">
+            <div>${gov.action || '无行动'}</div>
+            ${gov.warning_text ? `<div style="color:#FF7043;margin-top:4px">${gov.warning_text}</div>` : ''}
+          </div>
+        </div>`;
+    }
+
+    // Commercial
+    if (reactions.commercial) {
+      const com = reactions.commercial;
+      const brands = com.brand_statuses || {};
+      html += `
+        <div class="reaction-layer">
+          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
+            <span><span class="icon">💰</span>商业</span>
+            <span style="color:#FF9800">${Object.keys(brands).length}人</span>
+          </div>
+          <div class="reaction-body">
+            ${Object.entries(brands).map(([name, s]) => `<div style="margin-bottom:4px">${name}: 价值 ${s.commercial_value || '?'}</div>`).join('')}
+          </div>
+        </div>`;
+    }
+
+    layersDiv.innerHTML = html || '<div style="color:#556677;font-size:11px">运行仿真后显示</div>';
+  }
+}
+
+// ── Event Listeners ──
+function setupEventListeners() {
+  // Filter change
+  document.getElementById('filter-select').addEventListener('change', e => {
+    loadGraph(e.target.value);
+  });
+
+  // Refresh
+  document.getElementById('refresh-btn').addEventListener('click', () => {
+    loadStats();
+    loadGraph();
+  });
+
+  // Path finding
+  document.getElementById('path-btn').addEventListener('click', findPath);
+
+  // Search
+  const searchInput = document.getElementById('search-input');
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.trim();
+    if (!query) return;
+    const matches = celebrities.filter(n => n.includes(query));
+    if (matches.length === 1) {
+      navigateToNode(matches[0]);
+      searchInput.value = '';
+    }
+  });
+  searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const query = searchInput.value.trim();
+      const match = celebrities.find(n => n.includes(query));
+      if (match) {
+        navigateToNode(match);
+        searchInput.value = '';
+      }
+    }
+  });
+
+  // Simulation controls
+  document.getElementById('sim-start-btn').addEventListener('click', startSim);
+  document.getElementById('sim-pause-btn').addEventListener('click', () => apiPost('/api/sim/pause', {}));
+  document.getElementById('sim-resume-btn')?.addEventListener('click', () => apiPost('/api/sim/resume', {}));
+  document.getElementById('sim-stop-btn').addEventListener('click', () => {
+    apiPost('/api/sim/stop', {});
+    document.getElementById('sim-start-btn').classList.remove('active');
+  });
+
+  // Inject event
+  document.getElementById('inject-btn').addEventListener('click', () => {
+    const text = document.getElementById('inject-text').value.trim();
+    if (!text) return;
+    apiPost('/api/sim/inject', { event_type: 'conflict', content: text, severity: 0.7 });
+    document.getElementById('inject-text').value = '';
+    setTimeout(pollSimState, 500);
+  });
+
+  // Resize
+  const resizeObserver = new ResizeObserver(() => {
+    if (graphData.nodes.length) renderGraph(graphData);
+  });
+  resizeObserver.observe(document.getElementById('canvas-container'));
+}
+</script>
+</body>
+</html>
