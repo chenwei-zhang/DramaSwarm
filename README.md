@@ -14,6 +14,7 @@ DramaSwarm 是一个轻量级的多智能体仿真引擎，专注于模拟复杂
 - **观测总结模块**: 实时分析群体动态并生成推演报告
 - **GraphRAG 可视化**: Web 界面交互式探索知识图谱，D3.js 力导向图展示明星关系网络
 - **危机仿真引擎**: 基于时序 GraphRAG 的多 Agent 公关危机模拟，支持 what-if 干预和结果对比分析
+- **多 Agent 交互**: 顺序决策 + 关系影响 + 观众反应 + 社交传播，Agent 之间有真实互动
 
 ## 快速开始
 
@@ -98,13 +99,15 @@ DramaSwarm/
 │   │   ├── knowledge_graph.py   # networkx 图引擎 + 查询 + 上下文生成
 │   │   └── temporal.py          # 时序 GraphRAG（日期索引 + 人物时间线）
 │   ├── crisis/                  # 危机仿真引擎
-│   │   ├── models.py            # 数据模型（CrisisPhase, PRAction, CrisisState 等）
+│   │   ├── models.py            # 数据模型（CrisisPhase, PRAction, CrisisState, AgentMessage 等）
 │   │   ├── timeline.py          # 时间线（1天=1回合，6阶段危机生命周期）
 │   │   ├── action_space.py      # 10种 PR 策略效果矩阵 + 阶段/性格修正
-│   │   ├── persona_agent.py     # 明星 Agent（规则/LLM 双模式，Big Five 人设）
+│   │   ├── persona_agent.py     # 明星 Agent（规则/LLM 双模式，Big Five 人设，支持交互）
 │   │   ├── vacuum_detector.py   # 信息真空→谣言级联检测
 │   │   ├── intervention.py      # 用户 what-if 干预系统
-│   │   ├── scenario_engine.py   # 仿真引擎核心（场景加载 + 异步仿真循环）
+│   │   ├── message_bus.py       # Agent 间消息总线
+│   │   ├── audience.py          # 观众池（粉丝/路人/理中客/黑粉，模板评论）
+│   │   ├── scenario_engine.py   # 仿真引擎核心（场景加载 + 顺序决策 + 异步仿真循环）
 │   │   └── outcome_analyzer.py  # 仿真 vs 历史基线对比分析
 │   ├── viz/                     # 可视化模块（FastAPI + D3.js）
 │   │   ├── server.py            # FastAPI 应用
@@ -212,7 +215,8 @@ DramaSwarm/
        │   ├─────────────────────┤  │
        │   │  危机模拟 Tab        │  │
        │   │  口碑走势 · 热搜榜  │  │
-       │   │  媒体头条 · 品牌状态 │  │
+       │   │  观众反应 · 媒体头条 │  │
+       │   │  品牌状态 · 交互日志 │  │
        │   │  干预面板 · 结果对比 │  │
        │   └─────────────────────┘  │
        │   /api/graph/*             │
@@ -233,11 +237,15 @@ DramaSwarm/
 每回合（1天）:                                        │
   1. CrisisTimeline.advance_day() → 确定危机阶段      │
   2. InterventionSystem.check() → 应用用户干预         │
-  3. CelebrityPersonaAgent.generate_response() → 决策  │
-  4. InformationVacuumDetector → 沉默触发谣言          │
-  5. CrisisActionSpace.compute_effect() → 计算效果     │
-  6. 热搜/媒体/品牌/监管 状态更新                       │
-  7. 自然衰减（热度-10%/天，口碑回归50）                │
+  3. 顺序决策：Agent 依次行动                           │
+     └→ 后决策者看到前面人的动作 + 观众反应             │
+     └→ 关系影响：配偶道歉→自己也缓和，对手反击→强硬    │
+     └→ 传播效应：亲密关系者重大动作触发额外响应         │
+  4. AudiencePool → 30个观众Agent生成评论               │
+  5. InformationVacuumDetector → 沉默触发谣言          │
+  6. CrisisActionSpace.compute_effect() → 计算效果     │
+  7. 热搜/媒体/品牌/监管 状态更新                       │
+  8. 自然衰减（热度-10%/天，口碑回归50）                │
                                                      │
 30天后 → OutcomeAnalyzer 对比仿真 vs 历史基线          │
 ```
@@ -256,6 +264,16 @@ DramaSwarm/
 ### 10种公关策略
 
 沉默、道歉、声明、上节目、起诉、卖惨、反击、隐退、公益、复出。每种策略在不同阶段有不同效果系数（如高峰期道歉效果×1.2，爆发期上节目仅×0.2）。
+
+### 多 Agent 交互机制
+
+- **顺序决策**：明星 Agent 按顺序行动，后决策者感知前面人的动作并受其影响
+- **关系影响**：基于知识图谱中的关系类型（配偶/对手/搭档等），对方的动作会调整自己的决策权重
+  - 配偶道歉 → 自己也倾向缓和（道歉/声明加权 +1.5）
+  - 对手反击 → 自己也倾向强硬（反击加权 +1.5）
+  - 被指名 → 必须回应（声明加权 +2.0）
+- **观众反应**：30 个观众 Agent（粉丝 40%/路人 30%/理中客 20%/黑粉 10%）基于模板生成评论，明星感知观众情绪后调整策略
+- **社交传播**：亲密关系者做了重大动作（道歉/反击/卖惨）→ 触发额外响应标记
 
 ## 许可证
 
