@@ -71,7 +71,22 @@ class InterventionSystem:
         return effects
 
     def get_pending_descriptions(self) -> list[str]:
-        return [c.description for c in self.pending]
+        descs = []
+        for c in self.pending:
+            parts = []
+            if c.description:
+                parts.append(c.description)
+            if c.person:
+                parts.append(c.person)
+            if c.action:
+                action_label = {"silence": "沉默", "apologize": "道歉",
+                                "statement": "声明", "go_on_show": "上节目",
+                                "lawsuit": "起诉", "hide": "隐退"}.get(c.action, c.action)
+                parts.append(action_label)
+            if c.day is not None:
+                parts.append(f"第{c.day}天")
+            descs.append(" → ".join(parts) if parts else "干预")
+        return descs
 
     def get_applied_descriptions(self) -> list[str]:
         return [c.description for c in self.applied]
