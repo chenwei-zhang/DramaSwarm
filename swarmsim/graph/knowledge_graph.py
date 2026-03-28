@@ -80,40 +80,64 @@ class KnowledgeGraph:
 
         try:
             from celebrity_scraper.mock_data import (
-                MOCK_CELEBRITY_PROFILES, GOSSIP_DATABASE, RELATIONSHIP_MAP,
+                generate_mock_profile, generate_mock_gossips,
+                generate_mock_relationships, generate_mock_news,
             )
         except ImportError:
             return stats
 
-        profiles = MOCK_CELEBRITY_PROFILES
-
         for name in names:
-            profile = profiles.get(name)
-            if not profile:
-                continue
+            profile = generate_mock_profile(name)
 
             # 创建 Celebrity 节点
             self._add_celebrity_node(name, {
-                "occupation": profile.get("occupation", []),
-                "company": profile.get("company", ""),
-                "biography": profile.get("biography", ""),
-                "famous_works": profile.get("famous_works", []),
-                "weibo_followers": profile.get("weibo_followers", 0),
+                "english_name": profile.english_name,
+                "occupation": profile.occupation,
+                "company": profile.company,
+                "biography": profile.biography,
+                "famous_works": profile.famous_works,
+                "weibo_followers": profile.weibo_followers,
             })
             stats["celebrities"] += 1
 
-        # 加载关系
-        for (a, b), rel_data in RELATIONSHIP_MAP.items():
-            if a in self._names and b in self._names:
-                self._add_relationship_edge(a, b, rel_data)
-                stats["relationships"] += 1
+            # 加载关系
+            for rel in generate_mock_relationships(name):
+                other = rel.person_b if rel.person_a == name else rel.person_a
+                if other:
+                    self._add_relationship_edge(name, other, {
+                        "relation_type": rel.relation_type,
+                        "strength": rel.strength,
+                        "confidence": rel.confidence,
+                        "is_current": rel.is_current,
+                        "description": rel.description,
+                    })
+                    stats["relationships"] += 1
 
-        # 加载八卦
-        for gossip in GOSSIP_DATABASE:
-            involved = gossip.get("involved_celebrities", [])
-            if any(n in self._names for n in involved):
-                self._add_gossip_node(gossip)
+            # 加载八卦
+            for gossip in generate_mock_gossips(name):
+                gossip_dict = {
+                    "title": gossip.title,
+                    "involved_celebrities": gossip.involved_celebrities,
+                    "gossip_type": gossip.gossip_type.value if hasattr(gossip.gossip_type, 'value') else str(gossip.gossip_type),
+                    "importance": gossip.importance,
+                    "sentiment": gossip.sentiment,
+                    "content": gossip.content,
+                }
+                self._add_gossip_node(gossip_dict)
                 stats["gossips"] += 1
+
+            # 加载新闻
+            for article in generate_mock_news(name):
+                self._add_news_event(name, {
+                    "title": article.title,
+                    "source": article.source,
+                    "publish_date": article.publish_date,
+                    "sentiment": article.sentiment,
+                })
+                stats["news"] += 1
+
+        # 去重八卦
+        self._deduplicate_gossip_nodes()
 
         return stats
 

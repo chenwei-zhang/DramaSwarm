@@ -12,45 +12,77 @@
       "歌手",
       "制片人"
     ],
-    "company": "嘉行传媒",
+    "company": "杨幂工作室",
     "agency": "",
     "height": "166cm",
     "weight": "",
     "blood_type": "",
-    "biography": "杨幂，中国内地影视女演员、流行乐歌手、影视制片人。2005年，杨幂考入北京电影学院表演系。2006年，因出演金庸武侠剧《神雕侠侣》而崭露头角。2011年，凭借穿越剧《宫》获得广泛关注。",
+    "biography": "杨幂，中国内地影视女演员、流行乐歌手、制片人。2006年因《神雕侠侣》崭露头角，2011年凭《宫》爆红。2023年离开嘉行传媒成立个人工作室，近年尝试转型正剧路线。2024年主演《狐妖小红娘·月红篇》《哈尔滨一九四四》等作品。微博粉丝超1.1亿，是中国最具人气的女星之一。",
     "education": "",
     "alma_mater": "",
     "works": [],
     "famous_works": [
       "宫",
       "仙剑奇侠传三",
-      "古剑奇谭",
       "三生三世十里桃花",
-      "斛珠夫人",
-      "爱的二八定律"
+      "狐妖小红娘·月红篇",
+      "哈尔滨一九四四",
+      "生万物"
     ],
     "weibo_id": "",
-    "weibo_followers": 60000000,
+    "weibo_followers": 112000000,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [],
-    "updated_at": "2026-03-27T10:28:01.076225"
+    "updated_at": "2026-03-27T20:33:50.942504"
   },
   "gossips": [
     {
-      "title": "杨幂新剧《宫》热播",
-      "content": "杨幂主演的新剧《宫》正在热播，演技获得观众好评，话题度持续走高。",
-      "gossip_type": "other",
-      "date": "2026-01-31",
+      "title": "杨幂刘恺威离婚",
+      "content": "2018年12月杨幂与刘恺威官宣离婚，结束四年婚姻。女儿小糯米由双方共同抚养。两人2014年结婚，离婚原因未公开详细说明。离婚后杨幂专注事业，2023年离开嘉行传媒成立个人工作室。",
+      "gossip_type": "divorce",
+      "date": "2018-12-22",
       "involved_celebrities": [
         "杨幂"
       ],
       "tags": [],
-      "importance": 0.6,
+      "importance": 0.9,
       "verified": true,
-      "sentiment": "positive",
-      "sentiment_score": 0.5,
+      "sentiment": "neutral",
+      "sentiment_score": 0.0,
+      "source_url": "",
+      "source_type": "sina"
+    },
+    {
+      "title": "杨幂离开嘉行传媒独立发展",
+      "content": "2023年5月杨幂宣布与嘉行传媒解约，结束十余年深度合作。她曾是嘉行创始股东之一，旗下艺人包括迪丽热巴等。解约后成立个人工作室独立运营，被外界视为重新掌控事业的重要一步。此后杨幂在角色选择上明显向正剧转型。",
+      "gossip_type": "other",
+      "date": "2023-05-08",
+      "involved_celebrities": [
+        "杨幂"
+      ],
+      "tags": [],
+      "importance": 0.8,
+      "verified": true,
+      "sentiment": "neutral",
+      "sentiment_score": 0.0,
+      "source_url": "",
+      "source_type": "sina"
+    },
+    {
+      "title": "杨幂《狐妖小红娘》口碑争议",
+      "content": "2024年杨幂主演的《狐妖小红娘·月红篇》在爱奇艺播出，改编自热门国漫。该剧口碑两极分化，杨幂的古装造型和演技受到不同评价，豆瓣评分不及预期。部分观众认为剧情改编过于偏离原著。",
+      "gossip_type": "other",
+      "date": "2024-05-23",
+      "involved_celebrities": [
+        "杨幂"
+      ],
+      "tags": [],
+      "importance": 0.75,
+      "verified": true,
+      "sentiment": "neutral",
+      "sentiment_score": 0.0,
       "source_url": "",
       "source_type": "sina"
     }
@@ -59,143 +91,116 @@
     {
       "person_a": "杨幂",
       "person_b": "迪丽热巴",
-      "relation_type": "合作",
+      "relation_type": "前同事",
       "start_date": null,
       "end_date": null,
-      "is_current": true,
-      "description": "曾合作过影视作品",
-      "confidence": 0.7,
+      "is_current": false,
+      "description": "同属嘉行传媒时期的前后辈关系，2023年杨幂离开嘉行后关系淡化",
+      "confidence": 0.95,
       "strength": 0.5
     },
     {
       "person_a": "杨幂",
-      "person_b": "李小璐",
-      "relation_type": "合作",
+      "person_b": "赵丽颖",
+      "relation_type": "同代竞争",
       "start_date": null,
       "end_date": null,
       "is_current": true,
-      "description": "曾合作过影视作品",
+      "description": "同为85花顶流，长期被媒体和粉丝比较，竞争关系明显",
       "confidence": 0.7,
-      "strength": 0.5
+      "strength": 0.4
     },
     {
       "person_a": "杨幂",
-      "person_b": "贾乃亮",
+      "person_b": "唐嫣",
       "relation_type": "好友",
       "start_date": null,
       "end_date": null,
       "is_current": true,
-      "description": "曾合作过影视作品",
-      "confidence": 0.7,
-      "strength": 0.5
+      "description": "娱乐圈多年好友，曾多次合作，私下关系融洽",
+      "confidence": 0.8,
+      "strength": 0.6
+    },
+    {
+      "person_a": "杨幂",
+      "person_b": "肖战",
+      "relation_type": "好友",
+      "start_date": null,
+      "end_date": null,
+      "is_current": true,
+      "description": "曾公开互动，业内关系友好",
+      "confidence": 0.6,
+      "strength": 0.4
     }
   ],
   "social_media_posts": [
     {
       "id": "wb_杨幂_0",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "杨幂",
-      "content": "杂志拍摄完成，期待正片",
-      "likes": 298111,
-      "reposts": 10642,
-      "comments": 850,
-      "publish_time": "2025-03-30",
+      "content": "工作日常记录，努力成为更好的自己",
+      "likes": 209804,
+      "reposts": 11413,
+      "comments": 7430,
+      "publish_time": "2026-02-23",
       "source_url": "https://weibo.com/杨幂/0",
       "tags": [
         "感恩",
         "粉丝"
       ],
       "topics": [
-        "感恩",
-        "粉丝"
+        "日常",
+        "分享"
       ]
     },
     {
       "id": "wb_杨幂_1",
       "platform": "weibo",
       "author": "杨幂",
-      "content": "感恩相遇，一路同行",
-      "likes": 186575,
-      "reposts": 31543,
-      "comments": 3900,
-      "publish_time": "2025-10-17",
+      "content": "今天阳光很好，分享一下~",
+      "likes": 89309,
+      "reposts": 13691,
+      "comments": 6230,
+      "publish_time": "2025-06-21",
       "source_url": "https://weibo.com/杨幂/1",
       "tags": [
-        "杀青",
-        "新戏"
+        "工作",
+        "努力"
       ],
       "topics": [
-        "感恩",
-        "粉丝"
+        "工作",
+        "努力"
       ]
     },
     {
       "id": "wb_杨幂_2",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "杨幂",
-      "content": "新剧开机，加油！",
-      "likes": 320739,
-      "reposts": 16349,
-      "comments": 5897,
-      "publish_time": "2025-09-17",
+      "content": "感谢品牌方的邀请",
+      "likes": 58559,
+      "reposts": 48430,
+      "comments": 4255,
+      "publish_time": "2026-01-15",
       "source_url": "https://weibo.com/杨幂/2",
       "tags": [
-        "杀青",
-        "新戏"
+        "生活",
+        "记录"
       ],
       "topics": [
-        "正能量",
-        "公益"
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_杨幂_3",
-      "platform": "douyin",
-      "author": "杨幂",
-      "content": "今天的拍摄很顺利，感谢大家的支持！",
-      "likes": 188242,
-      "reposts": 18252,
-      "comments": 2830,
-      "publish_time": "2025-08-18",
-      "source_url": "https://weibo.com/杨幂/3",
-      "tags": [
-        "日常",
-        "分享"
-      ],
-      "topics": [
-        "健身",
-        "运动"
-      ]
-    },
-    {
-      "id": "wb_杨幂_4",
-      "platform": "douyin",
-      "author": "杨幂",
-      "content": "路演现场见，不见不散",
-      "likes": 289163,
-      "reposts": 39904,
-      "comments": 2981,
-      "publish_time": "2026-01-15",
-      "source_url": "https://weibo.com/杨幂/4",
-      "tags": [
-        "正能量",
-        "公益"
-      ],
-      "topics": [
-        "健身",
-        "运动"
-      ]
-    },
-    {
-      "id": "wb_杨幂_5",
       "platform": "weibo",
       "author": "杨幂",
-      "content": "公益活动，传递正能量",
-      "likes": 256159,
-      "reposts": 14759,
-      "comments": 2910,
-      "publish_time": "2025-11-03",
-      "source_url": "https://weibo.com/杨幂/5",
+      "content": "公益行动，传递正能量",
+      "likes": 371903,
+      "reposts": 35442,
+      "comments": 7907,
+      "publish_time": "2026-02-21",
+      "source_url": "https://weibo.com/杨幂/3",
       "tags": [
         "杀青",
         "新戏"
@@ -203,40 +208,59 @@
       "topics": [
         "日常",
         "分享"
+      ]
+    },
+    {
+      "id": "wb_杨幂_4",
+      "platform": "weibo",
+      "author": "杨幂",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 214277,
+      "reposts": 42284,
+      "comments": 3363,
+      "publish_time": "2026-02-24",
+      "source_url": "https://weibo.com/杨幂/4",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "新剧",
+        "期待"
+      ]
+    },
+    {
+      "id": "wb_杨幂_5",
+      "platform": "douyin",
+      "author": "杨幂",
+      "content": "剧组日常，认真工作中",
+      "likes": 453736,
+      "reposts": 26976,
+      "comments": 7795,
+      "publish_time": "2025-04-09",
+      "source_url": "https://weibo.com/杨幂/5",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
       ]
     },
     {
       "id": "wb_杨幂_6",
       "platform": "weibo",
       "author": "杨幂",
-      "content": "今天的阳光真好☀️",
-      "likes": 232863,
-      "reposts": 12376,
-      "comments": 9286,
-      "publish_time": "2025-06-03",
+      "content": "《哈尔滨一九四四》终于播了，忐忑又期待",
+      "likes": 170999,
+      "reposts": 17285,
+      "comments": 3457,
+      "publish_time": "2025-06-29",
       "source_url": "https://weibo.com/杨幂/6",
       "tags": [
-        "健身",
-        "运动"
-      ],
-      "topics": [
         "生活",
         "记录"
-      ]
-    },
-    {
-      "id": "wb_杨幂_7",
-      "platform": "douyin",
-      "author": "杨幂",
-      "content": "新戏角色挑战，正在努力中",
-      "likes": 379207,
-      "reposts": 43247,
-      "comments": 3379,
-      "publish_time": "2025-04-13",
-      "source_url": "https://weibo.com/杨幂/7",
-      "tags": [
-        "杀青",
-        "新戏"
       ],
       "topics": [
         "感恩",
@@ -244,980 +268,706 @@
       ]
     },
     {
-      "id": "wb_杨幂_8",
-      "platform": "weibo",
+      "id": "wb_杨幂_7",
+      "platform": "douyin",
       "author": "杨幂",
-      "content": "新作品即将上线，敬请期待！",
-      "likes": 425836,
-      "reposts": 37292,
-      "comments": 203,
-      "publish_time": "2026-01-01",
-      "source_url": "https://weibo.com/杨幂/8",
+      "content": "新戏杀青了，感谢剧组每一位的付出",
+      "likes": 152933,
+      "reposts": 16176,
+      "comments": 5953,
+      "publish_time": "2026-01-21",
+      "source_url": "https://weibo.com/杨幂/7",
       "tags": [
-        "日常",
-        "分享"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
-        "健身",
-        "运动"
+        "新剧",
+        "期待"
+      ]
+    },
+    {
+      "id": "wb_杨幂_8",
+      "platform": "douyin",
+      "author": "杨幂",
+      "content": "收工啦，晚安！",
+      "likes": 43204,
+      "reposts": 30449,
+      "comments": 4765,
+      "publish_time": "2026-02-13",
+      "source_url": "https://weibo.com/杨幂/8",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "新剧",
+        "期待"
       ]
     },
     {
       "id": "wb_杨幂_9",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "杨幂",
-      "content": "今天的夕阳很美",
-      "likes": 37864,
-      "reposts": 39706,
-      "comments": 5286,
-      "publish_time": "2025-12-28",
+      "content": "健身打卡",
+      "likes": 222178,
+      "reposts": 4383,
+      "comments": 3241,
+      "publish_time": "2025-04-30",
       "source_url": "https://weibo.com/杨幂/9",
       "tags": [
-        "日常",
-        "分享"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "感恩",
+        "粉丝"
       ]
     },
     {
       "id": "wb_杨幂_10",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "杨幂",
-      "content": "剧组杀青啦！",
-      "likes": 142346,
-      "reposts": 17580,
-      "comments": 8264,
-      "publish_time": "2025-05-17",
+      "content": "新歌听听看",
+      "likes": 450107,
+      "reposts": 25802,
+      "comments": 9422,
+      "publish_time": "2025-09-12",
       "source_url": "https://weibo.com/杨幂/10",
       "tags": [
-        "生活",
-        "记录"
-      ],
-      "topics": [
         "工作",
         "努力"
+      ],
+      "topics": [
+        "新剧",
+        "期待"
       ]
     },
     {
       "id": "wb_杨幂_11",
       "platform": "weibo",
       "author": "杨幂",
-      "content": "工作花絮分享~",
-      "likes": 378296,
-      "reposts": 31029,
-      "comments": 6186,
-      "publish_time": "2025-12-30",
+      "content": "路演见",
+      "likes": 156521,
+      "reposts": 8932,
+      "comments": 9886,
+      "publish_time": "2026-01-20",
       "source_url": "https://weibo.com/杨幂/11",
       "tags": [
-        "健身",
-        "运动"
+        "新剧",
+        "期待"
       ],
       "topics": [
-        "正能量",
-        "公益"
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_杨幂_12",
       "platform": "weibo",
       "author": "杨幂",
-      "content": "久违的假期，好好休息",
-      "likes": 38451,
-      "reposts": 19144,
-      "comments": 4113,
-      "publish_time": "2025-11-15",
+      "content": "新的开始，新的角色，期待与大家分享",
+      "likes": 409498,
+      "reposts": 41467,
+      "comments": 3886,
+      "publish_time": "2025-12-23",
       "source_url": "https://weibo.com/杨幂/12",
       "tags": [
-        "工作",
-        "努力"
-      ],
-      "topics": [
-        "生活",
-        "记录"
-      ]
-    },
-    {
-      "id": "wb_杨幂_13",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "收工啦，晚安！",
-      "likes": 342918,
-      "reposts": 22687,
-      "comments": 4690,
-      "publish_time": "2026-01-17",
-      "source_url": "https://weibo.com/杨幂/13",
-      "tags": [
-        "健身",
-        "运动"
-      ],
-      "topics": [
-        "工作",
-        "努力"
-      ]
-    },
-    {
-      "id": "wb_杨幂_14",
-      "platform": "douyin",
-      "author": "杨幂",
-      "content": "工作日常记录",
-      "likes": 192728,
-      "reposts": 45688,
-      "comments": 1608,
-      "publish_time": "2025-12-17",
-      "source_url": "https://weibo.com/杨幂/14",
-      "tags": [
-        "正能量",
-        "公益"
-      ],
-      "topics": [
-        "正能量",
-        "公益"
-      ]
-    },
-    {
-      "id": "wb_杨幂_15",
-      "platform": "douyin",
-      "author": "杨幂",
-      "content": "健身打卡第N天",
-      "likes": 282338,
-      "reposts": 41820,
-      "comments": 7906,
-      "publish_time": "2025-06-12",
-      "source_url": "https://weibo.com/杨幂/15",
-      "tags": [
         "生活",
         "记录"
       ],
       "topics": [
-        "正能量",
-        "公益"
-      ]
-    },
-    {
-      "id": "wb_杨幂_16",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "期待与大家再次见面",
-      "likes": 487374,
-      "reposts": 31959,
-      "comments": 8735,
-      "publish_time": "2025-08-08",
-      "source_url": "https://weibo.com/杨幂/16",
-      "tags": [
-        "新剧",
-        "期待"
-      ],
-      "topics": [
-        "日常",
-        "分享"
-      ]
-    },
-    {
-      "id": "wb_杨幂_17",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "感谢粉丝们的生日祝福！",
-      "likes": 327011,
-      "reposts": 2308,
-      "comments": 7113,
-      "publish_time": "2025-06-06",
-      "source_url": "https://weibo.com/杨幂/17",
-      "tags": [
-        "健身",
-        "运动"
-      ],
-      "topics": [
-        "新剧",
-        "期待"
+        "工作",
+        "努力"
       ]
     }
   ],
   "comments": [
     {
-      "content": "杨幂的演技越来越好了",
-      "author": "用户2574",
-      "likes": 1762,
-      "replies": 60,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "杨幂的演技越来越好了",
-      "author": "用户9393",
-      "likes": 1925,
-      "replies": 87,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户2119",
-      "likes": 1654,
-      "replies": 41,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "杨幂永远的神",
-      "author": "用户7634",
-      "likes": 4859,
-      "replies": 83,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待！",
-      "author": "用户2903",
-      "likes": 4089,
-      "replies": 35,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "杨幂永远的神",
-      "author": "用户8860",
-      "likes": 1890,
-      "replies": 64,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "新歌/新剧什么时候出？",
-      "author": "用户1666",
-      "likes": 200,
-      "replies": 9,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户5428",
-      "likes": 4635,
-      "replies": 32,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX年开始追的粉",
-      "author": "用户4606",
-      "likes": 1213,
-      "replies": 76,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "杨幂真好看",
-      "author": "用户2923",
-      "likes": 70,
-      "replies": 65,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "杨幂真好看",
-      "author": "用户3140",
-      "likes": 774,
-      "replies": 9,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "期待！",
-      "author": "用户1551",
-      "likes": 2995,
-      "replies": 82,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "加油鸭！",
-      "author": "用户8350",
-      "likes": 1300,
-      "replies": 82,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户5688",
-      "likes": 2436,
-      "replies": 63,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持杨幂！加油💪",
-      "author": "用户9925",
-      "likes": 4576,
-      "replies": 74,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX年开始追的粉",
-      "author": "用户1786",
-      "likes": 4681,
-      "replies": 7,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户5788",
-      "likes": 3518,
-      "replies": 49,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "杨幂真好看",
-      "author": "用户1998",
-      "likes": 3784,
+      "content": "这颜值真的绝了",
+      "author": "用户3914",
+      "likes": 3524,
       "replies": 48,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "支持杨幂！加油💪",
-      "author": "用户4218",
-      "likes": 3882,
-      "replies": 75,
-      "is_top": true,
+      "content": "支持杨幂！加油",
+      "author": "用户4836",
+      "likes": 2594,
+      "replies": 84,
+      "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "加油鸭！",
-      "author": "用户6321",
-      "likes": 3644,
-      "replies": 4,
-      "is_top": true,
-      "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "期待新作品！",
-      "author": "用户4619",
-      "likes": 1636,
-      "replies": 63,
+      "author": "用户8176",
+      "likes": 566,
+      "replies": 18,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "neutral"
+      "sentiment": "negative"
     },
     {
-      "content": "支持杨幂！加油💪",
-      "author": "用户6569",
-      "likes": 1920,
-      "replies": 35,
+      "content": "支持杨幂！加油",
+      "author": "用户9555",
+      "likes": 443,
+      "replies": 75,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待！",
-      "author": "用户7184",
-      "likes": 432,
-      "replies": 80,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持杨幂！加油💪",
-      "author": "用户3063",
-      "likes": 3656,
-      "replies": 15,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
+      "sentiment": "negative"
     },
     {
       "content": "杨幂的演技越来越好了",
-      "author": "用户6865",
-      "likes": 561,
-      "replies": 49,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "期待！",
-      "author": "用户2626",
-      "likes": 4199,
-      "replies": 100,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "加油鸭！",
-      "author": "用户9701",
-      "likes": 2250,
-      "replies": 53,
-      "is_top": false,
+      "author": "用户7882",
+      "likes": 432,
+      "replies": 76,
+      "is_top": true,
       "source_platform": "douyin",
-      "sentiment": "positive"
+      "sentiment": "negative"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户9810",
+      "likes": 1635,
+      "replies": 56,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
     },
     {
       "content": "杨幂好棒！",
-      "author": "用户1785",
-      "likes": 2970,
-      "replies": 80,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户3739",
-      "likes": 2940,
-      "replies": 55,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天也很帅气",
-      "author": "用户1685",
-      "likes": 2911,
-      "replies": 4,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持到底",
-      "author": "用户4393",
-      "likes": 837,
-      "replies": 91,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "加油鸭！",
-      "author": "用户3236",
-      "likes": 3395,
-      "replies": 46,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户1355",
-      "likes": 5,
-      "replies": 95,
+      "author": "用户4307",
+      "likes": 1993,
+      "replies": 76,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "neutral"
-    },
-    {
-      "content": "加油鸭！",
-      "author": "用户9900",
-      "likes": 3804,
-      "replies": 72,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户9580",
-      "likes": 3243,
-      "replies": 28,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
     },
     {
       "content": "杨幂的演技越来越好了",
-      "author": "用户8041",
-      "likes": 3543,
-      "replies": 85,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户9677",
-      "likes": 597,
-      "replies": 4,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "新歌/新剧什么时候出？",
-      "author": "用户8521",
-      "likes": 4663,
-      "replies": 27,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待！",
-      "author": "用户7075",
-      "likes": 3545,
-      "replies": 3,
+      "author": "用户9377",
+      "likes": 1164,
+      "replies": 64,
       "is_top": false,
       "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户8251",
+      "likes": 3265,
+      "replies": 74,
+      "is_top": false,
+      "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "支持到底",
-      "author": "用户3462",
-      "likes": 4847,
-      "replies": 37,
+      "content": "综艺里好搞笑",
+      "author": "用户7520",
+      "likes": 2366,
+      "replies": 76,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户9475",
+      "likes": 4966,
+      "replies": 90,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "期待！",
-      "author": "用户1544",
-      "likes": 2588,
-      "replies": 6,
+      "content": "新剧什么时候出？",
+      "author": "用户7760",
+      "likes": 3567,
+      "replies": 30,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户7253",
+      "likes": 3741,
+      "replies": 72,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "一直支持",
-      "author": "用户6841",
-      "likes": 2833,
-      "replies": 18,
+      "content": "今天状态真好",
+      "author": "用户2324",
+      "likes": 1748,
+      "replies": 60,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户8725",
+      "likes": 3106,
+      "replies": 64,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户8207",
+      "likes": 4875,
+      "replies": 52,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
       "content": "杨幂永远的神",
-      "author": "用户4129",
-      "likes": 4717,
-      "replies": 50,
+      "author": "用户4013",
+      "likes": 1998,
+      "replies": 65,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
+      "source_platform": "weibo",
+      "sentiment": "negative"
     },
     {
-      "content": "一直支持",
-      "author": "用户9115",
-      "likes": 73,
-      "replies": 38,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持到底",
-      "author": "用户6436",
-      "likes": 3144,
-      "replies": 96,
+      "content": "杨幂的演技越来越好了",
+      "author": "用户5381",
+      "likes": 855,
+      "replies": 74,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "加油鸭！",
-      "author": "用户1035",
-      "likes": 2251,
-      "replies": 51,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持到底",
-      "author": "用户6299",
-      "likes": 4642,
-      "replies": 73,
+      "content": "支持杨幂！加油",
+      "author": "用户8174",
+      "likes": 2566,
+      "replies": 83,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
+      "source_platform": "weibo",
+      "sentiment": "negative"
     },
     {
-      "content": "加油鸭！",
-      "author": "用户5773",
-      "likes": 1132,
-      "replies": 72,
+      "content": "期待新作品！",
+      "author": "用户9223",
+      "likes": 738,
+      "replies": 35,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户9309",
-      "likes": 1189,
-      "replies": 21,
+      "content": "新剧什么时候出？",
+      "author": "用户7557",
+      "likes": 4534,
+      "replies": 60,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户2233",
+      "likes": 3403,
+      "replies": 90,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "新歌/新剧什么时候出？",
-      "author": "用户8434",
-      "likes": 4002,
-      "replies": 59,
+      "content": "路人转粉了",
+      "author": "用户8630",
+      "likes": 1338,
+      "replies": 77,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "期待！",
-      "author": "用户9743",
-      "likes": 2525,
+      "content": "今天状态真好",
+      "author": "用户7394",
+      "likes": 2867,
+      "replies": 17,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户7503",
+      "likes": 1442,
+      "replies": 5,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户7789",
+      "likes": 4670,
+      "replies": 28,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户9335",
+      "likes": 4577,
+      "replies": 82,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持杨幂！加油",
+      "author": "用户8346",
+      "likes": 541,
+      "replies": 77,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "杨幂好棒！",
+      "author": "用户3718",
+      "likes": 4339,
+      "replies": 49,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户4045",
+      "likes": 823,
+      "replies": 0,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持杨幂！加油",
+      "author": "用户8815",
+      "likes": 2738,
+      "replies": 75,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户4882",
+      "likes": 1316,
+      "replies": 25,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户9552",
+      "likes": 877,
+      "replies": 3,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户7134",
+      "likes": 141,
+      "replies": 69,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户3384",
+      "likes": 1322,
+      "replies": 78,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "杨幂永远的神",
+      "author": "用户5459",
+      "likes": 228,
+      "replies": 16,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户4502",
+      "likes": 4909,
+      "replies": 19,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持杨幂！加油",
+      "author": "用户4616",
+      "likes": 1078,
+      "replies": 81,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "杨幂永远的神",
+      "author": "用户2386",
+      "likes": 4134,
+      "replies": 60,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户7927",
+      "likes": 3991,
+      "replies": 27,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户4199",
+      "likes": 3622,
+      "replies": 63,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户6169",
+      "likes": 1425,
+      "replies": 94,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户6713",
+      "likes": 2388,
+      "replies": 98,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户3498",
+      "likes": 2152,
+      "replies": 75,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户4612",
+      "likes": 3402,
+      "replies": 54,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "杨幂好棒！",
+      "author": "用户1369",
+      "likes": 1019,
       "replies": 91,
       "is_top": false,
-      "source_platform": "douyin",
+      "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "支持杨幂！加油💪",
-      "author": "用户5929",
-      "likes": 4008,
-      "replies": 76,
+      "content": "看哭了，太感人了",
+      "author": "用户3317",
+      "likes": 2008,
+      "replies": 55,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户2561",
+      "likes": 3523,
+      "replies": 73,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "杨幂的演技越来越好了",
+      "author": "用户9077",
+      "likes": 2140,
+      "replies": 11,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "支持杨幂！加油💪",
-      "author": "用户2400",
-      "likes": 1940,
+      "content": "杨幂永远的神",
+      "author": "用户9501",
+      "likes": 1198,
+      "replies": 26,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持杨幂！加油",
+      "author": "用户9832",
+      "likes": 3416,
       "replies": 73,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "新歌/新剧什么时候出？",
-      "author": "用户4761",
-      "likes": 3759,
-      "replies": 16,
+      "content": "杨幂的演技越来越好了",
+      "author": "用户4928",
+      "likes": 1006,
+      "replies": 68,
       "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
+      "source_platform": "weibo",
+      "sentiment": "neutral"
     },
     {
-      "content": "支持杨幂！加油💪",
-      "author": "用户9921",
-      "likes": 2436,
-      "replies": 42,
+      "content": "杨幂好棒！",
+      "author": "用户5466",
+      "likes": 60,
+      "replies": 17,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "爱了爱了",
-      "author": "用户6984",
-      "likes": 2225,
-      "replies": 97,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持到底",
-      "author": "用户7923",
-      "likes": 2098,
-      "replies": 51,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "杨幂真好看",
-      "author": "用户2082",
-      "likes": 4339,
-      "replies": 27,
+      "author": "用户3718",
+      "likes": 3399,
+      "replies": 53,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "positive"
+      "sentiment": "negative"
     },
     {
-      "content": "支持到底",
-      "author": "用户4305",
-      "likes": 1929,
-      "replies": 31,
+      "content": "杨幂的演技越来越好了",
+      "author": "用户1634",
+      "likes": 4591,
+      "replies": 30,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "今天也很帅气",
-      "author": "用户4994",
-      "likes": 2123,
-      "replies": 15,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX年开始追的粉",
-      "author": "用户9843",
-      "likes": 1303,
-      "replies": 10,
+      "content": "期待新作品！",
+      "author": "用户3690",
+      "likes": 4265,
+      "replies": 5,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户4848",
-      "likes": 3331,
-      "replies": 55,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户3441",
-      "likes": 4095,
-      "replies": 68,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天也很帅气",
-      "author": "用户9395",
-      "likes": 4737,
-      "replies": 94,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "新歌/新剧什么时候出？",
-      "author": "用户3204",
-      "likes": 2259,
-      "replies": 79,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "期待！",
-      "author": "用户6847",
-      "likes": 580,
-      "replies": 35,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
+      "sentiment": "negative"
     }
   ],
   "news_articles": [
     {
-      "title": "杨幂时尚大片发布，展现多面魅力",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂最新时尚大片正式发布，展现不同以往的多面魅力，引发时尚圈关注。",
-      "publish_date": "2026-02-19",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/0",
-      "sentiment": "positive",
-      "sentiment_score": -0.09101964911447818,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂演唱会门票秒空",
-      "summary": "网友热议杨幂近况",
-      "content": "杨幂巡回演唱会门票开票即秒空，展现强大票房号召力。",
-      "publish_date": "2025-11-14",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/1",
-      "sentiment": "neutral",
-      "sentiment_score": 0.4306456255899444,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂参加活动，与粉丝互动温馨",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂出席品牌活动现场，与粉丝互动十分温馨，引发网友热议。",
-      "publish_date": "2025-11-10",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/2",
-      "sentiment": "neutral",
-      "sentiment_score": 0.08718627955541536,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂品牌代言曝光，商业价值持续走高",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂新代言正式曝光，与多个国际大牌合作，商业价值持续走高。",
-      "publish_date": "2026-01-13",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/3",
-      "sentiment": "neutral",
-      "sentiment_score": 0.18092844929782753,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂登封面，气场全开",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂登上某时尚杂志封面，大片造型气场全开，展现独特时尚品味。",
-      "publish_date": "2026-01-07",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/4",
-      "sentiment": "neutral",
-      "sentiment_score": -0.1778439590238738,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂获奖感言：感谢一路支持",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂在颁奖典礼上发表获奖感言，感谢粉丝和团队一路支持，场面温馨感人。",
-      "publish_date": "2026-01-21",
+      "title": "杨幂工作室发声明澄清网络传闻",
+      "summary": "杨幂近日动态引发关注",
+      "content": "杨幂工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
+      "publish_date": "2026-01-06",
       "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/5",
-      "sentiment": "neutral",
-      "sentiment_score": 0.21946532814004754,
+      "source_url": "https://example.com/news/杨幂/0",
+      "sentiment": "positive",
+      "sentiment_score": 0.07694331481872357,
       "category": "",
       "tags": []
     },
     {
-      "title": "杨幂化身推荐官，助力家乡",
-      "summary": "杨幂新动态曝光",
-      "content": "杨幂成为家乡旅游推荐官，发文助力家乡发展，获网友点赞。",
-      "publish_date": "2025-10-13",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/6",
-      "sentiment": "neutral",
-      "sentiment_score": 0.012526110541499547,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂工作室发声明澄清传闻",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂工作室今日发布官方声明，就近期网络传闻进行澄清，呼吁不信谣不传谣。",
-      "publish_date": "2026-02-06",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/7",
-      "sentiment": "neutral",
-      "sentiment_score": 0.02097747798314878,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂新剧官宣，粉丝期待值拉满",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂新剧正式官宣，与实力派演员合作，引发粉丝热烈讨论，期待值拉满。",
-      "publish_date": "2026-02-20",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/8",
-      "sentiment": "neutral",
-      "sentiment_score": -0.059738474374810974,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂综艺路透，录制状态轻松愉快",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂综艺节目录制现场路透曝光，状态轻松愉快，引发粉丝期待。",
-      "publish_date": "2025-11-23",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/9",
-      "sentiment": "neutral",
-      "sentiment_score": 0.3056838336533793,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂公益行动，传递正能量",
-      "summary": "杨幂成为焦点",
-      "content": "杨幂参与公益活动，用实际行动传递正能量，获得网友一致好评。",
-      "publish_date": "2025-10-16",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/10",
-      "sentiment": "neutral",
-      "sentiment_score": 0.04163386717906045,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂做客综艺，爆料趣事",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂做客某综艺节目，现场爆料拍摄趣事，引发观众爆笑。",
-      "publish_date": "2025-10-03",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/11",
-      "sentiment": "neutral",
-      "sentiment_score": -0.06792823934169981,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂新片开机，挑战全新角色",
+      "title": "杨幂《狐妖小红娘·月红篇》口碑两极，原著粉争议不断",
       "summary": "网友热议杨幂近况",
-      "content": "杨幂主演的新片正式开机，此次将挑战与以往完全不同的角色类型，引发期待。",
-      "publish_date": "2025-11-24",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/12",
-      "sentiment": "positive",
-      "sentiment_score": 0.21260799042700573,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂现身机场，身穿休闲装状态佳",
-      "summary": "杨幂相关话题上热搜",
-      "content": "杨幂今日现身首都机场，身穿简约休闲装，状态看起来十分不错，引来粉丝围观拍照。",
-      "publish_date": "2026-02-09",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/13",
+      "content": "改编自热门国漫的《狐妖小红娘》播出后口碑分化，部分观众认为改编偏离原著，但也有粉丝力挺杨幂演技。",
+      "publish_date": "2025-10-02",
+      "source": "搜狐娱乐",
+      "source_url": "https://example.com/news/杨幂/1",
       "sentiment": "neutral",
-      "sentiment_score": -0.1893795819008448,
+      "sentiment_score": 0.026361784208328826,
       "category": "",
       "tags": []
     },
     {
-      "title": "杨幂晒生活照，引发网友热议",
-      "summary": "杨幂成为焦点",
-      "content": "杨幂在社交媒体晒出生活照，展现真实一面，引发网友热议和点赞。",
-      "publish_date": "2026-01-18",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/14",
+      "title": "杨幂现身活动，状态在线",
+      "summary": "网友热议杨幂近况",
+      "content": "杨幂出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
+      "publish_date": "2026-01-04",
+      "source": "凤凰网娱乐",
+      "source_url": "https://example.com/news/杨幂/2",
       "sentiment": "positive",
-      "sentiment_score": 0.20457172635869753,
+      "sentiment_score": 0.4100604939593951,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "杨幂独立发展后首部作品开播，转型之路引发讨论",
+      "summary": "杨幂近日动态引发关注",
+      "content": "离开嘉行传媒后杨幂以个人工作室身份接洽项目，角色选择向正剧转型，业界关注其未来发展路径。",
+      "publish_date": "2026-01-20",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/杨幂/3",
+      "sentiment": "neutral",
+      "sentiment_score": -0.04505242871080262,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "杨幂《哈尔滨一九四四》热播，一人分饰两角挑战谍战题材",
+      "summary": "杨幂近日动态引发关注",
+      "content": "杨幂主演的民国谍战剧《哈尔滨一九四四》正在热播，与秦昊搭档，杨幂挑战双角色演技获关注。",
+      "publish_date": "2026-03-16",
+      "source": "凤凰网娱乐",
+      "source_url": "https://example.com/news/杨幂/4",
+      "sentiment": "positive",
+      "sentiment_score": 0.46713262264119565,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "杨幂时尚大片发布，造型引热议",
+      "summary": "杨幂相关话题登上热搜",
+      "content": "杨幂最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
+      "publish_date": "2025-11-11",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/杨幂/5",
+      "sentiment": "positive",
+      "sentiment_score": -0.17775786393226578,
       "category": "",
       "tags": []
     }
   ],
   "statistics": {
     "data_completeness": 0.95,
-    "total_posts": 18,
-    "total_comments": 66,
-    "total_news": 15,
-    "total_relationships": 3,
-    "total_gossips": 1
+    "total_posts": 13,
+    "total_comments": 56,
+    "total_news": 6,
+    "total_relationships": 4,
+    "total_gossips": 3
   }
 }

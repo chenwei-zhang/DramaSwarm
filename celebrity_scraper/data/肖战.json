@@ -11,12 +11,12 @@
       "演员",
       "歌手"
     ],
-    "company": "哇唧唧哇娱乐",
+    "company": "肖战工作室",
     "agency": "",
     "height": "183cm",
     "weight": "",
     "blood_type": "",
-    "biography": "肖战，中国内地影视男演员、歌手。2015年，以选手身份参加浙江卫视才艺养成选秀节目《燃烧吧少年》，最终以X玖少年团成员身份出道。2019年，因出演古装仙侠剧《陈情令》魏无羡一角而获得广泛关注。",
+    "biography": "肖战，中国内地影视男演员、歌手。2015年以X玖少年团成员身份出道，2019年因出演《陈情令》魏无羡一角爆红。近年与徐克、郑晓龙、孔笙等顶级导演合作，成功转型实力派路线。2025年春节档主演徐克执导的《射雕英雄传：侠之大者》。",
     "education": "",
     "alma_mater": "",
     "works": [],
@@ -26,30 +26,31 @@
       "王牌部队",
       "梦中的那片海",
       "骄阳伴我",
-      "射雕英雄传侠之大者"
+      "射雕英雄传：侠之大者",
+      "藏海传"
     ],
     "weibo_id": "",
-    "weibo_followers": 30000000,
+    "weibo_followers": 32000000,
     "avatar_url": "https://example.com/xiaozhan.jpg",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [],
-    "updated_at": "2026-03-27T10:27:55.064499"
+    "updated_at": "2026-03-27T20:33:44.913692"
   },
   "gossips": [
     {
-      "title": "肖战新剧《陈情令》热播",
-      "content": "肖战主演的新剧《陈情令》正在热播，演技获得观众好评，话题度持续走高。",
+      "title": "肖战《射雕英雄传》春节档上映",
+      "content": "2025年春节档肖战主演的《射雕英雄传：侠之大者》上映，由徐克执导，肖战饰演郭靖。这是肖战首次挑大梁主演大制作电影，票房表现引发广泛讨论和关注。",
       "gossip_type": "other",
-      "date": "2026-03-07",
+      "date": "2025-01-29",
       "involved_celebrities": [
         "肖战"
       ],
       "tags": [],
-      "importance": 0.6,
+      "importance": 0.8,
       "verified": true,
-      "sentiment": "positive",
-      "sentiment_score": 0.5,
+      "sentiment": "neutral",
+      "sentiment_score": 0.0,
       "source_url": "",
       "source_type": "sina"
     }
@@ -62,71 +63,52 @@
       "start_date": null,
       "end_date": null,
       "is_current": true,
-      "description": "《陈情令》合作主演",
-      "confidence": 0.85,
-      "strength": 0.8
+      "description": "2019年合作《陈情令》，剧后各自发展，CP粉基础庞大",
+      "confidence": 0.9,
+      "strength": 0.75
     },
     {
       "person_a": "肖战",
-      "person_b": "赵丽颖",
+      "person_b": "杨幂",
       "relation_type": "好友",
       "start_date": null,
       "end_date": null,
       "is_current": true,
-      "description": "曾合作过影视作品",
-      "confidence": 0.7,
-      "strength": 0.5
+      "description": "业内前辈后辈关系，偶有互动",
+      "confidence": 0.6,
+      "strength": 0.4
     }
   ],
   "social_media_posts": [
     {
       "id": "wb_肖战_0",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "肖战",
-      "content": "感恩相遇，一路同行",
-      "likes": 412871,
-      "reposts": 3903,
-      "comments": 877,
-      "publish_time": "2025-07-02",
+      "content": "感谢大家一路以来的支持和陪伴",
+      "likes": 227944,
+      "reposts": 35371,
+      "comments": 3917,
+      "publish_time": "2025-05-14",
       "source_url": "https://weibo.com/肖战/0",
       "tags": [
-        "生活",
-        "记录"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "感恩",
-        "粉丝"
+        "杀青",
+        "新戏"
       ]
     },
     {
       "id": "wb_肖战_1",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "今天的阳光真好☀️",
-      "likes": 476379,
-      "reposts": 24344,
-      "comments": 1723,
-      "publish_time": "2025-12-20",
-      "source_url": "https://weibo.com/肖战/1",
-      "tags": [
-        "生活",
-        "记录"
-      ],
-      "topics": [
-        "正能量",
-        "公益"
-      ]
-    },
-    {
-      "id": "wb_肖战_2",
       "platform": "douyin",
       "author": "肖战",
-      "content": "剧组杀青啦！",
-      "likes": 283458,
-      "reposts": 12624,
-      "comments": 8659,
-      "publish_time": "2025-10-19",
-      "source_url": "https://weibo.com/肖战/2",
+      "content": "今天在片场学到了很多",
+      "likes": 440173,
+      "reposts": 27494,
+      "comments": 8239,
+      "publish_time": "2025-08-18",
+      "source_url": "https://weibo.com/肖战/1",
       "tags": [
         "杀青",
         "新戏"
@@ -137,75 +119,94 @@
       ]
     },
     {
+      "id": "wb_肖战_2",
+      "platform": "weibo",
+      "author": "肖战",
+      "content": "新的旅程开始，继续前行",
+      "likes": 76822,
+      "reposts": 8374,
+      "comments": 7284,
+      "publish_time": "2026-01-29",
+      "source_url": "https://weibo.com/肖战/2",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "新剧",
+        "期待"
+      ]
+    },
+    {
       "id": "wb_肖战_3",
       "platform": "weibo",
       "author": "肖战",
-      "content": "录制综艺节目中...",
-      "likes": 223775,
-      "reposts": 9606,
-      "comments": 7886,
-      "publish_time": "2025-09-19",
+      "content": "感谢品牌方的邀请",
+      "likes": 416212,
+      "reposts": 14744,
+      "comments": 8392,
+      "publish_time": "2025-10-27",
       "source_url": "https://weibo.com/肖战/3",
       "tags": [
-        "日常",
-        "分享"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "工作",
-        "努力"
+        "日常",
+        "分享"
       ]
     },
     {
       "id": "wb_肖战_4",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "肖战",
-      "content": "路演现场见，不见不散",
-      "likes": 23395,
-      "reposts": 1594,
-      "comments": 5389,
-      "publish_time": "2025-10-01",
+      "content": "新歌听听看",
+      "likes": 119188,
+      "reposts": 26021,
+      "comments": 5166,
+      "publish_time": "2025-08-17",
       "source_url": "https://weibo.com/肖战/4",
       "tags": [
-        "工作",
-        "努力"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "健身",
-        "运动"
+        "新剧",
+        "期待"
       ]
     },
     {
       "id": "wb_肖战_5",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "肖战",
-      "content": "新剧开机，加油！",
-      "likes": 103794,
-      "reposts": 36812,
-      "comments": 3297,
-      "publish_time": "2026-02-24",
+      "content": "公益行动，传递正能量",
+      "likes": 163506,
+      "reposts": 42273,
+      "comments": 2841,
+      "publish_time": "2025-04-19",
       "source_url": "https://weibo.com/肖战/5",
       "tags": [
-        "正能量",
-        "公益"
-      ],
-      "topics": [
         "工作",
         "努力"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
       ]
     },
     {
       "id": "wb_肖战_6",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "肖战",
-      "content": "感谢品牌方的邀请",
-      "likes": 36943,
-      "reposts": 6902,
-      "comments": 9785,
-      "publish_time": "2025-04-16",
+      "content": "收工啦，晚安！",
+      "likes": 10382,
+      "reposts": 33968,
+      "comments": 8859,
+      "publish_time": "2025-04-05",
       "source_url": "https://weibo.com/肖战/6",
       "tags": [
-        "正能量",
-        "公益"
+        "生活",
+        "记录"
       ],
       "topics": [
         "生活",
@@ -214,33 +215,71 @@
     },
     {
       "id": "wb_肖战_7",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "肖战",
-      "content": "享受当下，不负时光",
-      "likes": 359398,
-      "reposts": 48999,
-      "comments": 2393,
-      "publish_time": "2026-02-17",
+      "content": "剧组日常，认真工作中",
+      "likes": 303801,
+      "reposts": 32635,
+      "comments": 9220,
+      "publish_time": "2025-09-26",
       "source_url": "https://weibo.com/肖战/7",
       "tags": [
-        "健身",
-        "运动"
+        "日常",
+        "分享"
       ],
       "topics": [
-        "正能量",
-        "公益"
+        "杀青",
+        "新戏"
       ]
     },
     {
       "id": "wb_肖战_8",
       "platform": "douyin",
       "author": "肖战",
-      "content": "感谢粉丝们的生日祝福！",
-      "likes": 376824,
-      "reposts": 24516,
-      "comments": 5814,
-      "publish_time": "2025-07-10",
+      "content": "《藏海传》杀青，感恩遇见",
+      "likes": 239679,
+      "reposts": 8811,
+      "comments": 6881,
+      "publish_time": "2026-03-19",
       "source_url": "https://weibo.com/肖战/8",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_肖战_9",
+      "platform": "douyin",
+      "author": "肖战",
+      "content": "路演见",
+      "likes": 445288,
+      "reposts": 45044,
+      "comments": 1364,
+      "publish_time": "2025-09-03",
+      "source_url": "https://weibo.com/肖战/9",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "新剧",
+        "期待"
+      ]
+    },
+    {
+      "id": "wb_肖战_10",
+      "platform": "douyin",
+      "author": "肖战",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 321288,
+      "reposts": 4338,
+      "comments": 7406,
+      "publish_time": "2025-06-06",
+      "source_url": "https://weibo.com/肖战/10",
       "tags": [
         "新剧",
         "期待"
@@ -251,823 +290,674 @@
       ]
     },
     {
-      "id": "wb_肖战_9",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "新歌听听看，希望大家喜欢",
-      "likes": 272928,
-      "reposts": 11645,
-      "comments": 7267,
-      "publish_time": "2025-12-02",
-      "source_url": "https://weibo.com/肖战/9",
-      "tags": [
-        "工作",
-        "努力"
-      ],
-      "topics": [
-        "健身",
-        "运动"
-      ]
-    },
-    {
-      "id": "wb_肖战_10",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "收工啦，晚安！",
-      "likes": 294464,
-      "reposts": 43491,
-      "comments": 4446,
-      "publish_time": "2025-09-08",
-      "source_url": "https://weibo.com/肖战/10",
-      "tags": [
-        "日常",
-        "分享"
-      ],
-      "topics": [
-        "工作",
-        "努力"
-      ]
-    },
-    {
       "id": "wb_肖战_11",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "肖战",
-      "content": "今天的夕阳很美",
-      "likes": 75958,
-      "reposts": 11888,
-      "comments": 4062,
-      "publish_time": "2026-02-03",
+      "content": "《射雕英雄传》即将上映，紧张又期待",
+      "likes": 479576,
+      "reposts": 44150,
+      "comments": 1443,
+      "publish_time": "2025-10-01",
       "source_url": "https://weibo.com/肖战/11",
       "tags": [
-        "日常",
-        "分享"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
-        "正能量",
-        "公益"
+        "工作",
+        "努力"
       ]
     },
     {
       "id": "wb_肖战_12",
       "platform": "douyin",
       "author": "肖战",
-      "content": "健身打卡第N天",
-      "likes": 145048,
-      "reposts": 41586,
-      "comments": 1668,
-      "publish_time": "2025-12-24",
+      "content": "健身打卡",
+      "likes": 304337,
+      "reposts": 49697,
+      "comments": 8078,
+      "publish_time": "2025-07-20",
       "source_url": "https://weibo.com/肖战/12",
-      "tags": [
-        "工作",
-        "努力"
-      ],
-      "topics": [
-        "生活",
-        "记录"
-      ]
-    },
-    {
-      "id": "wb_肖战_13",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "公益活动，传递正能量",
-      "likes": 416649,
-      "reposts": 2953,
-      "comments": 578,
-      "publish_time": "2025-05-18",
-      "source_url": "https://weibo.com/肖战/13",
-      "tags": [
-        "感恩",
-        "粉丝"
-      ],
-      "topics": [
-        "日常",
-        "分享"
-      ]
-    },
-    {
-      "id": "wb_肖战_14",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "新作品即将上线，敬请期待！",
-      "likes": 210868,
-      "reposts": 15241,
-      "comments": 6064,
-      "publish_time": "2025-06-10",
-      "source_url": "https://weibo.com/肖战/14",
-      "tags": [
-        "杀青",
-        "新戏"
-      ],
-      "topics": [
-        "日常",
-        "分享"
-      ]
-    },
-    {
-      "id": "wb_肖战_15",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "今天的拍摄很顺利，感谢大家的支持！",
-      "likes": 351259,
-      "reposts": 5542,
-      "comments": 6635,
-      "publish_time": "2026-02-07",
-      "source_url": "https://weibo.com/肖战/15",
       "tags": [
         "新剧",
         "期待"
       ],
       "topics": [
-        "杀青",
-        "新戏"
+        "新剧",
+        "期待"
       ]
     }
   ],
   "comments": [
     {
+      "content": "今天状态真好",
+      "author": "用户5980",
+      "likes": 2969,
+      "replies": 21,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持肖战！加油",
+      "author": "用户8472",
+      "likes": 702,
+      "replies": 39,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
       "content": "爱了爱了",
-      "author": "用户5790",
-      "likes": 1984,
-      "replies": 30,
+      "author": "用户5593",
+      "likes": 3419,
+      "replies": 85,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "今天也很帅气",
-      "author": "用户5058",
-      "likes": 718,
-      "replies": 50,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户1803",
-      "likes": 2611,
-      "replies": 15,
+      "content": "这颜值真的绝了",
+      "author": "用户2787",
+      "likes": 313,
+      "replies": 63,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "支持到底",
-      "author": "用户2353",
-      "likes": 1351,
-      "replies": 44,
+      "content": "路人转粉了",
+      "author": "用户8880",
+      "likes": 326,
+      "replies": 13,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户9425",
+      "likes": 1411,
+      "replies": 91,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户3513",
+      "likes": 1278,
+      "replies": 56,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
     },
     {
       "content": "肖战好棒！",
-      "author": "用户9051",
-      "likes": 3879,
+      "author": "用户7542",
+      "likes": 3363,
       "replies": 16,
-      "is_top": true,
+      "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "positive"
+      "sentiment": "neutral"
     },
     {
-      "content": "支持肖战！加油💪",
-      "author": "用户5434",
-      "likes": 69,
-      "replies": 75,
+      "content": "综艺里好搞笑",
+      "author": "用户6049",
+      "likes": 4267,
+      "replies": 54,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待！",
-      "author": "用户1267",
-      "likes": 2075,
-      "replies": 37,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX年开始追的粉",
-      "author": "用户5065",
-      "likes": 3420,
-      "replies": 14,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "今天也很帅气",
-      "author": "用户8827",
-      "likes": 1422,
-      "replies": 25,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "加油鸭！",
-      "author": "用户5198",
-      "likes": 2604,
-      "replies": 71,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户4311",
-      "likes": 4418,
-      "replies": 93,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持到底",
-      "author": "用户8768",
-      "likes": 14,
-      "replies": 30,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
+      "sentiment": "negative"
     },
     {
       "content": "肖战好棒！",
-      "author": "用户9219",
-      "likes": 4575,
-      "replies": 35,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "期待！",
-      "author": "用户8263",
-      "likes": 162,
-      "replies": 97,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户2567",
-      "likes": 885,
-      "replies": 60,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "肖战好棒！",
-      "author": "用户2108",
-      "likes": 3837,
+      "author": "用户1995",
+      "likes": 3395,
       "replies": 77,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "肖战永远的神",
-      "author": "用户7630",
-      "likes": 1845,
-      "replies": 39,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天也很帅气",
-      "author": "用户7628",
-      "likes": 2527,
-      "replies": 59,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待！",
-      "author": "用户6005",
-      "likes": 3713,
-      "replies": 10,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持肖战！加油💪",
-      "author": "用户9429",
-      "likes": 3742,
-      "replies": 27,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持肖战！加油💪",
-      "author": "用户8871",
-      "likes": 3430,
-      "replies": 24,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待！",
-      "author": "用户2386",
-      "likes": 1724,
-      "replies": 53,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
+      "sentiment": "negative"
     },
     {
       "content": "肖战的演技越来越好了",
-      "author": "用户1044",
-      "likes": 2775,
-      "replies": 62,
+      "author": "用户6815",
+      "likes": 292,
+      "replies": 11,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "positive"
+      "sentiment": "negative"
     },
     {
-      "content": "肖战真好看",
-      "author": "用户9167",
-      "likes": 3309,
-      "replies": 60,
+      "content": "肖战的演技越来越好了",
+      "author": "用户2720",
+      "likes": 2878,
+      "replies": 25,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
+      "sentiment": "negative"
     },
     {
-      "content": "期待！",
-      "author": "用户5425",
-      "likes": 907,
-      "replies": 85,
+      "content": "永远支持",
+      "author": "用户5094",
+      "likes": 4545,
+      "replies": 35,
       "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
+      "source_platform": "douyin",
+      "sentiment": "neutral"
     },
     {
       "content": "肖战永远的神",
-      "author": "用户3640",
-      "likes": 3268,
-      "replies": 76,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持肖战！加油💪",
-      "author": "用户7794",
-      "likes": 1367,
-      "replies": 73,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户2077",
-      "likes": 1017,
-      "replies": 34,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX年开始追的粉",
-      "author": "用户8773",
-      "likes": 4101,
-      "replies": 85,
+      "author": "用户9244",
+      "likes": 183,
+      "replies": 77,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户5451",
-      "likes": 871,
-      "replies": 8,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户7895",
-      "likes": 3635,
-      "replies": 22,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户5371",
-      "likes": 3638,
-      "replies": 75,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待！",
-      "author": "用户2706",
-      "likes": 835,
-      "replies": 30,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户5703",
-      "likes": 3115,
-      "replies": 3,
+      "content": "肖战好棒！",
+      "author": "用户6737",
+      "likes": 487,
+      "replies": 84,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "一直支持",
-      "author": "用户8293",
-      "likes": 3543,
-      "replies": 15,
-      "is_top": true,
-      "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
       "content": "爱了爱了",
-      "author": "用户3847",
-      "likes": 1153,
-      "replies": 44,
+      "author": "用户7978",
+      "likes": 710,
+      "replies": 64,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "今天也很帅气",
-      "author": "用户2009",
-      "likes": 966,
+      "content": "期待新作品！",
+      "author": "用户6288",
+      "likes": 2437,
+      "replies": 59,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户7110",
+      "likes": 1111,
+      "replies": 93,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "肖战永远的神",
+      "author": "用户4497",
+      "likes": 1766,
+      "replies": 19,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户9751",
+      "likes": 2461,
+      "replies": 55,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户3619",
+      "likes": 558,
+      "replies": 42,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户2321",
+      "likes": 2033,
+      "replies": 65,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户2255",
+      "likes": 2839,
+      "replies": 63,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "肖战好棒！",
+      "author": "用户1806",
+      "likes": 423,
+      "replies": 81,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户3053",
+      "likes": 828,
+      "replies": 31,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户3654",
+      "likes": 1479,
+      "replies": 38,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户9337",
+      "likes": 1966,
+      "replies": 88,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户5351",
+      "likes": 854,
+      "replies": 52,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户4658",
+      "likes": 3501,
+      "replies": 93,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "肖战永远的神",
+      "author": "用户1331",
+      "likes": 1428,
+      "replies": 22,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户8146",
+      "likes": 391,
+      "replies": 3,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "肖战好棒！",
+      "author": "用户2301",
+      "likes": 3946,
+      "replies": 42,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户5912",
+      "likes": 3486,
       "replies": 52,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "爱了爱了",
-      "author": "用户7447",
-      "likes": 3679,
-      "replies": 45,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "肖战真好看",
-      "author": "用户4234",
-      "likes": 4053,
-      "replies": 31,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "新歌/新剧什么时候出？",
-      "author": "用户1682",
-      "likes": 4503,
-      "replies": 42,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户8625",
-      "likes": 3507,
-      "replies": 42,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "肖战好棒！",
-      "author": "用户3365",
-      "likes": 2877,
+      "content": "路人转粉了",
+      "author": "用户7888",
+      "likes": 3205,
       "replies": 14,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持到底",
-      "author": "用户5442",
-      "likes": 3044,
-      "replies": 6,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "加油鸭！",
-      "author": "用户4434",
-      "likes": 1500,
-      "replies": 74,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天也很帅气",
-      "author": "用户4336",
-      "likes": 2593,
-      "replies": 100,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "新歌/新剧什么时候出？",
-      "author": "用户3665",
-      "likes": 2293,
-      "replies": 100,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "肖战好棒！",
-      "author": "用户2031",
-      "likes": 2221,
-      "replies": 55,
-      "is_top": false,
-      "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "今天也很帅气",
-      "author": "用户9637",
-      "likes": 3120,
-      "replies": 13,
+      "content": "路人转粉了",
+      "author": "用户3495",
+      "likes": 1307,
+      "replies": 0,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "支持肖战！加油",
+      "author": "用户6329",
+      "likes": 379,
+      "replies": 17,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "肖战好棒！",
+      "author": "用户4505",
+      "likes": 3196,
+      "replies": 53,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户5364",
+      "likes": 385,
+      "replies": 57,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "肖战的演技越来越好了",
+      "author": "用户5784",
+      "likes": 1127,
+      "replies": 92,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户7875",
+      "likes": 1185,
+      "replies": 97,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "今天也很帅气",
-      "author": "用户3875",
-      "likes": 3942,
-      "replies": 14,
+      "content": "看哭了，太感人了",
+      "author": "用户6504",
+      "likes": 1723,
+      "replies": 44,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户2293",
+      "likes": 2406,
+      "replies": 3,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "肖战的演技越来越好了",
+      "author": "用户4674",
+      "likes": 4562,
+      "replies": 82,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户6412",
+      "likes": 4719,
+      "replies": 75,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户9792",
+      "likes": 4074,
+      "replies": 48,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户8899",
+      "likes": 1729,
+      "replies": 98,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户4425",
+      "likes": 1370,
+      "replies": 29,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户5305",
+      "likes": 4876,
+      "replies": 79,
       "is_top": true,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "肖战永远的神",
-      "author": "用户7158",
-      "likes": 4207,
-      "replies": 78,
+      "author": "用户8350",
+      "likes": 4086,
+      "replies": 0,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "从XX年开始追的粉",
-      "author": "用户8439",
-      "likes": 2285,
-      "replies": 84,
+      "content": "爱了爱了",
+      "author": "用户5997",
+      "likes": 1749,
+      "replies": 97,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "neutral"
+      "sentiment": "negative"
     },
     {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户2330",
-      "likes": 669,
-      "replies": 62,
+      "content": "永远支持",
+      "author": "用户5170",
+      "likes": 3131,
+      "replies": 47,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户8911",
-      "likes": 2353,
-      "replies": 60,
-      "is_top": false,
-      "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
       "content": "肖战的演技越来越好了",
-      "author": "用户8834",
-      "likes": 4142,
-      "replies": 8,
+      "author": "用户8609",
+      "likes": 2400,
+      "replies": 20,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户4084",
+      "likes": 4555,
+      "replies": 54,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户2714",
+      "likes": 623,
+      "replies": 18,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持肖战！加油",
+      "author": "用户4171",
+      "likes": 2808,
+      "replies": 28,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "支持肖战！加油💪",
-      "author": "用户1431",
-      "likes": 119,
-      "replies": 54,
+      "content": "支持肖战！加油",
+      "author": "用户6506",
+      "likes": 56,
+      "replies": 44,
       "is_top": false,
       "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户3331",
+      "likes": 3740,
+      "replies": 4,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "肖战的演技越来越好了",
+      "author": "用户2825",
+      "likes": 3254,
+      "replies": 21,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户7617",
+      "likes": 2788,
+      "replies": 57,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "肖战永远的神",
+      "author": "用户8405",
+      "likes": 4545,
+      "replies": 1,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户4020",
+      "likes": 4099,
+      "replies": 64,
+      "is_top": true,
+      "source_platform": "douyin",
       "sentiment": "positive"
     }
   ],
   "news_articles": [
     {
-      "title": "肖战品牌代言曝光，商业价值持续走高",
-      "summary": "肖战近日活动引发关注",
-      "content": "肖战新代言正式曝光，与多个国际大牌合作，商业价值持续走高。",
-      "publish_date": "2025-12-29",
+      "title": "肖战《藏海传》杀青，与郑晓龙导演合作",
+      "summary": "肖战近日动态引发关注",
+      "content": "肖战主演古装剧《藏海传》正式杀青，由郑晓龙执导，肖战饰演汪藏海一角，预计2025年播出。",
+      "publish_date": "2026-03-11",
       "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/0",
-      "sentiment": "positive",
-      "sentiment_score": -0.14005825877091854,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战登封面，气场全开",
-      "summary": "肖战相关话题上热搜",
-      "content": "肖战登上某时尚杂志封面，大片造型气场全开，展现独特时尚品味。",
-      "publish_date": "2025-10-16",
-      "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/1",
+      "source_url": "https://example.com/news/肖战/0",
       "sentiment": "neutral",
-      "sentiment_score": -0.1692224044852061,
+      "sentiment_score": -0.16741335071361377,
       "category": "",
       "tags": []
     },
     {
-      "title": "肖战化身推荐官，助力家乡",
+      "title": "肖战《射雕英雄传：侠之大者》定档春节，徐克执导引期待",
+      "summary": "肖战近日动态引发关注",
+      "content": "肖战主演、徐克执导的《射雕英雄传：侠之大者》正式定档2025年春节，肖战饰演郭靖引发热议。",
+      "publish_date": "2025-10-25",
+      "source": "网易娱乐",
+      "source_url": "https://example.com/news/肖战/1",
+      "sentiment": "neutral",
+      "sentiment_score": 0.03439856976788999,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "肖战商业价值持续走高，多个国际品牌代言",
+      "summary": "肖战相关话题登上热搜",
+      "content": "肖战近年商业代言涵盖多个领域，从偶像成功转型实力派演员，商业价值持续走高。",
+      "publish_date": "2025-10-06",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/肖战/2",
+      "sentiment": "positive",
+      "sentiment_score": 0.3043402807122106,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "肖战现身活动，状态在线",
+      "summary": "肖战近日动态引发关注",
+      "content": "肖战出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
+      "publish_date": "2025-11-14",
+      "source": "凤凰网娱乐",
+      "source_url": "https://example.com/news/肖战/3",
+      "sentiment": "neutral",
+      "sentiment_score": 0.19750977592724717,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "肖战工作室发声明澄清网络传闻",
       "summary": "网友热议肖战近况",
-      "content": "肖战成为家乡旅游推荐官，发文助力家乡发展，获网友点赞。",
-      "publish_date": "2025-10-27",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/2",
-      "sentiment": "positive",
-      "sentiment_score": -0.05075397632733697,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战晒生活照，引发网友热议",
-      "summary": "肖战新动态曝光",
-      "content": "肖战在社交媒体晒出生活照，展现真实一面，引发网友热议和点赞。",
-      "publish_date": "2025-12-14",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/3",
-      "sentiment": "positive",
-      "sentiment_score": 0.3817864170488751,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战现身机场，身穿休闲装状态佳",
-      "summary": "肖战成为焦点",
-      "content": "肖战今日现身首都机场，身穿简约休闲装，状态看起来十分不错，引来粉丝围观拍照。",
-      "publish_date": "2026-01-14",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/4",
-      "sentiment": "neutral",
-      "sentiment_score": 0.1533617732868804,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战新片开机，挑战全新角色",
-      "summary": "肖战近日活动引发关注",
-      "content": "肖战主演的新片正式开机，此次将挑战与以往完全不同的角色类型，引发期待。",
-      "publish_date": "2026-01-13",
-      "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/5",
-      "sentiment": "neutral",
-      "sentiment_score": 0.03893567972560763,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战演唱会门票秒空",
-      "summary": "肖战相关话题上热搜",
-      "content": "肖战巡回演唱会门票开票即秒空，展现强大票房号召力。",
-      "publish_date": "2025-10-02",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/6",
-      "sentiment": "neutral",
-      "sentiment_score": -0.10707337499622609,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战时尚大片发布，展现多面魅力",
-      "summary": "肖战新动态曝光",
-      "content": "肖战最新时尚大片正式发布，展现不同以往的多面魅力，引发时尚圈关注。",
-      "publish_date": "2026-01-27",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/7",
-      "sentiment": "neutral",
-      "sentiment_score": -0.06177204974482839,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战工作室发声明澄清传闻",
-      "summary": "肖战新动态曝光",
-      "content": "肖战工作室今日发布官方声明，就近期网络传闻进行澄清，呼吁不信谣不传谣。",
-      "publish_date": "2025-11-23",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/8",
-      "sentiment": "neutral",
-      "sentiment_score": -0.10870266587391318,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战公益行动，传递正能量",
-      "summary": "肖战近日活动引发关注",
-      "content": "肖战参与公益活动，用实际行动传递正能量，获得网友一致好评。",
-      "publish_date": "2026-01-24",
+      "content": "肖战工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
+      "publish_date": "2026-01-18",
       "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/9",
-      "sentiment": "neutral",
-      "sentiment_score": 0.4025134148387763,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战获奖感言：感谢一路支持",
-      "summary": "肖战新动态曝光",
-      "content": "肖战在颁奖典礼上发表获奖感言，感谢粉丝和团队一路支持，场面温馨感人。",
-      "publish_date": "2025-11-06",
-      "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/10",
+      "source_url": "https://example.com/news/肖战/4",
       "sentiment": "positive",
-      "sentiment_score": 0.3033465056713101,
+      "sentiment_score": 0.040174346121497784,
       "category": "",
       "tags": []
     },
     {
-      "title": "肖战参加活动，与粉丝互动温馨",
-      "summary": "肖战近日活动引发关注",
-      "content": "肖战出席品牌活动现场，与粉丝互动十分温馨，引发网友热议。",
-      "publish_date": "2025-10-02",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/11",
-      "sentiment": "neutral",
-      "sentiment_score": 0.46008808978046817,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战做客综艺，爆料趣事",
-      "summary": "肖战成为焦点",
-      "content": "肖战做客某综艺节目，现场爆料拍摄趣事，引发观众爆笑。",
-      "publish_date": "2025-12-25",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/12",
-      "sentiment": "positive",
-      "sentiment_score": 0.16875867539386696,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战新剧官宣，粉丝期待值拉满",
-      "summary": "肖战成为焦点",
-      "content": "肖战新剧正式官宣，与实力派演员合作，引发粉丝热烈讨论，期待值拉满。",
-      "publish_date": "2025-12-21",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/13",
-      "sentiment": "neutral",
-      "sentiment_score": -0.11352784388401876,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战综艺路透，录制状态轻松愉快",
-      "summary": "肖战相关话题上热搜",
-      "content": "肖战综艺节目录制现场路透曝光，状态轻松愉快，引发粉丝期待。",
-      "publish_date": "2025-11-17",
+      "title": "肖战时尚大片发布，造型引热议",
+      "summary": "网友热议肖战近况",
+      "content": "肖战最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
+      "publish_date": "2025-11-01",
       "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/14",
+      "source_url": "https://example.com/news/肖战/5",
       "sentiment": "neutral",
-      "sentiment_score": 0.29213083379645854,
+      "sentiment_score": 0.2439986240246304,
       "category": "",
       "tags": []
     }
   ],
   "statistics": {
     "data_completeness": 1.0,
-    "total_posts": 16,
-    "total_comments": 55,
-    "total_news": 15,
+    "total_posts": 13,
+    "total_comments": 61,
+    "total_news": 6,
     "total_relationships": 2,
     "total_gossips": 1
   }

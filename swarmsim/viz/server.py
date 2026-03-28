@@ -43,16 +43,14 @@ def _load_knowledge_graph() -> KnowledgeGraph:
     # 降级到 mock 数据
     print("未找到爬虫数据，使用 mock 数据...")
     mock_names = ["肖战", "王一博", "杨幂", "赵丽颖", "迪丽热巴",
-                  "李小璐", "贾乃亮", "PG One", "唐嫣", "张艺兴"]
-    try:
-        from celebrity_scraper.mock_data import MockDataGenerator
-        gen = MockDataGenerator()
-        for name in mock_names:
-            profile = gen.generate_profile(name)
-            kg._load_single_profile(profile)
-        print(f"Mock 知识图谱已加载: {kg.node_count}节点, {kg.edge_count}边")
-    except Exception:
-        # 最基本的 mock
+                  "李小璐", "贾乃亮", "PG One", "唐嫣", "罗晋"]
+    stats = kg.load_from_mock_data(mock_names)
+    if stats["celebrities"] > 0:
+        print(f"Mock 知识图谱已加载: {stats['celebrities']}位明星, "
+              f"{stats['relationships']}条关系, "
+              f"{stats['gossips']}个事件, "
+              f"{stats['news']}条新闻")
+    else:
         for name in mock_names:
             kg._add_celebrity_node(name, {})
         print(f"基础图谱已加载: {kg.node_count}位明星")

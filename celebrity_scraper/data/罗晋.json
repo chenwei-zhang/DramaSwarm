@@ -10,49 +10,31 @@
     "occupation": [
       "演员"
     ],
-    "company": "",
+    "company": "罗晋工作室",
     "agency": "",
     "height": "178cm",
     "weight": "",
     "blood_type": "",
-    "biography": "罗晋，中国内地男演员。2010年，主演历史剧《三国》进入观众视野。2012年，主演古装剧《王的女人》。2015年，主演电视剧《锦绣未央》与唐嫣相识相恋。",
+    "biography": "罗晋，中国内地男演员。2010年主演《三国》进入观众视野。2018年与唐嫣在维也纳结婚，2020年喜得千金。近年作品有《幸福到万家》《天下长河》《埃博拉前线》等，以实力派演技著称。",
     "education": "",
     "alma_mater": "",
     "works": [],
     "famous_works": [
       "锦绣未央",
-      "归去来",
       "鹤唳华亭",
       "幸福到万家",
       "天下长河",
       "埃博拉前线"
     ],
     "weibo_id": "",
-    "weibo_followers": 20000000,
+    "weibo_followers": 22000000,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [],
-    "updated_at": "2026-03-27T10:28:13.131488"
+    "updated_at": "2026-03-27T20:34:02.989816"
   },
-  "gossips": [
-    {
-      "title": "罗晋新剧《锦绣未央》热播",
-      "content": "罗晋主演的新剧《锦绣未央》正在热播，演技获得观众好评，话题度持续走高。",
-      "gossip_type": "other",
-      "date": "2026-02-11",
-      "involved_celebrities": [
-        "罗晋"
-      ],
-      "tags": [],
-      "importance": 0.6,
-      "verified": true,
-      "sentiment": "positive",
-      "sentiment_score": 0.5,
-      "source_url": "",
-      "source_type": "sina"
-    }
-  ],
+  "gossips": [],
   "relationships": [
     {
       "person_a": "罗晋",
@@ -61,77 +43,25 @@
       "start_date": null,
       "end_date": null,
       "is_current": true,
-      "description": "2016年拍戏相识，2018年维也纳结婚",
-      "confidence": 0.95,
-      "strength": 0.8
-    },
-    {
-      "person_a": "罗晋",
-      "person_b": "肖战",
-      "relation_type": "同剧演员",
-      "start_date": null,
-      "end_date": null,
-      "is_current": true,
-      "description": "曾合作过影视作品",
-      "confidence": 0.7,
-      "strength": 0.5
-    },
-    {
-      "person_a": "罗晋",
-      "person_b": "王一博",
-      "relation_type": "同剧演员",
-      "start_date": null,
-      "end_date": null,
-      "is_current": true,
-      "description": "曾合作过影视作品",
-      "confidence": 0.7,
-      "strength": 0.5
-    },
-    {
-      "person_a": "罗晋",
-      "person_b": "PG One",
-      "relation_type": "合作",
-      "start_date": null,
-      "end_date": null,
-      "is_current": true,
-      "description": "曾合作过影视作品",
-      "confidence": 0.7,
-      "strength": 0.5
+      "description": "2016年因《锦绣未央》相识，2018年维也纳结婚，2020年育有一女，娱乐圈模范夫妻",
+      "confidence": 0.99,
+      "strength": 0.95
     }
   ],
   "social_media_posts": [
     {
       "id": "wb_罗晋_0",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "感谢粉丝们的生日祝福！",
-      "likes": 75998,
-      "reposts": 45041,
-      "comments": 2584,
-      "publish_time": "2025-04-07",
-      "source_url": "https://weibo.com/罗晋/0",
-      "tags": [
-        "杀青",
-        "新戏"
-      ],
-      "topics": [
-        "生活",
-        "记录"
-      ]
-    },
-    {
-      "id": "wb_罗晋_1",
       "platform": "douyin",
       "author": "罗晋",
-      "content": "新戏角色挑战，正在努力中",
-      "likes": 348581,
-      "reposts": 18174,
-      "comments": 4715,
-      "publish_time": "2025-06-24",
-      "source_url": "https://weibo.com/罗晋/1",
+      "content": "新剧开机，加油！",
+      "likes": 64609,
+      "reposts": 13897,
+      "comments": 9825,
+      "publish_time": "2025-12-24",
+      "source_url": "https://weibo.com/罗晋/0",
       "tags": [
-        "杀青",
-        "新戏"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
         "日常",
@@ -139,75 +69,94 @@
       ]
     },
     {
-      "id": "wb_罗晋_2",
+      "id": "wb_罗晋_1",
       "platform": "weibo",
       "author": "罗晋",
-      "content": "感谢品牌方的邀请",
-      "likes": 131535,
-      "reposts": 28786,
-      "comments": 2833,
-      "publish_time": "2025-09-12",
-      "source_url": "https://weibo.com/罗晋/2",
-      "tags": [
-        "新剧",
-        "期待"
-      ],
-      "topics": [
-        "新剧",
-        "期待"
-      ]
-    },
-    {
-      "id": "wb_罗晋_3",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "今天的拍摄很顺利，感谢大家的支持！",
-      "likes": 455797,
-      "reposts": 2435,
-      "comments": 1553,
-      "publish_time": "2025-10-10",
-      "source_url": "https://weibo.com/罗晋/3",
+      "content": "剧组日常，认真工作中",
+      "likes": 351116,
+      "reposts": 22961,
+      "comments": 547,
+      "publish_time": "2025-07-27",
+      "source_url": "https://weibo.com/罗晋/1",
       "tags": [
         "杀青",
         "新戏"
       ],
       "topics": [
+        "生活",
+        "记录"
+      ]
+    },
+    {
+      "id": "wb_罗晋_2",
+      "platform": "weibo",
+      "author": "罗晋",
+      "content": "工作花絮分享~",
+      "likes": 34231,
+      "reposts": 38873,
+      "comments": 1387,
+      "publish_time": "2025-09-16",
+      "source_url": "https://weibo.com/罗晋/2",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_罗晋_3",
+      "platform": "douyin",
+      "author": "罗晋",
+      "content": "感谢粉丝们的支持！",
+      "likes": 196149,
+      "reposts": 32439,
+      "comments": 3596,
+      "publish_time": "2026-03-18",
+      "source_url": "https://weibo.com/罗晋/3",
+      "tags": [
         "新剧",
         "期待"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
       ]
     },
     {
       "id": "wb_罗晋_4",
       "platform": "weibo",
       "author": "罗晋",
-      "content": "工作花絮分享~",
-      "likes": 248668,
-      "reposts": 12764,
-      "comments": 5939,
-      "publish_time": "2026-03-07",
+      "content": "路演见",
+      "likes": 432419,
+      "reposts": 29078,
+      "comments": 5955,
+      "publish_time": "2025-09-20",
       "source_url": "https://weibo.com/罗晋/4",
       "tags": [
-        "生活",
-        "记录"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
-        "杀青",
-        "新戏"
+        "日常",
+        "分享"
       ]
     },
     {
       "id": "wb_罗晋_5",
       "platform": "weibo",
       "author": "罗晋",
-      "content": "努力成为更好的自己",
-      "likes": 332146,
-      "reposts": 19600,
-      "comments": 4679,
-      "publish_time": "2025-06-09",
+      "content": "感谢品牌方的邀请",
+      "likes": 232184,
+      "reposts": 38656,
+      "comments": 3957,
+      "publish_time": "2025-11-21",
       "source_url": "https://weibo.com/罗晋/5",
       "tags": [
-        "工作",
-        "努力"
+        "日常",
+        "分享"
       ],
       "topics": [
         "新剧",
@@ -218,164 +167,12 @@
       "id": "wb_罗晋_6",
       "platform": "weibo",
       "author": "罗晋",
-      "content": "后台准备中💪",
-      "likes": 101476,
-      "reposts": 8666,
-      "comments": 4719,
-      "publish_time": "2026-03-15",
+      "content": "收工啦，晚安！",
+      "likes": 261778,
+      "reposts": 41719,
+      "comments": 1050,
+      "publish_time": "2026-01-08",
       "source_url": "https://weibo.com/罗晋/6",
-      "tags": [
-        "正能量",
-        "公益"
-      ],
-      "topics": [
-        "新剧",
-        "期待"
-      ]
-    },
-    {
-      "id": "wb_罗晋_7",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "新歌听听看，希望大家喜欢",
-      "likes": 217765,
-      "reposts": 3289,
-      "comments": 5222,
-      "publish_time": "2025-08-31",
-      "source_url": "https://weibo.com/罗晋/7",
-      "tags": [
-        "感恩",
-        "粉丝"
-      ],
-      "topics": [
-        "健身",
-        "运动"
-      ]
-    },
-    {
-      "id": "wb_罗晋_8",
-      "platform": "douyin",
-      "author": "罗晋",
-      "content": "今天的夕阳很美",
-      "likes": 169965,
-      "reposts": 25741,
-      "comments": 4161,
-      "publish_time": "2026-03-07",
-      "source_url": "https://weibo.com/罗晋/8",
-      "tags": [
-        "新剧",
-        "期待"
-      ],
-      "topics": [
-        "正能量",
-        "公益"
-      ]
-    },
-    {
-      "id": "wb_罗晋_9",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "杂志拍摄完成，期待正片",
-      "likes": 210957,
-      "reposts": 8841,
-      "comments": 950,
-      "publish_time": "2025-07-15",
-      "source_url": "https://weibo.com/罗晋/9",
-      "tags": [
-        "感恩",
-        "粉丝"
-      ],
-      "topics": [
-        "杀青",
-        "新戏"
-      ]
-    },
-    {
-      "id": "wb_罗晋_10",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "录制综艺节目中...",
-      "likes": 386733,
-      "reposts": 38885,
-      "comments": 9303,
-      "publish_time": "2025-07-06",
-      "source_url": "https://weibo.com/罗晋/10",
-      "tags": [
-        "感恩",
-        "粉丝"
-      ],
-      "topics": [
-        "新剧",
-        "期待"
-      ]
-    },
-    {
-      "id": "wb_罗晋_11",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "享受当下，不负时光",
-      "likes": 293636,
-      "reposts": 18422,
-      "comments": 9024,
-      "publish_time": "2025-05-26",
-      "source_url": "https://weibo.com/罗晋/11",
-      "tags": [
-        "日常",
-        "分享"
-      ],
-      "topics": [
-        "新剧",
-        "期待"
-      ]
-    },
-    {
-      "id": "wb_罗晋_12",
-      "platform": "douyin",
-      "author": "罗晋",
-      "content": "工作日常记录",
-      "likes": 241108,
-      "reposts": 41369,
-      "comments": 6968,
-      "publish_time": "2025-04-10",
-      "source_url": "https://weibo.com/罗晋/12",
-      "tags": [
-        "健身",
-        "运动"
-      ],
-      "topics": [
-        "正能量",
-        "公益"
-      ]
-    },
-    {
-      "id": "wb_罗晋_13",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "剧组杀青啦！",
-      "likes": 13355,
-      "reposts": 44359,
-      "comments": 2735,
-      "publish_time": "2025-07-22",
-      "source_url": "https://weibo.com/罗晋/13",
-      "tags": [
-        "感恩",
-        "粉丝"
-      ],
-      "topics": [
-        "生活",
-        "记录"
-      ]
-    },
-    {
-      "id": "wb_罗晋_14",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "今天的阳光真好☀️",
-      "likes": 437418,
-      "reposts": 7081,
-      "comments": 7736,
-      "publish_time": "2025-06-26",
-      "source_url": "https://weibo.com/罗晋/14",
       "tags": [
         "杀青",
         "新戏"
@@ -386,218 +183,359 @@
       ]
     },
     {
-      "id": "wb_罗晋_15",
+      "id": "wb_罗晋_7",
       "platform": "weibo",
       "author": "罗晋",
-      "content": "新剧开机，加油！",
-      "likes": 221236,
-      "reposts": 29251,
-      "comments": 4675,
-      "publish_time": "2025-07-25",
-      "source_url": "https://weibo.com/罗晋/15",
-      "tags": [
-        "感恩",
-        "粉丝"
-      ],
-      "topics": [
-        "新剧",
-        "期待"
-      ]
-    },
-    {
-      "id": "wb_罗晋_16",
-      "platform": "douyin",
-      "author": "罗晋",
-      "content": "收工啦，晚安！",
-      "likes": 392282,
-      "reposts": 8743,
-      "comments": 598,
-      "publish_time": "2025-10-14",
-      "source_url": "https://weibo.com/罗晋/16",
-      "tags": [
-        "新剧",
-        "期待"
-      ],
-      "topics": [
-        "杀青",
-        "新戏"
-      ]
-    },
-    {
-      "id": "wb_罗晋_17",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "公益活动，传递正能量",
-      "likes": 470946,
-      "reposts": 9757,
-      "comments": 4887,
-      "publish_time": "2025-11-19",
-      "source_url": "https://weibo.com/罗晋/17",
-      "tags": [
-        "正能量",
-        "公益"
-      ],
-      "topics": [
-        "感恩",
-        "粉丝"
-      ]
-    },
-    {
-      "id": "wb_罗晋_18",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "新作品即将上线，敬请期待！",
-      "likes": 353941,
-      "reposts": 42210,
-      "comments": 9200,
-      "publish_time": "2025-11-28",
-      "source_url": "https://weibo.com/罗晋/18",
-      "tags": [
-        "新剧",
-        "期待"
-      ],
-      "topics": [
-        "健身",
-        "运动"
-      ]
-    },
-    {
-      "id": "wb_罗晋_19",
-      "platform": "douyin",
-      "author": "罗晋",
-      "content": "期待与大家再次见面",
-      "likes": 293433,
-      "reposts": 29388,
-      "comments": 9998,
-      "publish_time": "2025-11-01",
-      "source_url": "https://weibo.com/罗晋/19",
-      "tags": [
-        "健身",
-        "运动"
-      ],
-      "topics": [
-        "健身",
-        "运动"
-      ]
-    },
-    {
-      "id": "wb_罗晋_20",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "久违的假期，好好休息",
-      "likes": 213565,
-      "reposts": 43276,
-      "comments": 3875,
-      "publish_time": "2025-04-15",
-      "source_url": "https://weibo.com/罗晋/20",
-      "tags": [
-        "日常",
-        "分享"
-      ],
-      "topics": [
-        "杀青",
-        "新戏"
-      ]
-    },
-    {
-      "id": "wb_罗晋_21",
-      "platform": "douyin",
-      "author": "罗晋",
-      "content": "路演现场见，不见不散",
-      "likes": 359547,
-      "reposts": 27347,
-      "comments": 1805,
-      "publish_time": "2025-09-26",
-      "source_url": "https://weibo.com/罗晋/21",
-      "tags": [
-        "新剧",
-        "期待"
-      ],
-      "topics": [
-        "新剧",
-        "期待"
-      ]
-    },
-    {
-      "id": "wb_罗晋_22",
-      "platform": "douyin",
-      "author": "罗晋",
-      "content": "感恩相遇，一路同行",
-      "likes": 487433,
-      "reposts": 20685,
-      "comments": 8395,
-      "publish_time": "2025-05-19",
-      "source_url": "https://weibo.com/罗晋/22",
+      "content": "新歌听听看",
+      "likes": 465639,
+      "reposts": 139,
+      "comments": 4371,
+      "publish_time": "2025-12-25",
+      "source_url": "https://weibo.com/罗晋/7",
       "tags": [
         "生活",
         "记录"
       ],
       "topics": [
-        "健身",
-        "运动"
+        "感恩",
+        "粉丝"
       ]
     },
     {
-      "id": "wb_罗晋_23",
-      "platform": "douyin",
+      "id": "wb_罗晋_8",
+      "platform": "weibo",
       "author": "罗晋",
-      "content": "健身打卡第N天",
-      "likes": 412162,
-      "reposts": 30159,
-      "comments": 3305,
-      "publish_time": "2025-12-29",
-      "source_url": "https://weibo.com/罗晋/23",
+      "content": "健身打卡",
+      "likes": 49681,
+      "reposts": 42083,
+      "comments": 899,
+      "publish_time": "2026-01-31",
+      "source_url": "https://weibo.com/罗晋/8",
       "tags": [
         "感恩",
         "粉丝"
       ],
       "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_罗晋_9",
+      "platform": "weibo",
+      "author": "罗晋",
+      "content": "公益行动，传递正能量",
+      "likes": 336080,
+      "reposts": 49036,
+      "comments": 2599,
+      "publish_time": "2026-03-17",
+      "source_url": "https://weibo.com/罗晋/9",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_罗晋_10",
+      "platform": "weibo",
+      "author": "罗晋",
+      "content": "新作品即将上线，敬请期待！",
+      "likes": 88974,
+      "reposts": 21168,
+      "comments": 4507,
+      "publish_time": "2025-06-27",
+      "source_url": "https://weibo.com/罗晋/10",
+      "tags": [
+        "工作",
+        "努力"
+      ],
+      "topics": [
+        "生活",
+        "记录"
+      ]
+    },
+    {
+      "id": "wb_罗晋_11",
+      "platform": "weibo",
+      "author": "罗晋",
+      "content": "今天的拍摄很顺利，感谢大家的支持！",
+      "likes": 217974,
+      "reposts": 37215,
+      "comments": 2936,
+      "publish_time": "2025-10-12",
+      "source_url": "https://weibo.com/罗晋/11",
+      "tags": [
+        "工作",
+        "努力"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_罗晋_12",
+      "platform": "weibo",
+      "author": "罗晋",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 467358,
+      "reposts": 21018,
+      "comments": 649,
+      "publish_time": "2025-07-19",
+      "source_url": "https://weibo.com/罗晋/12",
+      "tags": [
         "感恩",
         "粉丝"
+      ],
+      "topics": [
+        "生活",
+        "记录"
       ]
     }
   ],
   "comments": [
     {
-      "content": "罗晋的演技越来越好了",
-      "author": "用户2068",
-      "likes": 1528,
-      "replies": 30,
+      "content": "永远支持",
+      "author": "用户6945",
+      "likes": 559,
+      "replies": 100,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户1847",
+      "likes": 760,
+      "replies": 37,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "今天也很帅气",
-      "author": "用户3071",
-      "likes": 2446,
-      "replies": 46,
+      "content": "综艺里好搞笑",
+      "author": "用户7671",
+      "likes": 3175,
+      "replies": 59,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户4422",
+      "likes": 2395,
+      "replies": 15,
       "is_top": false,
       "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "罗晋永远的神",
+      "author": "用户4570",
+      "likes": 1883,
+      "replies": 82,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户8664",
+      "likes": 1330,
+      "replies": 10,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户4728",
+      "likes": 183,
+      "replies": 98,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户7007",
+      "likes": 2718,
+      "replies": 55,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户4142",
+      "likes": 291,
+      "replies": 92,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户5204",
+      "likes": 1818,
+      "replies": 53,
+      "is_top": false,
+      "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
       "content": "罗晋好棒！",
-      "author": "用户5098",
-      "likes": 4979,
-      "replies": 71,
-      "is_top": true,
+      "author": "用户3144",
+      "likes": 1997,
+      "replies": 3,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户8717",
+      "likes": 265,
+      "replies": 72,
+      "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "加油鸭！",
-      "author": "用户2563",
-      "likes": 1992,
-      "replies": 66,
+      "content": "罗晋永远的神",
+      "author": "用户5938",
+      "likes": 1706,
+      "replies": 81,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户4860",
+      "likes": 2178,
+      "replies": 25,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户3169",
+      "likes": 262,
+      "replies": 61,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户3551",
+      "likes": 3836,
+      "replies": 2,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户4796",
+      "likes": 1320,
+      "replies": 25,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "罗晋永远的神",
+      "author": "用户6263",
+      "likes": 1673,
+      "replies": 97,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "罗晋好棒！",
-      "author": "用户7898",
-      "likes": 1407,
+      "content": "路人转粉了",
+      "author": "用户8204",
+      "likes": 1798,
+      "replies": 100,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户6770",
+      "likes": 3839,
+      "replies": 20,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户3043",
+      "likes": 2236,
+      "replies": 64,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户6950",
+      "likes": 1714,
+      "replies": 45,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户7865",
+      "likes": 1681,
+      "replies": 58,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户4103",
+      "likes": 3173,
+      "replies": 77,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户3102",
+      "likes": 1887,
+      "replies": 50,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "罗晋永远的神",
+      "author": "用户6090",
+      "likes": 3047,
+      "replies": 45,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户3773",
+      "likes": 2942,
       "replies": 54,
       "is_top": false,
       "source_platform": "weibo",
@@ -605,511 +543,301 @@
     },
     {
       "content": "爱了爱了",
-      "author": "用户2078",
-      "likes": 655,
-      "replies": 52,
+      "author": "用户3770",
+      "likes": 3331,
+      "replies": 54,
       "is_top": false,
       "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户7483",
+      "likes": 3873,
+      "replies": 57,
+      "is_top": false,
+      "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "新歌/新剧什么时候出？",
-      "author": "用户1548",
-      "likes": 844,
-      "replies": 55,
+      "content": "罗晋永远的神",
+      "author": "用户2831",
+      "likes": 1174,
+      "replies": 0,
       "is_top": false,
-      "source_platform": "weibo",
+      "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "罗晋的演技越来越好了",
-      "author": "用户2450",
-      "likes": 3377,
+      "content": "期待新作品！",
+      "author": "用户5011",
+      "likes": 3151,
       "replies": 42,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "爱了爱了",
-      "author": "用户2464",
-      "likes": 467,
-      "replies": 96,
+      "content": "罗晋的演技越来越好了",
+      "author": "用户5329",
+      "likes": 4773,
+      "replies": 33,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "罗晋好棒！",
+      "author": "用户2631",
+      "likes": 486,
+      "replies": 58,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "罗晋好棒！",
-      "author": "用户6256",
-      "likes": 4386,
-      "replies": 51,
+      "content": "看哭了，太感人了",
+      "author": "用户7194",
+      "likes": 3317,
+      "replies": 91,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
+      "content": "新剧什么时候出？",
+      "author": "用户1738",
+      "likes": 4626,
+      "replies": 97,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户4226",
+      "likes": 1303,
+      "replies": 7,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户7582",
+      "likes": 82,
+      "replies": 30,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
       "content": "罗晋的演技越来越好了",
-      "author": "用户3419",
-      "likes": 2995,
-      "replies": 44,
+      "author": "用户5072",
+      "likes": 4910,
+      "replies": 63,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户5357",
+      "likes": 2158,
+      "replies": 22,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户8552",
+      "likes": 429,
+      "replies": 13,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
       "content": "期待新作品！",
-      "author": "用户9795",
-      "likes": 4796,
-      "replies": 62,
+      "author": "用户8549",
+      "likes": 4288,
+      "replies": 71,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户6556",
+      "likes": 77,
+      "replies": 7,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "加油鸭！",
-      "author": "用户5932",
-      "likes": 1263,
-      "replies": 40,
+      "content": "这颜值真的绝了",
+      "author": "用户4704",
+      "likes": 1592,
+      "replies": 63,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
+      "sentiment": "negative"
     },
     {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户3273",
-      "likes": 381,
-      "replies": 23,
+      "content": "看哭了，太感人了",
+      "author": "用户7230",
+      "likes": 4586,
+      "replies": 86,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
+      "sentiment": "neutral"
     },
     {
-      "content": "罗晋真好看",
-      "author": "用户8479",
-      "likes": 2263,
-      "replies": 17,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "罗晋永远的神",
-      "author": "用户6475",
-      "likes": 573,
+      "content": "永远支持",
+      "author": "用户7779",
+      "likes": 84,
       "replies": 98,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "从XX年开始追的粉",
-      "author": "用户2272",
-      "likes": 2751,
-      "replies": 43,
+      "content": "永远支持",
+      "author": "用户8631",
+      "likes": 3959,
+      "replies": 59,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户1421",
+      "likes": 3354,
+      "replies": 18,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持罗晋！加油",
+      "author": "用户1686",
+      "likes": 836,
+      "replies": 65,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户4168",
+      "likes": 671,
+      "replies": 78,
       "is_top": true,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "爱了爱了",
-      "author": "用户9647",
-      "likes": 1819,
-      "replies": 17,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户5090",
-      "likes": 3573,
-      "replies": 42,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "罗晋永远的神",
-      "author": "用户2154",
-      "likes": 90,
-      "replies": 100,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX年开始追的粉",
-      "author": "用户3585",
-      "likes": 1473,
-      "replies": 25,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "期待！",
-      "author": "用户3805",
-      "likes": 4659,
-      "replies": 29,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持罗晋！加油💪",
-      "author": "用户1319",
-      "likes": 3778,
-      "replies": 46,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "加油鸭！",
-      "author": "用户2863",
-      "likes": 3910,
-      "replies": 81,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX年开始追的粉",
-      "author": "用户5128",
-      "likes": 3102,
-      "replies": 71,
+      "content": "综艺里好搞笑",
+      "author": "用户3802",
+      "likes": 136,
+      "replies": 20,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
       "content": "期待新作品！",
-      "author": "用户2457",
-      "likes": 2244,
-      "replies": 2,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "罗晋好棒！",
-      "author": "用户2270",
-      "likes": 287,
-      "replies": 87,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户9081",
-      "likes": 873,
+      "author": "用户1525",
+      "likes": 3841,
       "replies": 72,
       "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户6601",
+      "likes": 2287,
+      "replies": 19,
+      "is_top": true,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户7922",
-      "likes": 3511,
-      "replies": 8,
+      "content": "这颜值真的绝了",
+      "author": "用户9884",
+      "likes": 1249,
+      "replies": 20,
       "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天也很帅气",
-      "author": "用户9146",
-      "likes": 2588,
-      "replies": 95,
-      "is_top": false,
-      "source_platform": "weibo",
+      "source_platform": "douyin",
       "sentiment": "neutral"
     },
     {
-      "content": "支持到底",
-      "author": "用户4497",
-      "likes": 1446,
-      "replies": 63,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "罗晋永远的神",
-      "author": "用户9583",
-      "likes": 2538,
-      "replies": 75,
+      "content": "新剧什么时候出？",
+      "author": "用户3302",
+      "likes": 2062,
+      "replies": 46,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "positive"
+      "sentiment": "negative"
     },
     {
-      "content": "今天也很帅气",
-      "author": "用户6141",
-      "likes": 849,
-      "replies": 88,
+      "content": "新剧什么时候出？",
+      "author": "用户4326",
+      "likes": 1986,
+      "replies": 99,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "支持到底",
-      "author": "用户9748",
-      "likes": 445,
-      "replies": 45,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "支持罗晋！加油💪",
-      "author": "用户7212",
-      "likes": 944,
-      "replies": 82,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "罗晋好棒！",
-      "author": "用户7158",
-      "likes": 1,
-      "replies": 36,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "罗晋好棒！",
-      "author": "用户5551",
-      "likes": 2700,
-      "replies": 44,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "罗晋真好看",
-      "author": "用户5468",
-      "likes": 2861,
-      "replies": 39,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX剧就开始喜欢你了",
-      "author": "用户4389",
-      "likes": 3392,
-      "replies": 14,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "从XX年开始追的粉",
-      "author": "用户1770",
-      "likes": 3520,
-      "replies": 58,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天也很帅气",
-      "author": "用户5348",
-      "likes": 2316,
-      "replies": 90,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天也很帅气",
-      "author": "用户9586",
-      "likes": 143,
-      "replies": 51,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户1296",
-      "likes": 4798,
-      "replies": 43,
-      "is_top": false,
-      "source_platform": "douyin",
       "sentiment": "positive"
     }
   ],
   "news_articles": [
     {
-      "title": "罗晋晒生活照，引发网友热议",
-      "summary": "罗晋新动态曝光",
-      "content": "罗晋在社交媒体晒出生活照，展现真实一面，引发网友热议和点赞。",
-      "publish_date": "2025-09-28",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/0",
-      "sentiment": "neutral",
-      "sentiment_score": 0.07166508689314216,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋公益行动，传递正能量",
-      "summary": "罗晋新动态曝光",
-      "content": "罗晋参与公益活动，用实际行动传递正能量，获得网友一致好评。",
-      "publish_date": "2025-11-10",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/1",
-      "sentiment": "positive",
-      "sentiment_score": 0.135030914373708,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋登封面，气场全开",
-      "summary": "罗晋成为焦点",
-      "content": "罗晋登上某时尚杂志封面，大片造型气场全开，展现独特时尚品味。",
-      "publish_date": "2026-03-01",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/2",
-      "sentiment": "neutral",
-      "sentiment_score": 0.3039802430285126,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋做客综艺，爆料趣事",
-      "summary": "罗晋近日活动引发关注",
-      "content": "罗晋做客某综艺节目，现场爆料拍摄趣事，引发观众爆笑。",
-      "publish_date": "2026-01-31",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/3",
-      "sentiment": "positive",
-      "sentiment_score": 0.29951514011331615,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋新剧官宣，粉丝期待值拉满",
-      "summary": "罗晋近日活动引发关注",
-      "content": "罗晋新剧正式官宣，与实力派演员合作，引发粉丝热烈讨论，期待值拉满。",
-      "publish_date": "2026-02-25",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/4",
-      "sentiment": "neutral",
-      "sentiment_score": 0.4806312615443337,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋现身机场，身穿休闲装状态佳",
-      "summary": "罗晋相关话题上热搜",
-      "content": "罗晋今日现身首都机场，身穿简约休闲装，状态看起来十分不错，引来粉丝围观拍照。",
-      "publish_date": "2026-03-18",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/5",
-      "sentiment": "neutral",
-      "sentiment_score": 0.3897212425521938,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋时尚大片发布，展现多面魅力",
-      "summary": "罗晋近日活动引发关注",
-      "content": "罗晋最新时尚大片正式发布，展现不同以往的多面魅力，引发时尚圈关注。",
-      "publish_date": "2026-02-04",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/6",
-      "sentiment": "neutral",
-      "sentiment_score": 0.21868955531105289,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋化身推荐官，助力家乡",
-      "summary": "罗晋成为焦点",
-      "content": "罗晋成为家乡旅游推荐官，发文助力家乡发展，获网友点赞。",
-      "publish_date": "2025-12-16",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/7",
-      "sentiment": "neutral",
-      "sentiment_score": 0.23995936121563605,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋参加活动，与粉丝互动温馨",
-      "summary": "罗晋相关话题上热搜",
-      "content": "罗晋出席品牌活动现场，与粉丝互动十分温馨，引发网友热议。",
-      "publish_date": "2025-11-14",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/8",
-      "sentiment": "neutral",
-      "sentiment_score": -0.05116850914196586,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋工作室发声明澄清传闻",
-      "summary": "罗晋近日活动引发关注",
-      "content": "罗晋工作室今日发布官方声明，就近期网络传闻进行澄清，呼吁不信谣不传谣。",
-      "publish_date": "2026-03-20",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/9",
-      "sentiment": "neutral",
-      "sentiment_score": -0.04485730200475058,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋演唱会门票秒空",
-      "summary": "罗晋成为焦点",
-      "content": "罗晋巡回演唱会门票开票即秒空，展现强大票房号召力。",
-      "publish_date": "2026-02-16",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/10",
-      "sentiment": "neutral",
-      "sentiment_score": 0.06238966371907129,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋获奖感言：感谢一路支持",
-      "summary": "罗晋成为焦点",
-      "content": "罗晋在颁奖典礼上发表获奖感言，感谢粉丝和团队一路支持，场面温馨感人。",
-      "publish_date": "2026-01-28",
+      "title": "罗晋工作室发声明澄清网络传闻",
+      "summary": "罗晋相关话题登上热搜",
+      "content": "罗晋工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
+      "publish_date": "2025-10-22",
       "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/11",
+      "source_url": "https://example.com/news/罗晋/0",
       "sentiment": "neutral",
-      "sentiment_score": -0.17483358578912758,
+      "sentiment_score": -0.1532168600773516,
       "category": "",
       "tags": []
     },
     {
-      "title": "罗晋新片开机，挑战全新角色",
-      "summary": "罗晋新动态曝光",
-      "content": "罗晋主演的新片正式开机，此次将挑战与以往完全不同的角色类型，引发期待。",
-      "publish_date": "2026-03-16",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/12",
+      "title": "罗晋时尚大片发布，造型引热议",
+      "summary": "网友热议罗晋近况",
+      "content": "罗晋最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
+      "publish_date": "2025-11-06",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/罗晋/1",
+      "sentiment": "neutral",
+      "sentiment_score": -0.05189298038263368,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "罗晋现身活动，状态在线",
+      "summary": "网友热议罗晋近况",
+      "content": "罗晋出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
+      "publish_date": "2025-12-23",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/罗晋/2",
       "sentiment": "positive",
-      "sentiment_score": 0.10626971288385073,
+      "sentiment_score": 0.130712513147915,
       "category": "",
       "tags": []
     }
   ],
   "statistics": {
-    "data_completeness": 0.95,
-    "total_posts": 24,
-    "total_comments": 43,
-    "total_news": 13,
-    "total_relationships": 4,
-    "total_gossips": 1
+    "data_completeness": 0.85,
+    "total_posts": 13,
+    "total_comments": 55,
+    "total_news": 3,
+    "total_relationships": 1,
+    "total_gossips": 0
   }
 }
