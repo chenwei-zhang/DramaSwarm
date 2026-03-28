@@ -165,7 +165,7 @@ class CrisisScenarioEngine:
     def create_simulation(
         self,
         scenario_title: str,
-        use_llm: bool = False,
+        use_llm: bool = True,
         total_days: int = 30,
         interventions: list[InterventionCondition] | None = None,
     ) -> CrisisSimulation:
@@ -190,7 +190,7 @@ class CrisisSimulation:
         self,
         scenario: CrisisScenario,
         kg: TemporalKnowledgeGraph,
-        use_llm: bool = False,
+        use_llm: bool = True,
         total_days: int = 30,
         interventions: list[InterventionCondition] | None = None,
     ):

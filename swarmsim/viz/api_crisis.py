@@ -21,7 +21,7 @@ router = APIRouter(tags=["crisis"])
 
 class CrisisStartRequest(BaseModel):
     scenario_title: str
-    use_llm: bool = False
+    use_llm: bool = True
     total_days: int = 30
     interventions: list[dict] | None = None
 
