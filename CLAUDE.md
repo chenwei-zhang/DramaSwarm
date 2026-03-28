@@ -12,11 +12,21 @@ pip install -r requirements.txt
 pytest tests/test_agent.py -v
 pytest tests/test_agent.py -v -k "test_name"       # single test
 
+# Run all crisis & temporal tests
+pytest tests/test_crisis_engine.py tests/test_temporal_graph.py -v
+
 # Run demo (rule engine, no LLM needed)
 python -m demos.variety_show_simulation
 
+# Run crisis simulation demo (rule mode, no LLM needed)
+python -m demos.crisis_simulation
+
 # Run demo with LLM
 python -m demos.variety_show_simulation --llm --provider gemini --turns 10
+
+# Web visualization (includes crisis simulation tab)
+python run_viz.py
+# http://localhost:8765 → 知识图谱 tab + 危机模拟 tab
 
 # Scraper test (mock mode)
 python test_scraper.py mock 杨幂
@@ -75,10 +85,44 @@ swarmsim/core/
 ├── factory.py            # AgentFactory, VarietyShowFactory with cast templates
 └── observer.py           # Observer, Reporter, InteractiveObserver
 
+swarmsim/graph/
+├── knowledge_graph.py    # networkx MultiDiGraph engine, loads from JSON/mock
+└── temporal.py           # TemporalKnowledgeGraph — date-indexed, person timelines
+
+swarmsim/crisis/          # Crisis simulation engine
+├── models.py             # CrisisPhase(6), PRAction(10), CrisisState, etc.
+├── timeline.py           # 1 turn = 1 day, 6-phase lifecycle
+├── action_space.py       # 10 PR actions × 6 phases effect matrix + Big Five mods
+├── persona_agent.py      # CelebrityPersonaAgent (rule/LLM), builds persona from GraphRAG
+├── vacuum_detector.py    # Silence → rumor cascade, probability escalates with days
+├── intervention.py       # User what-if conditions (forced actions, external events)
+├── scenario_engine.py    # CrisisScenarioEngine (load) + CrisisSimulation (async run loop)
+└── outcome_analyzer.py   # Compare sim vs historical baseline, generate PR recommendations
+
+swarmsim/viz/
+├── server.py             # FastAPI app, uses TemporalKnowledgeGraph, mounts all routers
+├── api_graph.py          # Graph API routes
+├── api_simulation.py     # Simulation API routes
+├── api_crisis.py         # Crisis API: 10 endpoints (scenarios, start, step, run, intervene, etc.)
+└── serializer.py         # networkx → D3 JSON
+
 swarmsim/llm/client.py    # LLM client: Gemini, OpenAI, Anthropic via get_client()
 swarmsim/memory/base.py   # MemoryStore ABC → InMemoryStore, SQLiteStore
 celebrity_scraper/        # Independent module: 5 web spiders + mock data
 ```
+
+### Crisis Simulation Architecture
+
+`CrisisSimulation.step()` runs one simulated day:
+1. `timeline.advance_day()` → determine CrisisPhase (breakout→escalation→peak→mitigation→resolution→aftermath)
+2. `intervention_system.check()` → apply user's what-if conditions
+3. Each `CelebrityPersonaAgent` generates a `CrisisAction` (PRAction enum)
+4. `InformationVacuumDetector` checks silence → generates rumors
+5. `CrisisActionSpace.compute_effect()` → apply approval/heat/brand deltas
+6. Generate trending topics, media headlines, update brand statuses
+7. Daily decay: heat -10%, approval regresses toward 50
+
+Agent personality is built from GraphRAG data (biography keywords → Big Five traits). The persona_agent supports rule-based mode (decision matrix) and LLM mode (structured prompt → parse PRAction). Rule mode needs no API key.
 
 ### Agent Types
 

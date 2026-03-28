@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-DramaSwarm 是一个轻量级的多智能体仿真引擎，专注于模拟复杂社交场景中的群体行为。本项目采用**垂直切入**策略，首先实现综艺节目场景的推演能力。
+DramaSwarm 是一个轻量级的多智能体仿真引擎，专注于模拟复杂社交场景中的群体行为。本项目采用**垂直切入**策略，首先实现综艺节目场景的推演能力，并支持**公关危机 what-if 仿真**。
 
 ### 核心特性
 
@@ -13,6 +13,7 @@ DramaSwarm 是一个轻量级的多智能体仿真引擎，专注于模拟复杂
 - **事件驱动引擎**: 控制智能体交互的节拍和状态流转
 - **观测总结模块**: 实时分析群体动态并生成推演报告
 - **GraphRAG 可视化**: Web 界面交互式探索知识图谱，D3.js 力导向图展示明星关系网络
+- **危机仿真引擎**: 基于时序 GraphRAG 的多 Agent 公关危机模拟，支持 what-if 干预和结果对比分析
 
 ## 快速开始
 
@@ -46,7 +47,10 @@ DEFAULT_TURNS=50
 # 综艺节目修罗场模拟
 python -m demos.variety_show_simulation
 
-# 知识图谱可视化（Web 界面）
+# 危机仿真（纯规则模式，无需 API key）
+python -m demos.crisis_simulation
+
+# 知识图谱可视化（Web 界面，含危机模拟 Tab）
 python run_viz.py
 # 浏览器打开 http://localhost:8765
 
@@ -91,14 +95,25 @@ DramaSwarm/
 │   │   ├── factory.py            # Agent 工厂
 │   │   └── observer.py           # 观测总结模块
 │   ├── graph/                   # 知识图谱模块（GraphRAG）
-│   │   └── knowledge_graph.py   # networkx 图引擎 + 查询 + 上下文生成
+│   │   ├── knowledge_graph.py   # networkx 图引擎 + 查询 + 上下文生成
+│   │   └── temporal.py          # 时序 GraphRAG（日期索引 + 人物时间线）
+│   ├── crisis/                  # 危机仿真引擎
+│   │   ├── models.py            # 数据模型（CrisisPhase, PRAction, CrisisState 等）
+│   │   ├── timeline.py          # 时间线（1天=1回合，6阶段危机生命周期）
+│   │   ├── action_space.py      # 10种 PR 策略效果矩阵 + 阶段/性格修正
+│   │   ├── persona_agent.py     # 明星 Agent（规则/LLM 双模式，Big Five 人设）
+│   │   ├── vacuum_detector.py   # 信息真空→谣言级联检测
+│   │   ├── intervention.py      # 用户 what-if 干预系统
+│   │   ├── scenario_engine.py   # 仿真引擎核心（场景加载 + 异步仿真循环）
+│   │   └── outcome_analyzer.py  # 仿真 vs 历史基线对比分析
 │   ├── viz/                     # 可视化模块（FastAPI + D3.js）
 │   │   ├── server.py            # FastAPI 应用
 │   │   ├── api_graph.py         # 图谱 API 路由
 │   │   ├── api_simulation.py    # 仿真 API 路由
+│   │   ├── api_crisis.py        # 危机仿真 API（10个端点）
 │   │   └── serializer.py        # networkx → D3 JSON 转换
 │   ├── static/
-│   │   └── index.html           # D3.js 力导向图可视化页面
+│   │   └── index.html           # Web 可视化（知识图谱 + 危机模拟 Tab）
 │   ├── llm/
 │   │   └── client.py             # LLM 客户端（Gemini/OpenAI/Anthropic）
 │   └── memory/
@@ -124,10 +139,13 @@ DramaSwarm/
 │       └── ...
 │
 ├── demos/
-│   └── variety_show_simulation.py # 综艺修罗场模拟 Demo
+│   ├── variety_show_simulation.py # 综艺修罗场模拟 Demo
+│   └── crisis_simulation.py      # 危机仿真 CLI Demo（纯规则模式）
 │
 └── tests/
-    └── test_agent.py             # 单元测试
+    ├── test_agent.py             # Agent 单元测试
+    ├── test_temporal_graph.py    # 时序图谱测试
+    └── test_crisis_engine.py     # 危机引擎测试
 ```
 
 ## 开发路线图
@@ -135,8 +153,9 @@ DramaSwarm/
 - [x] Phase 1: 基础框架 - 3-5 个 Agent 的简单对话
 - [x] Phase 2: 多层反应系统 - 公众舆论/媒体/热搜/监管/品牌五层链式反应
 - [x] Phase 3: 知识图谱 - 基于 GraphRAG 的关系管理与图推理上下文注入
-- [ ] Phase 4: 扩展规模 - 支持 50+ Agent 并行交互
-- [ ] Phase 5: 垂直场景 - 综艺节目推演完整功能
+- [x] Phase 4: 危机仿真引擎 - 时序 GraphRAG + 多 Agent 公关危机模拟 + what-if 干预 + 结果对比
+- [ ] Phase 5: 扩展规模 - 支持 50+ Agent 并行交互
+- [ ] Phase 6: 垂直场景 - 综艺节目推演完整功能
 
 ## 技术架构
 
@@ -161,11 +180,11 @@ DramaSwarm/
 │  │  ──→ 反馈到 Agent.perceive() 影响后续行为             │   │
 │  └──────────────────────────────────────────────────────┘   │
 │  ┌──────────────────────────────────────────────────────┐   │
-│  │           KnowledgeGraph 知识图谱 (GraphRAG)          │   │
+│  │      TemporalKnowledgeGraph 时序知识图谱               │   │
 │  │   celebrity_scraper/data/*.json → networkx 图         │   │
 │  │   节点: Celebrity / GossipEvent / News                │   │
 │  │   边: relationship / involved_in / simulation_event    │   │
-│  │   → 查询关系上下文 / 事件影响 / 最短路径推理            │   │
+│  │   → 日期索引 + 人物时间线 + 危机场景提取                 │   │
 │  │   → 注入 Agent.perceive() 的 graph_context             │   │
 │  └──────────────────────────────────────────────────────┘   │
 └─────┬───────────────┬───────────────────┬──────────────────┘
@@ -186,14 +205,57 @@ DramaSwarm/
        ┌─────────────▼──────────────┐
        │   FastAPI Visualization     │
        │   ┌─────────────────────┐  │
+       │   │  知识图谱 Tab        │  │
        │   │  D3.js 力导向图     │  │
        │   │  明星关系 · 八卦事件 │  │
        │   │  路径查找 · 仿真仪表 │  │
+       │   ├─────────────────────┤  │
+       │   │  危机模拟 Tab        │  │
+       │   │  口碑走势 · 热搜榜  │  │
+       │   │  媒体头条 · 品牌状态 │  │
+       │   │  干预面板 · 结果对比 │  │
        │   └─────────────────────┘  │
-       │   GET /api/graph/*         │
-       │   GET /api/sim/*           │
+       │   /api/graph/*             │
+       │   /api/sim/*               │
+       │   /api/crisis/*            │
        └────────────────────────────┘
 ```
+
+## 危机仿真引擎
+
+基于时序 GraphRAG 的多 Agent 公关危机模拟系统，支持 what-if 场景推演。
+
+### 仿真流程
+
+```
+用户选择场景 → CrisisScenarioEngine 从图谱加载 → CrisisSimulation 运行
+                                                     │
+每回合（1天）:                                        │
+  1. CrisisTimeline.advance_day() → 确定危机阶段      │
+  2. InterventionSystem.check() → 应用用户干预         │
+  3. CelebrityPersonaAgent.generate_response() → 决策  │
+  4. InformationVacuumDetector → 沉默触发谣言          │
+  5. CrisisActionSpace.compute_effect() → 计算效果     │
+  6. 热搜/媒体/品牌/监管 状态更新                       │
+  7. 自然衰减（热度-10%/天，口碑回归50）                │
+                                                     │
+30天后 → OutcomeAnalyzer 对比仿真 vs 历史基线          │
+```
+
+### 危机生命周期
+
+| 阶段 | 天数 | 特点 |
+|------|------|------|
+| 爆发期 | Day 1 | 事件刚曝光，慌乱应对 |
+| 发酵期 | Day 2-3 | 细节流出，舆论升级 |
+| 高峰期 | Day 4-7 | 全网讨论，最佳回应窗口 |
+| 应对期 | Day 8-14 | 公关策略见效/失效 |
+| 收尾期 | Day 15-21 | 降温，公益/复出可行 |
+| 余波期 | Day 22+ | 长期影响，事业转型 |
+
+### 10种公关策略
+
+沉默、道歉、声明、上节目、起诉、卖惨、反击、隐退、公益、复出。每种策略在不同阶段有不同效果系数（如高峰期道歉效果×1.2，爆发期上节目仅×0.2）。
 
 ## 许可证
 
