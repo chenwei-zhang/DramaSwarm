@@ -11,7 +11,7 @@ from __future__ import annotations
 import random
 from typing import Any
 
-from swarmsim.crisis.models import CrisisPhase, PRAction, CrisisAction
+from swarmsim.crisis.models import CrisisPhase, PRAction, CrisisAction, AgentMessage
 from swarmsim.graph.temporal import TemporalKnowledgeGraph
 
 
@@ -112,6 +112,8 @@ class CelebrityPersonaAgent:
         phase: CrisisPhase,
         state: dict,
         forced_action: PRAction | None = None,
+        peer_actions: list[CrisisAction] | None = None,
+        audience_reactions: list[AgentMessage] | None = None,
     ) -> CrisisAction:
         """生成危机响应动作
 
@@ -119,24 +121,48 @@ class CelebrityPersonaAgent:
             phase: 当前危机阶段
             state: 当前仿真状态 {approval_scores, heat_index, ...}
             forced_action: 干预系统强制动作
+            peer_actions: 今天已决策的其他 Agent 动作
+            audience_reactions: 观众对今天已有动作的反应
 
         Returns:
             CrisisAction
         """
+        peer_actions = peer_actions or []
+        audience_reactions = audience_reactions or []
+
         if forced_action:
             action = forced_action
         elif self.use_llm:
-            action = await self._llm_decide(phase, state)
+            action = await self._llm_decide(phase, state, peer_actions, audience_reactions)
         else:
-            action = self._rule_decide(phase, state)
+            action = self._rule_decide(phase, state, peer_actions, audience_reactions)
 
         content = ACTION_DESCRIPTIONS.get(action, "").format(name=self.name)
+
+        # 检查是否被其他 Agent 触发
+        triggered_by = None
+        trigger_relation = None
+        for peer in peer_actions:
+            rels = self.kg.get_relationship_context(self.name, peer.actor)
+            if rels:
+                rel = rels[0]
+                if rel.get("relation_type") in (
+                    "配偶", "前配偶", "伴侣", "家人", "亲属",
+                ) and peer.action in (
+                    PRAction.APOLOGIZE, PRAction.COUNTERATTACK,
+                    PRAction.PLAY_VICTIM, PRAction.STATEMENT,
+                ):
+                    triggered_by = peer.actor
+                    trigger_relation = rel.get("relation_type")
+                    break
 
         crisis_action = CrisisAction(
             actor=self.name,
             action=action,
             content=content,
             day=state.get("day", 0),
+            triggered_by=triggered_by,
+            trigger_relation=trigger_relation,
         )
 
         self.past_actions.append(action)
@@ -144,7 +170,99 @@ class CelebrityPersonaAgent:
 
         return crisis_action
 
-    def _rule_decide(self, phase: CrisisPhase, state: dict) -> PRAction:
+    def _apply_peer_influence(
+        self,
+        peer_actions: list[CrisisAction],
+        candidates: list[tuple[PRAction, float]],
+    ) -> None:
+        """根据关系类型和对方动作，调整候选动作权重"""
+        for peer_action in peer_actions:
+            rels = self.kg.get_relationship_context(self.name, peer_action.actor)
+            if not rels:
+                continue
+            relation_type = rels[0].get("relation_type", "")
+
+            # 配偶/家人道歉了 → 我也倾向缓和
+            if relation_type in ("配偶", "伴侣", "家人", "亲属") and \
+               peer_action.action == PRAction.APOLOGIZE:
+                self._boost(candidates, PRAction.APOLOGIZE, 1.5)
+                self._boost(candidates, PRAction.STATEMENT, 1.0)
+                self._boost(candidates, PRAction.SILENCE, 0.8)
+
+            # 配偶/家人反击了 → 我也倾向强硬
+            if relation_type in ("配偶", "伴侣", "家人", "亲属") and \
+               peer_action.action == PRAction.COUNTERATTACK:
+                self._boost(candidates, PRAction.COUNTERATTACK, 1.2)
+                self._boost(candidates, PRAction.STATEMENT, 1.5)
+
+            # 对手反击了 → 我也倾向反击
+            if relation_type in ("对手", "竞争对手", "宿敌", "同代竞争") and \
+               peer_action.action == PRAction.COUNTERATTACK:
+                self._boost(candidates, PRAction.COUNTERATTACK, 1.5)
+                self._boost(candidates, PRAction.STATEMENT, 1.0)
+
+            # 对手道歉了 → 我可以高姿态沉默
+            if relation_type in ("对手", "竞争对手", "宿敌", "同代竞争") and \
+               peer_action.action == PRAction.APOLOGIZE:
+                self._boost(candidates, PRAction.SILENCE, 1.5)
+                self._boost(candidates, PRAction.PLAY_VICTIM, 1.0)
+
+            # 对手卖惨 → 我发声明澄清
+            if relation_type in ("对手", "竞争对手", "宿敌", "同代竞争") and \
+               peer_action.action == PRAction.PLAY_VICTIM:
+                self._boost(candidates, PRAction.STATEMENT, 2.0)
+                self._boost(candidates, PRAction.COUNTERATTACK, 1.0)
+
+            # 被指名了 → 必须回应
+            if peer_action.target == self.name:
+                self._boost(candidates, PRAction.STATEMENT, 2.0)
+                self._boost(candidates, PRAction.COUNTERATTACK, 1.0)
+
+    def _apply_audience_influence(
+        self,
+        audience_reactions: list[AgentMessage],
+        candidates: list[tuple[PRAction, float]],
+    ) -> None:
+        """根据观众反应调整决策"""
+        if not audience_reactions:
+            return
+
+        pos = sum(1 for r in audience_reactions if r.sentiment == "positive")
+        neg = sum(1 for r in audience_reactions if r.sentiment == "negative")
+        total = max(1, pos + neg)
+        neg_ratio = neg / total
+
+        # 观众愤怒为主 → 倾向道歉/沉默
+        if neg_ratio > 0.6:
+            self._boost(candidates, PRAction.APOLOGIZE, 1.5)
+            self._boost(candidates, PRAction.SILENCE, 1.0)
+
+        # 观众支持为主 → 倾向声明/反击
+        elif neg_ratio < 0.3:
+            self._boost(candidates, PRAction.STATEMENT, 1.0)
+            self._boost(candidates, PRAction.COUNTERATTACK, 0.8)
+
+    @staticmethod
+    def _boost(
+        candidates: list[tuple[PRAction, float]],
+        target_action: PRAction,
+        bonus: float,
+    ) -> None:
+        """给候选动作加权"""
+        for i, (action, weight) in enumerate(candidates):
+            if action == target_action:
+                candidates[i] = (action, weight + bonus)
+                return
+        # 不在候选中则追加
+        candidates.append((target_action, bonus))
+
+    def _rule_decide(
+        self,
+        phase: CrisisPhase,
+        state: dict,
+        peer_actions: list[CrisisAction] | None = None,
+        audience_reactions: list[AgentMessage] | None = None,
+    ) -> PRAction:
         """规则模式决策"""
         approval = state.get("approval_scores", {}).get(self.name, 50.0)
         heat = state.get("heat_index", 50.0)
@@ -211,6 +329,14 @@ class CelebrityPersonaAgent:
         if not candidates:
             candidates.append((PRAction.SILENCE, 1.0))
 
+        # 关系影响
+        if peer_actions:
+            self._apply_peer_influence(peer_actions, candidates)
+
+        # 观众影响
+        if audience_reactions:
+            self._apply_audience_influence(audience_reactions, candidates)
+
         # 应用权重并选择
         weighted = []
         for action, base_w in candidates:
@@ -228,7 +354,13 @@ class CelebrityPersonaAgent:
 
         return weighted[-1][0]
 
-    async def _llm_decide(self, phase: CrisisPhase, state: dict) -> PRAction:
+    async def _llm_decide(
+        self,
+        phase: CrisisPhase,
+        state: dict,
+        peer_actions: list[CrisisAction] | None = None,
+        audience_reactions: list[AgentMessage] | None = None,
+    ) -> PRAction:
         """LLM 模式决策"""
         import logging
         logger = logging.getLogger(__name__)
@@ -236,7 +368,7 @@ class CelebrityPersonaAgent:
             from swarmsim.llm import get_client
 
             client = get_client()
-            prompt = self._build_decision_prompt(phase, state)
+            prompt = self._build_decision_prompt(phase, state, peer_actions, audience_reactions)
             logger.info(f"[LLM] {self.name} 正在请求 LLM 决策 (阶段: {phase.label})")
             response = await client.generate_async(prompt)
             content = response.content if hasattr(response, 'content') else str(response)
@@ -250,13 +382,19 @@ class CelebrityPersonaAgent:
                     return action
 
             logger.warning(f"[LLM] {self.name} 无法解析 LLM 响应，fallback 到规则模式")
-            return self._rule_decide(phase, state)
+            return self._rule_decide(phase, state, peer_actions, audience_reactions)
 
         except Exception as e:
             logger.warning(f"[LLM] {self.name} LLM 调用失败: {type(e).__name__}: {e}")
-            return self._rule_decide(phase, state)
+            return self._rule_decide(phase, state, peer_actions, audience_reactions)
 
-    def _build_decision_prompt(self, phase: CrisisPhase, state: dict) -> str:
+    def _build_decision_prompt(
+        self,
+        phase: CrisisPhase,
+        state: dict,
+        peer_actions: list[CrisisAction] | None = None,
+        audience_reactions: list[AgentMessage] | None = None,
+    ) -> str:
         """构建 LLM 决策 prompt"""
         approval = state.get("approval_scores", {}).get(self.name, 50.0)
         heat = state.get("heat_index", 50.0)
@@ -265,12 +403,34 @@ class CelebrityPersonaAgent:
         actions_str = ", ".join(f"{a.value}({a.label})" for a in PRAction)
         recent = ", ".join(a.label for a in self.past_actions[-3:]) or "无"
 
+        # 其他 Agent 今天的动作
+        peer_info = ""
+        if peer_actions:
+            peer_lines = []
+            for pa in peer_actions:
+                rels = self.kg.get_relationship_context(self.name, pa.actor)
+                rel_type = rels[0].get("relation_type", "未知关系") if rels else "未知关系"
+                peer_lines.append(f"  {pa.actor}(关系:{rel_type})做了:{pa.action.label}")
+            peer_info = f"\n今天其他人已经采取的动作：\n" + "\n".join(peer_lines) + "\n"
+
+        # 观众反应
+        audience_info = ""
+        if audience_reactions:
+            pos = sum(1 for r in audience_reactions if r.sentiment == "positive")
+            neg = sum(1 for r in audience_reactions if r.sentiment == "negative")
+            neu = sum(1 for r in audience_reactions if r.sentiment == "neutral")
+            sample = [r.content for r in audience_reactions[:3] if r.content]
+            audience_info = f"\n观众反应：正面{pos}条，负面{neg}条，中性{neu}条\n"
+            if sample:
+                audience_info += "观众评论示例：" + "；".join(sample) + "\n"
+
         return (
             f"你是明星{self.name}，正面临公关危机。\n"
             f"当前第{day}天，阶段：{phase.label}，"
             f"你的口碑分：{approval:.0f}/100，舆情热度：{heat:.0f}/100。\n"
             f"你的性格特质：{self.personality}\n"
             f"最近动作：{recent}\n"
+            f"{peer_info}{audience_info}"
             f"可选动作：{actions_str}\n"
             f"请从可选动作中选择一个，只回复动作的英文value。"
         )

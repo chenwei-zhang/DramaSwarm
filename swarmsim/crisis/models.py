@@ -99,6 +99,20 @@ class CrisisAction:
     content: str = ""
     day: int = 0
     effects: dict[str, float] = field(default_factory=dict)
+    triggered_by: str | None = None        # 被谁的哪条动作触发
+    trigger_relation: str | None = None    # 触发关系类型
+
+
+@dataclass
+class AgentMessage:
+    """Agent 间通信消息"""
+    sender: str                            # "李小璐" 或 "audience_粉丝"
+    receiver: str | None = None            # None = 广播
+    action: PRAction | None = None
+    content: str = ""
+    day: int = 0
+    sentiment: str = "neutral"             # positive/negative/neutral
+    source: str = "celebrity"              # celebrity/audience
 
 
 @dataclass
@@ -146,6 +160,8 @@ class CrisisState:
     agent_actions: list[CrisisAction] = field(default_factory=list)
     active_interventions: list[dict] = field(default_factory=list)
     person_brands: dict[str, list[BrandStatus]] = field(default_factory=dict)
+    audience_reactions: list[dict] = field(default_factory=list)
+    interaction_log: list[dict] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -171,7 +187,9 @@ class CrisisState:
             "agent_actions": [
                 {"actor": a.actor, "action": a.action.value,
                  "action_label": a.action.label,
-                 "content": a.content, "day": a.day}
+                 "content": a.content, "day": a.day,
+                 "triggered_by": a.triggered_by,
+                 "trigger_relation": a.trigger_relation}
                 for a in self.agent_actions
             ],
             "active_interventions": self.active_interventions,
@@ -180,6 +198,8 @@ class CrisisState:
                     for b in brands]
                 for p, brands in self.person_brands.items()
             },
+            "audience_reactions": self.audience_reactions,
+            "interaction_log": self.interaction_log,
         }
 
 

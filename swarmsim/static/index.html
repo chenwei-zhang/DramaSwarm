@@ -259,6 +259,16 @@ body {
 .brand-action-suspended { color: #FF9800; }
 .brand-action-terminated { color: #F44336; }
 
+.audience-item {
+  padding: 3px 0;
+  border-bottom: 1px solid #1a2a3a;
+  font-size: 11px;
+}
+.audience-sentiment-pos { color: #4CAF50; }
+.audience-sentiment-neg { color: #F44336; }
+.audience-sentiment-neu { color: #888; }
+.interaction-arrow { color: #FFC107; font-size: 10px; margin-right: 4px; }
+
 .outcome-box {
   background: #1a2a3a;
   border-radius: 8px;
@@ -779,6 +789,9 @@ body {
 
     <!-- Right Panel: Trending + Media + Brands + Outcome -->
     <div class="crisis-panel" id="crisis-right">
+      <h4>观众反应</h4>
+      <div id="crisis-audience"></div>
+
       <h4>热搜榜</h4>
       <div id="crisis-trending"></div>
 
@@ -1745,6 +1758,13 @@ function updateCrisisUI(state) {
     const ap = state.approval_scores[name] || 50;
     const bv = (state.brand_values || {})[name] || 50;
     const color = PERSON_COLORS[i % PERSON_COLORS.length];
+    // Check if this person was triggered by interaction
+    const myInteractions = (state.interaction_log || []).filter(l => l.responder === name);
+    let interactionHtml = '';
+    if (myInteractions.length) {
+      const last = myInteractions[myInteractions.length - 1];
+      interactionHtml = `<div style="font-size:10px;color:#FFC107;margin-top:2px;">← 被${last.trigger}的${last.trigger_action}触发</div>`;
+    }
     personsEl.innerHTML += `
       <div class="crisis-person-card">
         <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -1756,6 +1776,7 @@ function updateCrisisUI(state) {
           <span class="label">品牌: ${bv.toFixed(0)}</span>
           <span class="label">监管: Lv.${state.regulatory_level}</span>
         </div>
+        ${interactionHtml}
       </div>`;
   });
 
@@ -1796,13 +1817,45 @@ function updateCrisisUI(state) {
     });
   });
 
+  // Audience reactions
+  const audienceEl = document.getElementById('crisis-audience');
+  audienceEl.innerHTML = '';
+  const reactions = state.audience_reactions || [];
+  if (reactions.length) {
+    const posCount = reactions.filter(r => r.sentiment === 'positive').length;
+    const negCount = reactions.filter(r => r.sentiment === 'negative').length;
+    const neuCount = reactions.filter(r => r.sentiment === 'neutral').length;
+    audienceEl.innerHTML += `<div style="font-size:11px;margin-bottom:4px;">
+      <span class="audience-sentiment-pos">+${posCount}</span> /
+      <span class="audience-sentiment-neg">-${negCount}</span> /
+      <span class="audience-sentiment-neu">${neuCount}</span>
+    </div>`;
+    reactions.slice(0, 5).forEach(r => {
+      const cls = r.sentiment === 'positive' ? 'audience-sentiment-pos'
+        : r.sentiment === 'negative' ? 'audience-sentiment-neg' : 'audience-sentiment-neu';
+      audienceEl.innerHTML += `<div class="audience-item">
+        <span class="${cls}">${r.sentiment === 'positive' ? '+' : r.sentiment === 'negative' ? '-' : '='}</span>
+        ${(r.content || '').substring(0, 40)}
+      </div>`;
+    });
+  } else {
+    audienceEl.innerHTML = '<div style="color:#556677;font-size:11px;">等待仿真运行...</div>';
+  }
+
+  // Interaction log display in person cards
+  const interactions = state.interaction_log || [];
+
   // Timeline — 从完整历史累积显示
   const tlEl = document.getElementById('crisis-timeline-list');
   tlEl.innerHTML = '';
   crisisHistory.forEach(s => {
     const dayLabel = `<span style="color:#4FC3F7;font-weight:bold;">Day${s.day}</span> `;
     (s.agent_actions || []).forEach(a => {
-      tlEl.innerHTML += `<li>${dayLabel}<b>${a.actor}</b> ${a.action_label} ${a.content ? '- ' + a.content : ''}</li>`;
+      let triggerHtml = '';
+      if (a.triggered_by) {
+        triggerHtml = ` <span class="interaction-arrow">← ${a.triggered_by}的${a.trigger_action || '动作'}触发</span>`;
+      }
+      tlEl.innerHTML += `<li>${dayLabel}<b>${a.actor}</b> ${a.action_label} ${a.content ? '- ' + a.content : ''}${triggerHtml}</li>`;
     });
     (s.rumors || []).forEach(r => {
       tlEl.innerHTML += `<li>${dayLabel}<span style="color:#FF7043;">谣言: ${r.content}</span></li>`;

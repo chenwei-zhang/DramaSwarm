@@ -15,12 +15,15 @@ from swarmsim.crisis.models import (
     CrisisPhase, PRAction, GossipType,
     CrisisScenario, CrisisAction, CrisisState,
     InterventionCondition, TrendingTopic, MediaHeadline, BrandStatus,
+    AgentMessage,
 )
 from swarmsim.crisis.timeline import CrisisTimeline
 from swarmsim.crisis.action_space import CrisisActionSpace
 from swarmsim.crisis.persona_agent import CelebrityPersonaAgent
 from swarmsim.crisis.intervention import InterventionSystem
 from swarmsim.crisis.vacuum_detector import InformationVacuumDetector
+from swarmsim.crisis.message_bus import MessageBus
+from swarmsim.crisis.audience import AudiencePool
 from swarmsim.graph.temporal import TemporalKnowledgeGraph
 
 
@@ -213,6 +216,10 @@ class CrisisSimulation:
             self.intervention_system.add_interventions(interventions)
 
         self.vacuum_detector = InformationVacuumDetector()
+        self.message_bus = MessageBus()
+        self.audience_pool = AudiencePool(
+            scenario.involved_persons, pool_size=30,
+        )
 
         # 状态
         self.state_history: list[CrisisState] = []
@@ -290,7 +297,7 @@ class CrisisSimulation:
                 "effects": effects,
             })
 
-        # 3. 每个 Agent 生成响应
+        # 3. 顺序决策：后决策的 Agent 看到前面人的动作 + 观众反应
         forced_actions: dict[str, PRAction] = {}
         for cond in triggered:
             if cond.person and cond.action:
@@ -299,11 +306,58 @@ class CrisisSimulation:
                 except ValueError:
                     pass
 
+        # 每日清空消息总线
+        self.message_bus.clear()
+
         day_actions: list[CrisisAction] = []
+        interaction_log: list[dict] = []
         for name, agent in self.agents.items():
             forced = forced_actions.get(name)
-            action = await agent.generate_crisis_response(phase, state_dict, forced_action=forced)
+
+            # 已决策的其他 Agent 动作
+            peer_actions = list(day_actions)
+
+            # 观众对今天已有动作的反应
+            audience_reactions: list[AgentMessage] = []
+            if peer_actions:
+                audience_reactions = await self.audience_pool.generate_reactions(
+                    day, peer_actions, state_dict,
+                )
+
+            # 当前 Agent 决策，感知其他人和观众
+            action = await agent.generate_crisis_response(
+                phase, state_dict,
+                forced_action=forced,
+                peer_actions=peer_actions,
+                audience_reactions=audience_reactions,
+            )
+            action.day = day
             day_actions.append(action)
+
+            # 记录交互关系
+            if action.triggered_by:
+                trigger_action_label = next(
+                    (a.action.label for a in day_actions
+                     if a.actor == action.triggered_by),
+                    "",
+                )
+                interaction_log.append({
+                    "trigger": action.triggered_by,
+                    "trigger_action": trigger_action_label,
+                    "responder": name,
+                    "response_action": action.action.label,
+                    "relation": action.trigger_relation,
+                })
+
+            # 传播效应：检查是否有人需要对这条动作做出反应
+            self._check_propagation(action)
+
+        # 收集观众反应摘要
+        all_audience_reactions = self.message_bus.get_audience_reactions()
+        audience_summary = [
+            {"sender": r.sender, "content": r.content, "sentiment": r.sentiment}
+            for r in all_audience_reactions[:20]
+        ]
 
         # 4. 信息真空检测 → 谣言
         new_rumors = self.vacuum_detector.update(
@@ -394,6 +448,8 @@ class CrisisSimulation:
             person_brands={
                 p: list(brands) for p, brands in self.current_state.person_brands.items()
             },
+            audience_reactions=audience_summary,
+            interaction_log=interaction_log,
         )
 
         self.current_state = new_state
@@ -522,6 +578,33 @@ class CrisisSimulation:
 
         self.current_state.regulatory_level = max(0, min(5, level))
 
+    def _check_propagation(self, action: CrisisAction) -> None:
+        """检查一条动作是否会触发其他 Agent 的额外响应"""
+        for name, agent in self.agents.items():
+            if name == action.actor:
+                continue
+            rels = self.kg.get_relationship_context(name, action.actor)
+            if not rels:
+                continue
+            relation_type = rels[0].get("relation_type", "")
+
+            # 配偶/家人做了重大动作 → 标记需要回应
+            if relation_type in ("配偶", "前配偶", "伴侣", "家人", "亲属") and \
+               action.action in (
+                   PRAction.APOLOGIZE, PRAction.COUNTERATTACK,
+                   PRAction.PLAY_VICTIM, PRAction.STATEMENT,
+               ):
+                agent.memory.append(
+                    f"PROPAGATION: {action.actor}做了{action.action.label}，我被触发回应"
+                )
+
+            # 对手做了攻击性动作 → 标记需要回应
+            if relation_type in ("对手", "竞争对手", "宿敌", "同代竞争") and \
+               action.action in (PRAction.COUNTERATTACK, PRAction.PLAY_VICTIM):
+                agent.memory.append(
+                    f"PROPAGATION: 对手{action.actor}做了{action.action.label}，我被触发回应"
+                )
+
     async def run(self, days: int | None = None) -> list[CrisisState]:
         """运行仿真到底"""
         target = days or self.timeline.total_days
@@ -547,6 +630,7 @@ class CrisisSimulation:
         self.current_state = self._init_state()
         self.vacuum_detector.reset()
         self.intervention_system.reset()
+        self.message_bus.clear()
         for agent in self.agents.values():
             agent.reset()
         self._finished = False
