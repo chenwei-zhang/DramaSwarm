@@ -16,14 +16,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from swarmsim.graph import KnowledgeGraph
+from swarmsim.graph.temporal import TemporalKnowledgeGraph
 from swarmsim.viz.api_graph import router as graph_router
 from swarmsim.viz.api_simulation import router as sim_router
+from swarmsim.viz.api_crisis import router as crisis_router
 
 
-def _load_knowledge_graph() -> KnowledgeGraph:
+def _load_knowledge_graph() -> TemporalKnowledgeGraph:
     """加载知识图谱"""
-    kg = KnowledgeGraph()
+    kg = TemporalKnowledgeGraph()
 
     # 尝试从 celebrity_scraper/data 加载
     data_dir = os.path.join(
@@ -66,6 +67,8 @@ async def lifespan(app: FastAPI):
     app.state.environment = None
     app.state.observer = None
     app.state.event_loop = None
+    app.state.crisis_engine = None
+    app.state.crisis_simulation = None
     yield
 
 
@@ -89,6 +92,7 @@ def create_app() -> FastAPI:
     # API 路由
     app.include_router(graph_router, prefix="/api/graph")
     app.include_router(sim_router, prefix="/api/sim")
+    app.include_router(crisis_router, prefix="/api/crisis")
 
     # 静态文件
     static_dir = Path(__file__).parent.parent / "static"

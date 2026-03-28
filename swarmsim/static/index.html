@@ -77,6 +77,221 @@ body {
 .btn.danger { color: #FF7043; border-color: #FF7043; }
 .btn.danger:hover { background: #FF7043; color: #0f1923; }
 
+/* ── Tab 切换 ── */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  margin-left: auto;
+}
+.tab-btn {
+  background: transparent;
+  color: #8899aa;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 6px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab-btn:hover { color: #e0e0e0; }
+.tab-btn.active {
+  color: #4FC3F7;
+  border-bottom-color: #4FC3F7;
+}
+
+/* ── Crisis Layout ── */
+#crisis-view {
+  display: none;
+  height: calc(100vh - 52px);
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.crisis-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr 320px;
+  gap: 12px;
+  height: calc(100vh - 88px);
+}
+
+.crisis-panel {
+  background: #141e2a;
+  border: 1px solid #2a3a4a;
+  border-radius: 8px;
+  overflow-y: auto;
+  padding: 12px;
+}
+.crisis-panel::-webkit-scrollbar { width: 4px; }
+.crisis-panel::-webkit-scrollbar-thumb { background: #2a3a4a; border-radius: 2px; }
+
+.crisis-panel h4 {
+  font-size: 12px;
+  color: #8899aa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #1a2a3a;
+}
+
+.crisis-select {
+  width: 100%;
+  background: #1a2a3a;
+  color: #e0e0e0;
+  border: 1px solid #2a3a4a;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.crisis-person-card {
+  background: #1a2a3a;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+.crisis-person-card .name { font-size: 13px; font-weight: bold; }
+.crisis-person-card .score { font-size: 20px; font-weight: bold; color: #4FC3F7; }
+.crisis-person-card .label { font-size: 10px; color: #667788; }
+
+.crisis-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: #2a3a4a;
+  margin-top: 4px;
+}
+.crisis-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+.crisis-timeline {
+  list-style: none;
+  padding-left: 16px;
+  border-left: 2px solid #2a3a4a;
+}
+.crisis-timeline li {
+  position: relative;
+  padding: 6px 0 6px 12px;
+  font-size: 12px;
+  color: #aabbcc;
+}
+.crisis-timeline li::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2a4a6a;
+  border: 2px solid #4FC3F7;
+}
+
+.crisis-actions-bar {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.crisis-intervention {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.crisis-intervention select, .crisis-intervention input {
+  background: #1a2a3a;
+  color: #e0e0e0;
+  border: 1px solid #2a3a4a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+#crisis-chart {
+  width: 100%;
+  height: 240px;
+  background: #0f1923;
+  border-radius: 6px;
+}
+
+.trending-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  font-size: 12px;
+  border-bottom: 1px solid #1a2a3a;
+}
+.trending-rank {
+  color: #FF7043;
+  font-weight: bold;
+  width: 24px;
+}
+.trending-heat {
+  color: #FF7043;
+  font-size: 11px;
+}
+
+.media-item {
+  padding: 6px 0;
+  border-bottom: 1px solid #1a2a3a;
+  font-size: 12px;
+}
+.media-outlet {
+  color: #4FC3F7;
+  font-size: 10px;
+}
+
+.brand-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  font-size: 11px;
+}
+.brand-action-continue { color: #4CAF50; }
+.brand-action-monitoring { color: #FFC107; }
+.brand-action-suspended { color: #FF9800; }
+.brand-action-terminated { color: #F44336; }
+
+.outcome-box {
+  background: #1a2a3a;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+}
+.outcome-verdict {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.outcome-metric {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  font-size: 12px;
+  border-bottom: 1px solid #2a3a4a;
+}
+
+.phase-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.phase-breakout { background: #F44336; color: white; }
+.phase-escalation { background: #FF9800; color: white; }
+.phase-peak { background: #E91E63; color: white; }
+.phase-mitigation { background: #2196F3; color: white; }
+.phase-resolution { background: #4CAF50; color: white; }
+.phase-aftermath { background: #607D8B; color: white; }
+
 /* ── Main Layout ── */
 #main {
   display: grid;
@@ -446,6 +661,11 @@ body {
   </div>
 
   <button class="btn" id="refresh-btn">刷新</button>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="graph">知识图谱</button>
+    <button class="tab-btn" data-tab="crisis">危机模拟</button>
+  </div>
 </div>
 
 <!-- Main -->
@@ -496,6 +716,80 @@ body {
         <p>点击图谱中的节点查看详情</p>
         <p style="margin-top:8px;font-size:11px;color:#556677">拖拽移动 · 滚轮缩放 · 点击选择</p>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Crisis Simulation View -->
+<div id="crisis-view">
+  <div class="crisis-grid">
+    <!-- Left Panel: Scenario + Persons + Intervention -->
+    <div class="crisis-panel" id="crisis-left">
+      <h4>场景选择</h4>
+      <select class="crisis-select" id="crisis-scenario-select">
+        <option value="">加载中...</option>
+      </select>
+      <div style="display:flex;gap:6px;margin-bottom:8px;">
+        <button class="btn" id="crisis-start-btn" style="flex:1">启动仿真</button>
+        <button class="btn" id="crisis-reset-btn">重置</button>
+      </div>
+
+      <h4>人物状态</h4>
+      <div id="crisis-persons"></div>
+
+      <h4>干预面板</h4>
+      <div class="crisis-intervention">
+        <select id="crisis-iv-person" style="flex:1"><option value="">人物</option></select>
+        <select id="crisis-iv-action" style="flex:1">
+          <option value="">强制动作</option>
+          <option value="silence">沉默</option>
+          <option value="apologize">道歉</option>
+          <option value="statement">声明</option>
+          <option value="go_on_show">上节目</option>
+          <option value="lawsuit">起诉</option>
+          <option value="hide">隐退</option>
+        </select>
+      </div>
+      <div class="crisis-intervention">
+        <input id="crisis-iv-desc" placeholder="干预描述" style="flex:1">
+        <input id="crisis-iv-day" placeholder="第几天" type="number" style="width:60px">
+        <button class="btn" id="crisis-iv-add">添加</button>
+      </div>
+      <div id="crisis-pending-ivs" style="font-size:11px;color:#8899aa;"></div>
+    </div>
+
+    <!-- Center: Chart + Timeline + Controls -->
+    <div class="crisis-panel" id="crisis-center">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h4 style="border:none;margin:0;padding:0;">口碑走势</h4>
+        <span id="crisis-day-label" style="font-size:13px;color:#4FC3F7;"></span>
+      </div>
+      <canvas id="crisis-chart"></canvas>
+
+      <div class="crisis-actions-bar">
+        <button class="btn" id="crisis-step-btn">下一步 (1天)</button>
+        <button class="btn" id="crisis-run-btn">运行全部</button>
+        <button class="btn" id="crisis-outcome-btn">查看结果</button>
+        <span id="crisis-status" style="font-size:12px;color:#8899aa;"></span>
+      </div>
+
+      <h4>事件时间线</h4>
+      <ul class="crisis-timeline" id="crisis-timeline-list"></ul>
+    </div>
+
+    <!-- Right Panel: Trending + Media + Brands + Outcome -->
+    <div class="crisis-panel" id="crisis-right">
+      <h4>热搜榜</h4>
+      <div id="crisis-trending"></div>
+
+      <h4>媒体头条</h4>
+      <div id="crisis-media"></div>
+
+      <h4>品牌状态</h4>
+      <div id="crisis-brands"></div>
+
+      <h4>结果对比</h4>
+      <div id="crisis-outcome"></div>
     </div>
   </div>
 </div>
@@ -1307,6 +1601,299 @@ function setupEventListeners() {
     if (graphData.nodes.length) renderGraph(graphData);
   });
   resizeObserver.observe(document.getElementById('canvas-container'));
+
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tab = btn.dataset.tab;
+      document.getElementById('main').style.display = tab === 'graph' ? 'grid' : 'none';
+      document.getElementById('crisis-view').style.display = tab === 'crisis' ? 'block' : 'none';
+      if (tab === 'crisis') loadCrisisScenarios();
+    });
+  });
+
+  // Crisis controls
+  document.getElementById('crisis-start-btn').addEventListener('click', startCrisisSim);
+  document.getElementById('crisis-step-btn').addEventListener('click', stepCrisisSim);
+  document.getElementById('crisis-run-btn').addEventListener('click', runCrisisSim);
+  document.getElementById('crisis-reset-btn').addEventListener('click', resetCrisisSim);
+  document.getElementById('crisis-outcome-btn').addEventListener('click', loadCrisisOutcome);
+  document.getElementById('crisis-iv-add').addEventListener('click', addCrisisIntervention);
+}
+
+// ── Crisis Simulation ──
+
+const PERSON_COLORS = ['#4FC3F7','#FF7043','#66BB6A','#FFC107','#AB47BC','#EF5350'];
+let crisisHistory = [];
+
+async function loadCrisisScenarios() {
+  const data = await api('/api/crisis/scenarios');
+  const sel = document.getElementById('crisis-scenario-select');
+  sel.innerHTML = '<option value="">选择场景...</option>';
+  (data.scenarios || []).forEach(s => {
+    sel.innerHTML += `<option value="${s.title}">${s.title} (${s.date || '未知日期'}) - ${s.involved_persons.join(', ')}</option>`;
+  });
+}
+
+async function startCrisisSim() {
+  const title = document.getElementById('crisis-scenario-select').value;
+  if (!title) return alert('请先选择场景');
+  const res = await apiPost('/api/crisis/start', {
+    scenario_title: title,
+    use_llm: false,
+    total_days: 30,
+  });
+  if (res.error) return alert(res.error);
+  crisisHistory = [res.initial_state];
+  updateCrisisUI(res.initial_state);
+  document.getElementById('crisis-status').textContent = '仿真已启动';
+}
+
+async function stepCrisisSim() {
+  const res = await apiPost('/api/crisis/step', {});
+  if (res.error) return alert(res.error);
+  crisisHistory.push(res.state);
+  updateCrisisUI(res.state);
+  document.getElementById('crisis-status').textContent = `第${res.state.day}天 ${res.state.phase_label}`;
+}
+
+async function runCrisisSim() {
+  document.getElementById('crisis-status').textContent = '运行中...';
+  const res = await apiPost('/api/crisis/run', {});
+  if (res.error) return alert(res.error);
+  crisisHistory = res.history || [];
+  if (crisisHistory.length) updateCrisisUI(crisisHistory[crisisHistory.length - 1]);
+  document.getElementById('crisis-status').textContent = res.status === 'completed' ? '仿真完成' : '运行中';
+  drawCrisisChart();
+}
+
+async function resetCrisisSim() {
+  await apiPost('/api/crisis/reset', {});
+  crisisHistory = [];
+  document.getElementById('crisis-status').textContent = '';
+  document.getElementById('crisis-timeline-list').innerHTML = '';
+  document.getElementById('crisis-trending').innerHTML = '';
+  document.getElementById('crisis-media').innerHTML = '';
+  document.getElementById('crisis-brands').innerHTML = '';
+  document.getElementById('crisis-outcome').innerHTML = '';
+  document.getElementById('crisis-persons').innerHTML = '';
+  document.getElementById('crisis-day-label').textContent = '';
+  clearCrisisChart();
+}
+
+async function loadCrisisOutcome() {
+  const res = await api('/api/crisis/outcome');
+  if (res.error) return alert(res.error);
+  const el = document.getElementById('crisis-outcome');
+  let html = `<div class="outcome-box">`;
+  html += `<div class="outcome-verdict" style="color:${res.verdict==='better'?'#4CAF50':res.verdict==='worse'?'#F44336':'#FFC107'}">${res.verdict_label}</div>`;
+  html += `<p style="font-size:12px;white-space:pre-wrap;margin:8px 0;">${res.summary}</p>`;
+  if (res.metrics_comparison) {
+    Object.entries(res.metrics_comparison).forEach(([key, val]) => {
+      if (key.startsWith('_')) return;
+      html += `<div style="margin-bottom:6px;"><b style="color:#4FC3F7;">${key}</b>`;
+      if (typeof val === 'object') {
+        Object.entries(val).forEach(([k,v]) => {
+          if (typeof v === 'number') v = v.toFixed(1);
+          html += `<div class="outcome-metric"><span>${k}</span><span>${v}</span></div>`;
+        });
+      }
+      html += `</div>`;
+    });
+  }
+  if (res.pr_recommendations && res.pr_recommendations.length) {
+    html += `<h4 style="margin-top:8px;">PR 建议</h4>`;
+    res.pr_recommendations.forEach(r => html += `<p style="font-size:11px;color:#aabbcc;margin:2px 0;">- ${r}</p>`);
+  }
+  html += `</div>`;
+  el.innerHTML = html;
+}
+
+async function addCrisisIntervention() {
+  const person = document.getElementById('crisis-iv-person').value;
+  const action = document.getElementById('crisis-iv-action').value;
+  const desc = document.getElementById('crisis-iv-desc').value;
+  const day = document.getElementById('crisis-iv-day').value;
+  const res = await apiPost('/api/crisis/intervene', {
+    person: person || null,
+    action: action || null,
+    description: desc,
+    day: day ? parseInt(day) : null,
+  });
+  if (res.error) return alert(res.error);
+  document.getElementById('crisis-pending-ivs').innerHTML =
+    (res.pending || []).map(d => `<div style="margin:2px 0;">⏳ ${d}</div>`).join('');
+  document.getElementById('crisis-iv-desc').value = '';
+}
+
+function updateCrisisUI(state) {
+  if (!state) return;
+
+  // Day label
+  document.getElementById('crisis-day-label').innerHTML =
+    `第${state.day}天 <span class="phase-badge phase-${state.phase}">${state.phase_label}</span>`;
+
+  // Person cards
+  const personsEl = document.getElementById('crisis-persons');
+  personsEl.innerHTML = '';
+  const names = Object.keys(state.approval_scores || {});
+  names.forEach((name, i) => {
+    const ap = state.approval_scores[name] || 50;
+    const bv = (state.brand_values || {})[name] || 50;
+    const color = PERSON_COLORS[i % PERSON_COLORS.length];
+    personsEl.innerHTML += `
+      <div class="crisis-person-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span class="name" style="color:${color}">${name}</span>
+          <span class="score">${ap.toFixed(0)}</span>
+        </div>
+        <div class="crisis-bar"><div class="crisis-bar-fill" style="width:${ap}%;background:${color}"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;">
+          <span class="label">品牌: ${bv.toFixed(0)}</span>
+          <span class="label">监管: Lv.${state.regulatory_level}</span>
+        </div>
+      </div>`;
+  });
+
+  // Update intervention person select
+  const ivPersonSel = document.getElementById('crisis-iv-person');
+  ivPersonSel.innerHTML = '<option value="">人物</option>';
+  names.forEach(n => ivPersonSel.innerHTML += `<option value="${n}">${n}</option>`);
+
+  // Trending
+  const trendingEl = document.getElementById('crisis-trending');
+  trendingEl.innerHTML = '';
+  (state.trending_topics || []).forEach(t => {
+    trendingEl.innerHTML += `<div class="trending-item">
+      <span><span class="trending-rank">#${t.rank}</span> ${t.title}</span>
+      <span class="trending-heat">${(t.heat/1000).toFixed(1)}k</span>
+    </div>`;
+  });
+
+  // Media
+  const mediaEl = document.getElementById('crisis-media');
+  mediaEl.innerHTML = '';
+  (state.media_headlines || []).slice(0, 6).forEach(h => {
+    mediaEl.innerHTML += `<div class="media-item">
+      <span class="media-outlet">[${h.outlet}]</span> ${h.headline}
+    </div>`;
+  });
+
+  // Brands
+  const brandsEl = document.getElementById('crisis-brands');
+  brandsEl.innerHTML = '';
+  Object.entries(state.person_brands || {}).forEach(([person, brands]) => {
+    brandsEl.innerHTML += `<div style="font-size:12px;color:#4FC3F7;margin-bottom:2px;">${person}</div>`;
+    brands.forEach(b => {
+      brandsEl.innerHTML += `<div class="brand-item">
+        <span>${b.brand}</span>
+        <span class="brand-action-${b.action}">${b.action}</span>
+      </div>`;
+    });
+  });
+
+  // Timeline
+  const tlEl = document.getElementById('crisis-timeline-list');
+  tlEl.innerHTML = '';
+  (state.agent_actions || []).forEach(a => {
+    tlEl.innerHTML += `<li><b>${a.actor}</b> ${a.action_label} ${a.content ? '- ' + a.content : ''}</li>`;
+  });
+  (state.rumors || []).slice(-3).forEach(r => {
+    tlEl.innerHTML += `<li style="color:#FF7043;">谣言: ${r.content}</li>`;
+  });
+
+  // Chart
+  drawCrisisChart();
+}
+
+function clearCrisisChart() {
+  const canvas = document.getElementById('crisis-chart');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawCrisisChart() {
+  const canvas = document.getElementById('crisis-chart');
+  const ctx = canvas.getContext('2d');
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width - 24;
+  canvas.height = 240;
+
+  const w = canvas.width, h = canvas.height;
+  const pad = { top: 20, right: 20, bottom: 30, left: 40 };
+  const cw = w - pad.left - pad.right;
+  const ch = h - pad.top - pad.bottom;
+
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = '#0f1923';
+  ctx.fillRect(0, 0, w, h);
+
+  // Fetch history from API if local is empty
+  if (!crisisHistory.length) return;
+
+  const allDays = crisisHistory.map(s => s.day);
+  const maxDay = Math.max(...allDays, 1);
+  const names = Object.keys(crisisHistory[0].approval_scores || {});
+
+  // Grid
+  ctx.strokeStyle = '#1a2a3a';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.top + ch * i / 4;
+    ctx.beginPath();
+    ctx.moveTo(pad.left, y);
+    ctx.lineTo(w - pad.right, y);
+    ctx.stroke();
+    ctx.fillStyle = '#556677';
+    ctx.font = '10px sans-serif';
+    ctx.fillText((100 - i * 25).toString(), 4, y + 4);
+  }
+
+  // X axis labels
+  ctx.fillStyle = '#556677';
+  for (let d = 0; d <= maxDay; d += Math.max(1, Math.floor(maxDay / 6))) {
+    const x = pad.left + (d / maxDay) * cw;
+    ctx.fillText('D' + d, x - 8, h - 4);
+  }
+
+  // Draw lines per person
+  names.forEach((name, idx) => {
+    const color = PERSON_COLORS[idx % PERSON_COLORS.length];
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    let started = false;
+    crisisHistory.forEach(s => {
+      const x = pad.left + (s.day / maxDay) * cw;
+      const y = pad.top + (1 - (s.approval_scores[name] || 50) / 100) * ch;
+      if (!started) { ctx.moveTo(x, y); started = true; }
+      else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // Label
+    const lastState = crisisHistory[crisisHistory.length - 1];
+    const lx = pad.left + (lastState.day / maxDay) * cw + 4;
+    const ly = pad.top + (1 - (lastState.approval_scores[name] || 50) / 100) * ch;
+    ctx.fillStyle = color;
+    ctx.font = 'bold 10px sans-serif';
+    ctx.fillText(name, lx, ly + 3);
+  });
+
+  // Heat line
+  ctx.strokeStyle = '#FF7043';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath();
+  crisisHistory.forEach((s, i) => {
+    const x = pad.left + (s.day / maxDay) * cw;
+    const y = pad.top + (1 - s.heat_index / 100) * ch;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+  ctx.setLineDash([]);
 }
 </script>
 </body>

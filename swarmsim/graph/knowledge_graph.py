@@ -122,6 +122,7 @@ class KnowledgeGraph:
                     "importance": gossip.importance,
                     "sentiment": gossip.sentiment,
                     "content": gossip.content,
+                    "date": getattr(gossip, "date", ""),
                 }
                 self._add_gossip_node(gossip_dict)
                 stats["gossips"] += 1
@@ -230,6 +231,7 @@ class KnowledgeGraph:
                 importance=float(gossip.get("importance", 0.5)),
                 sentiment=gossip.get("sentiment", "neutral"),
                 content=gossip.get("content", ""),
+                date=gossip.get("date", ""),
             )
 
         for person_name in involved:
