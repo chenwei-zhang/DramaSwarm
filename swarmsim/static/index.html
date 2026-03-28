@@ -1053,6 +1053,8 @@ function renderGraph(data) {
     } else {
       html = `<strong>${(d.title || '').substring(0, 30)}</strong>`;
       if (d.importance) html += `<br><span style="color:#8899aa">重要度: ${d.importance.toFixed(1)}</span>`;
+      if (d.date) html += `<br><span style="color:#8899aa">${d.date}</span>`;
+      if (d.gossip_type) html += `<br><span style="color:#FF7043">${d.gossip_type}</span>`;
     }
     tooltip.innerHTML = html;
     tooltip.style.display = 'block';
@@ -1222,7 +1224,7 @@ async function loadDetail(d) {
         html += `
           <div class="event-item">
             <div class="title">${icon} ${e.title}</div>
-            <div class="meta">${e.type} · 重要度 ${typeof e.importance === 'number' ? e.importance.toFixed(1) : '?'}</div>
+            <div class="meta">${e.type}${e.date ? ' · ' + e.date : ''}${typeof e.importance === 'number' ? ' · 重要度 ' + e.importance.toFixed(1) : ''}</div>
           </div>`;
       });
       html += '</div>';
@@ -1248,6 +1250,7 @@ async function loadDetail(d) {
       </div>`;
 
     if (d.gossip_type) html += `<div class="detail-tag" style="margin-bottom:8px">${d.gossip_type}</div>`;
+    if (d.date) html += `<div style="font-size:12px;color:#4FC3F7;margin-bottom:4px">${d.date}</div>`;
     if (d.importance !== undefined) html += `<div style="font-size:12px;color:#8899aa;margin-bottom:8px">重要度: ${d.importance.toFixed(1)}</div>`;
 
     // Find connected celebrities

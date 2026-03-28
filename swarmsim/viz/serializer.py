@@ -65,9 +65,12 @@ def graph_to_d3(
             node["gossip_type"] = data.get("gossip_type", "other")
             node["importance"] = data.get("importance", 0.5)
             node["sentiment"] = data.get("sentiment", "neutral")
+            node["date"] = data.get("date", "")
+            node["content"] = data.get("content", "")
         elif node_type == "news":
             node["title"] = data.get("title", "")
             node["source"] = data.get("source", "")
+            node["date"] = data.get("date", "")
             node["sentiment"] = data.get("sentiment", "neutral")
 
         nodes.append(node)
@@ -209,6 +212,10 @@ def path_to_d3(kg: KnowledgeGraph, path: list[dict]) -> dict:
             node["name"] = data.get("name", "")
         else:
             node["title"] = data.get("title", "")
+            node["date"] = data.get("date", "")
+            node["gossip_type"] = data.get("gossip_type", "other")
+            node["importance"] = data.get("importance", 0.5)
+            node["sentiment"] = data.get("sentiment", "neutral")
 
         nodes.append(node)
 

@@ -193,9 +193,18 @@ class KnowledgeGraph:
                     existing[k] = v
 
     def _add_relationship_edge(self, person_a: str, person_b: str, rel_data: dict) -> None:
-        """添加关系边（双向）"""
+        """添加关系边（双向），自动去重"""
         node_a = f"celebrity:{person_a}"
         node_b = f"celebrity:{person_b}"
+
+        # 去重：检查任意方向是否已有同 relation_type 的 relationship 边
+        rel_type = rel_data.get("relation_type", "合作")
+        for _, v, _, edata in self._graph.edges(nbunch=[node_a], data=True, keys=True):
+            if v == node_b and edata.get("edge_type") == "relationship" and edata.get("relation_type") == rel_type:
+                return  # 已存在，跳过
+        for _, v, _, edata in self._graph.edges(nbunch=[node_b], data=True, keys=True):
+            if v == node_a and edata.get("edge_type") == "relationship" and edata.get("relation_type") == rel_type:
+                return  # 已存在，跳过
 
         # 确保两端节点存在
         for name, nid in [(person_a, node_a), (person_b, node_b)]:
@@ -203,7 +212,7 @@ class KnowledgeGraph:
                 self._add_celebrity_node(name, {})
 
         edge_data = {
-            "relation_type": rel_data.get("relation_type", "合作"),
+            "relation_type": rel_type,
             "strength": float(rel_data.get("strength", 0.5)),
             "confidence": float(rel_data.get("confidence", 0.5)),
             "is_current": rel_data.get("is_current", True),
@@ -237,6 +246,13 @@ class KnowledgeGraph:
         for person_name in involved:
             celeb_id = f"celebrity:{person_name}"
             if self._graph.has_node(celeb_id):
+                # 去重：检查是否已有 involved_in 边
+                has_edge = any(
+                    v == node_id and d.get("edge_type") == "involved_in"
+                    for _, v, d in self._graph.edges(nbunch=[celeb_id], data=True)
+                )
+                if has_edge:
+                    continue
                 self._graph.add_edge(celeb_id, node_id,
                     edge_type="involved_in",
                     role="primary" if person_name in title else "mentioned")
@@ -424,6 +440,8 @@ class KnowledgeGraph:
                     "type": node_data.get("node_type", ""),
                     "importance": node_data.get("importance", 0.5),
                     "sentiment": node_data.get("sentiment", "neutral"),
+                    "date": node_data.get("date", ""),
+                    "gossip_type": node_data.get("gossip_type", ""),
                 })
 
         # 按重要性排序
