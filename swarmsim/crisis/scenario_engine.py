@@ -297,7 +297,7 @@ class CrisisSimulation:
         day_actions: list[CrisisAction] = []
         for name, agent in self.agents.items():
             forced = forced_actions.get(name)
-            action = agent.generate_crisis_response(phase, state_dict, forced_action=forced)
+            action = await agent.generate_crisis_response(phase, state_dict, forced_action=forced)
             day_actions.append(action)
 
         # 4. 信息真空检测 → 谣言

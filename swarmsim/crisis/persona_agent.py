@@ -107,7 +107,7 @@ class CelebrityPersonaAgent:
 
         return traits
 
-    def generate_crisis_response(
+    async def generate_crisis_response(
         self,
         phase: CrisisPhase,
         state: dict,
@@ -126,7 +126,7 @@ class CelebrityPersonaAgent:
         if forced_action:
             action = forced_action
         elif self.use_llm:
-            action = self._llm_decide(phase, state)
+            action = await self._llm_decide(phase, state)
         else:
             action = self._rule_decide(phase, state)
 
@@ -228,25 +228,32 @@ class CelebrityPersonaAgent:
 
         return weighted[-1][0]
 
-    def _llm_decide(self, phase: CrisisPhase, state: dict) -> PRAction:
+    async def _llm_decide(self, phase: CrisisPhase, state: dict) -> PRAction:
         """LLM 模式决策"""
+        import logging
+        logger = logging.getLogger(__name__)
         try:
             from swarmsim.llm import get_client
 
             client = get_client()
             prompt = self._build_decision_prompt(phase, state)
-            response = client.generate(prompt)
+            logger.info(f"[LLM] {self.name} 正在请求 LLM 决策 (阶段: {phase.label})")
+            response = await client.generate_async(prompt)
+            content = response.content if hasattr(response, 'content') else str(response)
+            logger.info(f"[LLM] {self.name} LLM 响应: {content[:100]}")
 
             # 解析 LLM 返回的动作
             action_map = {a.value: a for a in PRAction}
             for value, action in action_map.items():
-                if value in response.lower():
+                if value in content.lower():
+                    logger.info(f"[LLM] {self.name} 选择动作: {action.label}")
                     return action
 
-            # fallback
+            logger.warning(f"[LLM] {self.name} 无法解析 LLM 响应，fallback 到规则模式")
             return self._rule_decide(phase, state)
 
-        except Exception:
+        except Exception as e:
+            logger.warning(f"[LLM] {self.name} LLM 调用失败: {type(e).__name__}: {e}")
             return self._rule_decide(phase, state)
 
     def _build_decision_prompt(self, phase: CrisisPhase, state: dict) -> str:

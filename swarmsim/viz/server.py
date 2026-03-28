@@ -11,6 +11,13 @@ import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 
+# 确保 .env 环境变量在启动时加载
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse

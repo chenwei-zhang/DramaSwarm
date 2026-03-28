@@ -11,6 +11,13 @@ DramaSwarm 可视化服务器启动脚本
 
 import argparse
 
+# 加载 .env 环境变量（需在 import swarmsim 之前）
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 
 def main():
     parser = argparse.ArgumentParser(description="DramaSwarm GraphRAG 可视化")
