@@ -226,13 +226,18 @@ class CrisisSimulation:
         person_brands = {}
 
         for name in self.scenario.involved_persons:
-            # 初始口碑：基于严重度
-            base = max(20, 70 - self.scenario.initial_severity * 50)
-            approval[name] = round(base + random.uniform(-5, 5), 1)
+            # 基础口碑：从图谱数据推算（危机前的公众形象）
+            base_approval = self._estimate_base_approval(name)
+            # 危机冲击：严重度越高，口碑跌得越狠
+            crisis_penalty = self.scenario.initial_severity * 30
+            approval[name] = round(
+                max(15, base_approval - crisis_penalty + random.uniform(-3, 3)), 1
+            )
 
-            # 初始品牌
-            brand_val = max(20, 65 - self.scenario.initial_severity * 30)
-            brands[name] = round(brand_val + random.uniform(-3, 3), 1)
+            # 品牌价值：基础口碑 × 0.8 + 随机波动
+            brands[name] = round(
+                max(20, base_approval * 0.8 + random.uniform(-3, 3)), 1
+            )
 
             # 品牌列表
             brand_names = ["某品牌A", "某品牌B", "某品牌C"]
@@ -545,3 +550,52 @@ class CrisisSimulation:
         for agent in self.agents.values():
             agent.reset()
         self._finished = False
+
+    def _estimate_base_approval(self, name: str) -> float:
+        """从图谱数据推算基础口碑（危机前的公众形象）
+
+        综合考量：粉丝量、作品数、过往负面事件数量、职业类型
+        返回 20-95 的口碑分
+        """
+        node_id = f"celebrity:{name}"
+        if not self.kg._graph.has_node(node_id):
+            return 60.0
+
+        data = self.kg._graph.nodes[node_id]
+
+        # 1. 粉丝量贡献 (0-30)
+        fans = data.get("weibo_followers", 0) or 0
+        if fans >= 1e8:
+            fans_score = 30
+        elif fans >= 5e7:
+            fans_score = 20 + min(10, (fans - 5e7) / 5e7 * 10)
+        elif fans >= 1e6:
+            fans_score = 12 + min(8, (fans - 1e6) / 4e7 * 8)
+        elif fans >= 1e4:
+            fans_score = 5 + min(7, (fans - 1e4) / 1e6 * 7)
+        else:
+            fans_score = 5
+
+        # 2. 作品数贡献 (0-15)
+        works = data.get("famous_works", []) or []
+        works_score = min(15, len(works) * 2.5)
+
+        # 3. 过往负面事件扣分 (0-20)
+        events = self.kg.get_related_events(name)
+        negative_events = [e for e in events if e.get("sentiment") == "negative"]
+        event_penalty = min(20, len(negative_events) * 5)
+
+        # 4. 职业加成 (0-10)
+        occupation = data.get("occupation", [])
+        occ_text = " ".join(str(o) for o in occupation)
+        occ_bonus = 0
+        if any(kw in occ_text for kw in ["演员", "歌手", "导演", "制片", "说唱"]):
+            occ_bonus = 8
+        elif any(kw in occ_text for kw in ["主持人", "模特", "偶像", "idol"]):
+            occ_bonus = 5
+        elif any(kw in occ_text for kw in ["舞者", "音乐人", "rapper", "DJ"]):
+            occ_bonus = 3
+
+        base = 50 + fans_score + works_score - event_penalty + occ_bonus
+        return max(20, min(95, base))
+
