@@ -32,7 +32,7 @@
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [],
-    "updated_at": "2026-03-27T20:34:09.015481"
+    "updated_at": "2026-03-27T21:11:21.648157"
   },
   "gossips": [
     {
@@ -81,6 +81,17 @@
       "description": "2012年结婚，2019年因夜宿门事件离婚，育有一女甜馨",
       "confidence": 0.99,
       "strength": 0.2
+    },
+    {
+      "person_a": "贾乃亮",
+      "person_b": "PG One",
+      "relation_type": "对手",
+      "start_date": null,
+      "end_date": null,
+      "is_current": false,
+      "description": "夜宿门事件中贾乃亮为受害者一方，两人关系敌对",
+      "confidence": 0.95,
+      "strength": 0.1
     }
   ],
   "social_media_posts": [
@@ -88,202 +99,164 @@
       "id": "wb_贾乃亮_0",
       "platform": "douyin",
       "author": "贾乃亮",
-      "content": "收工啦，晚安！",
-      "likes": 308909,
-      "reposts": 6384,
-      "comments": 6751,
-      "publish_time": "2025-09-29",
+      "content": "健身打卡",
+      "likes": 424690,
+      "reposts": 7687,
+      "comments": 4520,
+      "publish_time": "2026-02-14",
       "source_url": "https://weibo.com/贾乃亮/0",
       "tags": [
-        "工作",
-        "努力"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "工作",
+        "努力"
       ]
     },
     {
       "id": "wb_贾乃亮_1",
       "platform": "weibo",
       "author": "贾乃亮",
-      "content": "工作花絮分享~",
-      "likes": 187824,
-      "reposts": 5614,
-      "comments": 5426,
-      "publish_time": "2025-04-15",
+      "content": "感谢品牌方的邀请",
+      "likes": 253582,
+      "reposts": 24509,
+      "comments": 9311,
+      "publish_time": "2025-07-31",
       "source_url": "https://weibo.com/贾乃亮/1",
       "tags": [
-        "感恩",
-        "粉丝"
-      ],
-      "topics": [
         "新剧",
         "期待"
+      ],
+      "topics": [
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_贾乃亮_2",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "贾乃亮",
-      "content": "公益行动，传递正能量",
-      "likes": 150406,
-      "reposts": 2011,
-      "comments": 8990,
-      "publish_time": "2026-03-11",
+      "content": "今天的拍摄很顺利，感谢大家的支持！",
+      "likes": 336360,
+      "reposts": 22686,
+      "comments": 993,
+      "publish_time": "2026-01-13",
       "source_url": "https://weibo.com/贾乃亮/2",
       "tags": [
-        "生活",
-        "记录"
+        "日常",
+        "分享"
       ],
       "topics": [
-        "杀青",
-        "新戏"
+        "新剧",
+        "期待"
       ]
     },
     {
       "id": "wb_贾乃亮_3",
       "platform": "weibo",
       "author": "贾乃亮",
-      "content": "杂志拍摄完成，期待正片",
-      "likes": 442893,
-      "reposts": 541,
-      "comments": 5270,
-      "publish_time": "2025-09-20",
+      "content": "公益行动，传递正能量",
+      "likes": 350426,
+      "reposts": 41535,
+      "comments": 541,
+      "publish_time": "2026-01-14",
       "source_url": "https://weibo.com/贾乃亮/3",
       "tags": [
-        "杀青",
-        "新戏"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
-        "工作",
-        "努力"
+        "感恩",
+        "粉丝"
       ]
     },
     {
       "id": "wb_贾乃亮_4",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "贾乃亮",
-      "content": "新歌听听看",
-      "likes": 11569,
-      "reposts": 27503,
-      "comments": 1922,
-      "publish_time": "2026-03-12",
+      "content": "感谢粉丝们的支持！",
+      "likes": 164821,
+      "reposts": 3685,
+      "comments": 5765,
+      "publish_time": "2025-07-02",
       "source_url": "https://weibo.com/贾乃亮/4",
       "tags": [
-        "工作",
-        "努力"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "日常",
+        "分享"
       ]
     },
     {
       "id": "wb_贾乃亮_5",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "贾乃亮",
-      "content": "新剧开机，加油！",
-      "likes": 44632,
-      "reposts": 31971,
-      "comments": 8855,
-      "publish_time": "2026-03-01",
+      "content": "新歌听听看",
+      "likes": 80448,
+      "reposts": 15785,
+      "comments": 9610,
+      "publish_time": "2025-10-29",
       "source_url": "https://weibo.com/贾乃亮/5",
       "tags": [
-        "杀青",
-        "新戏"
+        "新剧",
+        "期待"
       ],
       "topics": [
-        "杀青",
-        "新戏"
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_贾乃亮_6",
       "platform": "weibo",
       "author": "贾乃亮",
-      "content": "感谢粉丝们的支持！",
-      "likes": 36695,
-      "reposts": 26455,
-      "comments": 6086,
-      "publish_time": "2025-09-05",
+      "content": "收工啦，晚安！",
+      "likes": 460451,
+      "reposts": 8049,
+      "comments": 6075,
+      "publish_time": "2025-09-01",
       "source_url": "https://weibo.com/贾乃亮/6",
       "tags": [
-        "新剧",
-        "期待"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "工作",
-        "努力"
+        "日常",
+        "分享"
       ]
     },
     {
       "id": "wb_贾乃亮_7",
       "platform": "douyin",
       "author": "贾乃亮",
-      "content": "感谢品牌方的邀请",
-      "likes": 281694,
-      "reposts": 11230,
-      "comments": 7268,
-      "publish_time": "2025-09-01",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 132663,
+      "reposts": 42131,
+      "comments": 1190,
+      "publish_time": "2026-01-23",
       "source_url": "https://weibo.com/贾乃亮/7",
       "tags": [
-        "日常",
-        "分享"
+        "工作",
+        "努力"
       ],
       "topics": [
-        "新剧",
-        "期待"
+        "感恩",
+        "粉丝"
       ]
     },
     {
       "id": "wb_贾乃亮_8",
       "platform": "weibo",
       "author": "贾乃亮",
-      "content": "路演见",
-      "likes": 187613,
-      "reposts": 39310,
-      "comments": 2817,
-      "publish_time": "2025-08-03",
+      "content": "工作花絮分享~",
+      "likes": 322767,
+      "reposts": 25250,
+      "comments": 8983,
+      "publish_time": "2026-01-15",
       "source_url": "https://weibo.com/贾乃亮/8",
-      "tags": [
-        "杀青",
-        "新戏"
-      ],
-      "topics": [
-        "杀青",
-        "新戏"
-      ]
-    },
-    {
-      "id": "wb_贾乃亮_9",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "健身打卡",
-      "likes": 13703,
-      "reposts": 10334,
-      "comments": 9155,
-      "publish_time": "2025-10-07",
-      "source_url": "https://weibo.com/贾乃亮/9",
-      "tags": [
-        "新剧",
-        "期待"
-      ],
-      "topics": [
-        "工作",
-        "努力"
-      ]
-    },
-    {
-      "id": "wb_贾乃亮_10",
-      "platform": "douyin",
-      "author": "贾乃亮",
-      "content": "今天的拍摄很顺利，感谢大家的支持！",
-      "likes": 201756,
-      "reposts": 11445,
-      "comments": 6220,
-      "publish_time": "2025-06-12",
-      "source_url": "https://weibo.com/贾乃亮/10",
       "tags": [
         "日常",
         "分享"
@@ -294,560 +267,481 @@
       ]
     },
     {
-      "id": "wb_贾乃亮_11",
+      "id": "wb_贾乃亮_9",
+      "platform": "douyin",
+      "author": "贾乃亮",
+      "content": "新剧开机，加油！",
+      "likes": 107719,
+      "reposts": 36915,
+      "comments": 9348,
+      "publish_time": "2025-07-06",
+      "source_url": "https://weibo.com/贾乃亮/9",
+      "tags": [
+        "工作",
+        "努力"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
+      ]
+    },
+    {
+      "id": "wb_贾乃亮_10",
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "新作品即将上线，敬请期待！",
-      "likes": 342260,
-      "reposts": 31878,
-      "comments": 597,
-      "publish_time": "2025-08-28",
-      "source_url": "https://weibo.com/贾乃亮/11",
+      "likes": 81768,
+      "reposts": 49755,
+      "comments": 4250,
+      "publish_time": "2026-03-06",
+      "source_url": "https://weibo.com/贾乃亮/10",
       "tags": [
         "新剧",
         "期待"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "新剧",
+        "期待"
+      ]
+    },
+    {
+      "id": "wb_贾乃亮_11",
+      "platform": "weibo",
+      "author": "贾乃亮",
+      "content": "剧组日常，认真工作中",
+      "likes": 419956,
+      "reposts": 37898,
+      "comments": 6538,
+      "publish_time": "2025-03-29",
+      "source_url": "https://weibo.com/贾乃亮/11",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "日常",
+        "分享"
       ]
     },
     {
       "id": "wb_贾乃亮_12",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "贾乃亮",
-      "content": "剧组日常，认真工作中",
-      "likes": 381423,
-      "reposts": 8546,
-      "comments": 8996,
-      "publish_time": "2025-09-03",
+      "content": "路演见",
+      "likes": 376353,
+      "reposts": 33076,
+      "comments": 7951,
+      "publish_time": "2025-05-19",
       "source_url": "https://weibo.com/贾乃亮/12",
       "tags": [
         "感恩",
         "粉丝"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "感恩",
+        "粉丝"
       ]
     }
   ],
   "comments": [
     {
-      "content": "期待新作品！",
-      "author": "用户6449",
-      "likes": 952,
-      "replies": 96,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户2359",
-      "likes": 3338,
-      "replies": 7,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户5961",
-      "likes": 322,
-      "replies": 93,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户5039",
-      "likes": 1608,
-      "replies": 56,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户2463",
-      "likes": 1203,
-      "replies": 36,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "看哭了，太感人了",
-      "author": "用户9705",
-      "likes": 517,
+      "content": "综艺里好搞笑",
+      "author": "用户8602",
+      "likes": 3310,
       "replies": 92,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户4791",
-      "likes": 2006,
-      "replies": 83,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户5988",
-      "likes": 1695,
-      "replies": 64,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户7878",
-      "likes": 3021,
-      "replies": 10,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "支持贾乃亮！加油",
-      "author": "用户4008",
-      "likes": 2298,
-      "replies": 20,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户3532",
-      "likes": 3114,
-      "replies": 58,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "贾乃亮的演技越来越好了",
-      "author": "用户7357",
-      "likes": 4010,
-      "replies": 39,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "贾乃亮永远的神",
-      "author": "用户8584",
-      "likes": 4354,
-      "replies": 80,
-      "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
-    },
-    {
-      "content": "支持贾乃亮！加油",
-      "author": "用户7904",
-      "likes": 4881,
-      "replies": 44,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户9744",
-      "likes": 818,
-      "replies": 46,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户6966",
-      "likes": 2975,
-      "replies": 78,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
     },
     {
       "content": "新剧什么时候出？",
-      "author": "用户7186",
-      "likes": 1130,
-      "replies": 91,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户8637",
-      "likes": 2820,
-      "replies": 28,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "看哭了，太感人了",
-      "author": "用户3937",
-      "likes": 1897,
+      "author": "用户7776",
+      "likes": 2148,
       "replies": 43,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "这颜值真的绝了",
-      "author": "用户2984",
-      "likes": 3467,
-      "replies": 84,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户6773",
-      "likes": 2001,
-      "replies": 13,
+      "content": "支持贾乃亮！加油",
+      "author": "用户1645",
+      "likes": 4027,
+      "replies": 46,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户2108",
-      "likes": 1825,
-      "replies": 40,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户4039",
-      "likes": 1247,
-      "replies": 83,
-      "is_top": false,
-      "source_platform": "weibo",
       "sentiment": "neutral"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户5256",
-      "likes": 4446,
-      "replies": 40,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "支持贾乃亮！加油",
-      "author": "用户3054",
-      "likes": 2811,
-      "replies": 22,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户1203",
-      "likes": 728,
-      "replies": 100,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持贾乃亮！加油",
-      "author": "用户3409",
-      "likes": 1593,
-      "replies": 67,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "贾乃亮的演技越来越好了",
-      "author": "用户2983",
-      "likes": 4182,
-      "replies": 15,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户9317",
-      "likes": 4921,
-      "replies": 60,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户9349",
-      "likes": 1368,
-      "replies": 23,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持贾乃亮！加油",
-      "author": "用户4381",
-      "likes": 1824,
-      "replies": 31,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
     },
     {
       "content": "贾乃亮好棒！",
-      "author": "用户8858",
-      "likes": 392,
-      "replies": 67,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户1441",
-      "likes": 433,
-      "replies": 67,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户8712",
-      "likes": 205,
-      "replies": 57,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户2100",
-      "likes": 2513,
-      "replies": 4,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户6461",
-      "likes": 3613,
-      "replies": 90,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户8366",
-      "likes": 699,
-      "replies": 26,
+      "author": "用户3456",
+      "likes": 2287,
+      "replies": 69,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "爱了爱了",
-      "author": "用户5686",
-      "likes": 4545,
-      "replies": 49,
-      "is_top": false,
-      "source_platform": "douyin",
+      "author": "用户9639",
+      "likes": 1720,
+      "replies": 8,
+      "is_top": true,
+      "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "期待新作品！",
-      "author": "用户8213",
-      "likes": 3092,
-      "replies": 12,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户2375",
-      "likes": 1032,
-      "replies": 81,
+      "content": "看哭了，太感人了",
+      "author": "用户6280",
+      "likes": 1250,
+      "replies": 63,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "新剧什么时候出？",
-      "author": "用户8584",
-      "likes": 1192,
+      "content": "永远支持",
+      "author": "用户9995",
+      "likes": 2523,
+      "replies": 87,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户5663",
+      "likes": 1364,
+      "replies": 52,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户8203",
+      "likes": 2340,
+      "replies": 84,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户5527",
+      "likes": 1952,
+      "replies": 13,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户8734",
+      "likes": 4828,
+      "replies": 66,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户1079",
+      "likes": 3150,
       "replies": 77,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
+      "sentiment": "neutral"
     },
     {
       "content": "支持贾乃亮！加油",
-      "author": "用户4665",
-      "likes": 3760,
-      "replies": 70,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户5565",
-      "likes": 3230,
-      "replies": 54,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "贾乃亮好棒！",
-      "author": "用户8218",
-      "likes": 1444,
-      "replies": 60,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户6069",
-      "likes": 3695,
-      "replies": 16,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "贾乃亮的演技越来越好了",
-      "author": "用户3439",
-      "likes": 4050,
-      "replies": 37,
+      "author": "用户2611",
+      "likes": 1229,
+      "replies": 57,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "今天状态真好",
-      "author": "用户8910",
-      "likes": 1103,
-      "replies": 0,
+      "content": "路人转粉了",
+      "author": "用户1205",
+      "likes": 1175,
+      "replies": 63,
       "is_top": false,
-      "source_platform": "douyin",
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户4780",
+      "likes": 180,
+      "replies": 33,
+      "is_top": false,
+      "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "爱了爱了",
-      "author": "用户5548",
-      "likes": 1501,
-      "replies": 43,
+      "content": "贾乃亮的演技越来越好了",
+      "author": "用户1980",
+      "likes": 364,
+      "replies": 38,
       "is_top": false,
-      "source_platform": "douyin",
+      "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "支持贾乃亮！加油",
-      "author": "用户1589",
-      "likes": 837,
-      "replies": 61,
+      "content": "期待新作品！",
+      "author": "用户2860",
+      "likes": 2941,
+      "replies": 79,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "贾乃亮好棒！",
+      "author": "用户5036",
+      "likes": 564,
+      "replies": 87,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户2964",
+      "likes": 761,
+      "replies": 2,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "贾乃亮永远的神",
+      "author": "用户8938",
+      "likes": 1011,
+      "replies": 70,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "路人转粉了",
-      "author": "用户7989",
-      "likes": 3092,
-      "replies": 17,
+      "author": "用户2262",
+      "likes": 4411,
+      "replies": 69,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
       "content": "综艺里好搞笑",
-      "author": "用户8647",
-      "likes": 3503,
-      "replies": 32,
+      "author": "用户6431",
+      "likes": 3802,
+      "replies": 93,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户8294",
+      "likes": 509,
+      "replies": 40,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户9774",
+      "likes": 4490,
+      "replies": 54,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户7105",
+      "likes": 877,
+      "replies": 24,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "贾乃亮永远的神",
+      "author": "用户6136",
+      "likes": 4711,
+      "replies": 93,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户4205",
+      "likes": 1587,
+      "replies": 52,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "贾乃亮好棒！",
-      "author": "用户2186",
-      "likes": 255,
-      "replies": 100,
+      "content": "路人转粉了",
+      "author": "用户4510",
+      "likes": 4114,
+      "replies": 35,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户8419",
+      "likes": 1565,
+      "replies": 85,
       "is_top": false,
       "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "贾乃亮永远的神",
+      "author": "用户6316",
+      "likes": 3227,
+      "replies": 89,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户8031",
+      "likes": 3803,
+      "replies": 7,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户9576",
+      "likes": 4382,
+      "replies": 45,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户6235",
+      "likes": 759,
+      "replies": 42,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户5312",
+      "likes": 2394,
+      "replies": 12,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户6631",
+      "likes": 3836,
+      "replies": 55,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户2906",
+      "likes": 769,
+      "replies": 32,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户1796",
+      "likes": 1212,
+      "replies": 46,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户9250",
+      "likes": 3031,
+      "replies": 41,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户3196",
+      "likes": 4078,
+      "replies": 50,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户4760",
+      "likes": 4693,
+      "replies": 19,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户6918",
+      "likes": 3252,
+      "replies": 85,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户2450",
+      "likes": 1935,
+      "replies": 45,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户1471",
+      "likes": 3757,
+      "replies": 53,
+      "is_top": true,
+      "source_platform": "douyin",
       "sentiment": "positive"
     }
   ],
   "news_articles": [
     {
-      "title": "贾乃亮时尚大片发布，造型引热议",
-      "summary": "贾乃亮相关话题登上热搜",
-      "content": "贾乃亮最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2025-11-24",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/贾乃亮/0",
-      "sentiment": "positive",
-      "sentiment_score": 0.3332351948808216,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "贾乃亮综艺感获认可，多档节目常驻嘉宾",
-      "summary": "网友热议贾乃亮近况",
-      "content": "离婚后贾乃亮活跃于多档综艺节目，展现搞笑天赋和综艺感，事业成功转型。",
-      "publish_date": "2025-11-21",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/贾乃亮/1",
-      "sentiment": "neutral",
-      "sentiment_score": 0.1109154285830865,
-      "category": "",
-      "tags": []
-    },
-    {
       "title": "贾乃亮直播带货创销售纪录，转型成功",
       "summary": "贾乃亮相关话题登上热搜",
       "content": "贾乃亮在抖音直播带货中多次创造高销售纪录，成功从演员转型头部主播。",
-      "publish_date": "2025-11-20",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/贾乃亮/2",
+      "publish_date": "2026-02-13",
+      "source": "网易娱乐",
+      "source_url": "https://example.com/news/贾乃亮/0",
       "sentiment": "neutral",
-      "sentiment_score": 0.2665749202393098,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "贾乃亮工作室发声明澄清网络传闻",
-      "summary": "贾乃亮近日动态引发关注",
-      "content": "贾乃亮工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-02-22",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/贾乃亮/3",
-      "sentiment": "neutral",
-      "sentiment_score": -0.027637262820360442,
+      "sentiment_score": 0.34018019266602145,
       "category": "",
       "tags": []
     },
@@ -855,23 +749,59 @@
       "title": "贾乃亮现身活动，状态在线",
       "summary": "贾乃亮相关话题登上热搜",
       "content": "贾乃亮出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2026-02-19",
+      "publish_date": "2026-02-25",
       "source": "新浪娱乐",
+      "source_url": "https://example.com/news/贾乃亮/1",
+      "sentiment": "neutral",
+      "sentiment_score": 0.18406761441497205,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "贾乃亮综艺感获认可，多档节目常驻嘉宾",
+      "summary": "贾乃亮相关话题登上热搜",
+      "content": "离婚后贾乃亮活跃于多档综艺节目，展现搞笑天赋和综艺感，事业成功转型。",
+      "publish_date": "2026-02-15",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/贾乃亮/2",
+      "sentiment": "neutral",
+      "sentiment_score": -0.18104679678677865,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "贾乃亮时尚大片发布，造型引热议",
+      "summary": "网友热议贾乃亮近况",
+      "content": "贾乃亮最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
+      "publish_date": "2025-11-17",
+      "source": "搜狐娱乐",
+      "source_url": "https://example.com/news/贾乃亮/3",
+      "sentiment": "neutral",
+      "sentiment_score": -0.06773300277223449,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "贾乃亮工作室发声明澄清网络传闻",
+      "summary": "网友热议贾乃亮近况",
+      "content": "贾乃亮工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
+      "publish_date": "2026-01-26",
+      "source": "网易娱乐",
       "source_url": "https://example.com/news/贾乃亮/4",
       "sentiment": "neutral",
-      "sentiment_score": 0.159068050835679,
+      "sentiment_score": 0.08905475286700182,
       "category": "",
       "tags": []
     },
     {
       "title": "贾乃亮与甜馨父女互动上热搜，好爸爸形象深入人心",
-      "summary": "网友热议贾乃亮近况",
+      "summary": "贾乃亮相关话题登上热搜",
       "content": "贾乃亮与女儿甜馨的互动经常成为热门话题，离婚后以好爸爸形象获得公众好感。",
-      "publish_date": "2025-10-18",
-      "source": "凤凰网娱乐",
+      "publish_date": "2026-02-23",
+      "source": "新浪娱乐",
       "source_url": "https://example.com/news/贾乃亮/5",
       "sentiment": "neutral",
-      "sentiment_score": 0.12305936076616575,
+      "sentiment_score": 0.029393599920442687,
       "category": "",
       "tags": []
     }
@@ -879,9 +809,9 @@
   "statistics": {
     "data_completeness": 0.95,
     "total_posts": 13,
-    "total_comments": 52,
+    "total_comments": 43,
     "total_news": 6,
-    "total_relationships": 1,
+    "total_relationships": 2,
     "total_gossips": 2
   }
 }

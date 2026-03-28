@@ -31,7 +31,7 @@
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [],
-    "updated_at": "2026-03-27T20:34:12.032654"
+    "updated_at": "2026-03-27T21:11:21.500511"
   },
   "gossips": [
     {
@@ -64,6 +64,17 @@
       "description": "2017年底夜宿门事件，导致被封杀",
       "confidence": 0.9,
       "strength": 0.4
+    },
+    {
+      "person_a": "PG One",
+      "person_b": "贾乃亮",
+      "relation_type": "对手",
+      "start_date": null,
+      "end_date": null,
+      "is_current": false,
+      "description": "因夜宿门事件导致贾乃亮离婚，两人关系彻底敌对",
+      "confidence": 0.95,
+      "strength": 0.1
     }
   ],
   "social_media_posts": [
@@ -71,30 +82,30 @@
       "id": "wb_PG One_0",
       "platform": "douyin",
       "author": "PG One",
-      "content": "感谢粉丝们的支持！",
-      "likes": 414552,
-      "reposts": 42511,
-      "comments": 584,
-      "publish_time": "2025-09-09",
+      "content": "新作品即将上线，敬请期待！",
+      "likes": 498604,
+      "reposts": 1270,
+      "comments": 8055,
+      "publish_time": "2026-01-19",
       "source_url": "https://weibo.com/PG One/0",
       "tags": [
-        "日常",
-        "分享"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "日常",
-        "分享"
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_PG One_1",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "PG One",
-      "content": "新歌听听看",
-      "likes": 120349,
-      "reposts": 41121,
-      "comments": 840,
-      "publish_time": "2026-01-04",
+      "content": "剧组日常，认真工作中",
+      "likes": 162921,
+      "reposts": 1691,
+      "comments": 3384,
+      "publish_time": "2026-03-11",
       "source_url": "https://weibo.com/PG One/1",
       "tags": [
         "杀青",
@@ -109,34 +120,34 @@
       "id": "wb_PG One_2",
       "platform": "weibo",
       "author": "PG One",
-      "content": "新剧开机，加油！",
-      "likes": 393042,
-      "reposts": 31823,
-      "comments": 3947,
-      "publish_time": "2025-05-23",
+      "content": "感谢粉丝们的支持！",
+      "likes": 20018,
+      "reposts": 756,
+      "comments": 9746,
+      "publish_time": "2025-08-21",
       "source_url": "https://weibo.com/PG One/2",
       "tags": [
-        "工作",
-        "努力"
+        "新剧",
+        "期待"
       ],
       "topics": [
-        "工作",
-        "努力"
+        "新剧",
+        "期待"
       ]
     },
     {
       "id": "wb_PG One_3",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "PG One",
-      "content": "公益行动，传递正能量",
-      "likes": 263254,
-      "reposts": 7870,
-      "comments": 2562,
-      "publish_time": "2025-09-27",
+      "content": "新剧开机，加油！",
+      "likes": 358797,
+      "reposts": 31832,
+      "comments": 6082,
+      "publish_time": "2025-04-08",
       "source_url": "https://weibo.com/PG One/3",
       "tags": [
-        "新剧",
-        "期待"
+        "工作",
+        "努力"
       ],
       "topics": [
         "杀青",
@@ -145,32 +156,32 @@
     },
     {
       "id": "wb_PG One_4",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "PG One",
-      "content": "健身打卡",
-      "likes": 9154,
-      "reposts": 14659,
-      "comments": 947,
-      "publish_time": "2026-03-03",
+      "content": "今天的拍摄很顺利，感谢大家的支持！",
+      "likes": 381500,
+      "reposts": 17815,
+      "comments": 6549,
+      "publish_time": "2025-09-08",
       "source_url": "https://weibo.com/PG One/4",
       "tags": [
-        "感恩",
-        "粉丝"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "感恩",
-        "粉丝"
+        "工作",
+        "努力"
       ]
     },
     {
       "id": "wb_PG One_5",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "PG One",
       "content": "杂志拍摄完成，期待正片",
-      "likes": 124492,
-      "reposts": 22906,
-      "comments": 9437,
-      "publish_time": "2025-07-20",
+      "likes": 21193,
+      "reposts": 35574,
+      "comments": 7828,
+      "publish_time": "2025-04-14",
       "source_url": "https://weibo.com/PG One/5",
       "tags": [
         "感恩",
@@ -183,17 +194,17 @@
     },
     {
       "id": "wb_PG One_6",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "PG One",
-      "content": "今天的拍摄很顺利，感谢大家的支持！",
-      "likes": 407476,
-      "reposts": 37431,
-      "comments": 3363,
-      "publish_time": "2026-02-13",
+      "content": "感谢品牌方的邀请",
+      "likes": 173177,
+      "reposts": 11221,
+      "comments": 6249,
+      "publish_time": "2025-06-30",
       "source_url": "https://weibo.com/PG One/6",
       "tags": [
-        "感恩",
-        "粉丝"
+        "生活",
+        "记录"
       ],
       "topics": [
         "日常",
@@ -202,21 +213,21 @@
     },
     {
       "id": "wb_PG One_7",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "PG One",
-      "content": "剧组日常，认真工作中",
-      "likes": 230599,
-      "reposts": 42797,
-      "comments": 7765,
-      "publish_time": "2025-09-30",
+      "content": "收工啦，晚安！",
+      "likes": 84853,
+      "reposts": 31219,
+      "comments": 6877,
+      "publish_time": "2026-01-09",
       "source_url": "https://weibo.com/PG One/7",
       "tags": [
-        "日常",
-        "分享"
+        "生活",
+        "记录"
       ],
       "topics": [
-        "日常",
-        "分享"
+        "工作",
+        "努力"
       ]
     },
     {
@@ -224,11 +235,49 @@
       "platform": "weibo",
       "author": "PG One",
       "content": "工作花絮分享~",
-      "likes": 207842,
-      "reposts": 6885,
-      "comments": 3476,
-      "publish_time": "2026-01-12",
+      "likes": 153216,
+      "reposts": 20988,
+      "comments": 368,
+      "publish_time": "2025-12-14",
       "source_url": "https://weibo.com/PG One/8",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "工作",
+        "努力"
+      ]
+    },
+    {
+      "id": "wb_PG One_9",
+      "platform": "weibo",
+      "author": "PG One",
+      "content": "健身打卡",
+      "likes": 3024,
+      "reposts": 33175,
+      "comments": 5830,
+      "publish_time": "2025-10-18",
+      "source_url": "https://weibo.com/PG One/9",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
+      ]
+    },
+    {
+      "id": "wb_PG One_10",
+      "platform": "weibo",
+      "author": "PG One",
+      "content": "路演见",
+      "likes": 149132,
+      "reposts": 29911,
+      "comments": 6755,
+      "publish_time": "2025-05-10",
+      "source_url": "https://weibo.com/PG One/10",
       "tags": [
         "日常",
         "分享"
@@ -239,56 +288,18 @@
       ]
     },
     {
-      "id": "wb_PG One_9",
+      "id": "wb_PG One_11",
       "platform": "weibo",
       "author": "PG One",
-      "content": "路演见",
-      "likes": 29282,
-      "reposts": 36421,
-      "comments": 2695,
-      "publish_time": "2025-07-27",
-      "source_url": "https://weibo.com/PG One/9",
-      "tags": [
-        "杀青",
-        "新戏"
-      ],
-      "topics": [
-        "生活",
-        "记录"
-      ]
-    },
-    {
-      "id": "wb_PG One_10",
-      "platform": "douyin",
-      "author": "PG One",
-      "content": "收工啦，晚安！",
-      "likes": 405496,
-      "reposts": 10871,
-      "comments": 3721,
-      "publish_time": "2025-11-19",
-      "source_url": "https://weibo.com/PG One/10",
-      "tags": [
-        "工作",
-        "努力"
-      ],
-      "topics": [
-        "工作",
-        "努力"
-      ]
-    },
-    {
-      "id": "wb_PG One_11",
-      "platform": "douyin",
-      "author": "PG One",
-      "content": "感谢品牌方的邀请",
-      "likes": 227627,
-      "reposts": 16231,
-      "comments": 9850,
-      "publish_time": "2026-03-07",
+      "content": "公益行动，传递正能量",
+      "likes": 330559,
+      "reposts": 37437,
+      "comments": 887,
+      "publish_time": "2026-01-13",
       "source_url": "https://weibo.com/PG One/11",
       "tags": [
-        "杀青",
-        "新戏"
+        "工作",
+        "努力"
       ],
       "topics": [
         "日常",
@@ -299,493 +310,415 @@
       "id": "wb_PG One_12",
       "platform": "weibo",
       "author": "PG One",
-      "content": "新作品即将上线，敬请期待！",
-      "likes": 13571,
-      "reposts": 4222,
-      "comments": 9708,
-      "publish_time": "2025-06-27",
+      "content": "新歌听听看",
+      "likes": 405715,
+      "reposts": 37780,
+      "comments": 2912,
+      "publish_time": "2025-10-05",
       "source_url": "https://weibo.com/PG One/12",
       "tags": [
-        "感恩",
-        "粉丝"
-      ],
-      "topics": [
         "生活",
         "记录"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
       ]
     }
   ],
   "comments": [
     {
-      "content": "今天状态真好",
-      "author": "用户7528",
-      "likes": 4124,
-      "replies": 34,
+      "content": "永远支持",
+      "author": "用户2460",
+      "likes": 3219,
+      "replies": 22,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户2571",
-      "likes": 1404,
-      "replies": 99,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户9147",
-      "likes": 1296,
-      "replies": 93,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "PG One永远的神",
-      "author": "用户2697",
-      "likes": 960,
-      "replies": 18,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户8483",
-      "likes": 1509,
-      "replies": 93,
-      "is_top": false,
-      "source_platform": "weibo",
       "sentiment": "negative"
     },
     {
-      "content": "路人转粉了",
-      "author": "用户8848",
-      "likes": 944,
-      "replies": 60,
+      "content": "这颜值真的绝了",
+      "author": "用户2210",
+      "likes": 2150,
+      "replies": 46,
       "is_top": false,
       "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户9250",
+      "likes": 70,
+      "replies": 95,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户2511",
+      "likes": 4372,
+      "replies": 5,
+      "is_top": false,
+      "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
       "content": "新剧什么时候出？",
-      "author": "用户1890",
-      "likes": 1447,
-      "replies": 14,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "看哭了，太感人了",
-      "author": "用户9474",
-      "likes": 2660,
-      "replies": 29,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户1885",
-      "likes": 304,
+      "author": "用户6390",
+      "likes": 4696,
       "replies": 57,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "PG One永远的神",
-      "author": "用户6612",
-      "likes": 1424,
-      "replies": 1,
-      "is_top": false,
-      "source_platform": "douyin",
       "sentiment": "negative"
     },
     {
-      "content": "路人转粉了",
-      "author": "用户2543",
-      "likes": 1383,
-      "replies": 45,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "PG One永远的神",
-      "author": "用户8562",
-      "likes": 2231,
-      "replies": 7,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "PG One好棒！",
-      "author": "用户1183",
-      "likes": 2991,
-      "replies": 16,
+      "content": "永远支持",
+      "author": "用户3420",
+      "likes": 7,
+      "replies": 4,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户1977",
+      "likes": 4166,
+      "replies": 85,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
     },
     {
       "content": "这颜值真的绝了",
-      "author": "用户4665",
-      "likes": 4212,
-      "replies": 54,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "PG One永远的神",
-      "author": "用户1540",
-      "likes": 2545,
-      "replies": 69,
+      "author": "用户6452",
+      "likes": 4052,
+      "replies": 64,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "neutral"
+      "sentiment": "positive"
     },
     {
-      "content": "综艺里好搞笑",
-      "author": "用户7361",
-      "likes": 4484,
-      "replies": 49,
-      "is_top": false,
+      "content": "看哭了，太感人了",
+      "author": "用户8172",
+      "likes": 1234,
+      "replies": 46,
+      "is_top": true,
       "source_platform": "weibo",
-      "sentiment": "neutral"
+      "sentiment": "positive"
     },
     {
       "content": "新剧什么时候出？",
-      "author": "用户1844",
-      "likes": 2473,
-      "replies": 75,
-      "is_top": false,
+      "author": "用户9577",
+      "likes": 1159,
+      "replies": 47,
+      "is_top": true,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
+      "content": "永远支持",
+      "author": "用户8371",
+      "likes": 3613,
+      "replies": 64,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户4970",
+      "likes": 1516,
+      "replies": 89,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
       "content": "路人转粉了",
-      "author": "用户3195",
-      "likes": 2041,
+      "author": "用户2306",
+      "likes": 2988,
       "replies": 34,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "positive"
+      "sentiment": "neutral"
     },
     {
-      "content": "爱了爱了",
-      "author": "用户8711",
-      "likes": 4972,
-      "replies": 29,
+      "content": "PG One永远的神",
+      "author": "用户4925",
+      "likes": 4786,
+      "replies": 58,
       "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户8361",
-      "likes": 3510,
-      "replies": 25,
-      "is_top": true,
       "source_platform": "douyin",
-      "sentiment": "negative"
+      "sentiment": "positive"
     },
     {
       "content": "这颜值真的绝了",
-      "author": "用户4734",
-      "likes": 1670,
-      "replies": 85,
+      "author": "用户1577",
+      "likes": 2571,
+      "replies": 15,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户3125",
+      "likes": 2114,
+      "replies": 69,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "negative"
     },
     {
-      "content": "今天状态真好",
-      "author": "用户1402",
-      "likes": 4891,
-      "replies": 96,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "看哭了，太感人了",
-      "author": "用户2029",
-      "likes": 332,
-      "replies": 21,
+      "content": "PG One的演技越来越好了",
+      "author": "用户4914",
+      "likes": 4182,
+      "replies": 97,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "爱了爱了",
-      "author": "用户1508",
-      "likes": 105,
-      "replies": 66,
+      "content": "新剧什么时候出？",
+      "author": "用户4614",
+      "likes": 3821,
+      "replies": 13,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户9420",
+      "likes": 4659,
+      "replies": 74,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户4147",
+      "likes": 1453,
+      "replies": 51,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
+      "content": "爱了爱了",
+      "author": "用户4864",
+      "likes": 3851,
+      "replies": 5,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持PG One！加油",
+      "author": "用户1979",
+      "likes": 3339,
+      "replies": 45,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户9882",
+      "likes": 917,
+      "replies": 25,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户5649",
+      "likes": 456,
+      "replies": 50,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户7891",
+      "likes": 362,
+      "replies": 62,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "PG One的演技越来越好了",
+      "author": "用户7239",
+      "likes": 2994,
+      "replies": 39,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持PG One！加油",
+      "author": "用户5185",
+      "likes": 1417,
+      "replies": 37,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户6803",
+      "likes": 3728,
+      "replies": 37,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户4506",
+      "likes": 2823,
+      "replies": 30,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户3360",
+      "likes": 869,
+      "replies": 32,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持PG One！加油",
+      "author": "用户4723",
+      "likes": 4654,
+      "replies": 53,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "PG One的演技越来越好了",
+      "author": "用户3291",
+      "likes": 2393,
+      "replies": 40,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "PG One的演技越来越好了",
+      "author": "用户4702",
+      "likes": 3963,
+      "replies": 52,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
       "content": "今天状态真好",
-      "author": "用户6308",
-      "likes": 2290,
+      "author": "用户1944",
+      "likes": 1152,
       "replies": 97,
       "is_top": true,
       "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "PG One好棒！",
-      "author": "用户9362",
-      "likes": 1462,
-      "replies": 21,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
+      "sentiment": "neutral"
     },
     {
       "content": "路人转粉了",
-      "author": "用户5586",
-      "likes": 986,
-      "replies": 59,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "PG One永远的神",
-      "author": "用户2434",
-      "likes": 2127,
-      "replies": 29,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户7220",
-      "likes": 899,
-      "replies": 18,
+      "author": "用户9700",
+      "likes": 3815,
+      "replies": 13,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "negative"
     },
     {
       "content": "PG One好棒！",
-      "author": "用户1253",
-      "likes": 1715,
-      "replies": 95,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户1666",
-      "likes": 3285,
-      "replies": 41,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户4253",
-      "likes": 1525,
-      "replies": 59,
+      "author": "用户3691",
+      "likes": 1126,
+      "replies": 58,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
       "content": "永远支持",
-      "author": "用户6710",
-      "likes": 2427,
-      "replies": 26,
+      "author": "用户5205",
+      "likes": 3163,
+      "replies": 40,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户7811",
-      "likes": 3063,
-      "replies": 94,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户1931",
-      "likes": 112,
-      "replies": 35,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "看哭了，太感人了",
-      "author": "用户1110",
-      "likes": 4565,
-      "replies": 39,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户6326",
-      "likes": 2002,
-      "replies": 92,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户7987",
-      "likes": 338,
-      "replies": 64,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户3995",
-      "likes": 3113,
-      "replies": 94,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户9663",
-      "likes": 4793,
-      "replies": 16,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户2822",
-      "likes": 2080,
-      "replies": 8,
-      "is_top": true,
       "source_platform": "weibo",
       "sentiment": "negative"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户3166",
-      "likes": 4179,
-      "replies": 12,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户7410",
-      "likes": 392,
-      "replies": 56,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户1732",
-      "likes": 4956,
-      "replies": 7,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户9903",
-      "likes": 3829,
-      "replies": 59,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
     },
     {
       "content": "PG One永远的神",
-      "author": "用户3423",
-      "likes": 436,
-      "replies": 42,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户4419",
-      "likes": 2642,
-      "replies": 78,
-      "is_top": true,
+      "author": "用户9127",
+      "likes": 4867,
+      "replies": 38,
+      "is_top": false,
       "source_platform": "douyin",
       "sentiment": "neutral"
     },
     {
-      "content": "看哭了，太感人了",
-      "author": "用户7872",
-      "likes": 1328,
-      "replies": 19,
+      "content": "这颜值真的绝了",
+      "author": "用户9083",
+      "likes": 4847,
+      "replies": 76,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "negative"
     },
     {
-      "content": "这颜值真的绝了",
-      "author": "用户3317",
-      "likes": 1147,
-      "replies": 0,
+      "content": "看哭了，太感人了",
+      "author": "用户3962",
+      "likes": 1876,
+      "replies": 20,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "neutral"
+      "sentiment": "positive"
     },
     {
-      "content": "这颜值真的绝了",
-      "author": "用户6905",
-      "likes": 3294,
-      "replies": 56,
+      "content": "路人转粉了",
+      "author": "用户4949",
+      "likes": 3408,
+      "replies": 79,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户9367",
-      "likes": 4356,
-      "replies": 74,
-      "is_top": true,
-      "source_platform": "douyin",
+      "source_platform": "weibo",
       "sentiment": "positive"
     }
   ],
   "news_articles": [
     {
       "title": "PG One现身活动，状态在线",
-      "summary": "网友热议PG One近况",
+      "summary": "PG One相关话题登上热搜",
       "content": "PG One出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2025-10-12",
-      "source": "搜狐娱乐",
+      "publish_date": "2026-01-30",
+      "source": "网易娱乐",
       "source_url": "https://example.com/news/PG One/0",
-      "sentiment": "neutral",
-      "sentiment_score": 0.139849485732914,
+      "sentiment": "positive",
+      "sentiment_score": 0.38902373302102505,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "PG One时尚大片发布，造型引热议",
+      "summary": "PG One近日动态引发关注",
+      "content": "PG One最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
+      "publish_date": "2025-12-13",
+      "source": "网易娱乐",
+      "source_url": "https://example.com/news/PG One/1",
+      "sentiment": "positive",
+      "sentiment_score": 0.4169492929794552,
       "category": "",
       "tags": []
     },
@@ -793,23 +726,11 @@
       "title": "PG One工作室发声明澄清网络传闻",
       "summary": "PG One近日动态引发关注",
       "content": "PG One工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-03-10",
+      "publish_date": "2025-11-03",
       "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/PG One/1",
-      "sentiment": "positive",
-      "sentiment_score": 0.21844520049956112,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "PG One时尚大片发布，造型引热议",
-      "summary": "PG One相关话题登上热搜",
-      "content": "PG One最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2026-01-22",
-      "source": "网易娱乐",
       "source_url": "https://example.com/news/PG One/2",
       "sentiment": "neutral",
-      "sentiment_score": 0.410783872279273,
+      "sentiment_score": -0.03129736840174582,
       "category": "",
       "tags": []
     }
@@ -817,9 +738,9 @@
   "statistics": {
     "data_completeness": 0.85,
     "total_posts": 13,
-    "total_comments": 51,
+    "total_comments": 41,
     "total_news": 3,
-    "total_relationships": 1,
+    "total_relationships": 2,
     "total_gossips": 1
   }
 }

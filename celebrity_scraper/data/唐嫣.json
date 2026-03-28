@@ -33,7 +33,7 @@
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [],
-    "updated_at": "2026-03-27T20:33:59.975408"
+    "updated_at": "2026-03-27T21:11:48.002405"
   },
   "gossips": [
     {
@@ -80,40 +80,40 @@
   "social_media_posts": [
     {
       "id": "wb_唐嫣_0",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "唐嫣",
-      "content": "今天的拍摄很顺利，感谢大家的支持！",
-      "likes": 28572,
-      "reposts": 8309,
-      "comments": 3021,
-      "publish_time": "2025-04-22",
+      "content": "新作品即将上线，敬请期待！",
+      "likes": 166590,
+      "reposts": 34172,
+      "comments": 1391,
+      "publish_time": "2025-09-11",
       "source_url": "https://weibo.com/唐嫣/0",
       "tags": [
-        "生活",
-        "记录"
+        "日常",
+        "分享"
       ],
       "topics": [
-        "杀青",
-        "新戏"
+        "日常",
+        "分享"
       ]
     },
     {
       "id": "wb_唐嫣_1",
       "platform": "weibo",
       "author": "唐嫣",
-      "content": "杂志拍摄完成，期待正片",
-      "likes": 163197,
-      "reposts": 33680,
-      "comments": 1900,
-      "publish_time": "2026-02-15",
+      "content": "今天的拍摄很顺利，感谢大家的支持！",
+      "likes": 367993,
+      "reposts": 44239,
+      "comments": 8994,
+      "publish_time": "2025-04-19",
       "source_url": "https://weibo.com/唐嫣/1",
       "tags": [
-        "日常",
-        "分享"
+        "生活",
+        "记录"
       ],
       "topics": [
-        "感恩",
-        "粉丝"
+        "日常",
+        "分享"
       ]
     },
     {
@@ -121,71 +121,71 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "公益行动，传递正能量",
-      "likes": 136775,
-      "reposts": 32975,
-      "comments": 1401,
-      "publish_time": "2025-09-04",
+      "likes": 94804,
+      "reposts": 49918,
+      "comments": 6757,
+      "publish_time": "2025-04-04",
       "source_url": "https://weibo.com/唐嫣/2",
       "tags": [
-        "日常",
-        "分享"
-      ],
-      "topics": [
         "新剧",
         "期待"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
       ]
     },
     {
       "id": "wb_唐嫣_3",
       "platform": "weibo",
       "author": "唐嫣",
-      "content": "新剧开机，加油！",
-      "likes": 479401,
-      "reposts": 20527,
-      "comments": 4069,
-      "publish_time": "2025-05-14",
+      "content": "感谢品牌方的邀请",
+      "likes": 343674,
+      "reposts": 19730,
+      "comments": 263,
+      "publish_time": "2025-09-29",
       "source_url": "https://weibo.com/唐嫣/3",
       "tags": [
-        "杀青",
-        "新戏"
+        "工作",
+        "努力"
       ],
       "topics": [
-        "新剧",
-        "期待"
+        "杀青",
+        "新戏"
       ]
     },
     {
       "id": "wb_唐嫣_4",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "唐嫣",
-      "content": "工作花絮分享~",
-      "likes": 314050,
-      "reposts": 44339,
-      "comments": 9916,
-      "publish_time": "2025-08-06",
+      "content": "路演见",
+      "likes": 38358,
+      "reposts": 23250,
+      "comments": 2588,
+      "publish_time": "2025-07-21",
       "source_url": "https://weibo.com/唐嫣/4",
       "tags": [
-        "杀青",
-        "新戏"
+        "日常",
+        "分享"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "杀青",
+        "新戏"
       ]
     },
     {
       "id": "wb_唐嫣_5",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "唐嫣",
-      "content": "收工啦，晚安！",
-      "likes": 224036,
-      "reposts": 39529,
-      "comments": 2606,
-      "publish_time": "2025-11-19",
+      "content": "剧组日常，认真工作中",
+      "likes": 484299,
+      "reposts": 10903,
+      "comments": 8351,
+      "publish_time": "2025-12-27",
       "source_url": "https://weibo.com/唐嫣/5",
       "tags": [
-        "新剧",
-        "期待"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
         "日常",
@@ -196,53 +196,53 @@
       "id": "wb_唐嫣_6",
       "platform": "weibo",
       "author": "唐嫣",
-      "content": "感谢品牌方的邀请",
-      "likes": 356544,
-      "reposts": 12013,
-      "comments": 1523,
-      "publish_time": "2025-08-22",
+      "content": "工作花絮分享~",
+      "likes": 156229,
+      "reposts": 3232,
+      "comments": 8128,
+      "publish_time": "2025-08-23",
       "source_url": "https://weibo.com/唐嫣/6",
       "tags": [
-        "工作",
-        "努力"
-      ],
-      "topics": [
         "杀青",
         "新戏"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
       ]
     },
     {
       "id": "wb_唐嫣_7",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "唐嫣",
-      "content": "新作品即将上线，敬请期待！",
-      "likes": 475868,
-      "reposts": 28053,
-      "comments": 7066,
-      "publish_time": "2026-02-26",
+      "content": "感谢粉丝们的支持！",
+      "likes": 24630,
+      "reposts": 8055,
+      "comments": 5249,
+      "publish_time": "2025-07-20",
       "source_url": "https://weibo.com/唐嫣/7",
       "tags": [
-        "生活",
-        "记录"
+        "日常",
+        "分享"
       ],
       "topics": [
-        "工作",
-        "努力"
+        "日常",
+        "分享"
       ]
     },
     {
       "id": "wb_唐嫣_8",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "唐嫣",
-      "content": "感谢粉丝们的支持！",
-      "likes": 195253,
-      "reposts": 35086,
-      "comments": 4882,
-      "publish_time": "2026-02-17",
+      "content": "收工啦，晚安！",
+      "likes": 46552,
+      "reposts": 45179,
+      "comments": 4657,
+      "publish_time": "2025-05-08",
       "source_url": "https://weibo.com/唐嫣/8",
       "tags": [
-        "日常",
-        "分享"
+        "工作",
+        "努力"
       ],
       "topics": [
         "新剧",
@@ -251,36 +251,36 @@
     },
     {
       "id": "wb_唐嫣_9",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "唐嫣",
-      "content": "健身打卡",
-      "likes": 110654,
-      "reposts": 34608,
-      "comments": 5568,
-      "publish_time": "2025-06-27",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 248804,
+      "reposts": 15687,
+      "comments": 8689,
+      "publish_time": "2025-08-22",
       "source_url": "https://weibo.com/唐嫣/9",
       "tags": [
-        "新剧",
-        "期待"
-      ],
-      "topics": [
         "工作",
         "努力"
+      ],
+      "topics": [
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_唐嫣_10",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "唐嫣",
-      "content": "路演见",
-      "likes": 457838,
-      "reposts": 37182,
-      "comments": 1213,
-      "publish_time": "2026-01-03",
+      "content": "新歌听听看",
+      "likes": 392289,
+      "reposts": 48675,
+      "comments": 5570,
+      "publish_time": "2025-12-22",
       "source_url": "https://weibo.com/唐嫣/10",
       "tags": [
-        "新剧",
-        "期待"
+        "生活",
+        "记录"
       ],
       "topics": [
         "新剧",
@@ -289,496 +289,688 @@
     },
     {
       "id": "wb_唐嫣_11",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "唐嫣",
-      "content": "新歌听听看",
-      "likes": 306414,
-      "reposts": 24107,
-      "comments": 6137,
-      "publish_time": "2025-06-10",
+      "content": "新剧开机，加油！",
+      "likes": 282845,
+      "reposts": 32472,
+      "comments": 1773,
+      "publish_time": "2025-10-29",
       "source_url": "https://weibo.com/唐嫣/11",
       "tags": [
-        "感恩",
-        "粉丝"
+        "工作",
+        "努力"
       ],
       "topics": [
-        "杀青",
-        "新戏"
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_唐嫣_12",
       "platform": "weibo",
       "author": "唐嫣",
-      "content": "剧组日常，认真工作中",
-      "likes": 314480,
-      "reposts": 37246,
-      "comments": 4578,
-      "publish_time": "2025-05-17",
+      "content": "健身打卡",
+      "likes": 234731,
+      "reposts": 6707,
+      "comments": 7176,
+      "publish_time": "2025-10-16",
       "source_url": "https://weibo.com/唐嫣/12",
       "tags": [
         "杀青",
         "新戏"
       ],
       "topics": [
-        "新剧",
-        "期待"
+        "杀青",
+        "新戏"
       ]
     }
   ],
   "comments": [
     {
-      "content": "这颜值真的绝了",
-      "author": "用户5060",
-      "likes": 1869,
-      "replies": 26,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户2346",
-      "likes": 2341,
-      "replies": 48,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "唐嫣永远的神",
-      "author": "用户2620",
-      "likes": 1151,
-      "replies": 70,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户6383",
-      "likes": 1893,
-      "replies": 61,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户5885",
-      "likes": 1304,
-      "replies": 62,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户7069",
-      "likes": 3589,
+      "content": "唐嫣的演技越来越好了",
+      "author": "用户1152",
+      "likes": 801,
       "replies": 80,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "唐嫣好棒！",
-      "author": "用户8677",
-      "likes": 4059,
-      "replies": 65,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户6740",
-      "likes": 709,
-      "replies": 81,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户9030",
-      "likes": 3809,
-      "replies": 60,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "唐嫣的演技越来越好了",
-      "author": "用户7014",
-      "likes": 4268,
-      "replies": 15,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户2661",
-      "likes": 4132,
-      "replies": 46,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户6159",
-      "likes": 4280,
-      "replies": 50,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户6981",
-      "likes": 3689,
-      "replies": 52,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "唐嫣好棒！",
-      "author": "用户3963",
-      "likes": 3891,
-      "replies": 84,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户2909",
-      "likes": 4883,
-      "replies": 17,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户2797",
-      "likes": 4706,
-      "replies": 91,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户8311",
-      "likes": 110,
-      "replies": 40,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户3473",
-      "likes": 1278,
-      "replies": 8,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户7555",
-      "likes": 597,
-      "replies": 8,
       "is_top": true,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "唐嫣好棒！",
-      "author": "用户8977",
-      "likes": 4126,
-      "replies": 66,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户1522",
-      "likes": 1981,
-      "replies": 64,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户7485",
-      "likes": 713,
-      "replies": 44,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "唐嫣的演技越来越好了",
-      "author": "用户7646",
-      "likes": 3648,
-      "replies": 46,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "唐嫣永远的神",
-      "author": "用户7105",
-      "likes": 349,
-      "replies": 8,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "唐嫣好棒！",
-      "author": "用户6803",
-      "likes": 4195,
-      "replies": 74,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户8391",
-      "likes": 3724,
-      "replies": 74,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持唐嫣！加油",
-      "author": "用户5782",
-      "likes": 3160,
-      "replies": 29,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户1794",
-      "likes": 3735,
-      "replies": 59,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户5004",
-      "likes": 1981,
-      "replies": 26,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户7754",
-      "likes": 999,
-      "replies": 87,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "看哭了，太感人了",
-      "author": "用户4175",
-      "likes": 2114,
-      "replies": 96,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户9380",
-      "likes": 1697,
-      "replies": 28,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户1068",
-      "likes": 4027,
-      "replies": 100,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户3731",
-      "likes": 3059,
+      "content": "爱了爱了",
+      "author": "用户9012",
+      "likes": 4943,
       "replies": 76,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "negative"
     },
     {
-      "content": "今天状态真好",
-      "author": "用户7697",
-      "likes": 3256,
-      "replies": 35,
+      "content": "路人转粉了",
+      "author": "用户6068",
+      "likes": 4597,
+      "replies": 18,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持唐嫣！加油",
+      "author": "用户4275",
+      "likes": 4843,
+      "replies": 51,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持唐嫣！加油",
+      "author": "用户3337",
+      "likes": 427,
+      "replies": 32,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户3490",
+      "likes": 4547,
+      "replies": 37,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户1349",
+      "likes": 3374,
+      "replies": 5,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "negative"
     },
     {
-      "content": "支持唐嫣！加油",
-      "author": "用户8200",
-      "likes": 4244,
-      "replies": 3,
+      "content": "这颜值真的绝了",
+      "author": "用户6185",
+      "likes": 1847,
+      "replies": 7,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
+      "content": "唐嫣好棒！",
+      "author": "用户9664",
+      "likes": 4872,
+      "replies": 34,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户7966",
+      "likes": 11,
+      "replies": 13,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
       "content": "看哭了，太感人了",
-      "author": "用户9782",
-      "likes": 226,
+      "author": "用户6884",
+      "likes": 3876,
+      "replies": 5,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户2853",
+      "likes": 811,
       "replies": 94,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
+      "content": "综艺里好搞笑",
+      "author": "用户6528",
+      "likes": 2551,
+      "replies": 94,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "唐嫣的演技越来越好了",
+      "author": "用户3371",
+      "likes": 4274,
+      "replies": 5,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
       "content": "新剧什么时候出？",
-      "author": "用户4487",
-      "likes": 3119,
+      "author": "用户9276",
+      "likes": 2382,
+      "replies": 68,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "唐嫣永远的神",
+      "author": "用户7813",
+      "likes": 2492,
+      "replies": 40,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户4685",
+      "likes": 2468,
+      "replies": 58,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户3341",
+      "likes": 492,
+      "replies": 81,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "唐嫣永远的神",
+      "author": "用户3171",
+      "likes": 282,
+      "replies": 19,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "唐嫣永远的神",
+      "author": "用户8799",
+      "likes": 4316,
+      "replies": 20,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户1808",
+      "likes": 1998,
+      "replies": 16,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户4752",
+      "likes": 2798,
+      "replies": 3,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户3809",
+      "likes": 4468,
+      "replies": 59,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户8183",
+      "likes": 2720,
+      "replies": 2,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户1864",
+      "likes": 1609,
+      "replies": 37,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持唐嫣！加油",
+      "author": "用户4021",
+      "likes": 1362,
+      "replies": 12,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持唐嫣！加油",
+      "author": "用户7242",
+      "likes": 4704,
+      "replies": 29,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户9235",
+      "likes": 4080,
+      "replies": 83,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户4985",
+      "likes": 3598,
+      "replies": 77,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户1913",
+      "likes": 1274,
+      "replies": 60,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户6636",
+      "likes": 2156,
+      "replies": 32,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户9632",
+      "likes": 1716,
+      "replies": 91,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户1866",
+      "likes": 3689,
+      "replies": 31,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "唐嫣好棒！",
+      "author": "用户7820",
+      "likes": 1205,
+      "replies": 15,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户6776",
+      "likes": 260,
+      "replies": 88,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户5369",
+      "likes": 2687,
+      "replies": 6,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户1235",
+      "likes": 4587,
+      "replies": 93,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户5806",
+      "likes": 3071,
+      "replies": 52,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "唐嫣永远的神",
+      "author": "用户5837",
+      "likes": 1763,
+      "replies": 64,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户3973",
+      "likes": 627,
+      "replies": 58,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "唐嫣好棒！",
+      "author": "用户5412",
+      "likes": 4932,
+      "replies": 70,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "唐嫣永远的神",
+      "author": "用户2922",
+      "likes": 3517,
+      "replies": 29,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户4154",
+      "likes": 427,
+      "replies": 93,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户8179",
+      "likes": 4146,
+      "replies": 72,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户3408",
+      "likes": 762,
+      "replies": 83,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户6938",
+      "likes": 2852,
+      "replies": 58,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持唐嫣！加油",
+      "author": "用户2700",
+      "likes": 379,
+      "replies": 97,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "唐嫣的演技越来越好了",
+      "author": "用户1147",
+      "likes": 1468,
+      "replies": 88,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户6767",
+      "likes": 1598,
+      "replies": 94,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户9225",
+      "likes": 4691,
+      "replies": 63,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户8619",
+      "likes": 4696,
+      "replies": 50,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户7613",
+      "likes": 4310,
+      "replies": 20,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户8592",
+      "likes": 869,
+      "replies": 85,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户6970",
+      "likes": 2839,
       "replies": 62,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户4396",
+      "likes": 3155,
+      "replies": 50,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户7742",
+      "likes": 4064,
+      "replies": 26,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户4741",
+      "likes": 4302,
+      "replies": 83,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "negative"
     },
     {
       "content": "永远支持",
-      "author": "用户8616",
-      "likes": 2337,
-      "replies": 34,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户8950",
-      "likes": 2500,
-      "replies": 57,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户2682",
-      "likes": 503,
-      "replies": 91,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "看哭了，太感人了",
-      "author": "用户5158",
-      "likes": 997,
-      "replies": 82,
+      "author": "用户2939",
+      "likes": 4173,
+      "replies": 29,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
       "content": "这颜值真的绝了",
-      "author": "用户7222",
-      "likes": 1901,
-      "replies": 10,
+      "author": "用户7509",
+      "likes": 2198,
+      "replies": 43,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户7486",
+      "likes": 3467,
+      "replies": 47,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户3440",
+      "likes": 4728,
+      "replies": 31,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "支持唐嫣！加油",
+      "author": "用户2145",
+      "likes": 4212,
+      "replies": 35,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "唐嫣永远的神",
+      "author": "用户6575",
+      "likes": 1777,
+      "replies": 46,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户5347",
+      "likes": 2384,
+      "replies": 2,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "唐嫣的演技越来越好了",
-      "author": "用户2522",
-      "likes": 1887,
-      "replies": 58,
+      "content": "期待新作品！",
+      "author": "用户7510",
+      "likes": 1562,
+      "replies": 91,
       "is_top": true,
       "source_platform": "weibo",
-      "sentiment": "negative"
+      "sentiment": "positive"
     },
     {
       "content": "爱了爱了",
-      "author": "用户3577",
-      "likes": 3202,
-      "replies": 86,
+      "author": "用户9283",
+      "likes": 1549,
+      "replies": 45,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户4414",
+      "likes": 2306,
+      "replies": 69,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户3724",
+      "likes": 2414,
+      "replies": 12,
       "is_top": false,
       "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "唐嫣好棒！",
+      "author": "用户9387",
+      "likes": 1136,
+      "replies": 53,
+      "is_top": false,
+      "source_platform": "weibo",
       "sentiment": "positive"
     }
   ],
   "news_articles": [
     {
       "title": "唐嫣《繁花》汪小姐爆红，王家卫赞不绝口",
-      "summary": "唐嫣近日动态引发关注",
+      "summary": "唐嫣相关话题登上热搜",
       "content": "唐嫣在王家卫执导的《繁花》中饰演汪小姐，演技获得广泛好评，被视为演艺生涯突破性角色。",
-      "publish_date": "2026-03-02",
-      "source": "新浪娱乐",
+      "publish_date": "2026-01-15",
+      "source": "凤凰网娱乐",
       "source_url": "https://example.com/news/唐嫣/0",
-      "sentiment": "positive",
-      "sentiment_score": 0.20207791835734001,
+      "sentiment": "neutral",
+      "sentiment_score": 0.2130659674956188,
       "category": "",
       "tags": []
     },
     {
-      "title": "唐嫣《繁花》后商业价值飙升，代言接到手软",
-      "summary": "网友热议唐嫣近况",
-      "content": "《繁花》播出后唐嫣商业价值大幅攀升，多个品牌争相邀请代言，重回一线女星行列。",
-      "publish_date": "2025-12-27",
-      "source": "腾讯娱乐",
+      "title": "唐嫣现身活动，状态在线",
+      "summary": "唐嫣近日动态引发关注",
+      "content": "唐嫣出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
+      "publish_date": "2026-02-21",
+      "source": "新浪娱乐",
       "source_url": "https://example.com/news/唐嫣/1",
       "sentiment": "neutral",
-      "sentiment_score": 0.48401668976211903,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "唐嫣时尚大片发布，造型引热议",
-      "summary": "网友热议唐嫣近况",
-      "content": "唐嫣最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2026-02-01",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/唐嫣/2",
-      "sentiment": "positive",
-      "sentiment_score": 0.44571246593622765,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "唐嫣工作室发声明澄清网络传闻",
-      "summary": "唐嫣相关话题登上热搜",
-      "content": "唐嫣工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-03-18",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/唐嫣/3",
-      "sentiment": "neutral",
-      "sentiment_score": 0.02832611481655195,
+      "sentiment_score": 0.29086626455735093,
       "category": "",
       "tags": []
     },
@@ -786,23 +978,47 @@
       "title": "唐嫣罗晋婚后低调恩爱，娱乐圈模范夫妻",
       "summary": "唐嫣近日动态引发关注",
       "content": "唐嫣与罗晋2018年结婚，婚后保持低调但偶尔秀恩爱，被视为娱乐圈模范夫妻代表。",
-      "publish_date": "2025-09-29",
+      "publish_date": "2026-03-09",
       "source": "新浪娱乐",
-      "source_url": "https://example.com/news/唐嫣/4",
-      "sentiment": "neutral",
-      "sentiment_score": 0.20212586793976428,
+      "source_url": "https://example.com/news/唐嫣/2",
+      "sentiment": "positive",
+      "sentiment_score": -0.13923340207246399,
       "category": "",
       "tags": []
     },
     {
-      "title": "唐嫣现身活动，状态在线",
+      "title": "唐嫣工作室发声明澄清网络传闻",
+      "summary": "网友热议唐嫣近况",
+      "content": "唐嫣工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
+      "publish_date": "2025-10-07",
+      "source": "腾讯娱乐",
+      "source_url": "https://example.com/news/唐嫣/3",
+      "sentiment": "neutral",
+      "sentiment_score": 0.3994121165666658,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "唐嫣《繁花》后商业价值飙升，代言接到手软",
+      "summary": "网友热议唐嫣近况",
+      "content": "《繁花》播出后唐嫣商业价值大幅攀升，多个品牌争相邀请代言，重回一线女星行列。",
+      "publish_date": "2025-12-26",
+      "source": "腾讯娱乐",
+      "source_url": "https://example.com/news/唐嫣/4",
+      "sentiment": "neutral",
+      "sentiment_score": 0.10451195848144007,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "唐嫣时尚大片发布，造型引热议",
       "summary": "唐嫣相关话题登上热搜",
-      "content": "唐嫣出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2025-10-12",
-      "source": "网易娱乐",
+      "content": "唐嫣最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
+      "publish_date": "2025-11-11",
+      "source": "新浪娱乐",
       "source_url": "https://example.com/news/唐嫣/5",
       "sentiment": "positive",
-      "sentiment_score": 0.16884139535542142,
+      "sentiment_score": 0.0981963343970299,
       "category": "",
       "tags": []
     }
@@ -810,7 +1026,7 @@
   "statistics": {
     "data_completeness": 0.95,
     "total_posts": 13,
-    "total_comments": 45,
+    "total_comments": 69,
     "total_news": 6,
     "total_relationships": 2,
     "total_gossips": 1

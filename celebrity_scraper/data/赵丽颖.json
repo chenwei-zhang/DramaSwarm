@@ -33,7 +33,7 @@
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [],
-    "updated_at": "2026-03-27T20:33:53.952819"
+    "updated_at": "2026-03-27T21:11:47.708822"
   },
   "gossips": [
     {
@@ -85,74 +85,74 @@
   "social_media_posts": [
     {
       "id": "wb_赵丽颖_0",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "赵丽颖",
-      "content": "生活中的小确幸，分享给你们",
-      "likes": 109355,
-      "reposts": 4508,
-      "comments": 5814,
-      "publish_time": "2025-09-08",
+      "content": "健身打卡",
+      "likes": 40631,
+      "reposts": 23042,
+      "comments": 6753,
+      "publish_time": "2025-08-18",
       "source_url": "https://weibo.com/赵丽颖/0",
       "tags": [
-        "杀青",
-        "新戏"
+        "新剧",
+        "期待"
       ],
       "topics": [
-        "感恩",
-        "粉丝"
+        "工作",
+        "努力"
       ]
     },
     {
       "id": "wb_赵丽颖_1",
       "platform": "weibo",
       "author": "赵丽颖",
-      "content": "《第二十条》郝秀萍，是我演艺生涯的重要角色",
-      "likes": 125312,
-      "reposts": 4520,
-      "comments": 1994,
-      "publish_time": "2025-06-19",
+      "content": "生活中的小确幸，分享给你们",
+      "likes": 499207,
+      "reposts": 11271,
+      "comments": 9741,
+      "publish_time": "2025-07-31",
       "source_url": "https://weibo.com/赵丽颖/1",
       "tags": [
-        "工作",
-        "努力"
+        "日常",
+        "分享"
       ],
       "topics": [
-        "杀青",
-        "新戏"
+        "日常",
+        "分享"
       ]
     },
     {
       "id": "wb_赵丽颖_2",
       "platform": "weibo",
       "author": "赵丽颖",
-      "content": "健身打卡",
-      "likes": 177756,
-      "reposts": 48733,
-      "comments": 4704,
-      "publish_time": "2025-06-04",
+      "content": "感谢品牌方的邀请",
+      "likes": 373669,
+      "reposts": 43739,
+      "comments": 6404,
+      "publish_time": "2026-02-21",
       "source_url": "https://weibo.com/赵丽颖/2",
       "tags": [
-        "感恩",
-        "粉丝"
+        "工作",
+        "努力"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "感恩",
+        "粉丝"
       ]
     },
     {
       "id": "wb_赵丽颖_3",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "赵丽颖",
-      "content": "每一天都在认真对待每一个角色",
-      "likes": 250670,
-      "reposts": 46793,
-      "comments": 1147,
-      "publish_time": "2025-09-25",
+      "content": "路演见",
+      "likes": 487711,
+      "reposts": 20352,
+      "comments": 7794,
+      "publish_time": "2025-11-28",
       "source_url": "https://weibo.com/赵丽颖/3",
       "tags": [
-        "工作",
-        "努力"
+        "杀青",
+        "新戏"
       ],
       "topics": [
         "新剧",
@@ -163,72 +163,91 @@
       "id": "wb_赵丽颖_4",
       "platform": "weibo",
       "author": "赵丽颖",
-      "content": "感谢导演和剧组，学到了很多",
-      "likes": 301305,
-      "reposts": 31700,
-      "comments": 8080,
-      "publish_time": "2025-06-01",
+      "content": "每一天都在认真对待每一个角色",
+      "likes": 310156,
+      "reposts": 15221,
+      "comments": 7539,
+      "publish_time": "2025-12-04",
       "source_url": "https://weibo.com/赵丽颖/4",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "新剧",
+        "期待"
+      ]
+    },
+    {
+      "id": "wb_赵丽颖_5",
+      "platform": "weibo",
+      "author": "赵丽颖",
+      "content": "感谢导演和剧组，学到了很多",
+      "likes": 9209,
+      "reposts": 18581,
+      "comments": 9761,
+      "publish_time": "2026-03-22",
+      "source_url": "https://weibo.com/赵丽颖/5",
       "tags": [
         "生活",
         "记录"
       ],
       "topics": [
-        "日常",
-        "分享"
-      ]
-    },
-    {
-      "id": "wb_赵丽颖_5",
-      "platform": "douyin",
-      "author": "赵丽颖",
-      "content": "杂志拍摄完成，期待正片",
-      "likes": 433216,
-      "reposts": 25795,
-      "comments": 6621,
-      "publish_time": "2025-10-23",
-      "source_url": "https://weibo.com/赵丽颖/5",
-      "tags": [
-        "杀青",
-        "新戏"
-      ],
-      "topics": [
-        "新剧",
-        "期待"
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_赵丽颖_6",
       "platform": "weibo",
       "author": "赵丽颖",
-      "content": "路演见",
-      "likes": 278317,
-      "reposts": 42620,
-      "comments": 8939,
-      "publish_time": "2025-05-13",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 258864,
+      "reposts": 14478,
+      "comments": 7405,
+      "publish_time": "2025-05-06",
       "source_url": "https://weibo.com/赵丽颖/6",
       "tags": [
-        "工作",
-        "努力"
+        "生活",
+        "记录"
       ],
       "topics": [
-        "感恩",
-        "粉丝"
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_赵丽颖_7",
       "platform": "weibo",
       "author": "赵丽颖",
-      "content": "感谢品牌方的邀请",
-      "likes": 344482,
-      "reposts": 17071,
-      "comments": 9259,
-      "publish_time": "2025-12-06",
+      "content": "剧组日常，认真工作中",
+      "likes": 149397,
+      "reposts": 32376,
+      "comments": 2334,
+      "publish_time": "2025-11-24",
       "source_url": "https://weibo.com/赵丽颖/7",
       "tags": [
-        "新剧",
-        "期待"
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_赵丽颖_8",
+      "platform": "weibo",
+      "author": "赵丽颖",
+      "content": "《第二十条》郝秀萍，是我演艺生涯的重要角色",
+      "likes": 329069,
+      "reposts": 35873,
+      "comments": 5241,
+      "publish_time": "2025-11-10",
+      "source_url": "https://weibo.com/赵丽颖/8",
+      "tags": [
+        "生活",
+        "记录"
       ],
       "topics": [
         "感恩",
@@ -236,41 +255,22 @@
       ]
     },
     {
-      "id": "wb_赵丽颖_8",
-      "platform": "douyin",
-      "author": "赵丽颖",
-      "content": "公益行动，传递正能量",
-      "likes": 292002,
-      "reposts": 33595,
-      "comments": 2196,
-      "publish_time": "2026-01-06",
-      "source_url": "https://weibo.com/赵丽颖/8",
-      "tags": [
-        "生活",
-        "记录"
-      ],
-      "topics": [
-        "生活",
-        "记录"
-      ]
-    },
-    {
       "id": "wb_赵丽颖_9",
       "platform": "weibo",
       "author": "赵丽颖",
-      "content": "剧组日常，认真工作中",
-      "likes": 249433,
-      "reposts": 36428,
-      "comments": 5812,
-      "publish_time": "2025-05-07",
+      "content": "公益行动，传递正能量",
+      "likes": 369968,
+      "reposts": 37514,
+      "comments": 6013,
+      "publish_time": "2025-05-10",
       "source_url": "https://weibo.com/赵丽颖/9",
       "tags": [
-        "生活",
-        "记录"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
-        "工作",
-        "努力"
+        "杀青",
+        "新戏"
       ]
     },
     {
@@ -278,14 +278,33 @@
       "platform": "weibo",
       "author": "赵丽颖",
       "content": "《与凤行》播出啦，感谢大家的喜欢",
-      "likes": 168714,
-      "reposts": 21685,
-      "comments": 1941,
-      "publish_time": "2025-10-04",
+      "likes": 259696,
+      "reposts": 2382,
+      "comments": 751,
+      "publish_time": "2025-04-09",
       "source_url": "https://weibo.com/赵丽颖/10",
       "tags": [
         "杀青",
         "新戏"
+      ],
+      "topics": [
+        "工作",
+        "努力"
+      ]
+    },
+    {
+      "id": "wb_赵丽颖_11",
+      "platform": "weibo",
+      "author": "赵丽颖",
+      "content": "收工啦，晚安！",
+      "likes": 111942,
+      "reposts": 15805,
+      "comments": 9249,
+      "publish_time": "2025-04-18",
+      "source_url": "https://weibo.com/赵丽颖/11",
+      "tags": [
+        "生活",
+        "记录"
       ],
       "topics": [
         "新剧",
@@ -293,530 +312,523 @@
       ]
     },
     {
-      "id": "wb_赵丽颖_11",
+      "id": "wb_赵丽颖_12",
       "platform": "douyin",
       "author": "赵丽颖",
       "content": "新歌听听看",
-      "likes": 428472,
-      "reposts": 34747,
-      "comments": 6624,
-      "publish_time": "2026-02-07",
-      "source_url": "https://weibo.com/赵丽颖/11",
-      "tags": [
-        "生活",
-        "记录"
-      ],
-      "topics": [
-        "工作",
-        "努力"
-      ]
-    },
-    {
-      "id": "wb_赵丽颖_12",
-      "platform": "weibo",
-      "author": "赵丽颖",
-      "content": "收工啦，晚安！",
-      "likes": 459851,
-      "reposts": 231,
-      "comments": 3414,
-      "publish_time": "2025-11-11",
+      "likes": 17709,
+      "reposts": 41362,
+      "comments": 8980,
+      "publish_time": "2025-05-21",
       "source_url": "https://weibo.com/赵丽颖/12",
       "tags": [
-        "工作",
-        "努力"
-      ],
-      "topics": [
         "杀青",
         "新戏"
+      ],
+      "topics": [
+        "工作",
+        "努力"
       ]
     }
   ],
   "comments": [
     {
-      "content": "期待新作品！",
-      "author": "用户9916",
-      "likes": 3214,
-      "replies": 43,
+      "content": "看哭了，太感人了",
+      "author": "用户6544",
+      "likes": 411,
+      "replies": 87,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "neutral"
+      "sentiment": "negative"
+    },
+    {
+      "content": "赵丽颖好棒！",
+      "author": "用户4604",
+      "likes": 76,
+      "replies": 27,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
     },
     {
       "content": "期待新作品！",
-      "author": "用户1470",
-      "likes": 4388,
-      "replies": 18,
+      "author": "用户9998",
+      "likes": 2290,
+      "replies": 1,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "赵丽颖的演技越来越好了",
+      "author": "用户4074",
+      "likes": 4172,
+      "replies": 74,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "赵丽颖永远的神",
+      "author": "用户5839",
+      "likes": 4074,
+      "replies": 86,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户4748",
+      "likes": 4543,
+      "replies": 70,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "赵丽颖的演技越来越好了",
-      "author": "用户2694",
-      "likes": 4387,
-      "replies": 64,
+      "author": "用户9893",
+      "likes": 1458,
+      "replies": 57,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户2934",
-      "likes": 2858,
-      "replies": 74,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户6786",
-      "likes": 80,
-      "replies": 20,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户1763",
-      "likes": 4569,
-      "replies": 62,
-      "is_top": false,
-      "source_platform": "douyin",
+      "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "路人转粉了",
-      "author": "用户3668",
-      "likes": 616,
-      "replies": 90,
+      "content": "永远支持",
+      "author": "用户5393",
+      "likes": 2325,
+      "replies": 50,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "赵丽颖好棒！",
-      "author": "用户6714",
-      "likes": 3882,
-      "replies": 98,
-      "is_top": true,
+      "content": "看哭了，太感人了",
+      "author": "用户2128",
+      "likes": 180,
+      "replies": 71,
+      "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "永远支持",
-      "author": "用户8582",
-      "likes": 3517,
-      "replies": 63,
+      "content": "爱了爱了",
+      "author": "用户3666",
+      "likes": 1802,
+      "replies": 57,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户1986",
+      "likes": 1933,
+      "replies": 11,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户7052",
+      "likes": 1401,
+      "replies": 60,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户6329",
+      "likes": 2842,
+      "replies": 98,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "赵丽颖好棒！",
+      "author": "用户4600",
+      "likes": 109,
+      "replies": 29,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "支持赵丽颖！加油",
-      "author": "用户2968",
-      "likes": 999,
-      "replies": 97,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户8264",
-      "likes": 2841,
-      "replies": 65,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "赵丽颖的演技越来越好了",
-      "author": "用户8392",
-      "likes": 1042,
-      "replies": 47,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "赵丽颖好棒！",
-      "author": "用户9789",
-      "likes": 4997,
-      "replies": 84,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户4881",
-      "likes": 4727,
-      "replies": 59,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户1263",
-      "likes": 4641,
-      "replies": 18,
+      "author": "用户9539",
+      "likes": 436,
+      "replies": 32,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "赵丽颖的演技越来越好了",
-      "author": "用户3643",
-      "likes": 3414,
-      "replies": 40,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "赵丽颖的演技越来越好了",
-      "author": "用户5879",
-      "likes": 2164,
-      "replies": 61,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户6841",
-      "likes": 4781,
-      "replies": 59,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "赵丽颖好棒！",
-      "author": "用户5115",
-      "likes": 3402,
-      "replies": 36,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户7731",
-      "likes": 1066,
-      "replies": 10,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户3323",
-      "likes": 4569,
-      "replies": 74,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户2964",
-      "likes": 4968,
-      "replies": 33,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户6227",
-      "likes": 331,
-      "replies": 100,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户4439",
-      "likes": 2285,
-      "replies": 93,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户9781",
-      "likes": 4139,
-      "replies": 1,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户3783",
-      "likes": 2300,
-      "replies": 30,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户4893",
-      "likes": 793,
-      "replies": 39,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "赵丽颖的演技越来越好了",
-      "author": "用户3464",
-      "likes": 142,
-      "replies": 6,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户5383",
-      "likes": 4699,
+      "content": "支持赵丽颖！加油",
+      "author": "用户4711",
+      "likes": 2078,
       "replies": 37,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "赵丽颖好棒！",
-      "author": "用户4709",
-      "likes": 547,
-      "replies": 51,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户6515",
-      "likes": 4901,
-      "replies": 28,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "赵丽颖永远的神",
-      "author": "用户5858",
-      "likes": 4590,
-      "replies": 91,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户6027",
-      "likes": 4349,
-      "replies": 18,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户5186",
-      "likes": 4675,
-      "replies": 57,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户6335",
-      "likes": 3105,
-      "replies": 93,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "赵丽颖好棒！",
-      "author": "用户3646",
-      "likes": 3576,
-      "replies": 39,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户7987",
-      "likes": 981,
-      "replies": 59,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "赵丽颖的演技越来越好了",
-      "author": "用户3983",
-      "likes": 4667,
-      "replies": 10,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户6915",
-      "likes": 4102,
-      "replies": 21,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户6272",
-      "likes": 3646,
-      "replies": 60,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户4433",
-      "likes": 3767,
-      "replies": 87,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户5914",
-      "likes": 1083,
-      "replies": 72,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "看哭了，太感人了",
-      "author": "用户9314",
-      "likes": 3646,
-      "replies": 55,
+      "author": "用户8074",
+      "likes": 4246,
+      "replies": 95,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "赵丽颖好棒！",
+      "author": "用户6777",
+      "likes": 1567,
+      "replies": 37,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户7204",
+      "likes": 2162,
+      "replies": 37,
       "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "赵丽颖好棒！",
+      "author": "用户1059",
+      "likes": 4595,
+      "replies": 100,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户3529",
+      "likes": 2001,
+      "replies": 75,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "赵丽颖好棒！",
+      "author": "用户2379",
+      "likes": 1070,
+      "replies": 56,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户2393",
+      "likes": 3767,
+      "replies": 74,
+      "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
       "content": "赵丽颖好棒！",
-      "author": "用户2955",
-      "likes": 4006,
-      "replies": 40,
+      "author": "用户6178",
+      "likes": 3097,
+      "replies": 64,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "路人转粉了",
-      "author": "用户6201",
-      "likes": 3191,
-      "replies": 73,
+      "content": "综艺里好搞笑",
+      "author": "用户1062",
+      "likes": 933,
+      "replies": 72,
       "is_top": false,
-      "source_platform": "weibo",
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户4764",
+      "likes": 3321,
+      "replies": 92,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户5553",
+      "likes": 4865,
+      "replies": 61,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "赵丽颖的演技越来越好了",
+      "author": "用户3700",
+      "likes": 2874,
+      "replies": 17,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户6525",
+      "likes": 3540,
+      "replies": 19,
+      "is_top": false,
+      "source_platform": "douyin",
       "sentiment": "negative"
     },
     {
       "content": "赵丽颖永远的神",
-      "author": "用户8131",
-      "likes": 4804,
-      "replies": 69,
+      "author": "用户9990",
+      "likes": 1641,
+      "replies": 33,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
+      "source_platform": "weibo",
+      "sentiment": "positive"
     },
     {
-      "content": "期待新作品！",
-      "author": "用户2564",
-      "likes": 3277,
-      "replies": 63,
+      "content": "今天状态真好",
+      "author": "用户7147",
+      "likes": 4582,
+      "replies": 78,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户5441",
+      "likes": 1618,
+      "replies": 14,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户2495",
+      "likes": 2499,
+      "replies": 97,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "negative"
     },
     {
+      "content": "支持赵丽颖！加油",
+      "author": "用户3847",
+      "likes": 1146,
+      "replies": 33,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
       "content": "路人转粉了",
-      "author": "用户2841",
-      "likes": 3862,
-      "replies": 97,
+      "author": "用户8093",
+      "likes": 3706,
+      "replies": 46,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户1608",
+      "likes": 3800,
+      "replies": 91,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持赵丽颖！加油",
+      "author": "用户9123",
+      "likes": 2143,
+      "replies": 49,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户4057",
+      "likes": 1316,
+      "replies": 82,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持赵丽颖！加油",
+      "author": "用户7651",
+      "likes": 737,
+      "replies": 3,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户9385",
+      "likes": 309,
+      "replies": 14,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户5683",
+      "likes": 1505,
+      "replies": 12,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户5762",
+      "likes": 3987,
+      "replies": 20,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户2261",
+      "likes": 1055,
+      "replies": 23,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户1262",
+      "likes": 1428,
+      "replies": 60,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户2068",
+      "likes": 1753,
+      "replies": 83,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户8798",
+      "likes": 1384,
+      "replies": 19,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "赵丽颖的演技越来越好了",
+      "author": "用户2101",
+      "likes": 1272,
+      "replies": 59,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户2244",
+      "likes": 3846,
+      "replies": 86,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户9566",
+      "likes": 4876,
+      "replies": 12,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户8842",
+      "likes": 4772,
+      "replies": 7,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户1052",
+      "likes": 3169,
+      "replies": 7,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户6410",
+      "likes": 2979,
+      "replies": 65,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "路人转粉了",
-      "author": "用户4624",
-      "likes": 1702,
-      "replies": 78,
+      "content": "爱了爱了",
+      "author": "用户4155",
+      "likes": 4965,
+      "replies": 42,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
+      "source_platform": "weibo",
+      "sentiment": "positive"
     },
     {
-      "content": "赵丽颖好棒！",
-      "author": "用户1302",
-      "likes": 4525,
-      "replies": 26,
+      "content": "期待新作品！",
+      "author": "用户1691",
+      "likes": 3465,
+      "replies": 16,
       "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
+      "source_platform": "weibo",
+      "sentiment": "negative"
     }
   ],
   "news_articles": [
     {
-      "title": "赵丽颖工作室发声明澄清网络传闻",
+      "title": "赵丽颖现身活动，状态在线",
       "summary": "赵丽颖相关话题登上热搜",
-      "content": "赵丽颖工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-02-16",
-      "source": "新浪娱乐",
+      "content": "赵丽颖出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
+      "publish_date": "2025-12-30",
+      "source": "腾讯娱乐",
       "source_url": "https://example.com/news/赵丽颖/0",
-      "sentiment": "positive",
-      "sentiment_score": -0.12346399908076869,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "赵丽颖《与凤行》热播，与林更新二搭获好评",
-      "summary": "网友热议赵丽颖近况",
-      "content": "赵丽颖主演的仙侠剧《与凤行》播出后口碑良好，与林更新再度合作引发粉丝回忆。",
-      "publish_date": "2026-02-26",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/赵丽颖/1",
       "sentiment": "neutral",
-      "sentiment_score": 0.21375948280428864,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "赵丽颖离婚后事业再攀高峰，商业代言不断",
-      "summary": "网友热议赵丽颖近况",
-      "content": "2021年离婚后赵丽颖专注事业，影视作品口碑票房双丰收，商业价值持续攀升。",
-      "publish_date": "2025-11-07",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/赵丽颖/2",
-      "sentiment": "neutral",
-      "sentiment_score": 0.08990210727352216,
+      "sentiment_score": -0.08212403791336356,
       "category": "",
       "tags": []
     },
@@ -824,35 +836,59 @@
       "title": "赵丽颖《第二十条》演技获赞，转型实力派里程碑",
       "summary": "网友热议赵丽颖近况",
       "content": "赵丽颖在张艺谋执导的《第二十条》中饰演听障母亲，演技获得观众和影评人一致好评。",
-      "publish_date": "2026-01-17",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/赵丽颖/3",
+      "publish_date": "2025-11-16",
+      "source": "网易娱乐",
+      "source_url": "https://example.com/news/赵丽颖/1",
       "sentiment": "neutral",
-      "sentiment_score": 0.1574834962845681,
+      "sentiment_score": -0.17601373353622482,
       "category": "",
       "tags": []
     },
     {
       "title": "赵丽颖时尚大片发布，造型引热议",
-      "summary": "网友热议赵丽颖近况",
+      "summary": "赵丽颖近日动态引发关注",
       "content": "赵丽颖最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2025-09-29",
-      "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/赵丽颖/4",
+      "publish_date": "2025-12-05",
+      "source": "网易娱乐",
+      "source_url": "https://example.com/news/赵丽颖/2",
       "sentiment": "positive",
-      "sentiment_score": 0.4367576353829746,
+      "sentiment_score": 0.06356934596067265,
       "category": "",
       "tags": []
     },
     {
-      "title": "赵丽颖现身活动，状态在线",
+      "title": "赵丽颖《与凤行》热播，与林更新二搭获好评",
       "summary": "赵丽颖相关话题登上热搜",
-      "content": "赵丽颖出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2025-11-30",
-      "source": "腾讯娱乐",
+      "content": "赵丽颖主演的仙侠剧《与凤行》播出后口碑良好，与林更新再度合作引发粉丝回忆。",
+      "publish_date": "2025-11-04",
+      "source": "搜狐娱乐",
+      "source_url": "https://example.com/news/赵丽颖/3",
+      "sentiment": "neutral",
+      "sentiment_score": 0.3030467605445942,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "赵丽颖离婚后事业再攀高峰，商业代言不断",
+      "summary": "赵丽颖近日动态引发关注",
+      "content": "2021年离婚后赵丽颖专注事业，影视作品口碑票房双丰收，商业价值持续攀升。",
+      "publish_date": "2025-12-17",
+      "source": "网易娱乐",
+      "source_url": "https://example.com/news/赵丽颖/4",
+      "sentiment": "neutral",
+      "sentiment_score": -0.02877738079264311,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "赵丽颖工作室发声明澄清网络传闻",
+      "summary": "赵丽颖相关话题登上热搜",
+      "content": "赵丽颖工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
+      "publish_date": "2025-11-05",
+      "source": "搜狐娱乐",
       "source_url": "https://example.com/news/赵丽颖/5",
-      "sentiment": "positive",
-      "sentiment_score": 0.05048763023783959,
+      "sentiment": "neutral",
+      "sentiment_score": -0.1769247681993112,
       "category": "",
       "tags": []
     }
@@ -860,7 +896,7 @@
   "statistics": {
     "data_completeness": 0.95,
     "total_posts": 13,
-    "total_comments": 50,
+    "total_comments": 54,
     "total_news": 6,
     "total_relationships": 1,
     "total_gossips": 2

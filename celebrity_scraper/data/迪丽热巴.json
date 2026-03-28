@@ -33,7 +33,7 @@
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [],
-    "updated_at": "2026-03-27T20:33:56.963541"
+    "updated_at": "2026-03-27T21:11:47.854492"
   },
   "gossips": [],
   "relationships": [
@@ -54,148 +54,148 @@
       "id": "wb_迪丽热巴_0",
       "platform": "weibo",
       "author": "迪丽热巴",
-      "content": "剧组日常，认真工作中",
-      "likes": 446397,
-      "reposts": 6131,
-      "comments": 5366,
-      "publish_time": "2025-06-23",
+      "content": "感谢品牌方的邀请",
+      "likes": 412058,
+      "reposts": 2015,
+      "comments": 4907,
+      "publish_time": "2025-11-30",
       "source_url": "https://weibo.com/迪丽热巴/0",
       "tags": [
-        "日常",
-        "分享"
+        "生活",
+        "记录"
       ],
       "topics": [
-        "新剧",
-        "期待"
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_迪丽热巴_1",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "迪丽热巴",
-      "content": "新剧开机，加油！",
-      "likes": 196985,
-      "reposts": 29664,
-      "comments": 8669,
-      "publish_time": "2025-08-09",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 326809,
+      "reposts": 40140,
+      "comments": 9922,
+      "publish_time": "2025-10-29",
       "source_url": "https://weibo.com/迪丽热巴/1",
       "tags": [
-        "感恩",
-        "粉丝"
+        "新剧",
+        "期待"
       ],
       "topics": [
-        "感恩",
-        "粉丝"
+        "生活",
+        "记录"
       ]
     },
     {
       "id": "wb_迪丽热巴_2",
       "platform": "weibo",
       "author": "迪丽热巴",
-      "content": "感谢品牌方的邀请",
-      "likes": 21463,
-      "reposts": 17158,
-      "comments": 3884,
-      "publish_time": "2026-01-15",
+      "content": "收工啦，晚安！",
+      "likes": 337606,
+      "reposts": 46956,
+      "comments": 4231,
+      "publish_time": "2026-02-03",
       "source_url": "https://weibo.com/迪丽热巴/2",
       "tags": [
-        "日常",
-        "分享"
-      ],
-      "topics": [
         "感恩",
         "粉丝"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
       ]
     },
     {
       "id": "wb_迪丽热巴_3",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "迪丽热巴",
-      "content": "新歌听听看",
-      "likes": 460226,
-      "reposts": 28418,
-      "comments": 5011,
-      "publish_time": "2025-09-25",
+      "content": "路演见",
+      "likes": 458013,
+      "reposts": 32275,
+      "comments": 184,
+      "publish_time": "2025-07-28",
       "source_url": "https://weibo.com/迪丽热巴/3",
       "tags": [
-        "感恩",
-        "粉丝"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "感恩",
-        "粉丝"
+        "杀青",
+        "新戏"
       ]
     },
     {
       "id": "wb_迪丽热巴_4",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "迪丽热巴",
-      "content": "公益行动，传递正能量",
-      "likes": 17814,
-      "reposts": 34302,
-      "comments": 1558,
-      "publish_time": "2025-09-27",
+      "content": "今天的拍摄很顺利，感谢大家的支持！",
+      "likes": 329989,
+      "reposts": 2912,
+      "comments": 8623,
+      "publish_time": "2025-12-03",
       "source_url": "https://weibo.com/迪丽热巴/4",
       "tags": [
-        "日常",
-        "分享"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "日常",
-        "分享"
+        "杀青",
+        "新戏"
       ]
     },
     {
       "id": "wb_迪丽热巴_5",
       "platform": "douyin",
       "author": "迪丽热巴",
-      "content": "感谢粉丝们的支持！",
-      "likes": 461410,
-      "reposts": 41164,
-      "comments": 586,
-      "publish_time": "2026-01-11",
+      "content": "剧组日常，认真工作中",
+      "likes": 407644,
+      "reposts": 15458,
+      "comments": 2671,
+      "publish_time": "2025-07-18",
       "source_url": "https://weibo.com/迪丽热巴/5",
       "tags": [
-        "生活",
-        "记录"
+        "工作",
+        "努力"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "工作",
+        "努力"
       ]
     },
     {
       "id": "wb_迪丽热巴_6",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "迪丽热巴",
-      "content": "今天的拍摄很顺利，感谢大家的支持！",
-      "likes": 356860,
-      "reposts": 2040,
-      "comments": 3522,
-      "publish_time": "2025-09-08",
+      "content": "新作品即将上线，敬请期待！",
+      "likes": 24624,
+      "reposts": 36674,
+      "comments": 3203,
+      "publish_time": "2025-10-21",
       "source_url": "https://weibo.com/迪丽热巴/6",
       "tags": [
-        "生活",
-        "记录"
+        "感恩",
+        "粉丝"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "感恩",
+        "粉丝"
       ]
     },
     {
       "id": "wb_迪丽热巴_7",
-      "platform": "weibo",
+      "platform": "douyin",
       "author": "迪丽热巴",
-      "content": "杂志拍摄完成，期待正片",
-      "likes": 344016,
-      "reposts": 4183,
-      "comments": 925,
-      "publish_time": "2025-11-29",
+      "content": "工作花絮分享~",
+      "likes": 465223,
+      "reposts": 9407,
+      "comments": 6752,
+      "publish_time": "2025-04-16",
       "source_url": "https://weibo.com/迪丽热巴/7",
       "tags": [
-        "生活",
-        "记录"
+        "日常",
+        "分享"
       ],
       "topics": [
         "工作",
@@ -206,34 +206,53 @@
       "id": "wb_迪丽热巴_8",
       "platform": "douyin",
       "author": "迪丽热巴",
-      "content": "路演见",
-      "likes": 234296,
-      "reposts": 24844,
-      "comments": 2977,
-      "publish_time": "2025-09-03",
+      "content": "新歌听听看",
+      "likes": 249584,
+      "reposts": 9237,
+      "comments": 6030,
+      "publish_time": "2025-07-10",
       "source_url": "https://weibo.com/迪丽热巴/8",
       "tags": [
-        "新剧",
-        "期待"
+        "杀青",
+        "新戏"
       ],
       "topics": [
-        "工作",
-        "努力"
+        "感恩",
+        "粉丝"
       ]
     },
     {
       "id": "wb_迪丽热巴_9",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "迪丽热巴",
-      "content": "健身打卡",
-      "likes": 414706,
-      "reposts": 7028,
-      "comments": 2129,
-      "publish_time": "2026-01-02",
+      "content": "感谢粉丝们的支持！",
+      "likes": 410627,
+      "reposts": 48370,
+      "comments": 2052,
+      "publish_time": "2025-06-15",
       "source_url": "https://weibo.com/迪丽热巴/9",
       "tags": [
+        "感恩",
+        "粉丝"
+      ],
+      "topics": [
         "新剧",
         "期待"
+      ]
+    },
+    {
+      "id": "wb_迪丽热巴_10",
+      "platform": "douyin",
+      "author": "迪丽热巴",
+      "content": "公益行动，传递正能量",
+      "likes": 165731,
+      "reposts": 41705,
+      "comments": 1455,
+      "publish_time": "2025-09-26",
+      "source_url": "https://weibo.com/迪丽热巴/10",
+      "tags": [
+        "感恩",
+        "粉丝"
       ],
       "topics": [
         "工作",
@@ -241,609 +260,356 @@
       ]
     },
     {
-      "id": "wb_迪丽热巴_10",
+      "id": "wb_迪丽热巴_11",
       "platform": "weibo",
       "author": "迪丽热巴",
-      "content": "收工啦，晚安！",
-      "likes": 333739,
-      "reposts": 49708,
-      "comments": 422,
-      "publish_time": "2025-07-29",
-      "source_url": "https://weibo.com/迪丽热巴/10",
-      "tags": [
-        "新剧",
-        "期待"
-      ],
-      "topics": [
-        "日常",
-        "分享"
-      ]
-    },
-    {
-      "id": "wb_迪丽热巴_11",
-      "platform": "douyin",
-      "author": "迪丽热巴",
-      "content": "工作花絮分享~",
-      "likes": 412308,
-      "reposts": 49303,
-      "comments": 2872,
-      "publish_time": "2025-10-06",
+      "content": "新剧开机，加油！",
+      "likes": 364848,
+      "reposts": 4074,
+      "comments": 6664,
+      "publish_time": "2025-05-05",
       "source_url": "https://weibo.com/迪丽热巴/11",
       "tags": [
         "日常",
         "分享"
       ],
       "topics": [
-        "生活",
-        "记录"
+        "工作",
+        "努力"
       ]
     },
     {
       "id": "wb_迪丽热巴_12",
-      "platform": "douyin",
+      "platform": "weibo",
       "author": "迪丽热巴",
-      "content": "新作品即将上线，敬请期待！",
-      "likes": 318617,
-      "reposts": 43075,
-      "comments": 2837,
-      "publish_time": "2026-02-23",
+      "content": "健身打卡",
+      "likes": 334047,
+      "reposts": 44305,
+      "comments": 5383,
+      "publish_time": "2025-12-14",
       "source_url": "https://weibo.com/迪丽热巴/12",
       "tags": [
-        "杀青",
-        "新戏"
+        "生活",
+        "记录"
       ],
       "topics": [
-        "杀青",
-        "新戏"
+        "日常",
+        "分享"
       ]
     }
   ],
   "comments": [
     {
-      "content": "这颜值真的绝了",
-      "author": "用户5232",
-      "likes": 1181,
-      "replies": 75,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "迪丽热巴永远的神",
-      "author": "用户3290",
-      "likes": 3987,
-      "replies": 25,
+      "content": "新剧什么时候出？",
+      "author": "用户9322",
+      "likes": 4607,
+      "replies": 36,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "negative"
+      "sentiment": "neutral"
     },
     {
-      "content": "今天状态真好",
-      "author": "用户3160",
-      "likes": 1635,
-      "replies": 1,
+      "content": "看哭了，太感人了",
+      "author": "用户6682",
+      "likes": 1458,
+      "replies": 85,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户3470",
+      "likes": 207,
+      "replies": 23,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户9712",
+      "likes": 1219,
+      "replies": 78,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持迪丽热巴！加油",
+      "author": "用户3243",
+      "likes": 3368,
+      "replies": 88,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "迪丽热巴的演技越来越好了",
-      "author": "用户1133",
-      "likes": 2342,
-      "replies": 40,
+      "author": "用户8782",
+      "likes": 3895,
+      "replies": 89,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户5549",
-      "likes": 2145,
-      "replies": 76,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "支持迪丽热巴！加油",
-      "author": "用户5239",
-      "likes": 603,
-      "replies": 13,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "迪丽热巴好棒！",
-      "author": "用户7443",
-      "likes": 4878,
-      "replies": 48,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户4905",
-      "likes": 1252,
-      "replies": 9,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户6257",
-      "likes": 4227,
-      "replies": 85,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "今天状态真好",
-      "author": "用户7302",
-      "likes": 3578,
-      "replies": 49,
-      "is_top": false,
-      "source_platform": "douyin",
       "sentiment": "neutral"
     },
     {
-      "content": "新剧什么时候出？",
-      "author": "用户5972",
-      "likes": 606,
-      "replies": 98,
+      "content": "迪丽热巴永远的神",
+      "author": "用户6024",
+      "likes": 3966,
+      "replies": 35,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户8956",
+      "likes": 4851,
+      "replies": 49,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "新剧什么时候出？",
-      "author": "用户9261",
-      "likes": 3719,
-      "replies": 51,
+      "content": "支持迪丽热巴！加油",
+      "author": "用户2092",
+      "likes": 3156,
+      "replies": 31,
       "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户8109",
-      "likes": 2254,
-      "replies": 20,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户7785",
-      "likes": 1170,
-      "replies": 25,
-      "is_top": false,
-      "source_platform": "weibo",
+      "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "看哭了，太感人了",
-      "author": "用户5316",
-      "likes": 2027,
-      "replies": 59,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "迪丽热巴的演技越来越好了",
-      "author": "用户1541",
-      "likes": 1389,
+      "author": "用户2961",
+      "likes": 2541,
       "replies": 36,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "永远支持",
-      "author": "用户7784",
-      "likes": 943,
-      "replies": 3,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "爱了爱了",
-      "author": "用户3131",
-      "likes": 2607,
-      "replies": 68,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户3856",
-      "likes": 2101,
-      "replies": 2,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
       "content": "迪丽热巴好棒！",
-      "author": "用户4207",
-      "likes": 2476,
+      "author": "用户2317",
+      "likes": 2775,
       "replies": 42,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
-      "content": "新剧什么时候出？",
-      "author": "用户9600",
-      "likes": 2019,
-      "replies": 58,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "看哭了，太感人了",
-      "author": "用户4708",
-      "likes": 1004,
-      "replies": 58,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
       "content": "综艺里好搞笑",
-      "author": "用户1727",
-      "likes": 2604,
-      "replies": 20,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持迪丽热巴！加油",
-      "author": "用户9484",
-      "likes": 2715,
-      "replies": 78,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户2911",
-      "likes": 4988,
-      "replies": 39,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持迪丽热巴！加油",
-      "author": "用户5295",
-      "likes": 226,
-      "replies": 80,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户4189",
-      "likes": 3132,
-      "replies": 8,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户9348",
-      "likes": 4116,
-      "replies": 99,
+      "author": "用户7573",
+      "likes": 4061,
+      "replies": 31,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "negative"
     },
     {
       "content": "新剧什么时候出？",
-      "author": "用户1139",
-      "likes": 3525,
-      "replies": 82,
+      "author": "用户3249",
+      "likes": 2150,
+      "replies": 10,
       "is_top": false,
       "source_platform": "douyin",
-      "sentiment": "negative"
+      "sentiment": "neutral"
     },
     {
       "content": "迪丽热巴好棒！",
-      "author": "用户6085",
-      "likes": 2318,
-      "replies": 77,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户8913",
-      "likes": 905,
-      "replies": 86,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "这颜值真的绝了",
-      "author": "用户4230",
-      "likes": 1178,
-      "replies": 18,
+      "author": "用户4614",
+      "likes": 1786,
+      "replies": 21,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "路人转粉了",
-      "author": "用户6247",
-      "likes": 2890,
-      "replies": 80,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "迪丽热巴的演技越来越好了",
-      "author": "用户5080",
-      "likes": 1336,
-      "replies": 18,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "迪丽热巴永远的神",
-      "author": "用户3016",
-      "likes": 2185,
-      "replies": 40,
-      "is_top": true,
-      "source_platform": "weibo",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "新剧什么时候出？",
-      "author": "用户6829",
-      "likes": 1864,
-      "replies": 89,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户7590",
-      "likes": 4842,
-      "replies": 27,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户2942",
-      "likes": 3235,
-      "replies": 5,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户6016",
-      "likes": 1212,
-      "replies": 34,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户7835",
-      "likes": 771,
-      "replies": 71,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "neutral"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户3831",
-      "likes": 385,
-      "replies": 89,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持迪丽热巴！加油",
-      "author": "用户6691",
-      "likes": 2689,
-      "replies": 89,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "negative"
-    },
-    {
-      "content": "迪丽热巴好棒！",
-      "author": "用户9769",
-      "likes": 2156,
+      "author": "用户5853",
+      "likes": 3773,
       "replies": 30,
       "is_top": false,
       "source_platform": "weibo",
-      "sentiment": "positive"
+      "sentiment": "negative"
     },
     {
-      "content": "永远支持",
-      "author": "用户9659",
-      "likes": 4853,
-      "replies": 25,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户5408",
-      "likes": 1273,
-      "replies": 2,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "支持迪丽热巴！加油",
-      "author": "用户2642",
-      "likes": 3773,
-      "replies": 76,
+      "content": "爱了爱了",
+      "author": "用户4748",
+      "likes": 4931,
+      "replies": 16,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "爱了爱了",
-      "author": "用户7445",
-      "likes": 772,
-      "replies": 48,
+      "author": "用户6130",
+      "likes": 683,
+      "replies": 89,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户5941",
+      "likes": 3087,
+      "replies": 16,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "迪丽热巴的演技越来越好了",
+      "author": "用户3305",
+      "likes": 1493,
+      "replies": 55,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户9544",
+      "likes": 4498,
+      "replies": 49,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "迪丽热巴永远的神",
+      "author": "用户9014",
+      "likes": 1208,
+      "replies": 66,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户4059",
+      "likes": 3225,
+      "replies": 98,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户4045",
+      "likes": 1490,
+      "replies": 43,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "迪丽热巴好棒！",
+      "author": "用户2806",
+      "likes": 4541,
+      "replies": 35,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "迪丽热巴好棒！",
+      "author": "用户2820",
+      "likes": 882,
+      "replies": 4,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户1393",
+      "likes": 2213,
+      "replies": 90,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户9490",
+      "likes": 4088,
+      "replies": 23,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "negative"
     },
     {
-      "content": "迪丽热巴的演技越来越好了",
-      "author": "用户9219",
-      "likes": 4012,
-      "replies": 4,
+      "content": "迪丽热巴永远的神",
+      "author": "用户9239",
+      "likes": 2207,
+      "replies": 1,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "positive"
     },
     {
       "content": "今天状态真好",
-      "author": "用户7080",
-      "likes": 665,
-      "replies": 40,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "综艺里好搞笑",
-      "author": "用户7448",
-      "likes": 3194,
-      "replies": 97,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "迪丽热巴永远的神",
-      "author": "用户1123",
-      "likes": 831,
-      "replies": 87,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "迪丽热巴好棒！",
-      "author": "用户7193",
-      "likes": 1805,
-      "replies": 11,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "negative"
-    },
-    {
-      "content": "期待新作品！",
-      "author": "用户7878",
-      "likes": 1603,
-      "replies": 100,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "迪丽热巴永远的神",
-      "author": "用户3083",
-      "likes": 4838,
-      "replies": 6,
-      "is_top": false,
-      "source_platform": "weibo",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户2073",
-      "likes": 2191,
-      "replies": 19,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "路人转粉了",
-      "author": "用户8035",
-      "likes": 3316,
-      "replies": 96,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "永远支持",
-      "author": "用户7633",
-      "likes": 4300,
-      "replies": 100,
-      "is_top": false,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "迪丽热巴的演技越来越好了",
-      "author": "用户4005",
-      "likes": 1226,
-      "replies": 72,
+      "author": "用户9152",
+      "likes": 1231,
+      "replies": 50,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "neutral"
     },
     {
-      "content": "看哭了，太感人了",
-      "author": "用户5696",
-      "likes": 174,
-      "replies": 34,
-      "is_top": true,
-      "source_platform": "douyin",
-      "sentiment": "positive"
-    },
-    {
-      "content": "迪丽热巴的演技越来越好了",
-      "author": "用户4549",
-      "likes": 626,
-      "replies": 89,
+      "content": "路人转粉了",
+      "author": "用户1223",
+      "likes": 1861,
+      "replies": 53,
       "is_top": false,
       "source_platform": "weibo",
       "sentiment": "positive"
     },
     {
-      "content": "这颜值真的绝了",
-      "author": "用户5958",
-      "likes": 2262,
-      "replies": 6,
+      "content": "新剧什么时候出？",
+      "author": "用户4010",
+      "likes": 1492,
+      "replies": 1,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户7307",
+      "likes": 4453,
+      "replies": 1,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "迪丽热巴永远的神",
+      "author": "用户1242",
+      "likes": 1374,
+      "replies": 70,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "迪丽热巴永远的神",
+      "author": "用户6292",
+      "likes": 391,
+      "replies": 52,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户8316",
+      "likes": 1303,
+      "replies": 3,
       "is_top": false,
       "source_platform": "douyin",
       "sentiment": "negative"
@@ -851,50 +617,26 @@
   ],
   "news_articles": [
     {
-      "title": "迪丽热巴《利剑玫瑰》缉毒题材新尝试",
-      "summary": "迪丽热巴相关话题登上热搜",
-      "content": "迪丽热巴与金世佳合作的缉毒题材剧《利剑玫瑰》待播，角色类型全新挑战。",
-      "publish_date": "2026-03-07",
-      "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/0",
-      "sentiment": "neutral",
-      "sentiment_score": 0.135440861321582,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "迪丽热巴时尚大片发布，造型引热议",
-      "summary": "迪丽热巴近日动态引发关注",
-      "content": "迪丽热巴最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2025-11-19",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/1",
-      "sentiment": "positive",
-      "sentiment_score": 0.09767004932088263,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "迪丽热巴多部待播剧引期待，《枭起青壤》备受瞩目",
-      "summary": "迪丽热巴近日动态引发关注",
-      "content": "迪丽热巴与陈星旭合作的《枭起青壤》改编自尾鱼小说，备受粉丝期待。",
-      "publish_date": "2025-10-02",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/2",
-      "sentiment": "neutral",
-      "sentiment_score": 0.028297754609306586,
-      "category": "",
-      "tags": []
-    },
-    {
       "title": "迪丽热巴时尚资源不断，多个奢侈品牌大使",
       "summary": "迪丽热巴相关话题登上热搜",
       "content": "迪丽热巴持续活跃于时尚领域，代言多个国际奢侈品牌，商业价值位列顶流行列。",
-      "publish_date": "2025-11-01",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/3",
+      "publish_date": "2025-12-08",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/迪丽热巴/0",
       "sentiment": "neutral",
-      "sentiment_score": 0.47798480390240966,
+      "sentiment_score": 0.2227674885368433,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "迪丽热巴现身活动，状态在线",
+      "summary": "迪丽热巴近日动态引发关注",
+      "content": "迪丽热巴出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
+      "publish_date": "2025-11-20",
+      "source": "新浪娱乐",
+      "source_url": "https://example.com/news/迪丽热巴/1",
+      "sentiment": "positive",
+      "sentiment_score": -0.08319594888194692,
       "category": "",
       "tags": []
     },
@@ -902,23 +644,47 @@
       "title": "迪丽热巴工作室发声明澄清网络传闻",
       "summary": "迪丽热巴相关话题登上热搜",
       "content": "迪丽热巴工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2025-12-01",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/4",
-      "sentiment": "positive",
-      "sentiment_score": -0.17423226231128863,
+      "publish_date": "2026-03-26",
+      "source": "腾讯娱乐",
+      "source_url": "https://example.com/news/迪丽热巴/2",
+      "sentiment": "neutral",
+      "sentiment_score": 0.2909325378867597,
       "category": "",
       "tags": []
     },
     {
-      "title": "迪丽热巴现身活动，状态在线",
+      "title": "迪丽热巴《利剑玫瑰》缉毒题材新尝试",
+      "summary": "迪丽热巴近日动态引发关注",
+      "content": "迪丽热巴与金世佳合作的缉毒题材剧《利剑玫瑰》待播，角色类型全新挑战。",
+      "publish_date": "2025-12-19",
+      "source": "网易娱乐",
+      "source_url": "https://example.com/news/迪丽热巴/3",
+      "sentiment": "positive",
+      "sentiment_score": 0.20601357610752802,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "迪丽热巴多部待播剧引期待，《枭起青壤》备受瞩目",
+      "summary": "迪丽热巴近日动态引发关注",
+      "content": "迪丽热巴与陈星旭合作的《枭起青壤》改编自尾鱼小说，备受粉丝期待。",
+      "publish_date": "2025-11-08",
+      "source": "腾讯娱乐",
+      "source_url": "https://example.com/news/迪丽热巴/4",
+      "sentiment": "positive",
+      "sentiment_score": 0.20791049536049655,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "迪丽热巴时尚大片发布，造型引热议",
       "summary": "网友热议迪丽热巴近况",
-      "content": "迪丽热巴出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2025-10-07",
-      "source": "搜狐娱乐",
+      "content": "迪丽热巴最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
+      "publish_date": "2026-02-26",
+      "source": "新浪娱乐",
       "source_url": "https://example.com/news/迪丽热巴/5",
       "sentiment": "neutral",
-      "sentiment_score": -0.00865681196960591,
+      "sentiment_score": -0.15346448814275154,
       "category": "",
       "tags": []
     }
@@ -926,7 +692,7 @@
   "statistics": {
     "data_completeness": 0.95,
     "total_posts": 13,
-    "total_comments": 61,
+    "total_comments": 35,
     "total_news": 6,
     "total_relationships": 1,
     "total_gossips": 0
