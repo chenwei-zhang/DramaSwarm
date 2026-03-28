@@ -1645,7 +1645,6 @@ async function startCrisisSim() {
   if (!title) return alert('请先选择场景');
   const res = await apiPost('/api/crisis/start', {
     scenario_title: title,
-    use_llm: false,
     total_days: 30,
   });
   if (res.error) return alert(res.error);
