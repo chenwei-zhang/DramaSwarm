@@ -1796,14 +1796,17 @@ function updateCrisisUI(state) {
     });
   });
 
-  // Timeline
+  // Timeline — 从完整历史累积显示
   const tlEl = document.getElementById('crisis-timeline-list');
   tlEl.innerHTML = '';
-  (state.agent_actions || []).forEach(a => {
-    tlEl.innerHTML += `<li><b>${a.actor}</b> ${a.action_label} ${a.content ? '- ' + a.content : ''}</li>`;
-  });
-  (state.rumors || []).slice(-3).forEach(r => {
-    tlEl.innerHTML += `<li style="color:#FF7043;">谣言: ${r.content}</li>`;
+  crisisHistory.forEach(s => {
+    const dayLabel = `<span style="color:#4FC3F7;font-weight:bold;">Day${s.day}</span> `;
+    (s.agent_actions || []).forEach(a => {
+      tlEl.innerHTML += `<li>${dayLabel}<b>${a.actor}</b> ${a.action_label} ${a.content ? '- ' + a.content : ''}</li>`;
+    });
+    (s.rumors || []).forEach(r => {
+      tlEl.innerHTML += `<li>${dayLabel}<span style="color:#FF7043;">谣言: ${r.content}</span></li>`;
+    });
   });
 
   // Chart
