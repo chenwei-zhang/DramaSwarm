@@ -15,6 +15,10 @@ DramaSwarm 是一个轻量级的多智能体仿真引擎，专注于模拟复杂
 - **GraphRAG 可视化**: Web 界面交互式探索知识图谱，D3.js 力导向图展示明星关系网络
 - **危机仿真引擎**: 基于时序 GraphRAG 的多 Agent 公关危机模拟，支持 what-if 干预和结果对比分析
 - **多 Agent 交互**: 顺序决策 + 关系影响 + 观众反应 + 社交传播，Agent 之间有真实互动
+- **深度人格建模**: 10 维确定性人格画像，从 8 类图谱数据源（职业/Bio/粉丝/作品/公司/历史事件/关系网/性格推导）自动构建
+- **自由组局**: 自定义场景 + 明星选择 + 关系定义，支持危机模式和自由互动模式
+- **丰富干预**: 三类触发（定时/相对天数/状态阈值）+ 三类动作（强制PR/外部事件/关系变更）
+- **对照实验**: 同一场景多组干预配置并行仿真，自动对比口碑差值并推荐最佳策略
 
 ## 快速开始
 
@@ -107,13 +111,14 @@ DramaSwarm/
 │   │   ├── intervention.py      # 用户 what-if 干预系统
 │   │   ├── message_bus.py       # Agent 间消息总线
 │   │   ├── audience.py          # 观众池（粉丝/路人/理中客/黑粉，模板评论）
-│   │   ├── scenario_engine.py   # 仿真引擎核心（场景加载 + 顺序决策 + 异步仿真循环）
+│   │   ├── scenario_engine.py   # 仿真引擎核心（场景加载 + 自定义组局 + 顺序决策 + 自由/危机双模式）
+│   │   ├── experiment.py        # A/B 对照实验（ExperimentManager + 多组对比）
 │   │   └── outcome_analyzer.py  # 仿真 vs 历史基线对比分析
 │   ├── viz/                     # 可视化模块（FastAPI + D3.js）
 │   │   ├── server.py            # FastAPI 应用
 │   │   ├── api_graph.py         # 图谱 API 路由
 │   │   ├── api_simulation.py    # 仿真 API 路由
-│   │   ├── api_crisis.py        # 危机仿真 API（10个端点）
+│   │   ├── api_crisis.py        # 危机仿真 API（场景/自定义/实验等端点）
 │   │   └── serializer.py        # networkx → D3 JSON 转换
 │   ├── static/
 │   │   └── index.html           # Web 可视化（知识图谱 + 危机模拟 Tab）
@@ -151,14 +156,87 @@ DramaSwarm/
     └── test_crisis_engine.py     # 危机引擎测试
 ```
 
+## 五大增强特性
+
+### Phase 1: 深度人格建模
+
+确定性人格推断系统，从 8 类 GraphRAG 数据源提取 **10 维人格画像**，替代原有 5 维 Big Five：
+
+| 维度 | 数据来源 |
+|------|---------|
+| openness, conscientiousness, extraversion, agreeableness, neuroticism | 职业、Bio 关键词、历史事件、关系网络 |
+| public_visibility | 粉丝量（微博 followers 分级） |
+| career_stage | 作品数量 |
+| media_savvy | 公司类型（工作室/经纪公司/独立） |
+| controversy_history | 历史八卦事件数量 + 重要性加权 |
+| risk_tolerance | 从 neuroticism/extraversion/openness/agreeableness 联合推导 |
+
+使用确定性哈希（`name + counter → MD5`）保证同一明星每次仿真人格一致，无需 random seed。新增维度直接影响规则决策权重：高 public_visibility 降低沉默权重，高 media_savvy 加权声明/上节目，高 controversy_history + 低 neuroticism 则倾向谨慎策略。
+
+### Phase 2: 自由组局
+
+支持用户自定义场景，从知识图谱中任选明星组成任意关系网络：
+
+- `CrisisScenarioEngine.create_custom_scenario()` — 自定义标题、描述、参与者、关系定义
+- `CrisisScenario.is_custom = True` 标记用户创建的场景
+- `InteractionMode` 枚举区分 `CRISIS`（6 阶段危机）和 `FREE`（自由互动）两种模式
+- Web API `POST /api/crisis/custom-scenario` 支持前端组局
+
+### Phase 3: 丰富干预维度
+
+干预系统从"定时强制动作"扩展为三类触发 + 三类动作：
+
+**触发类型** (`TriggerType`)：
+- `TIME_ABSOLUTE` — 第 X 天触发
+- `TIME_RELATIVE` — 仿真开始后 N 天触发
+- `STATE_THRESHOLD` — 指标达到阈值时触发（approval / heat / brand / regulatory）
+
+**动作类型** (`InterventionCondition`)：
+- 强制 PR 动作 — 指定某人在触发时执行特定策略
+- 注入外部事件 — 6 种预设事件类型（媒体报道/视频泄露/对手声明/监管行动/品牌决策/自定义），各自带 approval/heat/brand 效果系数
+- 关系变更 — strengthen / weaken / break / new，动态修改图谱中的关系强度
+
+### Phase 4: 多样交互模式
+
+新增 `FreeAction` 枚举（11 种动作）和 `FreeActionSpace`，支持非危机场景的自由互动仿真：
+
+| 动作 | 说明 |
+|------|------|
+| SPEAK | 公开发言/表态 |
+| SUPPORT | 支持/声援某人 |
+| CRITICIZE | 批评/抨击某人 |
+| COLLABORATE | 合作/联名 |
+| SOCIALIZE | 社交/聚餐 |
+| ANNOUNCE | 宣布/公布消息 |
+| IGNORE | 无视/冷处理 |
+| PRIVATE_MSG | 私信/私下沟通 |
+| MEDIATE | 调停/撮合 |
+| RUMOR | 传谣/散布消息 |
+| RETREAT | 收缩/低调回避 |
+
+`CelebrityPersonaAgent.generate_free_response()` 基于性格 + 关系 + 观众情绪加权随机选择动作，`CrisisSimulation.step()` 根据 `InteractionMode` 自动切换决策路径。自由模式下不使用 6 阶段时间线，仅做逐日推演。
+
+### Phase 5: 对照实验
+
+`ExperimentManager` 支持同一场景多组不同干预配置的并行对比实验：
+
+- `Experiment` → 多个 `ExperimentGroup`（每组独立干预列表）
+- `ExperimentManager.run_experiment()` — 依次运行每组仿真，收集 history + final_state + outcome_report
+- `ExperimentManager.compare_experiment()` → `ComparisonResult`，自动计算：
+  - 各组平均/最低口碑、最终热度、监管等级
+  - 相对对照组的每人口碑差值
+  - 最佳策略组推荐
+- Web API：`POST /experiment/create`、`POST /experiment/{id}/run`、`GET /experiment/{id}/compare`、`GET /experiments`
+
 ## 开发路线图
 
 - [x] Phase 1: 基础框架 - 3-5 个 Agent 的简单对话
 - [x] Phase 2: 多层反应系统 - 公众舆论/媒体/热搜/监管/品牌五层链式反应
 - [x] Phase 3: 知识图谱 - 基于 GraphRAG 的关系管理与图推理上下文注入
 - [x] Phase 4: 危机仿真引擎 - 时序 GraphRAG + 多 Agent 公关危机模拟 + what-if 干预 + 结果对比
-- [ ] Phase 5: 扩展规模 - 支持 50+ Agent 并行交互
-- [ ] Phase 6: 垂直场景 - 综艺节目推演完整功能
+- [x] Phase 5: 深度人格建模 - 10 维确定性人格，8 类图谱数据源
+- [x] Phase 6: 自由组局 + 丰富干预 + 多样交互 + 对照实验
+- [ ] Phase 7: 扩展规模 - 支持 50+ Agent 并行交互
 
 ## 技术架构
 
@@ -274,6 +352,20 @@ DramaSwarm/
   - 被指名 → 必须回应（声明加权 +2.0）
 - **观众反应**：30 个观众 Agent（粉丝 40%/路人 30%/理中客 20%/黑粉 10%）基于模板生成评论，明星感知观众情绪后调整策略
 - **社交传播**：亲密关系者做了重大动作（道歉/反击/卖惨）→ 触发额外响应标记
+
+### 自由互动模式
+
+除危机模式外，还支持自由互动模式（`InteractionMode.FREE`），使用 8 种 `FreeAction`：公开发言、支持声援、公开批评、合作联名、社交聚餐、宣布消息、无视冷处理、私信沟通。`FreeActionSpace` 提供简化效果计算（无阶段修正），`persona_agent.py` 中的 `_rule_decide_free()` 基于性格 + 关系 + 观众反应综合决策。
+
+### A/B 对照实验
+
+`ExperimentManager`（`swarmsim/crisis/experiment.py`）支持同一场景多组不同干预配置的并行对比：
+
+- 创建实验：指定场景 + 多个实验组（每组独立干预列表）
+- 运行实验：依次运行每组仿真，收集完整历史和结局报告
+- 对比结果：自动计算各组平均口碑、最低口碑、热度、监管等级，找出最佳策略组
+- 每人口碑差值：各实验组相对于对照组的口碑变化量
+- Web API：`POST /api/crisis/experiment/create`、`POST /api/crisis/experiment/{id}/run`、`GET /api/crisis/experiment/{id}/compare`
 
 ## 许可证
 

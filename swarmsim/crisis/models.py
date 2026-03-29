@@ -74,6 +74,80 @@ class GossipType(Enum):
         }.get(self.value, self.value)
 
 
+class InteractionMode(Enum):
+    """交互模式"""
+    CRISIS = "crisis"     # 6阶段危机仿真 + 10种PR动作
+    FREE = "free"         # 自由互动模式
+
+    @property
+    def label(self) -> str:
+        return {"crisis": "危机模式", "free": "自由互动"}.get(self.value, self.value)
+
+
+class TriggerType(Enum):
+    """干预触发类型"""
+    TIME_ABSOLUTE = "time_absolute"    # 第 X 天触发
+    TIME_RELATIVE = "time_relative"    # 仿真开始后 N 天触发
+    STATE_THRESHOLD = "state_threshold"  # 状态阈值触发
+
+    @property
+    def label(self) -> str:
+        return {
+            "time_absolute": "指定日期",
+            "time_relative": "相对天数",
+            "state_threshold": "状态触发",
+        }.get(self.value, self.value)
+
+
+class FreeAction(Enum):
+    """自由互动动作空间"""
+    SPEAK = "speak"                # 公开发言/表态
+    SUPPORT = "support"            # 支持/声援某人
+    CRITICIZE = "criticize"          # 批评/抨击某人
+    COLLABORATE = "collaborate"      # 合作/联名
+    SOCIALIZE = "socialize"        # 社交/聚餐
+    ANNOUNCE = "announce"          # 宣布/公布消息
+    IGNORE = "ignore"              # 无视/冷处理
+    PRIVATE_MSG = "private_msg"    # 私信/私下沟通
+
+    MEDIATE = "mediate"            # 调停/撮合
+
+    RUMOR = "rumor"              # 传谣/散布消息
+
+    RETREAT = "retreat"            # 收缩/低调回避
+    @property
+    def label(self) -> str:
+        return {
+            "speak": "公开发言", "support": "支持声援",
+            "criticize": "公开批评", "collaborate": "合作联名",
+            "socialize": "社交聚餐", "announce": "宣布消息",
+            "ignore": "无视冷处理", "private_msg": "私信沟通",
+            "mediate": "调停撮合", "rumor": "传谣散布",
+            "retreat": "低调回避",
+        }.get(self.value, self.value)
+
+
+class ExternalEventType(Enum):
+    """外部事件类型"""
+    MEDIA_REPORT = "media_report"          # 媒体特别报道
+    VIDEO_LEAK = "video_leak"              # 视频/录音泄露
+    COMPETITOR_ANNOUNCE = "competitor_announce"  # 竞争对手宣布
+    REGULATORY_ACTION = "regulatory_action"      # 监管行动
+    BRAND_DECISION = "brand_decision"            # 品牌决策
+    CUSTOM = "custom"                            # 自定义事件
+
+    @property
+    def label(self) -> str:
+        return {
+            "media_report": "媒体特别报道",
+            "video_leak": "视频/录音泄露",
+            "competitor_announce": "竞争对手宣布",
+            "regulatory_action": "监管行动",
+            "brand_decision": "品牌决策",
+            "custom": "自定义事件",
+        }.get(self.value, self.value)
+
+
 # ── 数据类 ──
 
 @dataclass
@@ -88,6 +162,8 @@ class CrisisScenario:
     gossip_type: GossipType
     historical_outcome: dict[str, Any]    # 真实结果（用于对比）
     pre_crisis_relationships: list[dict]  # [{person_a, person_b, type, strength}]
+    is_custom: bool = False               # 是否为用户自定义场景
+    interaction_mode: InteractionMode = InteractionMode.CRISIS
 
 
 @dataclass
@@ -101,6 +177,7 @@ class CrisisAction:
     effects: dict[str, float] = field(default_factory=dict)
     triggered_by: str | None = None        # 被谁的哪条动作触发
     trigger_relation: str | None = None    # 触发关系类型
+    free_action: FreeAction | None = None   # 自由模式动作（自由模式时使用）
 
 
 @dataclass
@@ -187,6 +264,8 @@ class CrisisState:
             "agent_actions": [
                 {"actor": a.actor, "action": a.action.value,
                  "action_label": a.action.label,
+                 "free_action": a.free_action.value if a.free_action else None,
+                 "free_action_label": a.free_action.label if a.free_action else None,
                  "content": a.content, "day": a.day,
                  "triggered_by": a.triggered_by,
                  "trigger_relation": a.trigger_relation}
@@ -206,10 +285,22 @@ class CrisisState:
 @dataclass
 class InterventionCondition:
     """用户干预条件"""
-    day: int | None = None                 # 触发日期
+    # 触发类型
+    trigger_type: str = "time_absolute"    # time_absolute / time_relative / state_threshold
+    day: int | None = None                 # 绝对日期 (time_absolute) 或相对天数 (time_relative)
+    # 状态阈值触发
+    metric: str | None = None              # 监控指标: approval / heat / brand / regulatory
+    threshold: float | None = None         # 阈值
+    comparator: str | None = None          # "lt"(<) / "gt"(>) / "lte"(<=) / "gte"(>=)
+    # 动作
     person: str | None = None              # 目标人物
-    action: str | None = None              # 强制动作
-    external_event: str | None = None      # 注入外部事件
+    action: str | None = None              # 强制 PR 动作
+    external_event: str | None = None      # 注入外部事件描述
+    event_type: str | None = None          # ExternalEventType 值
+    # 关系变更
+    person_a: str | None = None
+    person_b: str | None = None
+    relationship_change: str | None = None  # "strengthen" / "weaken" / "break" / "new"
     description: str = ""
 
 

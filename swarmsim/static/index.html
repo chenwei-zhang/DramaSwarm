@@ -744,26 +744,107 @@ body {
         <button class="btn" id="crisis-reset-btn">重置</button>
       </div>
 
+      <div style="display:flex;gap:4px;margin-bottom:8px;">
+        <button class="btn" id="crisis-toggle-custom" style="flex:1;font-size:11px;">自定义场景</button>
+      </div>
+
+      <!-- 自定义场景面板 -->
+      <div id="crisis-custom-panel" style="display:none;">
+        <div style="margin-bottom:6px;">
+          <input id="cc-title" placeholder="场景标题" style="width:100%;background:#1a2a3a;color:#e0e0e0;border:1px solid #2a3a4a;padding:4px 8px;border-radius:4px;font-size:12px;">
+        </div>
+        <div style="margin-bottom:6px;">
+          <input id="cc-desc" placeholder="场景描述（可选）" style="width:100%;background:#1a2a3a;color:#e0e0e0;border:1px solid #2a3a4a;padding:4px 8px;border-radius:4px;font-size:12px;">
+        </div>
+        <div style="margin-bottom:6px;">
+          <select id="cc-type" style="width:100%;background:#1a2a3a;color:#e0e0e0;border:1px solid #2a3a4a;padding:4px 8px;border-radius:4px;font-size:12px;">
+            <option value="other">其他</option><option value="cheating">出轨</option>
+            <option value="scandal">丑闻</option><option value="divorce">离婚</option>
+            <option value="drugs">吸毒</option><option value="tax_evasion">偷税漏税</option>
+          </select>
+        </div>
+        <div style="margin-bottom:6px;">
+          <label style="font-size:10px;color:#667788;">严重度: <span id="cc-severity-val">0.5</span></label>
+          <input id="cc-severity" type="range" min="0.1" max="1.0" step="0.1" value="0.5" style="width:100%;">
+        </div>
+        <h4 style="margin-top:8px;">选择人物（最多6人）</h4>
+        <div id="cc-person-grid" style="max-height:180px;overflow-y:auto;margin-bottom:6px;"></div>
+        <div id="cc-relationships" style="font-size:11px;color:#8899aa;margin-bottom:6px;"></div>
+        <button class="btn" id="cc-discover" style="width:100%;margin-bottom:4px;">发现关系</button>
+        <button class="btn active" id="cc-create" style="width:100%;">创建并启动</button>
+      </div>
+
       <h4>人物状态</h4>
       <div id="crisis-persons"></div>
 
       <h4>干预面板</h4>
       <div class="crisis-intervention">
-        <select id="crisis-iv-person" style="flex:1"><option value="">人物</option></select>
-        <select id="crisis-iv-action" style="flex:1">
-          <option value="">强制动作</option>
-          <option value="silence">沉默</option>
-          <option value="apologize">道歉</option>
-          <option value="statement">声明</option>
-          <option value="go_on_show">上节目</option>
-          <option value="lawsuit">起诉</option>
-          <option value="hide">隐退</option>
+        <select id="crisis-iv-trigger" style="flex:1">
+          <option value="time_absolute">定时触发</option>
+          <option value="time_relative">相对天数</option>
+          <option value="state_threshold">状态阈值</option>
+        </select>
+        <select id="crisis-iv-action-type" style="flex:1">
+          <option value="force_action">强制动作</option>
+          <option value="inject_event">注入事件</option>
+          <option value="change_relation">关系变更</option>
         </select>
       </div>
-      <div class="crisis-intervention">
-        <input id="crisis-iv-desc" placeholder="干预描述" style="flex:1">
+
+      <!-- 定时触发参数 -->
+      <div class="crisis-intervention" id="iv-time-params">
+        <select id="crisis-iv-person" style="flex:1"><option value="">人物</option></select>
         <input id="crisis-iv-day" placeholder="第几天" type="number" style="width:60px">
-        <button class="btn" id="crisis-iv-add">添加</button>
+      </div>
+
+      <!-- 状态阈值参数 -->
+      <div class="crisis-intervention" id="iv-threshold-params" style="display:none;">
+        <select id="crisis-iv-metric" style="flex:1">
+          <option value="approval">口碑</option>
+          <option value="heat">热度</option>
+          <option value="brand">品牌</option>
+          <option value="regulatory">监管</option>
+        </select>
+        <select id="crisis-iv-comparator" style="width:60px">
+          <option value="lt">&lt;</option>
+          <option value="gt">&gt;</option>
+          <option value="lte">&lt;=</option>
+          <option value="gte">&gt;=</option>
+        </select>
+        <input id="crisis-iv-threshold" placeholder="阈值" type="number" style="width:60px">
+        <select id="crisis-iv-threshold-person" style="flex:1"><option value="">所有人</option></select>
+      </div>
+
+      <!-- 注入事件参数 -->
+      <div class="crisis-intervention" id="iv-event-params" style="display:none;">
+        <select id="crisis-iv-event-type" style="flex:1">
+          <option value="media_report">媒体报道</option>
+          <option value="video_leak">视频泄露</option>
+          <option value="competitor_announce">对手声明</option>
+          <option value="regulatory_action">监管行动</option>
+          <option value="brand_decision">品牌决策</option>
+          <option value="custom">自定义</option>
+        </select>
+        <input id="crisis-iv-event-desc" placeholder="事件描述" style="flex:1">
+        <select id="crisis-iv-event-person" style="flex:1"><option value="">影响所有人</option></select>
+      </div>
+
+      <!-- 关系变更参数 -->
+      <div class="crisis-intervention" id="iv-relation-params" style="display:none;">
+        <select id="crisis-iv-rel-a" style="flex:1"><option value="">人物A</option></select>
+        <select id="crisis-iv-rel-change" style="width:80px">
+          <option value="strengthen">加强↑</option>
+          <option value="weaken">减弱↓</option>
+          <option value="break">断裂✗</option>
+          <option value="new">新建+</option>
+        </select>
+        <select id="crisis-iv-rel-b" style="flex:1"><option value="">人物B</option></select>
+      </div>
+
+      <!-- 通用字段 -->
+      <div class="crisis-intervention">
+        <input id="crisis-iv-desc" placeholder="干预描述（可选）" style="flex:1">
+        <button class="btn" id="crisis-iv-add">添加干预</button>
       </div>
       <div id="crisis-pending-ivs" style="font-size:11px;color:#8899aa;"></div>
     </div>
@@ -803,6 +884,36 @@ body {
 
       <h4>结果对比</h4>
       <div id="crisis-outcome"></div>
+    </div>
+  </div>
+
+  <!-- Experiment Panel -->
+  <div style="display:none;margin-top:12px;" id="experiment-panel">
+    <div style="background:#141e2a;border:1px solid #2a3a4a;border-radius:8px;padding:12px;">
+      <h4 style="color:#4FC3F7;margin-bottom:8px;">A/B 对照实验</h4>
+      <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center;">
+        <select id="exp-scenario" style="flex:1;background:#1a2a3a;color:#e0e0e0;border:1px solid #2a3a4a;padding:4px 8px;border-radius:4px;font-size:12px;">
+          <option value="">选择场景...</option>
+        </select>
+        <button class="btn" id="exp-create-btn">创建实验</button>
+        <button class="btn" id="exp-run-btn">运行</button>
+        <button class="btn" id="exp-toggle-btn" style="font-size:11px;">显示/隐藏</button>
+      </div>
+
+      <!-- 实验组配置 -->
+      <div id="exp-groups" style="margin-bottom:8px;">
+        <div class="exp-group-row" style="display:flex;gap:6px;align-items:center;margin-bottom:4px;">
+          <input placeholder="组名（如: 对照组）" style="flex:1;background:#1a2a3a;color:#e0e0e0;border:1px solid #2a3a4a;padding:4px 8px;border-radius:4px;font-size:12px;" class="exp-group-name">
+          <button class="btn" style="font-size:11px;" onclick="addExpGroup(this)">+</button>
+        </div>
+      </div>
+
+      <!-- 对比结果 -->
+      <div id="exp-result" style="display:none;">
+        <h4 style="color:#FFC107;margin:8px 0 4px;">对比结果</h4>
+        <canvas id="exp-chart" style="width:100%;height:200px;background:#0f1923;border-radius:6px;"></canvas>
+        <div id="exp-comparison-table" style="margin-top:8px;"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -1637,6 +1748,14 @@ function setupEventListeners() {
   document.getElementById('crisis-reset-btn').addEventListener('click', resetCrisisSim);
   document.getElementById('crisis-outcome-btn').addEventListener('click', loadCrisisOutcome);
   document.getElementById('crisis-iv-add').addEventListener('click', addCrisisIntervention);
+
+  // Custom scenario controls
+  document.getElementById('crisis-toggle-custom').addEventListener('click', toggleCustomScenario);
+  document.getElementById('cc-severity').addEventListener('input', e => {
+    document.getElementById('cc-severity-val').textContent = e.target.value;
+  });
+  document.getElementById('cc-discover').addEventListener('click', discoverRelationships);
+  document.getElementById('cc-create').addEventListener('click', createCustomScenario);
 }
 
 // ── Crisis Simulation ──
@@ -1952,6 +2071,281 @@ function drawCrisisChart() {
   });
   ctx.stroke();
   ctx.setLineDash([]);
+}
+
+// ── Custom Scenario Functions ──
+
+let customCelebrities = [];
+let selectedCustomPersons = new Set();
+
+function toggleCustomScenario() {
+  const panel = document.getElementById('crisis-custom-panel');
+  if (panel.style.display === 'none') {
+    panel.style.display = 'block';
+    loadCelebritiesForCustom();
+  } else {
+    panel.style.display = 'none';
+  }
+}
+
+async function loadCelebritiesForCustom() {
+  const data = await api('/api/crisis/celebrities');
+  customCelebrities = data.celebrities || [];
+  const grid = document.getElementById('cc-person-grid');
+  grid.innerHTML = '';
+  customCelebrities.forEach(c => {
+    const fans = c.weibo_followers || 0;
+    const fansText = fans >= 1e8 ? (fans/1e8).toFixed(1)+'亿' : fans >= 1e4 ? (fans/1e4).toFixed(0)+'万' : fans;
+    const occ = (c.occupation || []).slice(0, 2).join('·');
+    const checked = selectedCustomPersons.has(c.name) ? 'checked' : '';
+    grid.innerHTML += `
+      <div style="display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid #1a2a3a;">
+        <input type="checkbox" class="cc-person-cb" data-name="${c.name}" ${checked}
+          onchange="toggleCustomPerson('${c.name}', this.checked)" style="width:14px;height:14px;">
+        <div style="flex:1;">
+          <div style="font-size:12px;font-weight:500;">${c.name}</div>
+          <div style="font-size:10px;color:#667788;">${occ} · ${fansText}粉丝</div>
+        </div>
+      </div>`;
+  });
+}
+
+function toggleCustomPerson(name, checked) {
+  if (checked && selectedCustomPersons.size >= 6) {
+    alert('最多选择6人');
+    // uncheck the last one
+    document.querySelectorAll('.cc-person-cb').forEach(cb => {
+      if (cb.dataset.name === name) cb.checked = false;
+    });
+    return;
+  }
+  if (checked) selectedCustomPersons.add(name);
+  else selectedCustomPersons.delete(name);
+  document.getElementById('cc-relationships').innerHTML =
+    `已选 ${selectedCustomPersons.size} 人: ${[...selectedCustomPersons].join(', ')}`;
+}
+
+async function discoverRelationships() {
+  if (selectedCustomPersons.size < 2) {
+    alert('请至少选择2人'); return;
+  }
+  const persons = [...selectedCustomPersons].join(',');
+  const data = await api(`/api/crisis/relationships?persons=${encodeURIComponent(persons)}`);
+  const rels = data.relationships || [];
+  const el = document.getElementById('cc-relationships');
+  if (!rels.length) {
+    el.innerHTML = '<span style="color:#FF7043">未发现已知关系</span>';
+    return;
+  }
+  el.innerHTML = rels.map(r =>
+    `<div style="margin:2px 0;"><span style="color:#4FC3F7">${r.person_a}</span>` +
+    ` — <span style="color:#FF9800">${r.relation_type}</span> — ` +
+    `<span style="color:#4FC3F7">${r.person_b}</span></div>`
+  ).join('');
+}
+
+async function createCustomScenario() {
+  if (selectedCustomPersons.size < 2) {
+    alert('请至少选择2人'); return;
+  }
+  const title = document.getElementById('cc-title').value.trim() || '自定义场景';
+  const desc = document.getElementById('cc-desc').value.trim();
+  const type = document.getElementById('cc-type').value;
+  const severity = parseFloat(document.getElementById('cc-severity').value);
+
+  const res = await apiPost('/api/crisis/custom-scenario', {
+    title, description: desc, involved_persons: [...selectedCustomPersons],
+    initial_severity: severity, gossip_type: type, interaction_mode: 'crisis',
+  });
+  if (res.error) return alert(res.error);
+
+  crisisHistory = [res.initial_state];
+  updateCrisisUI(res.initial_state);
+  document.getElementById('crisis-status').textContent = `自定义场景「${title}」已启动`;
+
+  // 刷新场景下拉
+  loadCrisisScenarios();
+}
+
+// ── Experiment Functions ──
+
+function addExpGroup(btn) {
+  const container = document.getElementById('exp-groups');
+  const row = document.createElement('div');
+  row.className = 'exp-group-row';
+  row.style.cssText = 'display:flex;gap:6px;align-items:center;margin-bottom:4px;';
+  row.innerHTML = `
+    <input placeholder="组名" style="flex:1;background:#1a2a3a;color:#e0e0e00;border:1px solid #2a3a4a;padding:4px 8px;border-radius:4px;font-size:12px;" class="exp-group-name">
+    <button class="btn danger" style="font-size:11px;" onclick="this.parentElement.remove()">x</button>
+  `;
+  container.appendChild(row);
+}
+
+document.getElementById('exp-toggle-btn').addEventListener('click', () => {
+  const panel = document.getElementById('experiment-panel');
+  panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+  if (panel.style.display !== 'none') populateExpScenarios();
+});
+
+async function populateExpScenarios() {
+  const data = await api('/api/crisis/scenarios');
+  const sel = document.getElementById('exp-scenario');
+  sel.innerHTML = '<option value="">选择场景...</option>';
+  (data.scenarios || []).forEach(s => {
+    sel.innerHTML += `<option value="${s.title}">${s.title}</option>`;
+  });
+}
+
+document.getElementById('exp-create-btn').addEventListener('click', async () => {
+  const scenarioTitle = document.getElementById('exp-scenario').value;
+  if (!scenarioTitle) return alert('请选择场景');
+
+  const names = [...document.querySelectorAll('.exp-group-name')].map(el => el.value.trim()).filter(Boolean);
+  if (names.length < 2) return alert('请至少添加2个实验组');
+
+  const groups = names.map(name => ({ name, interventions: [], description: name }));
+  const res = await apiPost('/api/crisis/experiment/create', {
+    scenario_title: scenarioTitle,
+    groups,
+    use_llm: false,
+    total_days: 30,
+  });
+  if (res.error) return alert(res.error);
+  alert(`实验已创建！ID: ${res.experiment_id}`);
+});
+
+document.getElementById('exp-run-btn').addEventListener('click', async () => {
+  const listRes = await api('/api/crisis/experiments');
+  const experiments = listRes.experiments || [];
+  if (!experiments.length) return alert('请先创建实验');
+
+  const exp = experiments[experiments.length - 1];
+  document.getElementById('exp-run-btn').textContent = '运行中...';
+  document.getElementById('exp-run-btn').disabled = true;
+
+  try {
+    const res = await apiPost(`/api/crisis/experiment/${exp.experiment_id}/run`, {});
+    if (res.error) { alert(res.error); return; }
+
+    // 获取对比结果
+    const comparison = await api(`/api/crisis/experiment/${exp.experiment_id}/compare`);
+    if (!comparison.error) renderExpComparison(comparison);
+  } catch (e) {
+    alert('运行失败: ' + e.message);
+  } finally {
+    document.getElementById('exp-run-btn').textContent = '运行';
+    document.getElementById('exp-run-btn').disabled = false;
+  }
+});
+
+function renderExpComparison(data) {
+  const resultDiv = document.getElementById('exp-result');
+  resultDiv.style.display = 'block';
+
+  // Draw chart
+  const canvas = document.getElementById('exp-chart');
+  const ctx = canvas.getContext('2d');
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width - 24;
+  canvas.height = 200;
+  const w = canvas.width, h = canvas.height;
+  const pad = { top: 20, right: 20, bottom: 30, left: 50 };
+  const cw = w - pad.left - pad.right;
+  const ch = h - pad.top - pad.bottom;
+
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = '#0f1923';
+  ctx.fillRect(0, 0, w, h);
+
+  const colors = ['#4FC3F7', '#FF7043', '#66BB6A', '#FFC107', '#AB47BC', '#EF5350'];
+  const summaries = data.groups_summary || [];
+
+  // Bar chart: avg_approval per group
+  if (summaries.length) {
+    const maxVal = Math.max(...summaries.map(s => s.avg_approval || 50), 100);
+    const barWidth = Math.min(40, cw / summaries.length - 10);
+
+    summaries.forEach((s, i) => {
+      const val = s.avg_approval || 0;
+      const barH = (val / maxVal) * ch;
+      const x = pad.left + (i + 0.5) * (cw / summaries.length) - barWidth / 2;
+      const y = pad.top + ch - barH;
+
+      ctx.fillStyle = colors[i % colors.length];
+      ctx.fillRect(x, y, barWidth, barH);
+
+      // Label
+      ctx.fillStyle = '#e0e0e0';
+      ctx.font = '10px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(s.group_name, x + barWidth / 2, h - 5);
+      ctx.fillText(val.toFixed(0), x + barWidth / 2, y - 4);
+    });
+
+    // Y axis
+    ctx.strokeStyle = '#1a2a3a';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 4; i++) {
+      const y = pad.top + ch * i / 4;
+      ctx.beginPath();
+      ctx.moveTo(pad.left, y);
+      ctx.lineTo(w - pad.right, y);
+      ctx.stroke();
+      ctx.fillStyle = '#556677';
+      ctx.font = '9px sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText((maxVal - maxVal * i / 4).toFixed(0), pad.left - 4, y + 3);
+    }
+  }
+
+  // Best group highlight
+  const tableDiv = document.getElementById('exp-comparison-table');
+  let html = '';
+  if (data.best_group) {
+    html += `<div style="background:#1a3a2a;border:1px solid #4CAF50;border-radius:4px;padding:8px;margin-bottom:6px;">
+      <b style="color:#4CAF50;">最佳策略: ${data.best_group}</b>
+      <span style="color:#8899aa;margin-left:8px;">${data.best_metric}</span>
+    </div>`;
+  }
+
+  // Comparison table
+  html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+  html += '<tr style="border-bottom:1px solid #2a3a4a;"><th style="text-align:left;padding:4px;">组名</th><th>平均口碑</th><th>最低口碑</th><th>热度</th><th>监管</th></tr>';
+  summaries.forEach(s => {
+    html += `<tr style="border-bottom:1px solid #1a2a3a;">
+      <td style="padding:4px;">${s.group_name}</td>
+      <td style="text-align:center;">${(s.avg_approval||0).toFixed(0)}</td>
+      <td style="text-align:center;">${(s.min_approval||0).toFixed(0)}</td>
+      <td style="text-align:center;">${(s.heat_index||0).toFixed(0)}</td>
+      <td style="text-align:center;">Lv.${s.regulatory_level||0}</td>
+    </tr>`;
+  });
+  html += '</table>';
+
+  // Per-person delta
+  if (data.per_person_delta && Object.keys(data.per_person_delta).length) {
+    html += '<div style="margin-top:8px;"><b style="font-size:11px;">口碑变化（vs 对照组）</b>';
+    Object.entries(data.per_person_delta).forEach(([group, deltas]) => {
+      html += `<div style="margin:4px 0;font-size:11px;"><span style="color:#4FC3F7;">${group}:</span> `;
+      Object.entries(deltas).forEach(([person, delta]) => {
+        const color = delta > 0 ? '#4CAF50' : delta < 0 ? '#F44336' : '#888';
+        html += `<span style="color:${color}">${person}: ${delta > 0 ? '+' : ''}${delta}</span> `;
+      });
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  // Recommendations
+  if (data.recommendations && data.recommendations.length) {
+    html += '<div style="margin-top:6px;">';
+    data.recommendations.forEach(r => {
+      html += `<div style="font-size:11px;color:#aabbcc;margin:2px 0;">- ${r}</div>`;
+    });
+    html += '</div>';
+  }
+
+  tableDiv.innerHTML = html;
 }
 </script>
 </body>

@@ -12,13 +12,13 @@ import random
 from typing import Any
 
 from swarmsim.crisis.models import (
-    CrisisPhase, PRAction, GossipType,
+    CrisisPhase, PRAction, GossipType, InteractionMode,
     CrisisScenario, CrisisAction, CrisisState,
     InterventionCondition, TrendingTopic, MediaHeadline, BrandStatus,
-    AgentMessage,
+    AgentMessage, FreeAction,
 )
 from swarmsim.crisis.timeline import CrisisTimeline
-from swarmsim.crisis.action_space import CrisisActionSpace
+from swarmsim.crisis.action_space import CrisisActionSpace, FreeActionSpace
 from swarmsim.crisis.persona_agent import CelebrityPersonaAgent
 from swarmsim.crisis.intervention import InterventionSystem
 from swarmsim.crisis.vacuum_detector import InformationVacuumDetector
@@ -185,6 +185,111 @@ class CrisisScenarioEngine:
             interventions=interventions,
         )
 
+    def create_custom_scenario(
+        self,
+        title: str,
+        description: str,
+        involved_persons: list[str],
+        initial_severity: float = 0.5,
+        gossip_type: str = "other",
+        interaction_mode: str = "crisis",
+    ) -> CrisisScenario:
+        """创建自定义场景
+
+        Args:
+            title: 场景标题
+            description: 场景描述
+            involved_persons: 涉及的明星列表
+            initial_severity: 初始严重度 0-1
+            gossip_type: 八卦类型
+            interaction_mode: 交互模式 (crisis/free)
+
+        Returns:
+            CrisisScenario 实例
+        """
+        # 验证所有人在图谱中存在
+        valid_persons = []
+        for name in involved_persons:
+            node_id = f"celebrity:{name}"
+            if self.kg._graph.has_node(node_id):
+                valid_persons.append(name)
+
+        if not valid_persons:
+            raise ValueError("至少需要一个在图谱中存在的明星")
+
+        try:
+            gt = GossipType(gossip_type)
+        except ValueError:
+            gt = GossipType.OTHER
+
+        try:
+            mode = InteractionMode(interaction_mode)
+        except ValueError:
+            mode = InteractionMode.CRISIS
+
+        # 自动发现关系
+        pre_rels = self.discover_relationships(valid_persons)
+
+        scenario = CrisisScenario(
+            scenario_id=f"custom_{title}",
+            title=title,
+            crisis_date="2025-01-01",
+            description=description,
+            involved_persons=valid_persons,
+            initial_severity=initial_severity,
+            gossip_type=gt,
+            historical_outcome={},
+            pre_crisis_relationships=pre_rels,
+            is_custom=True,
+            interaction_mode=mode,
+        )
+
+        # 注册到可用场景
+        self.available_scenarios[title] = scenario
+        return scenario
+
+    def discover_relationships(self, persons: list[str]) -> list[dict]:
+        """自动发现选定名人之间的关系"""
+        rels = []
+        seen = set()
+        for i, name_a in enumerate(persons):
+            for name_b in persons[i + 1:]:
+                pair = tuple(sorted([name_a, name_b]))
+                if pair in seen:
+                    continue
+                seen.add(pair)
+                context = self.kg.get_relationship_context(name_a, name_b)
+                for r in context:
+                    rels.append({
+                        "person_a": name_a,
+                        "person_b": name_b,
+                        "relation_type": r.get("relation_type", "未知"),
+                        "strength": r.get("strength", 0.5),
+                        "confidence": r.get("confidence", 0.5),
+                    })
+        return rels
+
+    def get_celebrities(self) -> list[dict]:
+        """获取图谱中所有名人（供前端选择器使用）"""
+        result = []
+        for node_id, data in self.kg._graph.nodes(data=True):
+            if data.get("node_type") != "celebrity":
+                continue
+            name = data.get("name", "")
+            occupation = data.get("occupation", [])
+            if isinstance(occupation, str):
+                occupation = [occupation]
+            fans = data.get("weibo_followers", 0) or 0
+            works = data.get("famous_works", []) or []
+            result.append({
+                "name": name,
+                "occupation": occupation,
+                "weibo_followers": fans,
+                "famous_works": works[:5],
+            })
+        result.sort(key=lambda x: x["weibo_followers"], reverse=True)
+        return result
+
 
 class CrisisSimulation:
     """单次危机仿真运行"""
@@ -211,6 +316,7 @@ class CrisisSimulation:
 
         # 子系统
         self.action_space = CrisisActionSpace()
+        self.free_action_space = FreeActionSpace()
         self.intervention_system = InterventionSystem()
         if interventions:
             self.intervention_system.add_interventions(interventions)
@@ -311,10 +417,13 @@ class CrisisSimulation:
 
         day_actions: list[CrisisAction] = []
         interaction_log: list[dict] = []
+        is_free_mode = bool = (
+            self.scenario.interaction_mode == InteractionMode.FREE
+        )
+
         for name, agent in self.agents.items():
             forced = forced_actions.get(name)
 
-            # 已决策的其他 Agent 动作
             peer_actions = list(day_actions)
 
             # 观众对今天已有动作的反应
@@ -324,13 +433,21 @@ class CrisisSimulation:
                     day, peer_actions, state_dict,
                 )
 
-            # 当前 Agent 决策，感知其他人和观众
-            action = await agent.generate_crisis_response(
-                phase, state_dict,
-                forced_action=forced,
-                peer_actions=peer_actions,
-                audience_reactions=audience_reactions,
-            )
+            # 根据 interaction_mode 分支决策
+            if is_free_mode:
+                action = await agent.generate_free_response(
+                    state_dict,
+                    peer_actions=peer_actions,
+                    audience_reactions=audience_reactions,
+                )
+            else:
+                action = await agent.generate_crisis_response(
+                    phase, state_dict,
+                    forced_action=forced,
+                    peer_actions=peer_actions,
+                    audience_reactions=audience_reactions,
+                )
+
             action.day = day
             day_actions.append(action)
 
@@ -471,7 +588,10 @@ class CrisisSimulation:
             template = random.choice(templates)
             title = template.format(
                 person=name,
-                action=actions[0].action.label if actions else "事件",
+                action=(
+                    actions[0].free_action.label if actions[0].free_action
+                    else actions[0].action.label
+                ) if actions else "事件",
             )
             heat = max(10, self.current_state.heat_index - i * 15 + random.uniform(-10, 10))
             topics.append(TrendingTopic(

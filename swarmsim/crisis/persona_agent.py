@@ -8,10 +8,13 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 from typing import Any
 
-from swarmsim.crisis.models import CrisisPhase, PRAction, CrisisAction, AgentMessage
+from swarmsim.crisis.models import (
+    CrisisPhase, PRAction, CrisisAction, AgentMessage, FreeAction,
+)
 from swarmsim.graph.temporal import TemporalKnowledgeGraph
 
 
@@ -28,6 +31,20 @@ ACTION_DESCRIPTIONS: dict[PRAction, str] = {
     PRAction.HIDE: "{name}暂时隐退，避开公众视线",
     PRAction.CHARITY: "{name}参与公益活动，改善公众形象",
     PRAction.COMEBACK: "{name}尝试复出，发布新作品",
+}
+
+FREE_ACTION_DESCRIPTIONS: dict[FreeAction, str] = {
+    FreeAction.SPEAK: "{name}公开发表了自己的看法",
+    FreeAction.SUPPORT: "{name}公开支持了对方",
+    FreeAction.CRITICIZE: "{name}公开批评了对方",
+    FreeAction.COLLABORATE: "{name}宣布了一项合作计划",
+    FreeAction.SOCIALIZE: "{name}参加了一场社交活动",
+    FreeAction.ANNOUNCE: "{name}发布了一条重要声明",
+    FreeAction.IGNORE: "{name}选择无视这一事件",
+    FreeAction.PRIVATE_MSG: "{name}私下联系了对方",
+    FreeAction.MEDIATE: "{name}出面调停了争端",
+    FreeAction.RUMOR: "{name}传播了一条消息",
+    FreeAction.RETREAT: "{name}选择了低调回避",
 }
 
 
@@ -52,21 +69,25 @@ class CelebrityPersonaAgent:
         self.past_actions: list[PRAction] = []
 
     def _build_personality(self) -> dict[str, float]:
-        """从图谱推断 Big Five 性格特质"""
+        """从图谱推断完整性格画像（Big Five + 扩展维度）
+
+        使用确定性哈希代替 random.uniform()，保证同一明星人格一致。
+        数据源：职业、bio、粉丝量、作品数、公司、历史事件、关系网络。
+        """
+        self._hash_counter = 0
         node_id = f"celebrity:{self.name}"
+
         if not self.kg._graph.has_node(node_id):
-            return {
-                "openness": 0.5, "conscientiousness": 0.5,
-                "extraversion": 0.5, "agreeableness": 0.5,
-                "neuroticism": 0.5,
-            }
+            return self._default_personality()
 
         data = dict(self.kg._graph.nodes[node_id])
         bio = str(data.get("biography", ""))
         occupation = data.get("occupation", [])
         if isinstance(occupation, str):
             occupation = [occupation]
+        occ_text = " ".join(occupation)
 
+        # ── Big Five 基线 ──
         traits = {
             "openness": 0.5,
             "conscientiousness": 0.5,
@@ -75,37 +96,155 @@ class CelebrityPersonaAgent:
             "neuroticism": 0.5,
         }
 
-        # 基于职业推断
-        if any(kw in " ".join(occupation) for kw in ["歌手", "偶像", "主持人"]):
-            traits["extraversion"] = random.uniform(0.6, 0.85)
-            traits["openness"] = random.uniform(0.6, 0.8)
-        if any(kw in " ".join(occupation) for kw in ["演员", "影帝", "影后"]):
-            traits["openness"] = random.uniform(0.5, 0.75)
-            traits["conscientiousness"] = random.uniform(0.55, 0.8)
-        if any(kw in " ".join(occupation) for kw in ["导演", "制片"]):
-            traits["conscientiousness"] = random.uniform(0.6, 0.85)
+        # ── 1. 职业推断 ──
+        if any(kw in occ_text for kw in ["歌手", "偶像", "主持人"]):
+            traits["extraversion"] = self._srand(0.6, 0.85)
+            traits["openness"] = self._srand(0.6, 0.8)
+        if any(kw in occ_text for kw in ["演员", "影帝", "影后"]):
+            traits["openness"] = self._srand(0.5, 0.75)
+            traits["conscientiousness"] = self._srand(0.55, 0.8)
+        if any(kw in occ_text for kw in ["导演", "制片"]):
+            traits["conscientiousness"] = self._srand(0.6, 0.85)
+        if any(kw in occ_text for kw in ["模特", "idol"]):
+            traits["extraversion"] = max(traits["extraversion"], self._srand(0.6, 0.8))
+            traits["openness"] = max(traits["openness"], self._srand(0.5, 0.7))
 
-        # 基于 bio 关键词
+        # ── 2. Bio 关键词推断 ──
         if any(kw in bio for kw in ["争议", "负面", "封杀", "出轨"]):
-            traits["neuroticism"] = random.uniform(0.55, 0.8)
-            traits["agreeableness"] = random.uniform(0.3, 0.5)
+            traits["neuroticism"] = self._srand(0.55, 0.8)
+            traits["agreeableness"] = self._srand(0.3, 0.5)
         if any(kw in bio for kw in ["慈善", "公益", "温暖", "人缘好"]):
-            traits["agreeableness"] = random.uniform(0.65, 0.85)
+            traits["agreeableness"] = self._srand(0.65, 0.85)
         if any(kw in bio for kw in ["低调", "内敛", "沉默"]):
-            traits["extraversion"] = random.uniform(0.2, 0.4)
+            traits["extraversion"] = self._srand(0.2, 0.4)
+        if any(kw in bio for kw in ["火爆", "直率", "敢说", "刚"]):
+            traits["neuroticism"] = max(traits["neuroticism"], self._srand(0.6, 0.8))
+            traits["agreeableness"] = min(traits["agreeableness"], self._srand(0.25, 0.45))
+        if any(kw in bio for kw in ["才华", "实力", "演技", "唱功"]):
+            traits["conscientiousness"] = max(traits["conscientiousness"], self._srand(0.6, 0.85))
 
-        # 根据历史事件类型调整
+        # ── 3. 粉丝量 → public_visibility + extraversion 修正 ──
+        fans = data.get("weibo_followers", 0) or 0
+        if fans >= 1e8:
+            traits["public_visibility"] = 0.95
+            traits["extraversion"] = min(1.0, traits["extraversion"] + 0.15)
+        elif fans >= 5e7:
+            traits["public_visibility"] = 0.75
+        elif fans >= 1e7:
+            traits["public_visibility"] = 0.6
+        elif fans >= 1e6:
+            traits["public_visibility"] = 0.4
+        else:
+            traits["public_visibility"] = 0.25
+
+        # ── 4. 作品数量 → career_stage + conscientiousness ──
+        works = data.get("famous_works", []) or []
+        work_count = len(works)
+        if work_count >= 8:
+            traits["career_stage"] = 0.9
+            traits["conscientiousness"] = min(1.0, traits["conscientiousness"] + 0.1)
+        elif work_count >= 4:
+            traits["career_stage"] = 0.6
+        elif work_count >= 1:
+            traits["career_stage"] = 0.35
+        else:
+            traits["career_stage"] = 0.15
+
+        # ── 5. 公司类型 → media_savvy ──
+        company = str(data.get("company", "") or "")
+        if any(kw in company for kw in ["工作室", "个人"]):
+            traits["media_savvy"] = self._srand(0.7, 0.9)
+        elif any(kw in company for kw in ["娱乐", "传媒", "影视", "文化"]):
+            traits["media_savvy"] = self._srand(0.5, 0.75)
+        elif company:
+            traits["media_savvy"] = self._srand(0.3, 0.5)
+        else:
+            traits["media_savvy"] = 0.4
+
+        # ── 6. 历史事件分析 → controversy_history + neuroticism ──
         events = self.kg.get_person_timeline(self.name)
-        for event in events:
-            etype = event.get("type", "")
-            if etype == "gossip":
-                gossip_type = event.get("gossip_type", "other")
-                if gossip_type in ("cheating", "scandal"):
-                    traits["neuroticism"] = max(traits["neuroticism"], 0.6)
-                if gossip_type == "divorce":
-                    traits["neuroticism"] = max(traits["neuroticism"], 0.55)
+        gossip_events = [e for e in events if e.get("type") == "gossip"]
+        total_importance = sum(e.get("importance", 0.3) for e in gossip_events)
+        negative_events = [
+            e for e in gossip_events
+            if e.get("sentiment") == "negative"
+        ]
+
+        # 事件量 + 重要性 → 争议历史
+        if total_importance > 2.0 or len(gossip_events) >= 4:
+            traits["controversy_history"] = self._srand(0.7, 0.95)
+        elif total_importance > 1.0 or len(gossip_events) >= 2:
+            traits["controversy_history"] = self._srand(0.4, 0.7)
+        else:
+            traits["controversy_history"] = self._srand(0.1, 0.4)
+
+        # 负面事件 → neuroticism 提升
+        for event in gossip_events:
+            gossip_type = event.get("gossip_type", "other")
+            importance = event.get("importance", 0.3)
+            if gossip_type in ("cheating", "scandal"):
+                traits["neuroticism"] = max(traits["neuroticism"], 0.55 + importance * 0.3)
+            elif gossip_type == "divorce":
+                traits["neuroticism"] = max(traits["neuroticism"], 0.5 + importance * 0.2)
+            elif gossip_type in ("drugs", "tax_evasion"):
+                traits["neuroticism"] = max(traits["neuroticism"], 0.65 + importance * 0.2)
+                traits["agreeableness"] = min(traits["agreeableness"], 0.4)
+
+        # ── 7. 关系网络拓扑 → openness + agreeableness ──
+        try:
+            neighbors = self.kg.get_social_neighborhood(self.name, max_depth=1)
+            conn_count = len(neighbors)
+            # 连接类型统计
+            rel_types = set()
+            for n in neighbors:
+                rels = self.kg.get_relationship_context(self.name, n)
+                for r in rels:
+                    rel_types.add(r.get("relation_type", ""))
+
+            if conn_count >= 10:
+                traits["openness"] = min(1.0, traits["openness"] + 0.15)
+            elif conn_count >= 5:
+                traits["openness"] = min(1.0, traits["openness"] + 0.08)
+
+            if any(t in rel_types for t in ("配偶", "家人", "亲属", "闺蜜", "好友")):
+                traits["agreeableness"] = min(1.0, traits["agreeableness"] + 0.08)
+            if any(t in rel_types for t in ("对手", "宿敌", "竞争对手")):
+                traits["neuroticism"] = min(1.0, traits["neuroticism"] + 0.05)
+        except Exception:
+            pass
+
+        # ── 8. 从性格推导 risk_tolerance ──
+        traits["risk_tolerance"] = (
+            0.3 * traits["neuroticism"]
+            + 0.3 * traits["extraversion"]
+            + 0.2 * traits["openness"]
+            + 0.2 * (1.0 - traits["agreeableness"])
+        )
+
+        # Clamp all to 0-1
+        for key in traits:
+            traits[key] = max(0.0, min(1.0, traits[key]))
 
         return traits
+
+    def _srand(self, lo: float, hi: float) -> float:
+        """确定性伪随机：基于 name + counter 的哈希"""
+        seed_str = f"{self.name}_{self._hash_counter}"
+        self._hash_counter += 1
+        h = int(hashlib.md5(seed_str.encode()).hexdigest()[:8], 16)
+        return lo + (h / 0xFFFFFFFF) * (hi - lo)
+
+    @staticmethod
+    def _default_personality() -> dict[str, float]:
+        """默认人格（图谱中无数据时使用）"""
+        return {
+            "openness": 0.5, "conscientiousness": 0.5,
+            "extraversion": 0.5, "agreeableness": 0.5,
+            "neuroticism": 0.5,
+            "risk_tolerance": 0.5, "public_visibility": 0.5,
+            "career_stage": 0.5, "media_savvy": 0.5,
+            "controversy_history": 0.3,
+        }
 
     async def generate_crisis_response(
         self,
@@ -263,12 +402,16 @@ class CelebrityPersonaAgent:
         peer_actions: list[CrisisAction] | None = None,
         audience_reactions: list[AgentMessage] | None = None,
     ) -> PRAction:
-        """规则模式决策"""
+        """规则模式决策 — 基于 Big Five + 扩展人格维度"""
         approval = state.get("approval_scores", {}).get(self.name, 50.0)
         heat = state.get("heat_index", 50.0)
         neuroticism = self.personality.get("neuroticism", 0.5)
         extraversion = self.personality.get("extraversion", 0.5)
         agreeableness = self.personality.get("agreeableness", 0.5)
+        risk_tolerance = self.personality.get("risk_tolerance", 0.5)
+        public_visibility = self.personality.get("public_visibility", 0.5)
+        media_savvy = self.personality.get("media_savvy", 0.5)
+        controversy_history = self.personality.get("controversy_history", 0.3)
 
         # 重复动作惩罚：连续做同一动作降低优先级
         recent = self.past_actions[-3:] if self.past_actions else []
@@ -313,6 +456,29 @@ class CelebrityPersonaAgent:
         # 神经质高 → 反击倾向
         if neuroticism > 0.7:
             candidates.append((PRAction.COUNTERATTACK, 2.5 + neuroticism))
+
+        # ── 新增人格维度影响 ──
+
+        # 高风险容忍 → 倾向反击/卖惨
+        if risk_tolerance > 0.6:
+            candidates.append((PRAction.COUNTERATTACK, 1.5 + risk_tolerance))
+            candidates.append((PRAction.PLAY_VICTIM, 1.0 + risk_tolerance * 0.5))
+
+        # 高公众可见度 → 沉默代价大，倾向主动出击
+        if public_visibility > 0.7:
+            self._boost(candidates, PRAction.SILENCE, -1.0)  # 降权沉默
+            candidates.append((PRAction.STATEMENT, 1.5 + public_visibility))
+
+        # 高媒体素养 → 声明/上节目效果更好
+        if media_savvy > 0.6:
+            candidates.append((PRAction.STATEMENT, 1.0 + media_savvy))
+            if phase not in (CrisisPhase.BREAKOUT,):
+                candidates.append((PRAction.GO_ON_SHOW, 1.0 + media_savvy * 0.5))
+
+        # 高争议历史 → 谨慎为主，但神经质高时反而冲动
+        if controversy_history > 0.6 and neuroticism < 0.6:
+            candidates.append((PRAction.APOLOGIZE, 1.0 + controversy_history * 0.5))
+            self._boost(candidates, PRAction.COUNTERATTACK, -0.5)
 
         # 外向 + 应对/收尾期 → 公益/复出
         if phase in (CrisisPhase.MITIGATION, CrisisPhase.RESOLUTION, CrisisPhase.AFTERMATH):
@@ -442,3 +608,167 @@ class CelebrityPersonaAgent:
     def reset(self):
         self.memory.clear()
         self.past_actions.clear()
+
+    # ── 自由互动模式 ──
+
+    async def generate_free_response(
+        self,
+        state: dict,
+        peer_actions: list[CrisisAction] | None = None,
+        audience_reactions: list[AgentMessage] | None = None,
+    ) -> CrisisAction:
+        """自由互动模式下的决策
+
+        Args:
+            state: 当前仿真状态
+            peer_actions: 其他 Agent 今天的动作
+            audience_reactions: 观众反应
+
+        Returns:
+            CrisisAction (free_action 字段填充)
+        """
+        peer_actions = peer_actions or []
+        audience_reactions = audience_reactions or []
+
+        if self.use_llm:
+            free_action = await self._llm_decide_free(state, peer_actions, audience_reactions)
+        else:
+            free_action = self._rule_decide_free(state, peer_actions, audience_reactions)
+
+        from swarmsim.crisis.models import PRAction
+
+        content = FREE_ACTION_DESCRIPTIONS.get(free_action, "").format(name=self.name)
+
+        # 使用 SILENCE 作为自由模式的 PRAction 占位
+        crisis_action = CrisisAction(
+            actor=self.name,
+            action=PRAction.SILENCE,
+            free_action=free_action,
+            content=content,
+            day=state.get("day", 0),
+        )
+
+        self.past_actions.append(PRAction.SILENCE)
+        self.memory.append(f"Day {state.get('day', 0)}: [自由]{free_action.label}")
+        return crisis_action
+
+    def _rule_decide_free(
+        self,
+        state: dict,
+        peer_actions: list[CrisisAction],
+        audience_reactions: list[AgentMessage],
+    ) -> FreeAction:
+        """规则模式自由互动决策"""
+        neuroticism = self.personality.get("neuroticism", 0.5)
+        extraversion = self.personality.get("extraversion", 0.5)
+        agreeableness = self.personality.get("agreeableness", 0.5)
+        risk_tolerance = self.personality.get("risk_tolerance", 0.5)
+        openness = self.personality.get("openness", 0.5)
+
+        candidates: list[tuple[FreeAction, float]] = []
+
+        # 性格驱动
+        if extraversion > 0.6:
+            candidates.append((FreeAction.SPEAK, 2.0 + extraversion))
+            candidates.append((FreeAction.SOCIALIZE, 1.5))
+        if agreeableness > 0.6:
+            candidates.append((FreeAction.SUPPORT, 2.0 + agreeableness))
+            candidates.append((FreeAction.MEDIATE, 1.5))
+        if neuroticism > 0.6:
+            candidates.append((FreeAction.CRITICIZE, 1.0 + neuroticism))
+            candidates.append((FreeAction.RUMOR, 0.5 + neuroticism * 0.5))
+        if risk_tolerance > 0.6:
+            candidates.append((FreeAction.ANNOUNCE, 1.5 + risk_tolerance))
+            candidates.append((FreeAction.RUMOR, 1.0 + risk_tolerance * 0.3))
+        if openness > 0.6:
+            candidates.append((FreeAction.COLLABORATE, 1.5 + openness))
+        if extraversion < 0.3:
+            candidates.append((FreeAction.IGNORE, 2.0))
+            candidates.append((FreeAction.RETREAT, 1.5))
+
+        # 关系驱动
+        for pa in peer_actions:
+            rels = self.kg.get_relationship_context(self.name, pa.actor)
+            if not rels:
+                continue
+            rel_type = rels[0].get("relation_type", "")
+
+            if rel_type in ("配偶", "伴侣", "好友", "闺蜜"):
+                candidates.append((FreeAction.SUPPORT, 3.0))
+                candidates.append((FreeAction.PRIVATE_MSG, 2.0))
+            if rel_type in ("对手", "宿敌", "竞争对手", "同代竞争"):
+                candidates.append((FreeAction.CRITICIZE, 2.5))
+                if pa.free_action and pa.free_action == FreeAction.CRITICIZE:
+                    candidates.append((FreeAction.CRITICIZE, 3.5))
+            if rel_type in ("合作", "搭档", "合作伙伴"):
+                candidates.append((FreeAction.COLLABORATE, 3.0))
+
+        # 观众驱动
+        if audience_reactions:
+            neg = sum(1 for r in audience_reactions if r.sentiment == "negative")
+            total = max(1, len(audience_reactions))
+            if neg / total > 0.6:
+                candidates.append((FreeAction.RETREAT, 2.0))
+                candidates.append((FreeAction.IGNORE, 1.5))
+
+        if not candidates:
+            candidates.append((FreeAction.IGNORE, 1.0))
+
+        # 加权随机选择
+        total_w = sum(w for _, w in candidates)
+        r = random.uniform(0, total_w)
+        cumulative = 0.0
+        for action, w in candidates:
+            cumulative += w
+            if r <= cumulative:
+                return action
+        return candidates[-1][0]
+
+    async def _llm_decide_free(
+        self,
+        state: dict,
+        peer_actions: list[CrisisAction],
+        audience_reactions: list[AgentMessage],
+    ) -> FreeAction:
+        """LLM 模式自由互动决策"""
+        import logging
+        logger = logging.getLogger(__name__)
+        try:
+            from swarmsim.llm import get_client
+
+            client = get_client()
+            actions_str = ", ".join(f"{a.value}({a.label})" for a in FreeAction)
+
+            peer_info = ""
+            if peer_actions:
+                lines = []
+                for pa in peer_actions:
+                    rels = self.kg.get_relationship_context(self.name, pa.actor)
+                    rel_type = rels[0].get("relation_type", "未知") if rels else "未知"
+                    action_text = pa.free_action.label if pa.free_action else pa.action.label
+                    lines.append(f"  {pa.actor}(关系:{rel_type})做了:{action_text}")
+                peer_info = "\n其他人今天的动作：\n" + "\n".join(lines)
+
+            prompt = (
+                f"你是明星{self.name}，处于自由互动模式。\n"
+                f"第{state.get('day', 0)}天。\n"
+                f"你的性格：{self.personality}\n"
+                f"{peer_info}\n"
+                f"可选动作：{actions_str}\n"
+                f"请只回复动作的英文value。"
+            )
+
+            response = await client.generate_async(prompt)
+            content = response.content if hasattr(response, 'content') else str(response)
+
+            action_map = {a.value: a for a in FreeAction}
+            for value, action in action_map.items():
+                if value in content.lower():
+                    return action
+
+            return self._rule_decide_free(state, peer_actions, audience_reactions)
+
+        except Exception as e:
+            logger.warning(f"[LLM] {self.name} 自由模式调用失败: {e}")
+            return self._rule_decide_free(state, peer_actions, audience_reactions)
+

@@ -15,6 +15,9 @@ pytest tests/test_agent.py -v -k "test_name"       # single test
 # Run all crisis & temporal tests
 pytest tests/test_crisis_engine.py tests/test_temporal_graph.py -v
 
+# Run crisis & experiment tests
+pytest tests/test_crisis_engine.py tests/test_experiment.py -v
+
 # Run demo (rule engine, no LLM needed)
 python -m demos.variety_show_simulation
 
@@ -90,15 +93,20 @@ swarmsim/graph/
 └── temporal.py           # TemporalKnowledgeGraph — date-indexed, person timelines
 
 swarmsim/crisis/          # Crisis simulation engine
-├── models.py             # CrisisPhase(6), PRAction(10), CrisisState, AgentMessage, etc.
+├── models.py             # CrisisPhase(6), PRAction(10), InteractionMode, FreeAction(8), CrisisState, etc.
 ├── timeline.py           # 1 turn = 1 day, 6-phase lifecycle
 ├── action_space.py       # 10 PR actions × 6 phases effect matrix + Big Five mods
+├── free_action_space.py  # FreeActionSpace — simplified effect computation (no phase modifiers)
 ├── persona_agent.py      # CelebrityPersonaAgent (rule/LLM), builds persona from GraphRAG
 │                         # Supports peer_actions + audience_reactions for inter-agent interaction
+│                         # Free mode: generate_free_response() / _rule_decide_free() / _llm_decide_free()
 ├── vacuum_detector.py    # Silence → rumor cascade, probability escalates with days
-├── intervention.py       # User what-if conditions (forced actions, external events)
+├── intervention.py       # User what-if conditions with trigger types (TIME_ABSOLUTE/TIME_RELATIVE/STATE_THRESHOLD)
+│                         # External events (MEDIA_REPORT/VIDEO_LEAK/COMPETITOR_ANNOUNCE/etc.)
+├── experiment.py         # ExperimentManager, Experiment, ExperimentGroup, ComparisonResult — A/B testing
 ├── scenario_engine.py    # CrisisScenarioEngine (load) + CrisisSimulation (async run loop)
 │                         # Sequential decision making: later agents see earlier actions
+│                         # Branches on interaction_mode (CRISIS vs FREE)
 ├── message_bus.py        # Agent-to-agent message bus (broadcast/direct/per-type filtering)
 ├── audience.py           # AudiencePool (30 agents: 粉丝/路人/理中客/黑粉) + reaction templates
 └── outcome_analyzer.py   # Compare sim vs historical baseline, generate PR recommendations
@@ -107,7 +115,9 @@ swarmsim/viz/
 ├── server.py             # FastAPI app, uses TemporalKnowledgeGraph, mounts all routers
 ├── api_graph.py          # Graph API routes
 ├── api_simulation.py     # Simulation API routes
-├── api_crisis.py         # Crisis API: 10 endpoints (scenarios, start, step, run, intervene, etc.)
+├── api_crisis.py         # Crisis API: scenarios, start, step, run, intervene, etc.
+│                         # Experiment API: POST /experiment/create, POST /experiment/{id}/run,
+│                         #   GET /experiment/{id}/compare, GET /experiments
 └── serializer.py         # networkx → D3 JSON
 
 swarmsim/llm/client.py    # LLM client: Gemini, OpenAI, Anthropic via get_client()
@@ -117,7 +127,9 @@ celebrity_scraper/        # Independent module: 5 web spiders + mock data
 
 ### Crisis Simulation Architecture
 
-`CrisisSimulation.step()` runs one simulated day:
+`CrisisSimulation.step()` runs one simulated day, branching on `interaction_mode` (CRISIS vs FREE):
+
+**CRISIS mode** (original flow):
 1. `timeline.advance_day()` → determine CrisisPhase (breakout→escalation→peak→mitigation→resolution→aftermath)
 2. `intervention_system.check()` → apply user's what-if conditions
 3. **Sequential decision making**: agents act in order; each sees `peer_actions` (earlier agents' actions) + `audience_reactions` from `AudiencePool`
@@ -129,7 +141,26 @@ celebrity_scraper/        # Independent module: 5 web spiders + mock data
 9. Generate trending topics, media headlines, update brand statuses
 10. Daily decay: heat -10%, approval regresses toward 50
 
-`CrisisAction` now has `triggered_by` and `trigger_relation` fields for tracking inter-agent causality. `CrisisState` includes `audience_reactions` and `interaction_log`. Agent personality is built from GraphRAG data (biography keywords → Big Five traits). The persona_agent supports rule-based mode (decision matrix) and LLM mode (structured prompt → parse PRAction). Rule mode needs no API key.
+**FREE mode** (open interaction):
+- Agents choose from `FreeAction` enum: SPEAK, SUPPORT, CRITICIZE, COLLABORATE, SOCIALIZE, ANNOUNCE, IGNORE, PRIVATE_MSG, MEDIATE, RUMOR, RETREAT
+- `FreeActionSpace` computes simplified effects without phase modifiers
+- `persona_agent.py` methods: `generate_free_response()`, `_rule_decide_free()`, `_llm_decide_free()`
+
+**Intervention system** supports 3 trigger types:
+- `TIME_ABSOLUTE` — fire on a specific simulated day number
+- `TIME_RELATIVE` — fire N days after scenario start
+- `STATE_THRESHOLD` — fire when a metric crosses a threshold (approval, heat, brand_value) with comparator (gt/lt/gte/lte/eq)
+
+**External events** (`ExternalEventType` enum): MEDIA_REPORT, VIDEO_LEAK, COMPETITOR_ANNOUNCE, REGULATORY_ACTION, BRAND_DECISION, CUSTOM — injectable via intervention conditions.
+
+**Relationship changes**: tracked with types `strengthen`, `weaken`, `break`, `new`.
+
+**A/B Experiments** (`crisis/experiment.py`):
+- `ExperimentManager` manages experiments, each containing `ExperimentGroup` arms
+- `Experiment` / `ExperimentGroup` / `ComparisonResult` dataclasses for structured comparison
+- API endpoints: `POST /experiment/create`, `POST /experiment/{id}/run`, `GET /experiment/{id}/compare`, `GET /experiments`
+
+`CrisisAction` has `triggered_by` and `trigger_relation` fields for tracking inter-agent causality, plus `free_action` field for free-mode actions. `CrisisState` includes `audience_reactions` and `interaction_log`. Agent personality is built from GraphRAG data (biography keywords → Big Five traits). The persona_agent supports rule-based mode (decision matrix) and LLM mode (structured prompt → parse PRAction). Rule mode needs no API key.
 
 ### Agent Types
 
@@ -151,4 +182,5 @@ celebrity_scraper/        # Independent module: 5 web spiders + mock data
 - **Testing**: pytest with class-based tests. Async tests use `pytest-asyncio`. No CI configured.
 - **Severity estimation**: `EventLoop._estimate_severity()` uses keyword matching on action content — extend the word lists when adding new event types.
 - **Anti-repetition**: `EventLoop._is_repetitive()` checks word overlap to prevent agents from repeating content.
+- **Deterministic personality**: `CelebrityPersonaAgent` uses `hashlib.md5(persona_name)` to seed random decisions, ensuring the same persona always produces the same personality traits across runs.
 - **Always respond in Chinese** when communicating with the user.

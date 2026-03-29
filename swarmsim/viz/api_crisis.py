@@ -35,15 +35,36 @@ class CrisisRunRequest(BaseModel):
 
 
 class CrisisInterveneRequest(BaseModel):
+    # 触发类型
+    trigger_type: str = "time_absolute"    # time_absolute / time_relative / state_threshold
     day: int | None = None
+    # 状态阈值
+    metric: str | None = None              # approval / heat / brand / regulatory
+    threshold: float | None = None
+    comparator: str | None = None          # lt / gt / lte / gte
+    # 动作
     person: str | None = None
     action: str | None = None
     external_event: str | None = None
+    event_type: str | None = None          # media_report / video_leak / etc.
+    # 关系变更
+    person_a: str | None = None
+    person_b: str | None = None
+    relationship_change: str | None = None  # strengthen / weaken / break / new
     description: str = ""
 
 
 class CrisisResetRequest(BaseModel):
     pass
+
+
+class CustomScenarioRequest(BaseModel):
+    title: str
+    description: str = ""
+    involved_persons: list[str]
+    initial_severity: float = 0.5
+    gossip_type: str = "other"
+    interaction_mode: str = "crisis"
 
 
 # ── Helpers ──
@@ -165,11 +186,19 @@ async def add_intervention(body: CrisisInterveneRequest, request: Request):
         return {"error": "未启动仿真"}
 
     cond = InterventionCondition(
+        trigger_type=body.trigger_type,
         day=body.day,
         person=body.person,
         action=body.action,
         external_event=body.external_event,
+        event_type=body.event_type,
         description=body.description,
+        metric=body.metric,
+        threshold=body.threshold,
+        comparator=body.comparator,
+        person_a=body.person_a,
+        person_b=body.person_b,
+        relationship_change=body.relationship_change,
     )
     sim.intervention_system.add_intervention(cond)
     return {
@@ -222,3 +251,128 @@ async def reset_simulation(request: Request):
         sim.reset()
         request.app.state.crisis_simulation = None
     return {"status": "reset"}
+
+
+# ── 自由组局端点 ──
+
+@router.get("/celebrities")
+async def list_celebrities(request: Request):
+    """获取图谱中所有名人（供自由组局选择器使用）"""
+    engine = _get_crisis_engine(request)
+    return {"celebrities": engine.get_celebrities()}
+
+
+@router.get("/relationships")
+async def discover_relationships(persons: str, request: Request):
+    """发现选定名人之间的关系
+
+    Args:
+        persons: 逗号分隔的人名列表，如 "杨幂,肖战,赵丽颖"
+    """
+    engine = _get_crisis_engine(request)
+    person_list = [p.strip() for p in persons.split(",") if p.strip()]
+    rels = engine.discover_relationships(person_list)
+    return {"relationships": rels, "person_count": len(person_list)}
+
+
+@router.post("/custom-scenario")
+async def create_custom_scenario(body: CustomScenarioRequest, request: Request):
+    """创建并启动自定义场景"""
+    engine = _get_crisis_engine(request)
+
+    try:
+        scenario = engine.create_custom_scenario(
+            title=body.title,
+            description=body.description,
+            involved_persons=body.involved_persons,
+            initial_severity=body.initial_severity,
+            gossip_type=body.gossip_type,
+            interaction_mode=body.interaction_mode,
+        )
+    except ValueError as e:
+        return {"error": str(e)}
+
+    # 自动启动仿真
+    try:
+        sim = engine.create_simulation(
+            scenario_title=body.title,
+            use_llm=False,
+            total_days=30,
+        )
+        request.app.state.crisis_simulation = sim
+        return {
+            "status": "started",
+            "scenario": scenario.title,
+            "involved_persons": scenario.involved_persons,
+            "discovered_relationships": len(scenario.pre_crisis_relationships),
+            "interaction_mode": scenario.interaction_mode.value,
+            "initial_state": sim.get_state().to_dict(),
+        }
+    except ValueError as e:
+        return {"error": str(e)}
+
+
+# ── A/B 对照实验端点 ──
+
+
+class ExperimentCreateRequest(BaseModel):
+    scenario_title: str
+    groups: list[dict]                       # [{"name": "对照组", "interventions": [...]}]
+    use_llm: bool = False
+    total_days: int = 30
+
+
+def _get_experiment_manager(request: Request):
+    """获取实验管理器"""
+    manager = getattr(request.app.state, "experiment_manager", None)
+    if manager is None:
+        from swarmsim.crisis.experiment import ExperimentManager
+        kg = request.app.state.kg
+        manager = ExperimentManager(kg)
+        request.app.state.experiment_manager = manager
+    return manager
+
+
+@router.post("/experiment/create")
+async def create_experiment(body: ExperimentCreateRequest, request: Request):
+    """创建 A/B 对照实验"""
+    manager = _get_experiment_manager(request)
+    try:
+        experiment = manager.create_experiment(
+            scenario_title=body.scenario_title,
+            groups=body.groups,
+            use_llm=body.use_llm,
+            total_days=body.total_days,
+        )
+        return experiment.to_dict()
+    except ValueError as e:
+        return {"error": str(e)}
+
+
+@router.post("/experiment/{experiment_id}/run")
+async def run_experiment(experiment_id: str, request: Request):
+    """运行实验（所有组依次执行）"""
+    manager = _get_experiment_manager(request)
+    try:
+        experiment = await manager.run_experiment(experiment_id)
+        return experiment.to_dict()
+    except ValueError as e:
+        return {"error": str(e)}
+
+
+@router.get("/experiment/{experiment_id}/compare")
+async def compare_experiment(experiment_id: str, request: Request):
+    """获取实验对比结果"""
+    manager = _get_experiment_manager(request)
+    try:
+        result = manager.compare_experiment(experiment_id)
+        return result.to_dict()
+    except ValueError as e:
+        return {"error": str(e)}
+
+
+@router.get("/experiments")
+async def list_experiments(request: Request):
+    """列出所有实验"""
+    manager = _get_experiment_manager(request)
+    return {"experiments": manager.list_experiments()}

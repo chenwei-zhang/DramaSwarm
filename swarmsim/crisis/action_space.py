@@ -7,7 +7,7 @@
 
 from __future__ import annotations
 
-from swarmsim.crisis.models import CrisisPhase, PRAction
+from swarmsim.crisis.models import CrisisPhase, PRAction, FreeAction
 
 
 # ── 动作基础效果 ──
@@ -196,15 +196,30 @@ class CrisisActionSpace:
             neuroticism = personality.get("neuroticism", 0.5)
             extraversion = personality.get("extraversion", 0.5)
             agreeableness = personality.get("agreeableness", 0.5)
+            risk_tolerance = personality.get("risk_tolerance", 0.5)
+            public_visibility = personality.get("public_visibility", 0.5)
+            media_savvy = personality.get("media_savvy", 0.5)
+            controversy_history = personality.get("controversy_history", 0.3)
 
             if action == PRAction.COUNTERATTACK:
                 pers_mod *= 1 + neuroticism * 0.3    # 神经质→反击更冲动
+                pers_mod *= 1 + risk_tolerance * 0.2  # 高风险容忍→反击更猛
             elif action == PRAction.APOLOGIZE:
                 pers_mod *= 1 + agreeableness * 0.2  # 随和→道歉更真诚
             elif action == PRAction.GO_ON_SHOW:
                 pers_mod *= 1 + extraversion * 0.2   # 外向→上节目更自然
+                pers_mod *= 1 + media_savvy * 0.15   # 媒体素养→上节目更得体
             elif action == PRAction.SILENCE:
                 pers_mod *= 1 - extraversion * 0.2   # 外向→沉默更反常
+                pers_mod *= 1 - public_visibility * 0.15  # 高曝光→沉默代价更大
+            elif action == PRAction.STATEMENT:
+                pers_mod *= 1 + media_savvy * 0.2    # 媒体素养→声明更有效
+            elif action == PRAction.PLAY_VICTIM:
+                pers_mod *= 1 + risk_tolerance * 0.15  # 冒险倾向→敢卖惨
+            elif action == PRAction.CHARITY:
+                pers_mod *= 1 + agreeableness * 0.15  # 随和→公益更自然
+            elif action == PRAction.LAWSUIT:
+                pers_mod *= 1 + (1 - agreeableness) * 0.1  # 不随和→倾向法律
 
         # 低口碑时修复更难
         if base_approval < 30 and action in (PRAction.APOLOGIZE, PRAction.STATEMENT):
@@ -239,3 +254,93 @@ class CrisisActionSpace:
             })
         results.sort(key=lambda x: x["effectiveness"], reverse=True)
         return results
+
+
+# ── 自由互动动作效果 ──
+
+FREE_ACTION_EFFECTS: dict[FreeAction, dict] = {
+    FreeAction.SPEAK: {
+        "approval_delta": 1, "heat_delta": 3, "brand_delta": 0,
+        "description": "公开发言",
+    },
+    FreeAction.SUPPORT: {
+        "approval_delta": 3, "heat_delta": 2, "brand_delta": 2,
+        "description": "公开支持",
+    },
+    FreeAction.CRITICIZE: {
+        "approval_delta": -2, "heat_delta": 5, "brand_delta": -1,
+        "description": "公开批评",
+    },
+    FreeAction.COLLABORATE: {
+        "approval_delta": 4, "heat_delta": 2, "brand_delta": 3,
+        "description": "宣布合作",
+    },
+    FreeAction.SOCIALIZE: {
+        "approval_delta": 2, "heat_delta": 3, "brand_delta": 1,
+        "description": "参加社交活动",
+    },
+    FreeAction.ANNOUNCE: {
+        "approval_delta": 2, "heat_delta": 8, "brand_delta": 1,
+        "description": "发布重要声明",
+    },
+    FreeAction.IGNORE: {
+        "approval_delta": -1, "heat_delta": -2, "brand_delta": 0,
+        "description": "无视事件",
+    },
+    FreeAction.PRIVATE_MSG: {
+        "approval_delta": 1, "heat_delta": 0, "brand_delta": 1,
+        "description": "私下联系",
+    },
+    FreeAction.MEDIATE: {
+        "approval_delta": 5, "heat_delta": -3, "brand_delta": 3,
+        "description": "调停争端",
+    },
+    FreeAction.RUMOR: {
+        "approval_delta": -3, "heat_delta": 8, "brand_delta": -2,
+        "description": "传播消息",
+    },
+    FreeAction.RETREAT: {
+        "approval_delta": -1, "heat_delta": -1, "brand_delta": -1,
+        "description": "低调回避",
+    },
+}
+
+
+class FreeActionSpace:
+    """自由互动动作空间"""
+
+    def compute_effect(
+        self,
+        action: FreeAction,
+        personality: dict | None = None,
+    ) -> dict:
+        """计算自由动作效果（无阶段修正，简化版）"""
+        base = FREE_ACTION_EFFECTS.get(action, FREE_ACTION_EFFECTS[FreeAction.IGNORE])
+
+        pers_mod = 1.0
+        if personality:
+            extraversion = personality.get("extraversion", 0.5)
+            agreeableness = personality.get("agreeableness", 0.5)
+            public_visibility = personality.get("public_visibility", 0.5)
+
+            if action == FreeAction.SPEAK:
+                pers_mod *= 1 + extraversion * 0.2
+            elif action == FreeAction.SUPPORT:
+                pers_mod *= 1 + agreeableness * 0.2
+            elif action == FreeAction.CRITICIZE:
+                pers_mod *= 1 + (1 - agreeableness) * 0.15
+            elif action == FreeAction.IGNORE:
+                pers_mod *= 1 - public_visibility * 0.1
+            elif action == FreeAction.MEDIATE:
+                pers_mod *= 1 + agreeableness * 0.3
+
+            elif action == FreeAction.ANNOUNCE:
+                pers_mod *= 1 + extraversion * 0.15
+
+        return {
+            "approval_delta": round(base["approval_delta"] * pers_mod, 1),
+            "heat_delta": round(base["heat_delta"] * pers_mod, 1),
+            "brand_delta": round(base["brand_delta"] * pers_mod, 1),
+            "description": base["description"],
+            "modifier": round(pers_mod, 2),
+        }
