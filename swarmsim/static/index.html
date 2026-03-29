@@ -647,6 +647,7 @@ body {
 <body>
 
 <!-- Header -->
+<div id="debug-banner" style="display:none;background:#D32F2F;color:white;padding:8px 16px;font-size:12px;font-family:monospace;z-index:9999;position:fixed;top:0;left:0;right:0;"></div>
 <div id="header">
   <h1><span>DramaSwarm</span> GraphRAG</h1>
 
@@ -778,6 +779,7 @@ body {
       <div id="crisis-persons"></div>
 
       <h4>干预面板</h4>
+      <!-- Row 1: Trigger type + Action type -->
       <div class="crisis-intervention">
         <select id="crisis-iv-trigger" style="flex:1">
           <option value="time_absolute">定时触发</option>
@@ -790,14 +792,27 @@ body {
           <option value="change_relation">关系变更</option>
         </select>
       </div>
-
-      <!-- 定时触发参数 -->
+      <!-- Row 2: Day + Person (for time trigger + force_action) -->
       <div class="crisis-intervention" id="iv-time-params">
-        <select id="crisis-iv-person" style="flex:1"><option value="">人物</option></select>
         <input id="crisis-iv-day" placeholder="第几天" type="number" style="width:60px">
+        <select id="crisis-iv-person" style="flex:1"><option value="">人物</option></select>
       </div>
-
-      <!-- 状态阈值参数 -->
+      <!-- Row 3: PR action select (force_action only) -->
+      <div class="crisis-intervention" id="iv-force-params">
+        <select id="crisis-iv-pr-action" style="flex:1">
+          <option value="silence">沉默不回应</option>
+          <option value="apologize">公开道歉</option>
+          <option value="statement">发声明</option>
+          <option value="go_on_show">上节目回应</option>
+          <option value="lawsuit">起诉造谣者</option>
+          <option value="play_victim">卖惨博同情</option>
+          <option value="counterattack">反击否认</option>
+          <option value="hide">暂避风头</option>
+          <option value="charity">公益洗白</option>
+          <option value="comeback">复出试水</option>
+        </select>
+      </div>
+      <!-- Row: State threshold params -->
       <div class="crisis-intervention" id="iv-threshold-params" style="display:none;">
         <select id="crisis-iv-metric" style="flex:1">
           <option value="approval">口碑</option>
@@ -814,8 +829,7 @@ body {
         <input id="crisis-iv-threshold" placeholder="阈值" type="number" style="width:60px">
         <select id="crisis-iv-threshold-person" style="flex:1"><option value="">所有人</option></select>
       </div>
-
-      <!-- 注入事件参数 -->
+      <!-- Row: Inject event params -->
       <div class="crisis-intervention" id="iv-event-params" style="display:none;">
         <select id="crisis-iv-event-type" style="flex:1">
           <option value="media_report">媒体报道</option>
@@ -828,8 +842,7 @@ body {
         <input id="crisis-iv-event-desc" placeholder="事件描述" style="flex:1">
         <select id="crisis-iv-event-person" style="flex:1"><option value="">影响所有人</option></select>
       </div>
-
-      <!-- 关系变更参数 -->
+      <!-- Row: Relationship change params -->
       <div class="crisis-intervention" id="iv-relation-params" style="display:none;">
         <select id="crisis-iv-rel-a" style="flex:1"><option value="">人物A</option></select>
         <select id="crisis-iv-rel-change" style="width:80px">
@@ -840,8 +853,7 @@ body {
         </select>
         <select id="crisis-iv-rel-b" style="flex:1"><option value="">人物B</option></select>
       </div>
-
-      <!-- 通用字段 -->
+      <!-- Row: Description + Add button -->
       <div class="crisis-intervention">
         <input id="crisis-iv-desc" placeholder="干预描述（可选）" style="flex:1">
         <button class="btn" id="crisis-iv-add">添加干预</button>
@@ -920,6 +932,18 @@ body {
 
 <script>
 // ── Constants ──
+// Global error display
+window.onerror = (msg, src, line, col, err) => {
+  console.error('JS Error:', msg, src, line, col);
+  const dbg = document.getElementById('debug-banner');
+  if (dbg) { dbg.style.display = 'block'; dbg.textContent = `Error: ${msg} (line ${line})`; }
+};
+window.addEventListener('unhandledrejection', (ev) => {
+  console.error('Unhandled Promise:', ev.reason);
+  const dbg = document.getElementById('debug-banner');
+  if (dbg) { dbg.style.display = 'block'; dbg.textContent = `Async Error: ${ev.reason?.message || ev.reason}`; }
+});
+
 const NODE_COLORS = {
   celebrity: '#4FC3F7',
   gossip: '#FF7043',
@@ -1243,7 +1267,9 @@ function getEdgeColor(d) {
 }
 
 function selectNode(d) {
+  if (!d) return;
   selectedNode = d;
+  try {
 
   // Visual highlight
   const allG = d3.selectAll('.nodes g');
@@ -1279,6 +1305,9 @@ function selectNode(d) {
 
   // Load detail
   loadDetail(d);
+  } catch (err) {
+    console.error('selectNode error:', err);
+  }
 }
 
 function deselectNode() {
@@ -1296,10 +1325,15 @@ function deselectNode() {
 
 async function loadDetail(d) {
   const panel = document.getElementById('detail-content');
+  if (!panel) { console.error('loadDetail: detail-content not found'); return; }
 
+  // Show loading state
+  panel.innerHTML = `<div style="text-align:center;padding:40px;color:#4FC3F7;">加载中...</div>`;
+
+  try {
   if (d.type === 'celebrity') {
     const data = await api(`/api/graph/person/${encodeURIComponent(d.name)}`);
-    if (data.error) { panel.innerHTML = `<p>${data.error}</p>`; return; }
+    if (data.error) { panel.innerHTML = `<p style="color:#F44336;padding:16px">${data.error}</p>`; return; }
 
     let html = `
       <div class="detail-header">
@@ -1403,6 +1437,14 @@ async function loadDetail(d) {
     }
 
     panel.innerHTML = html;
+  }
+
+  } catch (err) {
+    console.error('loadDetail error:', err);
+    panel.innerHTML = `<div style="color:#F44336;padding:16px;">
+      <h4>加载详情出错</h4>
+      <pre style="font-size:11px;white-space:pre-wrap;background:#1a1a2a;padding:8px;border-radius:4px;margin-top:8px">${err.message}\n${err.stack || ''}</pre>
+    </div>`;
   }
 }
 
@@ -1846,21 +1888,67 @@ async function loadCrisisOutcome() {
 }
 
 async function addCrisisIntervention() {
-  const person = document.getElementById('crisis-iv-person').value;
-  const action = document.getElementById('crisis-iv-action').value;
+  const triggerType = document.getElementById('crisis-iv-trigger').value;
+  const actionType = document.getElementById('crisis-iv-action-type').value;
   const desc = document.getElementById('crisis-iv-desc').value;
-  const day = document.getElementById('crisis-iv-day').value;
-  const res = await apiPost('/api/crisis/intervene', {
-    person: person || null,
-    action: action || null,
+
+  // Build request body
+  const body = {
+    trigger_type: triggerType,
     description: desc,
-    day: day ? parseInt(day) : null,
-  });
+  };
+
+  // ── Trigger params ──
+  if (triggerType === 'time_absolute' || triggerType === 'time_relative') {
+    const day = document.getElementById('crisis-iv-day').value;
+    body.day = day ? parseInt(day) : null;
+  } else if (triggerType === 'state_threshold') {
+    body.metric = document.getElementById('crisis-iv-metric').value;
+    body.comparator = document.getElementById('crisis-iv-comparator').value;
+    const threshVal = document.getElementById('crisis-iv-threshold').value;
+    body.threshold = threshVal ? parseFloat(threshVal) : null;
+    body.person = document.getElementById('crisis-iv-threshold-person').value || null;
+  }
+
+  // ── Action params ──
+  if (actionType === 'force_action') {
+    body.person = document.getElementById('crisis-iv-person').value || null;
+    body.action = document.getElementById('crisis-iv-pr-action').value || null;
+  } else if (actionType === 'inject_event') {
+    body.event_type = document.getElementById('crisis-iv-event-type').value || null;
+    body.external_event = document.getElementById('crisis-iv-event-desc').value || null;
+    body.person = document.getElementById('crisis-iv-event-person').value || null;
+  } else if (actionType === 'change_relation') {
+    body.person_a = document.getElementById('crisis-iv-rel-a').value || null;
+    body.person_b = document.getElementById('crisis-iv-rel-b').value || null;
+    body.relationship_change = document.getElementById('crisis-iv-rel-change').value || null;
+  }
+
+  const res = await apiPost('/api/crisis/intervene', body);
   if (res.error) return alert(res.error);
   document.getElementById('crisis-pending-ivs').innerHTML =
     (res.pending || []).map(d => `<div style="margin:2px 0;">⏳ ${d}</div>`).join('');
   document.getElementById('crisis-iv-desc').value = '';
 }
+
+// ── Intervention panel show/hide logic ──
+function updateInterventionPanelVisibility() {
+  const triggerType = document.getElementById('crisis-iv-trigger').value;
+  const actionType = document.getElementById('crisis-iv-action-type').value;
+
+  // Trigger params visibility
+  const showTime = (triggerType === 'time_absolute' || triggerType === 'time_relative');
+  document.getElementById('iv-time-params').style.display = showTime ? '' : 'none';
+  document.getElementById('iv-threshold-params').style.display = (triggerType === 'state_threshold') ? '' : 'none';
+
+  // Action params visibility
+  document.getElementById('iv-force-params').style.display = (actionType === 'force_action') ? '' : 'none';
+  document.getElementById('iv-event-params').style.display = (actionType === 'inject_event') ? '' : 'none';
+  document.getElementById('iv-relation-params').style.display = (actionType === 'change_relation') ? '' : 'none';
+}
+
+document.getElementById('crisis-iv-trigger').addEventListener('change', updateInterventionPanelVisibility);
+document.getElementById('crisis-iv-action-type').addEventListener('change', updateInterventionPanelVisibility);
 
 function updateCrisisUI(state) {
   if (!state) return;
@@ -1899,10 +1987,18 @@ function updateCrisisUI(state) {
       </div>`;
   });
 
-  // Update intervention person select
-  const ivPersonSel = document.getElementById('crisis-iv-person');
-  ivPersonSel.innerHTML = '<option value="">人物</option>';
-  names.forEach(n => ivPersonSel.innerHTML += `<option value="${n}">${n}</option>`);
+  // Update all intervention person selects
+  const personSelects = [
+    'crisis-iv-person', 'crisis-iv-threshold-person',
+    'crisis-iv-event-person', 'crisis-iv-rel-a', 'crisis-iv-rel-b',
+  ];
+  personSelects.forEach(selId => {
+    const sel = document.getElementById(selId);
+    if (!sel) return;
+    const placeholder = sel.querySelector('option')?.textContent || '人物';
+    sel.innerHTML = `<option value="">${placeholder}</option>`;
+    names.forEach(n => sel.innerHTML += `<option value="${n}">${n}</option>`);
+  });
 
   // Trending
   const trendingEl = document.getElementById('crisis-trending');
