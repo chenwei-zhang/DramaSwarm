@@ -5,13 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DramaSwarm - GraphRAG 知识图谱可视化</title>
 <script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
+:root {
+  --bg-deep: #080d14;
+  --bg-base: #0f1923;
+  --bg-elevated: #141e2a;
+  --bg-card: #1a2a3a;
+  --border: #2a3a4a;
+  --border-light: #354a5e;
+  --text-primary: #e8edf2;
+  --text-secondary: #8899aa;
+  --text-muted: #556677;
+  --accent-blue: #4FC3F7;
+  --accent-orange: #FF7043;
+  --accent-green: #66BB6A;
+  --accent-red: #F44336;
+  --glow-blue: rgba(79, 195, 247, 0.25);
+  --glow-orange: rgba(255, 112, 67, 0.25);
+  --shadow-card: 0 2px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03);
+  --shadow-elevated: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+  --glow-green: rgba(102, 187, 106, 0.25);
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-  background: #0f1923;
-  color: #e0e0e0;
+  background: var(--bg-deep);
+  color: var(--text-primary);
   overflow: hidden;
   height: 100vh;
 }
@@ -19,20 +40,22 @@ body {
 /* ── Header ── */
 #header {
   height: 52px;
-  background: linear-gradient(135deg, #1a2332, #0f1923);
-  border-bottom: 1px solid #2a3a4a;
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-deep));
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   padding: 0 16px;
   gap: 16px;
   z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
 #header h1 {
   font-size: 16px;
-  color: #4FC3F7;
+  color: var(--accent-blue);
   white-space: nowrap;
+  text-shadow: 0 0 20px var(--glow-blue);
 }
-#header h1 span { color: #FF7043; }
+#header h1 span { color: var(--accent-orange); text-shadow: 0 0 20px var(--glow-orange); }
 
 .header-group {
   display: flex;
@@ -42,20 +65,21 @@ body {
 
 .header-group label {
   font-size: 12px;
-  color: #8899aa;
+  color: var(--text-secondary);
 }
 
 .header-group select, .header-group input {
-  background: #1a2a3a;
-  color: #e0e0e0;
-  border: 1px solid #2a3a4a;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 13px;
   outline: none;
 }
 .header-group select:focus, .header-group input:focus {
-  border-color: #4FC3F7;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 8px var(--glow-blue);
 }
 
 #search-input {
@@ -63,19 +87,19 @@ body {
 }
 
 .btn {
-  background: #1a3a5a;
-  color: #4FC3F7;
-  border: 1px solid #2a4a6a;
+  background: rgba(79, 195, 247, 0.08);
+  color: var(--accent-blue);
+  border: 1px solid rgba(79, 195, 247, 0.25);
   padding: 4px 12px;
   border-radius: 4px;
   font-size: 12px;
   cursor: pointer;
   transition: all 0.2s;
 }
-.btn:hover { background: #2a4a6a; }
-.btn.active { background: #4FC3F7; color: #0f1923; border-color: #4FC3F7; }
-.btn.danger { color: #FF7043; border-color: #FF7043; }
-.btn.danger:hover { background: #FF7043; color: #0f1923; }
+.btn:hover { background: rgba(79, 195, 247, 0.18); box-shadow: 0 0 12px var(--glow-blue); }
+.btn.active { background: var(--accent-blue); color: var(--bg-deep); border-color: var(--accent-blue); box-shadow: 0 0 16px var(--glow-blue); }
+.btn.danger { color: var(--accent-orange); border-color: var(--accent-orange); }
+.btn.danger:hover { background: var(--accent-orange); color: var(--bg-deep); box-shadow: 0 0 12px var(--glow-orange); }
 
 /* ── Tab 切换 ── */
 .tab-bar {
@@ -85,7 +109,7 @@ body {
 }
 .tab-btn {
   background: transparent;
-  color: #8899aa;
+  color: var(--text-secondary);
   border: none;
   border-bottom: 2px solid transparent;
   padding: 6px 16px;
@@ -93,10 +117,11 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 }
-.tab-btn:hover { color: #e0e0e0; }
+.tab-btn:hover { color: var(--text-primary); }
 .tab-btn.active {
-  color: #4FC3F7;
-  border-bottom-color: #4FC3F7;
+  color: var(--accent-blue);
+  border-bottom-color: var(--accent-blue);
+  text-shadow: 0 0 8px var(--glow-blue);
 }
 
 /* ── Crisis Layout ── */
@@ -115,45 +140,52 @@ body {
 }
 
 .crisis-panel {
-  background: #141e2a;
-  border: 1px solid #2a3a4a;
-  border-radius: 8px;
+  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-base) 100%);
+  border: 1px solid var(--border);
+  border-radius: 10px;
   overflow-y: auto;
   padding: 12px;
+  box-shadow: var(--shadow-card);
 }
 .crisis-panel::-webkit-scrollbar { width: 4px; }
-.crisis-panel::-webkit-scrollbar-thumb { background: #2a3a4a; border-radius: 2px; }
+.crisis-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 .crisis-panel h4 {
   font-size: 12px;
-  color: #8899aa;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 8px;
   padding-bottom: 4px;
-  border-bottom: 1px solid #1a2a3a;
+  border-bottom: 1px solid rgba(42, 58, 74, 0.5);
 }
 
 .crisis-select {
   width: 100%;
-  background: #1a2a3a;
-  color: #e0e0e0;
-  border: 1px solid #2a3a4a;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
   padding: 6px 8px;
   border-radius: 4px;
   font-size: 13px;
   margin-bottom: 8px;
+  outline: none;
 }
+.crisis-select:focus { border-color: var(--accent-blue); box-shadow: 0 0 6px var(--glow-blue); }
 
 .crisis-person-card {
-  background: #1a2a3a;
-  border-radius: 6px;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26,42,58,0.6) 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   padding: 8px 10px;
   margin-bottom: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+  transition: all 0.2s;
 }
+.crisis-person-card:hover { border-color: var(--accent-blue); box-shadow: 0 0 12px var(--glow-blue); }
 .crisis-person-card .name { font-size: 13px; font-weight: bold; }
-.crisis-person-card .score { font-size: 20px; font-weight: bold; color: #4FC3F7; }
-.crisis-person-card .label { font-size: 10px; color: #667788; }
+.crisis-person-card .score { font-size: 20px; font-weight: bold; color: var(--accent-blue); text-shadow: 0 0 8px var(--glow-blue); }
+.crisis-person-card .label { font-size: 10px; color: var(--text-muted); }
 
 .crisis-bar {
   height: 4px;
@@ -170,13 +202,14 @@ body {
 .crisis-timeline {
   list-style: none;
   padding-left: 16px;
-  border-left: 2px solid #2a3a4a;
+  border-left: 2px solid var(--border);
 }
 .crisis-timeline li {
   position: relative;
   padding: 6px 0 6px 12px;
   font-size: 12px;
-  color: #aabbcc;
+  color: var(--text-secondary);
+  transition: color 0.2s;
 }
 .crisis-timeline li::before {
   content: '';
@@ -186,8 +219,9 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #2a4a6a;
-  border: 2px solid #4FC3F7;
+  background: var(--bg-card);
+  border: 2px solid var(--accent-blue);
+  box-shadow: 0 0 6px var(--glow-blue);
 }
 
 .crisis-actions-bar {
@@ -205,46 +239,78 @@ body {
   margin-bottom: 8px;
 }
 .crisis-intervention select, .crisis-intervention input {
-  background: #1a2a3a;
-  color: #e0e0e0;
-  border: 1px solid #2a3a4a;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 12px;
+}
+.crisis-intervention select:focus, .crisis-intervention input:focus {
+  border-color: var(--accent-blue);
+  outline: none;
 }
 
 #crisis-chart {
   width: 100%;
   height: 240px;
-  background: #0f1923;
-  border-radius: 6px;
+  background: var(--bg-deep);
+  border-radius: 8px;
+  border: 1px solid var(--border);
 }
 
 .trending-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 0;
+  padding: 4px 8px;
   font-size: 12px;
-  border-bottom: 1px solid #1a2a3a;
+  border-bottom: 1px solid rgba(26,42,58,0.5);
+  animation: trendingSlideIn 0.3s ease-out both;
+  transition: background 0.2s;
+}
+.trending-item:hover { background: rgba(79,195,247,0.05); }
+@keyframes trendingSlideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 .trending-rank {
-  color: #FF7043;
+  color: var(--accent-orange);
   font-weight: bold;
-  width: 24px;
+  width: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
 }
+.trending-rank .rank-change {
+  font-size: 9px;
+}
+.trending-rank .rank-up { color: var(--accent-green); }
+.trending-rank .rank-down { color: var(--accent-red); }
+.trending-rank .rank-new { color: #FFC107; font-size: 8px; }
 .trending-heat {
-  color: #FF7043;
+  color: var(--accent-orange);
   font-size: 11px;
+  transition: all 0.3s;
+}
+.trending-heat.hot {
+  animation: heatPulse 2s infinite;
+}
+@keyframes heatPulse {
+  0%, 100% { opacity: 1; text-shadow: none; }
+  50% { opacity: 0.7; text-shadow: 0 0 8px var(--accent-orange); }
+}
+.trending-item.top-3 .trending-rank {
+  text-shadow: 0 0 6px var(--accent-orange);
 }
 
 .media-item {
   padding: 6px 0;
-  border-bottom: 1px solid #1a2a3a;
+  border-bottom: 1px solid rgba(26,42,58,0.5);
   font-size: 12px;
 }
 .media-outlet {
-  color: #4FC3F7;
+  color: var(--accent-blue);
   font-size: 10px;
 }
 
@@ -254,26 +320,28 @@ body {
   padding: 3px 0;
   font-size: 11px;
 }
-.brand-action-continue { color: #4CAF50; }
+.brand-action-continue { color: var(--accent-green); }
 .brand-action-monitoring { color: #FFC107; }
-.brand-action-suspended { color: #FF9800; }
-.brand-action-terminated { color: #F44336; }
+.brand-action-suspended { color: var(--accent-orange); }
+.brand-action-terminated { color: var(--accent-red); }
 
 .audience-item {
   padding: 3px 0;
-  border-bottom: 1px solid #1a2a3a;
+  border-bottom: 1px solid rgba(26,42,58,0.5);
   font-size: 11px;
 }
-.audience-sentiment-pos { color: #4CAF50; }
-.audience-sentiment-neg { color: #F44336; }
-.audience-sentiment-neu { color: #888; }
+.audience-sentiment-pos { color: var(--accent-green); }
+.audience-sentiment-neg { color: var(--accent-red); }
+.audience-sentiment-neu { color: var(--text-muted); }
 .interaction-arrow { color: #FFC107; font-size: 10px; margin-right: 4px; }
 
 .outcome-box {
-  background: #1a2a3a;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26,42,58,0.6) 100%);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px;
   margin-top: 8px;
+  box-shadow: var(--shadow-card);
 }
 .outcome-verdict {
   font-size: 16px;
@@ -285,7 +353,7 @@ body {
   justify-content: space-between;
   padding: 3px 0;
   font-size: 12px;
-  border-bottom: 1px solid #2a3a4a;
+  border-bottom: 1px solid var(--border);
 }
 
 .phase-badge {
@@ -295,12 +363,12 @@ body {
   font-size: 11px;
   font-weight: bold;
 }
-.phase-breakout { background: #F44336; color: white; }
-.phase-escalation { background: #FF9800; color: white; }
-.phase-peak { background: #E91E63; color: white; }
-.phase-mitigation { background: #2196F3; color: white; }
-.phase-resolution { background: #4CAF50; color: white; }
-.phase-aftermath { background: #607D8B; color: white; }
+.phase-breakout { background: #F44336; color: white; box-shadow: 0 0 8px rgba(244,67,54,0.4); }
+.phase-escalation { background: #FF9800; color: white; box-shadow: 0 0 8px rgba(255,152,0,0.4); }
+.phase-peak { background: #E91E63; color: white; box-shadow: 0 0 8px rgba(233,30,99,0.4); }
+.phase-mitigation { background: #2196F3; color: white; box-shadow: 0 0 8px rgba(33,150,243,0.4); }
+.phase-resolution { background: #4CAF50; color: white; box-shadow: 0 0 8px rgba(76,175,80,0.4); }
+.phase-aftermath { background: #607D8B; color: white; box-shadow: 0 0 8px rgba(96,125,139,0.4); }
 
 /* ── Main Layout ── */
 #main {
@@ -311,25 +379,28 @@ body {
 
 /* ── Left Sidebar ── */
 #left-sidebar {
-  background: #141e2a;
-  border-right: 1px solid #2a3a4a;
+  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-base) 100%);
+  border-right: 1px solid var(--border);
   overflow-y: auto;
   padding: 12px;
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s;
 }
+body.loaded #left-sidebar { transform: translateX(0); }
 #left-sidebar::-webkit-scrollbar { width: 4px; }
-#left-sidebar::-webkit-scrollbar-thumb { background: #2a3a4a; border-radius: 2px; }
+#left-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 .sidebar-section {
   margin-bottom: 16px;
 }
 .sidebar-section h3 {
   font-size: 12px;
-  color: #8899aa;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 8px;
   padding-bottom: 4px;
-  border-bottom: 1px solid #1a2a3a;
+  border-bottom: 1px solid rgba(26,42,58,0.5);
 }
 
 .stat-grid {
@@ -338,24 +409,28 @@ body {
   gap: 6px;
 }
 .stat-card {
-  background: #1a2a3a;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26,42,58,0.6) 100%);
+  border: 1px solid var(--border);
   padding: 8px;
   border-radius: 6px;
   text-align: center;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.15);
 }
 .stat-card .value {
   font-size: 18px;
   font-weight: bold;
-  color: #4FC3F7;
+  color: var(--accent-blue);
+  text-shadow: 0 0 8px var(--glow-blue);
 }
 .stat-card .label {
   font-size: 10px;
-  color: #667788;
+  color: var(--text-muted);
   margin-top: 2px;
 }
 
 .agent-card {
-  background: #1a2a3a;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26,42,58,0.6) 100%);
+  border: 1px solid transparent;
   padding: 8px 10px;
   border-radius: 6px;
   margin-bottom: 6px;
@@ -363,31 +438,35 @@ body {
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
-.agent-card:hover { background: #2a3a4a; }
-.agent-card.selected { background: #1a3a5a; border: 1px solid #4FC3F7; }
+.agent-card:hover { border-color: var(--accent-blue); box-shadow: 0 0 12px var(--glow-blue); }
+.agent-card.selected { background: rgba(79,195,247,0.1); border: 1px solid var(--accent-blue); box-shadow: 0 0 16px var(--glow-blue); }
 .agent-card .emoji { font-size: 16px; }
 .agent-card .info { flex: 1; }
 .agent-card .name { font-size: 13px; font-weight: 500; }
-.agent-card .role { font-size: 10px; color: #667788; }
+.agent-card .role { font-size: 10px; color: var(--text-muted); }
 .agent-card .bars { display: flex; gap: 4px; align-items: center; }
 .mini-bar {
   width: 30px; height: 4px;
-  background: #2a3a4a;
+  background: var(--border);
   border-radius: 2px;
   overflow: hidden;
 }
-.mini-bar .fill { height: 100%; border-radius: 2px; }
-.mini-bar.stress .fill { background: #FF7043; }
-.mini-bar.energy .fill { background: #66BB6A; }
+.mini-bar .fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+.mini-bar.stress .fill { background: var(--accent-orange); }
+.mini-bar.energy .fill { background: var(--accent-green); }
 
 .reaction-layer {
-  background: #1a2a3a;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26,42,58,0.6) 100%);
+  border: 1px solid transparent;
   border-radius: 6px;
   margin-bottom: 6px;
   overflow: hidden;
+  transition: border-color 0.2s;
 }
+.reaction-layer:hover { border-color: var(--border); }
 .reaction-header {
   padding: 8px 10px;
   cursor: pointer;
@@ -396,8 +475,9 @@ body {
   align-items: center;
   font-size: 12px;
   font-weight: 500;
+  transition: background 0.2s;
 }
-.reaction-header:hover { background: #2a3a4a; }
+.reaction-header:hover { background: rgba(79,195,247,0.05); }
 .reaction-header .icon { margin-right: 6px; }
 .reaction-body {
   padding: 6px 10px 10px;
@@ -413,18 +493,39 @@ body {
   gap: 6px;
   padding: 2px 0;
 }
-.hot-item .rank { color: #FF7043; font-weight: bold; width: 20px; }
-.hot-item .rank.up { color: #66BB6A; }
-.hot-item .rank.down { color: #FF7043; }
-.hot-item .heat { color: #667788; margin-left: auto; font-size: 10px; }
+.hot-item .rank { color: var(--accent-orange); font-weight: bold; width: 20px; }
+.hot-item .rank.up { color: var(--accent-green); }
+.hot-item .rank.down { color: var(--accent-orange); }
+.hot-item .heat { color: var(--text-muted); margin-left: auto; font-size: 10px; }
 
-/* ── Canvas ── */
+/* ── Canvas / Starfield ── */
 #canvas-container {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle, #1a2a3a 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-color: var(--bg-deep);
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(79,195,247,0.4), transparent),
+    radial-gradient(1px 1px at 25% 45%, rgba(79,195,247,0.3), transparent),
+    radial-gradient(1px 1px at 40% 15%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 55% 70%, rgba(79,195,247,0.35), transparent),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 85% 55%, rgba(79,195,247,0.3), transparent),
+    radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 60% 90%, rgba(79,195,247,0.25), transparent),
+    radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1px 1px at 35% 60%, rgba(255,112,67,0.2), transparent),
+    radial-gradient(1px 1px at 80% 85%, rgba(79,195,247,0.2), transparent),
+    radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(circle, rgba(79,195,247,0.03) 1px, transparent 1px);
+  background-size: 300px 300px, 280px 280px, 260px 260px, 320px 320px,
+    240px 240px, 290px 290px, 270px 270px, 310px 310px,
+    250px 250px, 330px 330px, 230px 230px, 270px 270px,
+    24px 24px;
+  animation: starfieldTwinkle 20s ease-in-out infinite alternate;
+}
+@keyframes starfieldTwinkle {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
+  100% { background-position: 10px 5px, -8px 3px, 5px -4px, -3px 7px, 6px -2px, -5px 4px, 3px 8px, -7px -5px, 4px 6px, -2px -3px, 7px 2px, -4px -6px, 0 0; }
 }
 
 #canvas-container svg {
@@ -434,13 +535,16 @@ body {
 
 /* ── Right Sidebar ── */
 #right-sidebar {
-  background: #141e2a;
-  border-left: 1px solid #2a3a4a;
+  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-base) 100%);
+  border-left: 1px solid var(--border);
   overflow-y: auto;
   padding: 16px;
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s;
 }
+body.loaded #right-sidebar { transform: translateX(0); }
 #right-sidebar::-webkit-scrollbar { width: 4px; }
-#right-sidebar::-webkit-scrollbar-thumb { background: #2a3a4a; border-radius: 2px; }
+#right-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 .detail-header {
   display: flex;
@@ -452,11 +556,13 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #1a3a5a;
+  background: linear-gradient(135deg, rgba(79,195,247,0.15) 0%, rgba(26,58,90,0.8) 100%);
+  border: 2px solid var(--accent-blue);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
+  box-shadow: 0 0 16px var(--glow-blue);
 }
 .detail-name {
   font-size: 18px;
@@ -464,7 +570,7 @@ body {
 }
 .detail-subtitle {
   font-size: 12px;
-  color: #667788;
+  color: var(--text-muted);
 }
 
 .detail-section {
@@ -472,7 +578,7 @@ body {
 }
 .detail-section h4 {
   font-size: 12px;
-  color: #8899aa;
+  color: var(--text-secondary);
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -480,16 +586,20 @@ body {
 
 .detail-tag {
   display: inline-block;
-  background: #1a3a5a;
-  color: #4FC3F7;
+  background: rgba(79,195,247,0.1);
+  color: var(--accent-blue);
+  border: 1px solid rgba(79,195,247,0.2);
   padding: 2px 8px;
   border-radius: 3px;
   font-size: 11px;
   margin: 2px;
+  transition: all 0.2s;
 }
+.detail-tag:hover { background: rgba(79,195,247,0.2); box-shadow: 0 0 6px var(--glow-blue); }
 
 .rel-item {
-  background: #1a2a3a;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26,42,58,0.5) 100%);
+  border: 1px solid transparent;
   padding: 8px;
   border-radius: 4px;
   margin-bottom: 4px;
@@ -497,9 +607,9 @@ body {
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
-.rel-item:hover { background: #2a3a4a; }
+.rel-item:hover { border-color: var(--accent-blue); box-shadow: 0 0 8px var(--glow-blue); }
 .rel-type {
   font-size: 11px;
   padding: 2px 6px;
@@ -511,20 +621,23 @@ body {
 .rel-bars { display: flex; gap: 4px; }
 .rel-bar {
   width: 40px; height: 3px;
-  background: #2a3a4a;
+  background: var(--border);
   border-radius: 1px;
   overflow: hidden;
 }
 .rel-bar .fill { height: 100%; border-radius: 1px; }
 
 .event-item {
-  background: #1a2a3a;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   padding: 8px;
   border-radius: 4px;
   margin-bottom: 4px;
+  transition: border-color 0.2s;
 }
+.event-item:hover { border-color: var(--accent-blue); }
 .event-item .title { font-size: 13px; margin-bottom: 2px; }
-.event-item .meta { font-size: 10px; color: #667788; }
+.event-item .meta { font-size: 10px; color: var(--text-muted); }
 
 .path-step {
   display: flex;
@@ -532,15 +645,16 @@ body {
   gap: 8px;
   padding: 6px 0;
 }
-.path-step .arrow { color: #4FC3F7; font-size: 16px; }
+.path-step .arrow { color: var(--accent-blue); font-size: 16px; }
 .path-step .node-label {
-  background: #1a3a5a;
+  background: rgba(79,195,247,0.1);
+  border: 1px solid rgba(79,195,247,0.2);
   padding: 4px 10px;
   border-radius: 4px;
   font-size: 12px;
 }
 .path-step .edge-label {
-  color: #FF7043;
+  color: var(--accent-orange);
   font-size: 11px;
 }
 
@@ -550,7 +664,8 @@ body {
   bottom: 12px;
   left: 12px;
   background: rgba(20, 30, 42, 0.92);
-  border-radius: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
   padding: 10px 14px;
   font-size: 11px;
   z-index: 10;
@@ -586,23 +701,24 @@ body {
 }
 #inject-form textarea {
   width: 100%;
-  background: #1a2a3a;
-  color: #e0e0e0;
-  border: 1px solid #2a3a4a;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
   border-radius: 4px;
   padding: 6px 8px;
   font-size: 12px;
   resize: vertical;
   min-height: 40px;
   outline: none;
+  transition: border-color 0.2s;
 }
-#inject-form textarea:focus { border-color: #4FC3F7; }
+#inject-form textarea:focus { border-color: var(--accent-blue); box-shadow: 0 0 6px var(--glow-blue); }
 
 /* ── Empty state ── */
 .empty-state {
   text-align: center;
   padding: 40px 20px;
-  color: #667788;
+  color: var(--text-muted);
 }
 .empty-state .icon { font-size: 32px; margin-bottom: 8px; }
 .empty-state p { font-size: 13px; }
@@ -611,15 +727,16 @@ body {
 #tooltip {
   position: absolute;
   background: rgba(20, 30, 42, 0.95);
-  border: 1px solid #2a3a4a;
-  border-radius: 4px;
-  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
   font-size: 11px;
   pointer-events: none;
   z-index: 200;
   display: none;
   max-width: 200px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
 
 /* ── Search dropdown ── */
@@ -628,23 +745,230 @@ body {
   top: 52px;
   left: 0;
   right: 0;
-  background: #141e2a;
-  border: 1px solid #2a3a4a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-top: none;
   max-height: 200px;
   overflow-y: auto;
   z-index: 150;
   display: none;
+  backdrop-filter: blur(12px);
 }
 .search-item {
   padding: 8px 16px;
   cursor: pointer;
   font-size: 13px;
+  transition: background 0.15s;
 }
-.search-item:hover { background: #1a3a5a; }
+.search-item:hover { background: rgba(79,195,247,0.1); }
+
+/* ── Toast Notification ── */
+#toast-container {
+  position: fixed;
+  top: 60px;
+  right: 16px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  background: rgba(20, 30, 42, 0.95);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 13px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  transform: translateX(120%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+  pointer-events: auto;
+  max-width: 320px;
+}
+.toast.show { transform: translateX(0); }
+.toast-error { border-color: var(--accent-red); color: var(--accent-red); box-shadow: 0 4px 20px rgba(244,67,54,0.2); }
+.toast-info { border-color: var(--accent-blue); color: var(--accent-blue); box-shadow: 0 4px 20px var(--glow-blue); }
+.toast-success { border-color: var(--accent-green); color: var(--accent-green); box-shadow: 0 4px 20px rgba(76,175,80,0.2); }
+.toast-warning { border-color: var(--accent-orange); color: var(--accent-orange); box-shadow: 0 4px 20px var(--glow-orange); }
+
+/* ── Spinner ── */
+.spinner {
+  width: 24px; height: 24px;
+  margin: 20px auto;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Phase Transition Overlay ── */
+#phase-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+#phase-overlay.active { opacity: 1; pointer-events: auto; }
+.phase-overlay-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(8, 13, 20, 0.85);
+  backdrop-filter: blur(12px);
+}
+.phase-overlay-content {
+  position: relative;
+  text-align: center;
+  transform: scale(0.8);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#phase-overlay.active .phase-overlay-content { transform: scale(1); }
+.phase-overlay-icon { font-size: 48px; margin-bottom: 12px; }
+.phase-overlay-title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+.phase-overlay-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.phase-overlay-day {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ── Breaking News Bar ── */
+#breaking-news-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 8000;
+  background: linear-gradient(90deg, #B71C1C, #D32F2F, #B71C1C);
+  color: white;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(211, 47, 47, 0.4);
+}
+#breaking-news-bar.show { transform: translateY(0); }
+.breaking-badge {
+  background: white;
+  color: #B71C1C;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: breaking-pulse 1.5s ease infinite;
+}
+@keyframes breaking-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.breaking-text { flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+/* ── Timeline Scrubber ── */
+.timeline-scrubber {
+  margin: 12px 0 8px;
+  padding: 0 4px;
+  user-select: none;
+}
+.scrubber-track {
+  position: relative;
+  height: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.scrubber-fill {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-blue), rgba(79,195,247,0.3));
+  border-radius: 12px;
+  transition: width 0.1s;
+  pointer-events: none;
+}
+.scrubber-thumb {
+  position: absolute;
+  top: 50%;
+  width: 16px; height: 16px;
+  background: var(--accent-blue);
+  border: 2px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--glow-blue), 0 2px 6px rgba(0,0,0,0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+  z-index: 2;
+}
+.scrubber-thumb:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 0 16px var(--glow-blue), 0 2px 8px rgba(0,0,0,0.4);
+}
+.scrubber-phases {
+  display: flex;
+  height: 16px;
+  margin-top: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  font-size: 9px;
+}
+.scrubber-phase-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.8);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.scrubber-phase-segment:hover { opacity: 1; }
+.scrubber-info {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+.scrubber-info span { color: var(--accent-blue); font-weight: 600; }
 </style>
 </head>
 <body>
+
+<!-- Toast Container -->
+<div id="toast-container"></div>
+
+<!-- Breaking News Bar -->
+<div id="breaking-news-bar">
+  <span class="breaking-badge">突发</span>
+  <span class="breaking-text" id="breaking-text"></span>
+</div>
+
+<!-- Phase Transition Overlay -->
+<div id="phase-overlay">
+  <div class="phase-overlay-bg"></div>
+  <div class="phase-overlay-content">
+    <div class="phase-overlay-icon" id="phase-overlay-icon"></div>
+    <div class="phase-overlay-title" id="phase-overlay-title"></div>
+    <div class="phase-overlay-subtitle" id="phase-overlay-subtitle"></div>
+    <div class="phase-overlay-day" id="phase-overlay-day"></div>
+  </div>
+</div>
 
 <!-- Header -->
 <div id="debug-banner" style="display:none;background:#D32F2F;color:white;padding:8px 16px;font-size:12px;font-family:monospace;z-index:9999;position:fixed;top:0;left:0;right:0;"></div>
@@ -869,6 +1193,16 @@ body {
       </div>
       <canvas id="crisis-chart"></canvas>
 
+      <!-- Timeline Scrubber -->
+      <div class="timeline-scrubber" id="timeline-scrubber" style="display:none;">
+        <div class="scrubber-track" id="scrubber-track">
+          <div class="scrubber-fill" id="scrubber-fill"></div>
+          <div class="scrubber-thumb" id="scrubber-thumb"></div>
+        </div>
+        <div class="scrubber-phases" id="scrubber-phases"></div>
+        <div class="scrubber-info">第 <span id="scrubber-day">0</span> 天 · <span id="scrubber-phase">--</span></div>
+      </div>
+
       <div class="crisis-actions-bar">
         <button class="btn" id="crisis-step-btn">下一步 (1天)</button>
         <button class="btn" id="crisis-run-btn">运行全部</button>
@@ -931,6 +1265,65 @@ body {
 </div>
 
 <script>
+// ── Toast Notification System ──
+function showToast(message, type = 'info', duration = 3000) {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+  toast.textContent = message;
+  container.appendChild(toast);
+  requestAnimationFrame(() => { requestAnimationFrame(() => toast.classList.add('show')); });
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+}
+
+// ── Phase Transition Overlay ──
+const PHASE_STYLES = {
+  breakout:     { icon: '⚡', color: '#F44336', title: '爆 发 期', subtitle: '事件刚刚曝光，舆论哗然' },
+  escalation:   { icon: '🔥', color: '#FF9800', title: '发 酵 期', subtitle: '细节流出，事态升级' },
+  peak:         { icon: '💥', color: '#E91E63', title: '高 峰 期', subtitle: '全网关注，最佳回应窗口' },
+  mitigation:   { icon: '🛡', color: '#2196F3', title: '应 对 期', subtitle: '公关策略开始见效' },
+  resolution:   { icon: '🕊', color: '#4CAF50', title: '收 尾 期', subtitle: '舆论降温，逐步恢复' },
+  aftermath:    { icon: '🌅', color: '#607D8B', title: '余 波 期', subtitle: '长期影响，事业新方向' },
+};
+let _lastPhase = null;
+function showPhaseTransition(phase, day) {
+  const style = PHASE_STYLES[phase];
+  if (!style) return;
+  const overlay = document.getElementById('phase-overlay');
+  if (!overlay) return;
+  document.getElementById('phase-overlay-icon').textContent = style.icon;
+  document.getElementById('phase-overlay-icon').style.fontSize = '56px';
+  const titleEl = document.getElementById('phase-overlay-title');
+  titleEl.textContent = style.title;
+  titleEl.style.color = style.color;
+  titleEl.style.textShadow = `0 0 30px ${style.color}, 0 0 60px ${style.color}`;
+  document.getElementById('phase-overlay-subtitle').textContent = style.subtitle;
+  document.getElementById('phase-overlay-day').textContent = `— 第 ${day} 天 —`;
+  overlay.classList.add('active');
+  setTimeout(() => overlay.classList.remove('active'), 2200);
+}
+function checkPhaseTransition(state) {
+  if (state.phase && state.phase !== _lastPhase && _lastPhase !== null) {
+    showPhaseTransition(state.phase, state.day);
+  }
+  _lastPhase = state.phase;
+}
+
+// ── Breaking News Bar ──
+let _lastHeadlineCount = 0;
+function showBreakingNews(headline) {
+  const bar = document.getElementById('breaking-news-bar');
+  const text = document.getElementById('breaking-text');
+  if (!bar || !text) return;
+  text.textContent = headline;
+  bar.classList.add('show');
+  setTimeout(() => bar.classList.remove('show'), 4000);
+}
+
 // ── Constants ──
 // Global error display
 window.onerror = (msg, src, line, col, err) => {
@@ -976,6 +1369,8 @@ document.addEventListener('DOMContentLoaded', () => {
   loadStats();
   loadGraph();
   setupEventListeners();
+  // Trigger entrance animations after everything loads
+  setTimeout(() => document.body.classList.add('loaded'), 100);
 });
 
 // ── API ──
@@ -1328,7 +1723,7 @@ async function loadDetail(d) {
   if (!panel) { console.error('loadDetail: detail-content not found'); return; }
 
   // Show loading state
-  panel.innerHTML = `<div style="text-align:center;padding:40px;color:#4FC3F7;">加载中...</div>`;
+  panel.innerHTML = `<div style="text-align:center;padding:40px;"><div class="spinner"></div><div style="color:var(--accent-blue);margin-top:12px;font-size:12px;">加载中...</div></div>`;
 
   try {
   if (d.type === 'celebrity') {
@@ -1579,7 +1974,7 @@ async function startSim() {
     document.getElementById('sim-start-btn').classList.add('active');
     pollSimState();
   } else {
-    alert('启动失败: ' + (result.message || JSON.stringify(result)));
+    showToast('启动失败: ' + (result.message || JSON.stringify(result)), 'error');
   }
 }
 
@@ -1804,6 +2199,133 @@ function setupEventListeners() {
 
 const PERSON_COLORS = ['#4FC3F7','#FF7043','#66BB6A','#FFC107','#AB47BC','#EF5350'];
 let crisisHistory = [];
+let scrubberDragging = false;
+let _prevTrendingMap = {};  // { title: { rank, heat } }
+
+// ── Timeline Scrubber Logic ──
+const PHASE_RANGES = [
+  { key: 'breakout', label: '爆发', color: '#F44336', endDay: 1 },
+  { key: 'escalation', label: '发酵', color: '#FF9800', endDay: 3 },
+  { key: 'peak', label: '高峰', color: '#E91E63', endDay: 7 },
+  { key: 'mitigation', label: '应对', color: '#2196F3', endDay: 14 },
+  { key: 'resolution', label: '收尾', color: '#4CAF50', endDay: 21 },
+  { key: 'aftermath', label: '余波', color: '#607D8B', endDay: 999 },
+];
+
+function renderScrubber() {
+  if (!crisisHistory.length) return;
+  const scrubber = document.getElementById('timeline-scrubber');
+  if (!scrubber) return;
+  scrubber.style.display = 'block';
+
+  const totalDays = crisisHistory.length;
+  const phasesEl = document.getElementById('scrubber-phases');
+  phasesEl.innerHTML = '';
+
+  PHASE_RANGES.forEach((p, i) => {
+    const startDay = i === 0 ? 0 : PHASE_RANGES[i-1].endDay;
+    const endDay = Math.min(p.endDay, totalDays);
+    if (endDay <= startDay) return;
+    const pct = ((endDay - startDay) / totalDays) * 100;
+    const seg = document.createElement('div');
+    seg.className = 'scrubber-phase-segment';
+    seg.style.width = pct + '%';
+    seg.style.background = p.color + '40';
+    seg.style.borderRight = '1px solid ' + p.color + '60';
+    seg.textContent = p.label;
+    seg.title = p.label + '期';
+    phasesEl.appendChild(seg);
+  });
+
+  updateScrubberPosition(totalDays - 1);
+}
+
+function updateScrubberPosition(dayIndex) {
+  if (!crisisHistory.length) return;
+  const totalDays = crisisHistory.length;
+  const pct = (dayIndex / Math.max(1, totalDays - 1)) * 100;
+
+  const fill = document.getElementById('scrubber-fill');
+  const thumb = document.getElementById('scrubber-thumb');
+  if (fill) fill.style.width = pct + '%';
+  if (thumb) thumb.style.left = pct + '%';
+
+  const state = crisisHistory[Math.min(dayIndex, totalDays - 1)];
+  if (state) {
+    document.getElementById('scrubber-day').textContent = state.day;
+    document.getElementById('scrubber-phase').textContent = state.phase_label || '--';
+  }
+}
+
+function restoreDayFromHistory(dayIndex) {
+  if (!crisisHistory.length) return;
+  const state = crisisHistory[Math.min(dayIndex, crisisHistory.length - 1)];
+  if (!state) return;
+  // Temporarily disable phase transition effect during scrubbing
+  const savedPhase = _lastPhase;
+  updateCrisisUI(state);
+  _lastPhase = savedPhase; // Restore so scrubbing doesn't trigger transitions
+}
+
+function initScrubberDrag() {
+  const track = document.getElementById('scrubber-track');
+  if (!track) return;
+
+  function getDayFromEvent(e) {
+    const rect = track.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+    const pct = x / rect.width;
+    return Math.round(pct * (crisisHistory.length - 1));
+  }
+
+  track.addEventListener('mousedown', (e) => {
+    if (!crisisHistory.length) return;
+    scrubberDragging = true;
+    const day = getDayFromEvent(e);
+    updateScrubberPosition(day);
+    restoreDayFromHistory(day);
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!scrubberDragging || !crisisHistory.length) return;
+    const day = getDayFromEvent(e);
+    updateScrubberPosition(day);
+    restoreDayFromHistory(day);
+  });
+
+  document.addEventListener('mouseup', () => {
+    scrubberDragging = false;
+  });
+
+  // Touch support
+  track.addEventListener('touchstart', (e) => {
+    if (!crisisHistory.length) return;
+    scrubberDragging = true;
+    const touch = e.touches[0];
+    const rect = track.getBoundingClientRect();
+    const x = Math.max(0, Math.min(touch.clientX - rect.left, rect.width));
+    const day = Math.round((x / rect.width) * (crisisHistory.length - 1));
+    updateScrubberPosition(day);
+    restoreDayFromHistory(day);
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!scrubberDragging || !crisisHistory.length) return;
+    const touch = e.touches[0];
+    const rect = track.getBoundingClientRect();
+    const x = Math.max(0, Math.min(touch.clientX - rect.left, rect.width));
+    const day = Math.round((x / rect.width) * (crisisHistory.length - 1));
+    updateScrubberPosition(day);
+    restoreDayFromHistory(day);
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    scrubberDragging = false;
+  });
+}
+
+// Initialize scrubber drag after DOM ready
+initScrubberDrag();
 
 async function loadCrisisScenarios() {
   const data = await api('/api/crisis/scenarios');
@@ -1816,12 +2338,12 @@ async function loadCrisisScenarios() {
 
 async function startCrisisSim() {
   const title = document.getElementById('crisis-scenario-select').value;
-  if (!title) return alert('请先选择场景');
+  if (!title) return showToast('请先选择场景', 'warning');
   const res = await apiPost('/api/crisis/start', {
     scenario_title: title,
     total_days: 30,
   });
-  if (res.error) return alert(res.error);
+  if (res.error) return showToast(res.error, 'error');
   crisisHistory = [res.initial_state];
   updateCrisisUI(res.initial_state);
   document.getElementById('crisis-status').textContent = '仿真已启动';
@@ -1829,7 +2351,7 @@ async function startCrisisSim() {
 
 async function stepCrisisSim() {
   const res = await apiPost('/api/crisis/step', {});
-  if (res.error) return alert(res.error);
+  if (res.error) return showToast(res.error, 'error');
   crisisHistory.push(res.state);
   updateCrisisUI(res.state);
   document.getElementById('crisis-status').textContent = `第${res.state.day}天 ${res.state.phase_label}`;
@@ -1838,16 +2360,19 @@ async function stepCrisisSim() {
 async function runCrisisSim() {
   document.getElementById('crisis-status').textContent = '运行中...';
   const res = await apiPost('/api/crisis/run', {});
-  if (res.error) return alert(res.error);
+  if (res.error) return showToast(res.error, 'error');
   crisisHistory = res.history || [];
   if (crisisHistory.length) updateCrisisUI(crisisHistory[crisisHistory.length - 1]);
   document.getElementById('crisis-status').textContent = res.status === 'completed' ? '仿真完成' : '运行中';
   drawCrisisChart();
+  renderScrubber();
+  showToast('仿真完成！可拖动时间线回放任意天', 'success', 4000);
 }
 
 async function resetCrisisSim() {
   await apiPost('/api/crisis/reset', {});
   crisisHistory = [];
+  _prevTrendingMap = {};
   document.getElementById('crisis-status').textContent = '';
   document.getElementById('crisis-timeline-list').innerHTML = '';
   document.getElementById('crisis-trending').innerHTML = '';
@@ -1857,11 +2382,13 @@ async function resetCrisisSim() {
   document.getElementById('crisis-persons').innerHTML = '';
   document.getElementById('crisis-day-label').textContent = '';
   clearCrisisChart();
+  const scrubber = document.getElementById('timeline-scrubber');
+  if (scrubber) scrubber.style.display = 'none';
 }
 
 async function loadCrisisOutcome() {
   const res = await api('/api/crisis/outcome');
-  if (res.error) return alert(res.error);
+  if (res.error) return showToast(res.error, 'error');
   const el = document.getElementById('crisis-outcome');
   let html = `<div class="outcome-box">`;
   html += `<div class="outcome-verdict" style="color:${res.verdict==='better'?'#4CAF50':res.verdict==='worse'?'#F44336':'#FFC107'}">${res.verdict_label}</div>`;
@@ -1925,7 +2452,7 @@ async function addCrisisIntervention() {
   }
 
   const res = await apiPost('/api/crisis/intervene', body);
-  if (res.error) return alert(res.error);
+  if (res.error) return showToast(res.error, 'error');
   document.getElementById('crisis-pending-ivs').innerHTML =
     (res.pending || []).map(d => `<div style="margin:2px 0;">⏳ ${d}</div>`).join('');
   document.getElementById('crisis-iv-desc').value = '';
@@ -1952,6 +2479,17 @@ document.getElementById('crisis-iv-action-type').addEventListener('change', upda
 
 function updateCrisisUI(state) {
   if (!state) return;
+
+  // Phase transition cinematic effect
+  checkPhaseTransition(state);
+
+  // Breaking news for new headlines
+  const newHeadlines = (state.media_headlines || []).filter(h => h.reach > 0.6);
+  if (newHeadlines.length > _lastHeadlineCount && _lastHeadlineCount > 0) {
+    const latest = newHeadlines[0];
+    if (latest && latest.headline) showBreakingNews(latest.headline);
+  }
+  _lastHeadlineCount = newHeadlines.length;
 
   // Day label
   document.getElementById('crisis-day-label').innerHTML =
@@ -2000,15 +2538,30 @@ function updateCrisisUI(state) {
     names.forEach(n => sel.innerHTML += `<option value="${n}">${n}</option>`);
   });
 
-  // Trending
+  // Trending — 增量更新 + 排名变化 + 动画
   const trendingEl = document.getElementById('crisis-trending');
   trendingEl.innerHTML = '';
-  (state.trending_topics || []).forEach(t => {
-    trendingEl.innerHTML += `<div class="trending-item">
-      <span><span class="trending-rank">#${t.rank}</span> ${t.title}</span>
-      <span class="trending-heat">${(t.heat/1000).toFixed(1)}k</span>
+  const trendingTopics = state.trending_topics || [];
+  trendingTopics.forEach((t, i) => {
+    const prev = _prevTrendingMap[t.title];
+    let changeHtml = '';
+    if (prev) {
+      const diff = prev.rank - t.rank; // positive = rose
+      if (diff > 0) changeHtml = `<span class="rank-change rank-up">↑${diff}</span>`;
+      else if (diff < 0) changeHtml = `<span class="rank-change rank-down">↓${-diff}</span>`;
+    } else if (_lastHeadlineCount > 0) {
+      changeHtml = `<span class="rank-change rank-new">NEW</span>`;
+    }
+    const isHot = (t.heat || 0) > 100000;
+    const isTop3 = t.rank <= 3;
+    trendingEl.innerHTML += `<div class="trending-item${isTop3 ? ' top-3' : ''}" style="animation-delay:${i * 40}ms">
+      <span><span class="trending-rank">#${t.rank}${changeHtml}</span> ${t.title}</span>
+      <span class="trending-heat${isHot ? ' hot' : ''}">${(t.heat/1000).toFixed(1)}k</span>
     </div>`;
   });
+  // Build new map for next comparison
+  _prevTrendingMap = {};
+  trendingTopics.forEach(t => { _prevTrendingMap[t.title] = { rank: t.rank, heat: t.heat }; });
 
   // Media
   const mediaEl = document.getElementById('crisis-media');
@@ -2081,92 +2634,83 @@ function updateCrisisUI(state) {
   drawCrisisChart();
 }
 
+let _crisisChart = null;
+
 function clearCrisisChart() {
-  const canvas = document.getElementById('crisis-chart');
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (_crisisChart) { _crisisChart.destroy(); _crisisChart = null; }
 }
 
 function drawCrisisChart() {
-  const canvas = document.getElementById('crisis-chart');
-  const ctx = canvas.getContext('2d');
-  const rect = canvas.parentElement.getBoundingClientRect();
-  canvas.width = rect.width - 24;
-  canvas.height = 240;
-
-  const w = canvas.width, h = canvas.height;
-  const pad = { top: 20, right: 20, bottom: 30, left: 40 };
-  const cw = w - pad.left - pad.right;
-  const ch = h - pad.top - pad.bottom;
-
-  ctx.clearRect(0, 0, w, h);
-  ctx.fillStyle = '#0f1923';
-  ctx.fillRect(0, 0, w, h);
-
-  // Fetch history from API if local is empty
   if (!crisisHistory.length) return;
 
-  const allDays = crisisHistory.map(s => s.day);
-  const maxDay = Math.max(...allDays, 1);
+  const canvas = document.getElementById('crisis-chart');
   const names = Object.keys(crisisHistory[0].approval_scores || {});
+  const labels = crisisHistory.map(s => 'D' + s.day);
 
-  // Grid
-  ctx.strokeStyle = '#1a2a3a';
-  ctx.lineWidth = 1;
-  for (let i = 0; i <= 4; i++) {
-    const y = pad.top + ch * i / 4;
-    ctx.beginPath();
-    ctx.moveTo(pad.left, y);
-    ctx.lineTo(w - pad.right, y);
-    ctx.stroke();
-    ctx.fillStyle = '#556677';
-    ctx.font = '10px sans-serif';
-    ctx.fillText((100 - i * 25).toString(), 4, y + 4);
-  }
-
-  // X axis labels
-  ctx.fillStyle = '#556677';
-  for (let d = 0; d <= maxDay; d += Math.max(1, Math.floor(maxDay / 6))) {
-    const x = pad.left + (d / maxDay) * cw;
-    ctx.fillText('D' + d, x - 8, h - 4);
-  }
-
-  // Draw lines per person
-  names.forEach((name, idx) => {
-    const color = PERSON_COLORS[idx % PERSON_COLORS.length];
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    let started = false;
-    crisisHistory.forEach(s => {
-      const x = pad.left + (s.day / maxDay) * cw;
-      const y = pad.top + (1 - (s.approval_scores[name] || 50) / 100) * ch;
-      if (!started) { ctx.moveTo(x, y); started = true; }
-      else ctx.lineTo(x, y);
-    });
-    ctx.stroke();
-
-    // Label
-    const lastState = crisisHistory[crisisHistory.length - 1];
-    const lx = pad.left + (lastState.day / maxDay) * cw + 4;
-    const ly = pad.top + (1 - (lastState.approval_scores[name] || 50) / 100) * ch;
-    ctx.fillStyle = color;
-    ctx.font = 'bold 10px sans-serif';
-    ctx.fillText(name, lx, ly + 3);
-  });
+  const datasets = names.map((name, idx) => ({
+    label: name,
+    data: crisisHistory.map(s => s.approval_scores[name] || 50),
+    borderColor: PERSON_COLORS[idx % PERSON_COLORS.length],
+    backgroundColor: PERSON_COLORS[idx % PERSON_COLORS.length] + '18',
+    borderWidth: 2,
+    pointRadius: 0,
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: PERSON_COLORS[idx % PERSON_COLORS.length],
+    tension: 0.3,
+    fill: false,
+  }));
 
   // Heat line
-  ctx.strokeStyle = '#FF7043';
-  ctx.lineWidth = 1;
-  ctx.setLineDash([4, 4]);
-  ctx.beginPath();
-  crisisHistory.forEach((s, i) => {
-    const x = pad.left + (s.day / maxDay) * cw;
-    const y = pad.top + (1 - s.heat_index / 100) * ch;
-    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  datasets.push({
+    label: '热度',
+    data: crisisHistory.map(s => s.heat_index || 0),
+    borderColor: '#FF7043',
+    borderWidth: 1,
+    borderDash: [4, 4],
+    pointRadius: 0,
+    tension: 0.3,
+    fill: false,
   });
-  ctx.stroke();
-  ctx.setLineDash([]);
+
+  if (_crisisChart) _crisisChart.destroy();
+
+  _crisisChart = new Chart(canvas, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 400, easing: 'easeOutQuart' },
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          labels: { color: '#8899aa', font: { size: 10 }, boxWidth: 12, padding: 8 },
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15,25,35,0.95)',
+          borderColor: '#2a3a4a',
+          borderWidth: 1,
+          titleColor: '#e8edf2',
+          bodyColor: '#8899aa',
+          padding: 10,
+          cornerRadius: 6,
+        },
+      },
+      scales: {
+        x: {
+          grid: { color: '#1a2a3a' },
+          ticks: { color: '#556677', font: { size: 10 }, maxTicksLimit: 8 },
+        },
+        y: {
+          min: 0, max: 100,
+          grid: { color: '#1a2a3a' },
+          ticks: { color: '#556677', font: { size: 10 }, stepSize: 25 },
+        },
+      },
+    },
+  });
 }
 
 // ── Custom Scenario Functions ──
@@ -2208,7 +2752,7 @@ async function loadCelebritiesForCustom() {
 
 function toggleCustomPerson(name, checked) {
   if (checked && selectedCustomPersons.size >= 6) {
-    alert('最多选择6人');
+    showToast('最多选择6人', 'warning');
     // uncheck the last one
     document.querySelectorAll('.cc-person-cb').forEach(cb => {
       if (cb.dataset.name === name) cb.checked = false;
@@ -2223,7 +2767,7 @@ function toggleCustomPerson(name, checked) {
 
 async function discoverRelationships() {
   if (selectedCustomPersons.size < 2) {
-    alert('请至少选择2人'); return;
+    showToast('请至少选择2人', 'warning'); return;
   }
   const persons = [...selectedCustomPersons].join(',');
   const data = await api(`/api/crisis/relationships?persons=${encodeURIComponent(persons)}`);
@@ -2242,7 +2786,7 @@ async function discoverRelationships() {
 
 async function createCustomScenario() {
   if (selectedCustomPersons.size < 2) {
-    alert('请至少选择2人'); return;
+    showToast('请至少选择2人', 'warning'); return;
   }
   const title = document.getElementById('cc-title').value.trim() || '自定义场景';
   const desc = document.getElementById('cc-desc').value.trim();
@@ -2253,7 +2797,7 @@ async function createCustomScenario() {
     title, description: desc, involved_persons: [...selectedCustomPersons],
     initial_severity: severity, gossip_type: type, interaction_mode: 'crisis',
   });
-  if (res.error) return alert(res.error);
+  if (res.error) return showToast(res.error, 'error');
 
   crisisHistory = [res.initial_state];
   updateCrisisUI(res.initial_state);
@@ -2294,10 +2838,10 @@ async function populateExpScenarios() {
 
 document.getElementById('exp-create-btn').addEventListener('click', async () => {
   const scenarioTitle = document.getElementById('exp-scenario').value;
-  if (!scenarioTitle) return alert('请选择场景');
+  if (!scenarioTitle) return showToast('请选择场景', 'warning');
 
   const names = [...document.querySelectorAll('.exp-group-name')].map(el => el.value.trim()).filter(Boolean);
-  if (names.length < 2) return alert('请至少添加2个实验组');
+  if (names.length < 2) return showToast('请至少添加2个实验组', 'warning');
 
   const groups = names.map(name => ({ name, interventions: [], description: name }));
   const res = await apiPost('/api/crisis/experiment/create', {
@@ -2306,14 +2850,14 @@ document.getElementById('exp-create-btn').addEventListener('click', async () => 
     use_llm: false,
     total_days: 30,
   });
-  if (res.error) return alert(res.error);
-  alert(`实验已创建！ID: ${res.experiment_id}`);
+  if (res.error) return showToast(res.error, 'error');
+  showToast(`实验已创建！ID: ${res.experiment_id}`, 'success');
 });
 
 document.getElementById('exp-run-btn').addEventListener('click', async () => {
   const listRes = await api('/api/crisis/experiments');
   const experiments = listRes.experiments || [];
-  if (!experiments.length) return alert('请先创建实验');
+  if (!experiments.length) return showToast('请先创建实验', 'warning');
 
   const exp = experiments[experiments.length - 1];
   document.getElementById('exp-run-btn').textContent = '运行中...';
@@ -2321,77 +2865,75 @@ document.getElementById('exp-run-btn').addEventListener('click', async () => {
 
   try {
     const res = await apiPost(`/api/crisis/experiment/${exp.experiment_id}/run`, {});
-    if (res.error) { alert(res.error); return; }
+    if (res.error) { showToast(res.error); return; }
 
     // 获取对比结果
     const comparison = await api(`/api/crisis/experiment/${exp.experiment_id}/compare`);
     if (!comparison.error) renderExpComparison(comparison);
   } catch (e) {
-    alert('运行失败: ' + e.message);
+    showToast('运行失败: ' + e.message, 'error');
   } finally {
     document.getElementById('exp-run-btn').textContent = '运行';
     document.getElementById('exp-run-btn').disabled = false;
   }
 });
 
+let _expChart = null;
+
 function renderExpComparison(data) {
   const resultDiv = document.getElementById('exp-result');
   resultDiv.style.display = 'block';
 
-  // Draw chart
+  // Draw chart with Chart.js
   const canvas = document.getElementById('exp-chart');
-  const ctx = canvas.getContext('2d');
-  const rect = canvas.parentElement.getBoundingClientRect();
-  canvas.width = rect.width - 24;
-  canvas.height = 200;
-  const w = canvas.width, h = canvas.height;
-  const pad = { top: 20, right: 20, bottom: 30, left: 50 };
-  const cw = w - pad.left - pad.right;
-  const ch = h - pad.top - pad.bottom;
-
-  ctx.clearRect(0, 0, w, h);
-  ctx.fillStyle = '#0f1923';
-  ctx.fillRect(0, 0, w, h);
-
-  const colors = ['#4FC3F7', '#FF7043', '#66BB6A', '#FFC107', '#AB47BC', '#EF5350'];
   const summaries = data.groups_summary || [];
+  const colors = ['#4FC3F7', '#FF7043', '#66BB6A', '#FFC107', '#AB47BC', '#EF5350'];
 
-  // Bar chart: avg_approval per group
+  if (_expChart) _expChart.destroy();
+
   if (summaries.length) {
-    const maxVal = Math.max(...summaries.map(s => s.avg_approval || 50), 100);
-    const barWidth = Math.min(40, cw / summaries.length - 10);
-
-    summaries.forEach((s, i) => {
-      const val = s.avg_approval || 0;
-      const barH = (val / maxVal) * ch;
-      const x = pad.left + (i + 0.5) * (cw / summaries.length) - barWidth / 2;
-      const y = pad.top + ch - barH;
-
-      ctx.fillStyle = colors[i % colors.length];
-      ctx.fillRect(x, y, barWidth, barH);
-
-      // Label
-      ctx.fillStyle = '#e0e0e0';
-      ctx.font = '10px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(s.group_name, x + barWidth / 2, h - 5);
-      ctx.fillText(val.toFixed(0), x + barWidth / 2, y - 4);
+    _expChart = new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: summaries.map(s => s.group_name),
+        datasets: [{
+          label: '平均口碑',
+          data: summaries.map(s => s.avg_approval || 0),
+          backgroundColor: summaries.map((_, i) => colors[i % colors.length] + '80'),
+          borderColor: summaries.map((_, i) => colors[i % colors.length]),
+          borderWidth: 1,
+          borderRadius: 4,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 600, easing: 'easeOutQuart' },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(15,25,35,0.95)',
+            borderColor: '#2a3a4a',
+            borderWidth: 1,
+            titleColor: '#e8edf2',
+            bodyColor: '#8899aa',
+            padding: 10,
+            cornerRadius: 6,
+          },
+        },
+        scales: {
+          x: {
+            grid: { color: '#1a2a3a' },
+            ticks: { color: '#8899aa', font: { size: 10 } },
+          },
+          y: {
+            min: 0,
+            grid: { color: '#1a2a3a' },
+            ticks: { color: '#556677', font: { size: 10 } },
+          },
+        },
+      },
     });
-
-    // Y axis
-    ctx.strokeStyle = '#1a2a3a';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 4; i++) {
-      const y = pad.top + ch * i / 4;
-      ctx.beginPath();
-      ctx.moveTo(pad.left, y);
-      ctx.lineTo(w - pad.right, y);
-      ctx.stroke();
-      ctx.fillStyle = '#556677';
-      ctx.font = '9px sans-serif';
-      ctx.textAlign = 'right';
-      ctx.fillText((maxVal - maxVal * i / 4).toFixed(0), pad.left - 4, y + 3);
-    }
   }
 
   // Best group highlight

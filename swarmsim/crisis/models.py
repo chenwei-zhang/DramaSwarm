@@ -74,6 +74,23 @@ class GossipType(Enum):
         }.get(self.value, self.value)
 
 
+class CrisisRole(Enum):
+    """危机中的角色"""
+    PERPETRATOR = "perpetrator"  # 加害者（出轨方/涉毒者/逃税者）
+    VICTIM = "victim"            # 受害者（被出轨方/受害者）
+    ACCOMPLICE = "accomplice"    # 第三者/同谋
+    BYSTANDER = "bystander"      # 旁观者（默认）
+
+    @property
+    def label(self) -> str:
+        return {
+            "perpetrator": "加害者",
+            "victim": "受害者",
+            "accomplice": "第三者",
+            "bystander": "旁观者",
+        }.get(self.value, self.value)
+
+
 class InteractionMode(Enum):
     """交互模式"""
     CRISIS = "crisis"     # 6阶段危机仿真 + 10种PR动作
@@ -164,6 +181,7 @@ class CrisisScenario:
     pre_crisis_relationships: list[dict]  # [{person_a, person_b, type, strength}]
     is_custom: bool = False               # 是否为用户自定义场景
     interaction_mode: InteractionMode = InteractionMode.CRISIS
+    person_roles: dict[str, CrisisRole] = field(default_factory=dict)  # 危机角色映射
 
 
 @dataclass

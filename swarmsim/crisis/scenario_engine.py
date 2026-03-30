@@ -12,7 +12,7 @@ import random
 from typing import Any
 
 from swarmsim.crisis.models import (
-    CrisisPhase, PRAction, GossipType, InteractionMode,
+    CrisisPhase, PRAction, GossipType, InteractionMode, CrisisRole,
     CrisisScenario, CrisisAction, CrisisState,
     InterventionCondition, TrendingTopic, MediaHeadline, BrandStatus,
     AgentMessage, FreeAction,
@@ -147,6 +147,7 @@ class CrisisScenarioEngine:
                 gossip_type=gossip_type,
                 historical_outcome=historical,
                 pre_crisis_relationships=pre_rels,
+                person_roles=self._infer_person_roles(gossip_type, involved),
             )
             self.available_scenarios[title] = scenario
 
@@ -242,6 +243,7 @@ class CrisisScenarioEngine:
             pre_crisis_relationships=pre_rels,
             is_custom=True,
             interaction_mode=mode,
+            person_roles=self._infer_person_roles(gt, valid_persons),
         )
 
         # 注册到可用场景
@@ -290,6 +292,83 @@ class CrisisScenarioEngine:
         result.sort(key=lambda x: x["weibo_followers"], reverse=True)
         return result
 
+    def _infer_person_roles(
+        self,
+        gossip_type: GossipType,
+        involved_persons: list[str],
+    ) -> dict[str, CrisisRole]:
+        """根据八卦类型和知识图谱关系推断各人的危机角色
+
+        推断逻辑：
+        - CHEATING: 配偶+绯闻对象 → PERPETRATOR/VICTIM/ACCOMPLICE
+        - DRUGS/TAX_EVASION: involved_in role="primary" → PERPETRATOR
+        - 其他: 全部 BYSTANDER（保持现有行为）
+        """
+        roles: dict[str, CrisisRole] = {p: CrisisRole.BYSTANDER for p in involved_persons}
+
+        if gossip_type == GossipType.CHEATING:
+            # 找配偶/前配偶对
+            spouse_pairs = []  # (person_a, person_b, relation)
+            affair_person = None
+
+            for i, name_a in enumerate(involved_persons):
+                for name_b in involved_persons[i + 1:]:
+                    rels = self.kg.get_relationship_context(name_a, name_b)
+                    for r in rels:
+                        rel_type = r.get("relation_type", "")
+                        if rel_type in ("配偶", "伴侣"):
+                            spouse_pairs.append((name_a, name_b, rel_type))
+                        elif rel_type in ("绯闻", "绯闻对象", "传闻"):
+                            affair_person = name_a if r.get("relation_type") else name_b
+
+            if spouse_pairs and len(involved_persons) >= 3:
+                spouse_a, spouse_b, _ = spouse_pairs[0]
+                # 剩余人中找与某配偶有"绯闻对象"关系的人
+                remaining = [p for p in involved_persons if p not in (spouse_a, spouse_b)]
+                perpetrator = None
+                accomplice = None
+
+                for rem in remaining:
+                    rels_to_a = self.kg.get_relationship_context(rem, spouse_a)
+                    rels_to_b = self.kg.get_relationship_context(rem, spouse_b)
+                    for r in rels_to_a + rels_to_b:
+                        if r.get("relation_type", "") in ("绯闻", "绯闻对象", "传闻"):
+                            accomplice = rem
+                            # 出轨方是绯闻对象关联的配偶
+                            for r2 in rels_to_a:
+                                if r2.get("relation_type", "") in ("绯闻", "绯闻对象", "传闻"):
+                                    perpetrator = spouse_a
+                                    break
+                            if not perpetrator:
+                                for r2 in rels_to_b:
+                                    if r2.get("relation_type", "") in ("绯闻", "绯闻对象", "传闻"):
+                                        perpetrator = spouse_b
+                                        break
+                            break
+                    if accomplice:
+                        break
+
+                if perpetrator and accomplice:
+                    roles[perpetrator] = CrisisRole.PERPETRATOR
+                    roles[accomplice] = CrisisRole.ACCOMPLICE
+                    # 配偶中不是出轨方的就是受害者
+                    victim = spouse_b if perpetrator == spouse_a else spouse_a
+                    roles[victim] = CrisisRole.VICTIM
+
+        elif gossip_type in (GossipType.DRUGS, GossipType.TAX_EVASION):
+            # 涉毒/逃税：主当事人为 PERPETRATOR
+            for person in involved_persons:
+                node_id = f"celebrity:{person}"
+                if self.kg._graph.has_node(node_id):
+                    # 查找涉及此人的八卦事件，看 role
+                    for _, _, data in self.kg._graph.edges(node_id, data=True):
+                        if data.get("edge_type") == "involved_in":
+                            if data.get("role", "") in ("primary", "主角", "当事人"):
+                                roles[person] = CrisisRole.PERPETRATOR
+                                break
+
+        return roles
+
 
 class CrisisSimulation:
     """单次危机仿真运行"""
@@ -312,7 +391,10 @@ class CrisisSimulation:
         # Agent
         self.agents: dict[str, CelebrityPersonaAgent] = {}
         for name in scenario.involved_persons:
-            self.agents[name] = CelebrityPersonaAgent(name, kg, use_llm=use_llm)
+            agent = CelebrityPersonaAgent(name, kg, use_llm=use_llm)
+            agent.crisis_role = scenario.person_roles.get(name, CrisisRole.BYSTANDER)
+            agent.gossip_type = scenario.gossip_type
+            self.agents[name] = agent
 
         # 子系统
         self.action_space = CrisisActionSpace()
@@ -631,22 +713,39 @@ class CrisisSimulation:
         return headlines
 
     def _apply_daily_decay(self) -> None:
-        """每日自然衰减"""
+        """每日自然衰减（角色差异化）"""
         # 热度自然下降 10%
         self.current_state.heat_index = max(
             0, self.current_state.heat_index * 0.9
         )
 
-        # 口碑向 50 回归
+        # 角色差异化回归参数
+        ROLE_DECAY = {
+            CrisisRole.PERPETRATOR: {"target": 25, "rate": 0.1},   # 出轨者回归极慢，上限低
+            CrisisRole.ACCOMPLICE:  {"target": 30, "rate": 0.15},
+            CrisisRole.VICTIM:      {"target": 60, "rate": 0.8},   # 受害者恢复快
+            CrisisRole.BYSTANDER:   {"target": 50, "rate": 0.5},   # 默认
+        }
+
+        # 口碑回归
         for name in self.current_state.approval_scores:
             score = self.current_state.approval_scores[name]
-            if score < 50:
+            role = self.scenario.person_roles.get(name, CrisisRole.BYSTANDER)
+            decay = ROLE_DECAY.get(role, ROLE_DECAY[CrisisRole.BYSTANDER])
+            target = decay["target"]
+            rate = decay["rate"]
+
+            # 封杀线：出轨者口碑低于15不再回归
+            if role == CrisisRole.PERPETRATOR and score < 15:
+                continue
+
+            if score < target:
                 self.current_state.approval_scores[name] = min(
-                    50, score + 0.5
+                    target, score + rate
                 )
-            elif score > 50:
+            elif score > target:
                 self.current_state.approval_scores[name] = max(
-                    50, score - 0.3
+                    target, score - rate * 0.6
                 )
 
         # 品牌价值向 50 回归
@@ -708,12 +807,14 @@ class CrisisSimulation:
                 continue
             relation_type = rels[0].get("relation_type", "")
 
-            # 配偶/家人做了重大动作 → 标记需要回应
-            if relation_type in ("配偶", "前配偶", "伴侣", "家人", "亲属") and \
-               action.action in (
-                   PRAction.APOLOGIZE, PRAction.COUNTERATTACK,
-                   PRAction.PLAY_VICTIM, PRAction.STATEMENT,
-               ):
+            # 配偶/家人/绯闻对象做了重大动作 → 标记需要回应
+            if relation_type in (
+                "配偶", "前配偶", "伴侣", "家人", "亲属",
+                "绯闻对象", "绯闻", "传闻",
+            ) and action.action in (
+                PRAction.APOLOGIZE, PRAction.COUNTERATTACK,
+                PRAction.PLAY_VICTIM, PRAction.STATEMENT,
+            ):
                 agent.memory.append(
                     f"PROPAGATION: {action.actor}做了{action.action.label}，我被触发回应"
                 )

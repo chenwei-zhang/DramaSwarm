@@ -13,7 +13,7 @@ import random
 from typing import Any
 
 from swarmsim.crisis.models import (
-    CrisisPhase, PRAction, CrisisAction, AgentMessage, FreeAction,
+    CrisisPhase, PRAction, CrisisAction, AgentMessage, FreeAction, CrisisRole, GossipType,
 )
 from swarmsim.graph.temporal import TemporalKnowledgeGraph
 
@@ -60,6 +60,10 @@ class CelebrityPersonaAgent:
         self.name = name
         self.kg = kg
         self.use_llm = use_llm
+
+        # 危机角色（由仿真引擎注入）
+        self.crisis_role: CrisisRole = CrisisRole.BYSTANDER
+        self.gossip_type: GossipType | None = None
 
         # 从图谱构建性格画像 (Big Five)
         self.personality = self._build_personality()
@@ -287,6 +291,7 @@ class CelebrityPersonaAgent:
                 rel = rels[0]
                 if rel.get("relation_type") in (
                     "配偶", "前配偶", "伴侣", "家人", "亲属",
+                    "绯闻", "绯闻对象", "传闻",
                 ) and peer.action in (
                     PRAction.APOLOGIZE, PRAction.COUNTERATTACK,
                     PRAction.PLAY_VICTIM, PRAction.STATEMENT,
@@ -356,6 +361,29 @@ class CelebrityPersonaAgent:
             if peer_action.target == self.name:
                 self._boost(candidates, PRAction.STATEMENT, 2.0)
                 self._boost(candidates, PRAction.COUNTERATTACK, 1.0)
+
+            # 绯闻对象道歉了 → 我也倾向隐退/声明
+            if relation_type in ("绯闻对象", "绯闻", "传闻") and \
+               peer_action.action == PRAction.APOLOGIZE:
+                self._boost(candidates, PRAction.HIDE, 1.5)
+                self._boost(candidates, PRAction.STATEMENT, 1.0)
+
+            # 绯闻对象反击了 → 我倾向声明/沉默
+            if relation_type in ("绯闻对象", "绯闻", "传闻") and \
+               peer_action.action == PRAction.COUNTERATTACK:
+                self._boost(candidates, PRAction.STATEMENT, 1.5)
+                self._boost(candidates, PRAction.SILENCE, 1.0)
+
+            # 前配偶道歉了 → 我发声明表明立场
+            if relation_type in ("前配偶", "前任") and \
+               peer_action.action == PRAction.APOLOGIZE:
+                self._boost(candidates, PRAction.STATEMENT, 1.5)
+
+            # 前配偶反击了 → 我倾向起诉/声明
+            if relation_type in ("前配偶", "前任") and \
+               peer_action.action == PRAction.COUNTERATTACK:
+                self._boost(candidates, PRAction.LAWSUIT, 2.0)
+                self._boost(candidates, PRAction.STATEMENT, 1.5)
 
     def _apply_audience_influence(
         self,
@@ -486,6 +514,36 @@ class CelebrityPersonaAgent:
             if phase == CrisisPhase.AFTERMATH:
                 candidates.append((PRAction.COMEBACK, 2.5))
 
+        # ── 角色感知修正 ──
+        if self.crisis_role == CrisisRole.PERPETRATOR:
+            # 出轨方/加害者：禁止复出，不能卖惨，倾向道歉和隐退
+            self._boost(candidates, PRAction.COMEBACK, -5.0)
+            self._boost(candidates, PRAction.PLAY_VICTIM, -3.0)
+            self._boost(candidates, PRAction.COUNTERATTACK, -2.0)
+            self._boost(candidates, PRAction.HIDE, 2.0)
+            self._boost(candidates, PRAction.APOLOGIZE, 1.5)
+            self._boost(candidates, PRAction.SILENCE, 1.0)
+            # 余波期额外禁止复出
+            if phase == CrisisPhase.AFTERMATH:
+                self._boost(candidates, PRAction.COMEBACK, -5.0)
+
+        elif self.crisis_role == CrisisRole.VICTIM:
+            # 受害者：发声明、起诉，不道歉，可以卖惨
+            self._boost(candidates, PRAction.STATEMENT, 2.0)
+            self._boost(candidates, PRAction.LAWSUIT, 1.5)
+            self._boost(candidates, PRAction.APOLOGIZE, -3.0)
+            self._boost(candidates, PRAction.PLAY_VICTIM, 1.0)
+            self._boost(candidates, PRAction.COUNTERATTACK, -1.0)
+            self._boost(candidates, PRAction.COMEBACK, 1.0)
+
+        elif self.crisis_role == CrisisRole.ACCOMPLICE:
+            # 第三者/同谋：禁止复出，不能卖惨，倾向道歉和隐退
+            self._boost(candidates, PRAction.COMEBACK, -4.0)
+            self._boost(candidates, PRAction.PLAY_VICTIM, -2.5)
+            self._boost(candidates, PRAction.HIDE, 1.5)
+            self._boost(candidates, PRAction.APOLOGIZE, 1.0)
+            self._boost(candidates, PRAction.COUNTERATTACK, -1.5)
+
         # 高热度 → 必须有动作
         if heat > 70 and approval < 50:
             candidates.append((PRAction.STATEMENT, 3.5))
@@ -590,8 +648,20 @@ class CelebrityPersonaAgent:
             if sample:
                 audience_info += "观众评论示例：" + "；".join(sample) + "\n"
 
+        # 角色上下文
+        role_context = ""
+        if self.crisis_role == CrisisRole.PERPETRATOR:
+            role_context = "你是这场危机的主要过错方，公众认为你犯下了严重错误。你不应该尝试复出或卖惨。"
+        elif self.crisis_role == CrisisRole.VICTIM:
+            role_context = "你是这场危机的受害者，公众对你表示同情。你不需要道歉。"
+        elif self.crisis_role == CrisisRole.ACCOMPLICE:
+            role_context = "你是这场危机的关联当事人（第三者/同谋），公众对你持负面看法。你不应该复出或卖惨。"
+        if self.gossip_type:
+            role_context += f"\n这是一起{self.gossip_type.label}事件。"
+
         return (
             f"你是明星{self.name}，正面临公关危机。\n"
+            f"{role_context}\n"
             f"当前第{day}天，阶段：{phase.label}，"
             f"你的口碑分：{approval:.0f}/100，舆情热度：{heat:.0f}/100。\n"
             f"你的性格特质：{self.personality}\n"
@@ -608,6 +678,8 @@ class CelebrityPersonaAgent:
     def reset(self):
         self.memory.clear()
         self.past_actions.clear()
+        self.crisis_role = CrisisRole.BYSTANDER
+        self.gossip_type = None
 
     # ── 自由互动模式 ──
 
