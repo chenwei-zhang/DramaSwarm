@@ -93,20 +93,26 @@ swarmsim/graph/
 └── temporal.py           # TemporalKnowledgeGraph — date-indexed, person timelines
 
 swarmsim/crisis/          # Crisis simulation engine
-├── models.py             # CrisisPhase(6), PRAction(10), InteractionMode, FreeAction(8), CrisisState, etc.
+├── models.py             # CrisisPhase(6), PRAction(10), CrisisRole(4), InteractionMode, FreeAction(8), CrisisState, etc.
 ├── timeline.py           # 1 turn = 1 day, 6-phase lifecycle
 ├── action_space.py       # 10 PR actions × 6 phases effect matrix + Big Five mods
 ├── free_action_space.py  # FreeActionSpace — simplified effect computation (no phase modifiers)
 ├── persona_agent.py      # CelebrityPersonaAgent (rule/LLM), builds persona from GraphRAG
+│                         # crisis_role (PERPETRATOR/VICTIM/ACCOMPLICE/BYSTANDER) injected by engine
+│                         # Role-aware decision: perp banned from comeback, victim won't apologize
+│                         # Extended peer_influence: 绯闻对象/前配偶 relationship handling
+│                         # LLM prompt enhanced with role context + gossip_type
 │                         # Supports peer_actions + audience_reactions for inter-agent interaction
 │                         # Free mode: generate_free_response() / _rule_decide_free() / _llm_decide_free()
 ├── vacuum_detector.py    # Silence → rumor cascade, probability escalates with days
 ├── intervention.py       # User what-if conditions with trigger types (TIME_ABSOLUTE/TIME_RELATIVE/STATE_THRESHOLD)
 │                         # External events (MEDIA_REPORT/VIDEO_LEAK/COMPETITOR_ANNOUNCE/etc.)
 ├── experiment.py         # ExperimentManager, Experiment, ExperimentGroup, ComparisonResult — A/B testing
-├── scenario_engine.py    # CrisisScenarioEngine (load) + CrisisSimulation (async run loop)
+├── scenario_engine.py    # CrisisScenarioEngine (load + role inference) + CrisisSimulation (async run loop)
+│                         # _infer_person_roles(): auto-infer PERPETRATOR/VICTIM/ACCOMPLICE from graph relations
 │                         # Sequential decision making: later agents see earlier actions
 │                         # Branches on interaction_mode (CRISIS vs FREE)
+│                         # Role-aware daily decay: perp target=25 rate=0.1, victim target=60 rate=0.8
 ├── message_bus.py        # Agent-to-agent message bus (broadcast/direct/per-type filtering)
 ├── audience.py           # AudiencePool (30 agents: 粉丝/路人/理中客/黑粉) + reaction templates
 └── outcome_analyzer.py   # Compare sim vs historical baseline, generate PR recommendations
