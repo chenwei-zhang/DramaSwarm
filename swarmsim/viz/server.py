@@ -2,7 +2,7 @@
 """
 DramaSwarm 可视化服务器
 
-FastAPI 应用，提供图谱和仿真 API，并托管前端静态页面。
+FastAPI 应用，提供图谱和危机仿真 API，并托管前端静态页面。
 """
 
 from __future__ import annotations
@@ -25,7 +25,6 @@ from fastapi.staticfiles import StaticFiles
 
 from swarmsim.graph.temporal import TemporalKnowledgeGraph
 from swarmsim.viz.api_graph import router as graph_router
-from swarmsim.viz.api_simulation import router as sim_router
 from swarmsim.viz.api_crisis import router as crisis_router
 
 
@@ -69,11 +68,7 @@ def _load_knowledge_graph() -> TemporalKnowledgeGraph:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """应用生命周期"""
-    # 启动时加载图谱
     app.state.kg = _load_knowledge_graph()
-    app.state.environment = None
-    app.state.observer = None
-    app.state.event_loop = None
     app.state.crisis_engine = None
     app.state.crisis_simulation = None
     yield
@@ -83,7 +78,7 @@ def create_app() -> FastAPI:
     """创建 FastAPI 应用"""
     app = FastAPI(
         title="DramaSwarm GraphRAG",
-        description="多智能体群体仿真可视化",
+        description="娱乐圈危机公关仿真可视化",
         version="1.0.0",
         lifespan=lifespan,
     )
@@ -98,7 +93,6 @@ def create_app() -> FastAPI:
 
     # API 路由
     app.include_router(graph_router, prefix="/api/graph")
-    app.include_router(sim_router, prefix="/api/sim")
     app.include_router(crisis_router, prefix="/api/crisis")
 
     # 静态文件

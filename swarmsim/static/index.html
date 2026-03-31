@@ -1012,28 +1012,6 @@ body.loaded #right-sidebar { transform: translateX(0); }
       <div class="stat-grid" id="stats-grid"></div>
     </div>
 
-    <div class="sidebar-section">
-      <h3>仿真控制</h3>
-      <div class="sim-controls">
-        <button class="btn" id="sim-start-btn">启动仿真</button>
-        <button class="btn" id="sim-pause-btn">暂停</button>
-        <button class="btn danger" id="sim-stop-btn">停止</button>
-      </div>
-      <div id="inject-form">
-        <textarea id="inject-text" placeholder="注入事件内容..."></textarea>
-        <button class="btn" id="inject-btn" style="margin-top:4px;width:100%">注入事件</button>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>Agent 状态</h3>
-      <div id="agent-list"></div>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>社会反应</h3>
-      <div id="reaction-layers"></div>
-    </div>
   </div>
 
   <!-- Canvas -->
@@ -1966,144 +1944,6 @@ function updateLegend() {
   legend.innerHTML = html;
 }
 
-// ── Simulation ──
-async function startSim() {
-  const names = celebrities.length >= 5 ? celebrities.slice(0, 5) : ['杨幂', '李小璐', '贾乃亮', 'PG One', '唐嫣'];
-  const result = await apiPost('/api/sim/start', { names, turns: 15, use_llm: false });
-  if (result.status === 'started') {
-    document.getElementById('sim-start-btn').classList.add('active');
-    pollSimState();
-  } else {
-    showToast('启动失败: ' + (result.message || JSON.stringify(result)), 'error');
-  }
-}
-
-async function pollSimState() {
-  const state = await api('/api/sim/state');
-  renderSimState(state);
-  if (state.loop_stats && state.loop_stats.total_turns < 15) {
-    setTimeout(pollSimState, 2000);
-  } else {
-    document.getElementById('sim-start-btn').classList.remove('active');
-  }
-}
-
-function renderSimState(state) {
-  // Agents
-  const agentList = document.getElementById('agent-list');
-  if (state.agents && state.agents.length) {
-    const stateEmojis = { idle: '😊', thinking: '🤔', speaking: '💬', listening: '👂', acting: '🎬', stressed: '😫', withdrawn: '🙍' };
-    agentList.innerHTML = state.agents.map(a => `
-      <div class="agent-card" onclick="navigateToNode('${a.name}')">
-        <span class="emoji">${stateEmojis[a.state] || '❓'}</span>
-        <div class="info">
-          <div class="name">${a.name}</div>
-          <div class="role">${a.role}</div>
-        </div>
-        <div class="bars">
-          <div class="mini-bar stress"><div class="fill" style="width:${Math.round(a.stress_level*100)}%"></div></div>
-          <div class="mini-bar energy"><div class="fill" style="width:${Math.round(a.energy_level*100)}%"></div></div>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  // Reaction layers
-  const layersDiv = document.getElementById('reaction-layers');
-  if (state.environment && state.environment.reactions) {
-    const reactions = state.environment.reactions;
-    let html = '';
-
-    // Public Opinion
-    if (reactions.public_opinion) {
-      const po = reactions.public_opinion;
-      const sentiment = po.sentiment || {};
-      html += `
-        <div class="reaction-layer">
-          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
-            <span><span class="icon">👥</span>公众舆论</span>
-            <span style="color:#4FC3F7">热度 ${(sentiment.heat_index || 0).toFixed(0)}</span>
-          </div>
-          <div class="reaction-body">
-            <div>正面: ${((sentiment.positive_ratio || 0) * 100).toFixed(0)}% | 负面: ${((sentiment.negative_ratio || 0) * 100).toFixed(0)}%</div>
-            ${Object.entries(po.approval_scores || {}).map(([k,v]) => `<div style="margin-top:2px">${k}: ${(v*100).toFixed(0)}%</div>`).join('')}
-          </div>
-        </div>`;
-    }
-
-    // Hot Search
-    if (reactions.social_platform) {
-      const sp = reactions.social_platform;
-      const hot = sp.hot_search || [];
-      html += `
-        <div class="reaction-layer">
-          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
-            <span><span class="icon">🔥</span>热搜榜</span>
-            <span style="color:#FF7043">${hot.length}条</span>
-          </div>
-          <div class="reaction-body">
-            ${hot.slice(0, 8).map(t => `
-              <div class="hot-item">
-                <span class="rank">${t.rank || '?'}</span>
-                <span style="flex:1;font-size:11px">${(t.title || '').substring(0, 20)}</span>
-                <span class="heat">${((t.heat || 0) / 1000).toFixed(0)}k</span>
-              </div>`).join('')}
-          </div>
-        </div>`;
-    }
-
-    // Media
-    if (reactions.media) {
-      const med = reactions.media;
-      const headlines = med.headlines || [];
-      html += `
-        <div class="reaction-layer">
-          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
-            <span><span class="icon">📰</span>媒体报道</span>
-            <span style="color:#66BB6A">${headlines.length}条</span>
-          </div>
-          <div class="reaction-body">
-            ${headlines.slice(0, 5).map(h => `<div style="margin-bottom:4px">${SENTIMENT_ICONS[h.sentiment] || '⚪'} ${h.headline || ''}</div>`).join('')}
-          </div>
-        </div>`;
-    }
-
-    // Government
-    if (reactions.government) {
-      const gov = reactions.government;
-      html += `
-        <div class="reaction-layer">
-          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
-            <span><span class="icon">🏛️</span>监管</span>
-            <span style="color:${(gov.escalation_level || 0) > 2 ? '#FF7043' : '#66BB6A'}">等级 ${gov.escalation_level || 0}</span>
-          </div>
-          <div class="reaction-body">
-            <div>${gov.action || '无行动'}</div>
-            ${gov.warning_text ? `<div style="color:#FF7043;margin-top:4px">${gov.warning_text}</div>` : ''}
-          </div>
-        </div>`;
-    }
-
-    // Commercial
-    if (reactions.commercial) {
-      const com = reactions.commercial;
-      const brands = com.brand_statuses || {};
-      html += `
-        <div class="reaction-layer">
-          <div class="reaction-header" onclick="this.nextElementSibling.classList.toggle('open')">
-            <span><span class="icon">💰</span>商业</span>
-            <span style="color:#FF9800">${Object.keys(brands).length}人</span>
-          </div>
-          <div class="reaction-body">
-            ${Object.entries(brands).map(([name, s]) => `<div style="margin-bottom:4px">${name}: 价值 ${s.commercial_value || '?'}</div>`).join('')}
-          </div>
-        </div>`;
-    }
-
-    layersDiv.innerHTML = html || '<div style="color:#556677;font-size:11px">运行仿真后显示</div>';
-  }
-}
-
 // ── Event Listeners ──
 function setupEventListeners() {
   // Filter change
@@ -2142,23 +1982,7 @@ function setupEventListeners() {
     }
   });
 
-  // Simulation controls
-  document.getElementById('sim-start-btn').addEventListener('click', startSim);
-  document.getElementById('sim-pause-btn').addEventListener('click', () => apiPost('/api/sim/pause', {}));
-  document.getElementById('sim-resume-btn')?.addEventListener('click', () => apiPost('/api/sim/resume', {}));
-  document.getElementById('sim-stop-btn').addEventListener('click', () => {
-    apiPost('/api/sim/stop', {});
-    document.getElementById('sim-start-btn').classList.remove('active');
-  });
-
-  // Inject event
-  document.getElementById('inject-btn').addEventListener('click', () => {
-    const text = document.getElementById('inject-text').value.trim();
-    if (!text) return;
-    apiPost('/api/sim/inject', { event_type: 'conflict', content: text, severity: 0.7 });
-    document.getElementById('inject-text').value = '';
-    setTimeout(pollSimState, 500);
-  });
+  // Simulation controls removed
 
   // Resize
   const resizeObserver = new ResizeObserver(() => {

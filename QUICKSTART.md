@@ -10,14 +10,12 @@
 
   
 
-DramaSwarm 是一个**娱乐圈危机公关仿真器**。它包含三套仿真引擎：
-  
+DramaSwarm 是一个**娱乐圈危机公关仿真器**。它包含两套核心引擎：
 
-1. **知识图谱引擎** — 存储明星关系、八卦事件，用 D3.js 可力导向图交互展示
-  
-2. **危机仿真引擎** — 模拟公关危机从爆发到平息的全过程，用户可干预看what-if" 推演
-  
-3. **综艺修罗场引擎** — 模拟综艺节目中的群体互动
+
+1. **知识图谱引擎** — 存储明星关系、八卦事件，用 D3.js 力导向图交互展示
+
+2. **危机仿真引擎** — 模拟公关危机从爆发到平息的全过程，用户可干预看 what-if 推演
 
   
 
@@ -346,10 +344,8 @@ python run_viz.py --reload          # 开发模式（代码改动自动重载）
 
 在创建自定义场景时，交互模式选择 **"自由互动"** 即可启用。
 适合场景:
-- 模拟综艺节目中的明星互动
-- 测试"明星之间的社交动态"
+- 测试明星之间的社交动态
 - 探索不同性格组合的化学反应
-
 - 无危机背景下的日常模拟
 
 ---
@@ -444,24 +440,6 @@ python -m demos.crisis_simulation
 **效果**: 逐天展示危机 6 阶段中各 Agent 的 PR 策略选择、口碑变化、最终结果对比。
 无需 API Key，无需联网。
 
-### 9.2 综艺修罗场模拟（纯规则）
- 
-
-```bash
-python -m demos.variety_show_simulation
-```
-**效果**: 模拟 5 个明星在综艺节目中的互动，观察五层链式反应（舆论→媒体→热搜→监管→品牌）。
-
-无需 API Key。
-
-### 9.3 综艺模拟 + LLM（需要 API Key）
- 
-
-```bash
-python -m demos.variety_show_simulation --llm --provider gemini --turns 10
-```
-**效果**: Agent 使用 LLM 生成更自然、多样的对话。需要 `GEMINI_API_KEY`。
-
 ---
 
 ## 十、常见问题
@@ -470,7 +448,6 @@ python -m demos.variety_show_simulation --llm --provider gemini --turns 10
 
 **Q: 需要 API Key 吗？**
 不需要。核心功能（危机仿真、自由互动、A/B 实验）全部基于规则引擎。 配置 LLM API Key 后 Agent 决策更自然，但不影响核心功能。
-只有综艺 LLM 模式需要 API Key。
 
 **Q: 为什么图谱只有 10 个明星？**
 数据来自 `celebrity_scraper/data/` 目录下的 JSON 文件（10 个）可以运行爬虫添加更多：

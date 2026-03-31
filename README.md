@@ -1,22 +1,18 @@
-# DramaSwarm - 多智能体群体仿真引擎
+# DramaSwarm - 娱乐圈危机公关仿真引擎
 
-> 基于 MiroFish 概念的垂直领域实现：**综艺节目修罗场/CP感推演器**
+> 基于多智能体仿真的**娱乐圈危机公关推演器**
 
 ## 项目简介
 
-DramaSwarm 是一个轻量级的多智能体仿真引擎，专注于模拟复杂社交场景中的群体行为。本项目采用**垂直切入**策略，首先实现综艺节目场景的推演能力，并支持**公关危机 what-if 仿真**。
+DramaSwarm 是一个轻量级的多智能体仿真引擎，专注于模拟娱乐圈公关危机场景中的群体行为。基于时序知识图谱（GraphRAG）构建明星关系网络，运行多 Agent 危机仿真，支持 **what-if 干预推演**和**对照实验**。
 
 ### 核心特性
 
-- **Agent 生成器**: 从种子信息自动生成具有独立人格的智能体
-- **多层反应系统**: 事件触发公众舆论→媒体报道→热搜发酵→政府监管→品牌解约的连锁反应
-- **事件驱动引擎**: 控制智能体交互的节拍和状态流转
-- **观测总结模块**: 实时分析群体动态并生成推演报告
-- **GraphRAG 可视化**: Web 界面交互式探索知识图谱，D3.js 力导向图展示明星关系网络
 - **危机仿真引擎**: 基于时序 GraphRAG 的多 Agent 公关危机模拟，支持 what-if 干预和结果对比分析
 - **角色感知决策**: Agent 自动推断危机角色（加害者/受害者/第三者），决策策略与角色匹配（出轨者不复出、受害者不道歉）
 - **多 Agent 交互**: 顺序决策 + 关系影响 + 观众反应 + 社交传播，Agent 之间有真实互动
 - **深度人格建模**: 10 维确定性人格画像，从 8 类图谱数据源（职业/Bio/粉丝/作品/公司/历史事件/关系网/性格推导）自动构建
+- **GraphRAG 可视化**: Web 界面交互式探索知识图谱，D3.js 力导向图展示明星关系网络
 - **自由组局**: 自定义场景 + 明星选择 + 关系定义，支持危机模式和自由互动模式
 - **丰富干预**: 三类触发（定时/相对天数/状态阈值）+ 三类动作（强制PR/外部事件/关系变更）
 - **对照实验**: 同一场景多组干预配置并行仿真，自动对比口碑差值并推荐最佳策略
@@ -50,9 +46,6 @@ DEFAULT_TURNS=50
 ### 运行 Demo
 
 ```bash
-# 综艺节目修罗场模拟
-python -m demos.variety_show_simulation
-
 # 危机仿真（纯规则模式，无需 API key）
 python -m demos.crisis_simulation
 
@@ -83,23 +76,6 @@ DramaSwarm/
 ├── test_scraper.py               # 爬虫测试脚本
 │
 ├── swarmsim/                     # 多智能体仿真引擎
-│   ├── core/
-│   │   ├── agent.py              # Agent 基类与 LLM Agent
-│   │   ├── environment/          # 环境模块（包）
-│   │   │   ├── __init__.py       # 统一导出
-│   │   │   ├── base.py           # Environment 基类
-│   │   │   ├── variety_show.py   # 综艺节目专用环境
-│   │   │   ├── models.py         # 反应系统数据模型
-│   │   │   ├── reaction_bus.py   # 反应协调器
-│   │   │   └── layers/           # 五大反应层
-│   │   │       ├── public_opinion.py  # 公众舆论/粉丝反应
-│   │   │       ├── media.py           # 媒体报道/标题生成
-│   │   │       ├── social_platform.py # 社交平台/热搜榜
-│   │   │       ├── government.py      # 政府监管/关键词审查
-│   │   │       └── commercial.py      # 商业品牌/代言解约
-│   │   ├── event_loop.py         # 事件驱动引擎
-│   │   ├── factory.py            # Agent 工厂
-│   │   └── observer.py           # 观测总结模块
 │   ├── graph/                   # 知识图谱模块（GraphRAG）
 │   │   ├── knowledge_graph.py   # networkx 图引擎 + 查询 + 上下文生成
 │   │   └── temporal.py          # 时序 GraphRAG（日期索引 + 人物时间线）
@@ -118,7 +94,6 @@ DramaSwarm/
 │   ├── viz/                     # 可视化模块（FastAPI + D3.js）
 │   │   ├── server.py            # FastAPI 应用
 │   │   ├── api_graph.py         # 图谱 API 路由
-│   │   ├── api_simulation.py    # 仿真 API 路由
 │   │   ├── api_crisis.py        # 危机仿真 API（场景/自定义/实验等端点）
 │   │   └── serializer.py        # networkx → D3 JSON 转换
 │   ├── static/
@@ -148,11 +123,9 @@ DramaSwarm/
 │       └── ...
 │
 ├── demos/
-│   ├── variety_show_simulation.py # 综艺修罗场模拟 Demo
 │   └── crisis_simulation.py      # 危机仿真 CLI Demo（纯规则模式）
 │
 └── tests/
-    ├── test_agent.py             # Agent 单元测试
     ├── test_temporal_graph.py    # 时序图谱测试
     └── test_crisis_engine.py     # 危机引擎测试
 ```
@@ -231,13 +204,12 @@ DramaSwarm/
 
 ## 开发路线图
 
-- [x] Phase 1: 基础框架 - 3-5 个 Agent 的简单对话
-- [x] Phase 2: 多层反应系统 - 公众舆论/媒体/热搜/监管/品牌五层链式反应
-- [x] Phase 3: 知识图谱 - 基于 GraphRAG 的关系管理与图推理上下文注入
-- [x] Phase 4: 危机仿真引擎 - 时序 GraphRAG + 多 Agent 公关危机模拟 + what-if 干预 + 结果对比
-- [x] Phase 5: 深度人格建模 - 10 维确定性人格，8 类图谱数据源
-- [x] Phase 6: 自由组局 + 丰富干预 + 多样交互 + 对照实验
-- [ ] Phase 7: 扩展规模 - 支持 50+ Agent 并行交互
+- [x] Phase 1: 基础框架 - 多 Agent 仿真核心架构
+- [x] Phase 2: 知识图谱 - 基于 GraphRAG 的关系管理与图推理上下文注入
+- [x] Phase 3: 危机仿真引擎 - 时序 GraphRAG + 多 Agent 公关危机模拟 + what-if 干预 + 结果对比
+- [x] Phase 4: 深度人格建模 - 10 维确定性人格，8 类图谱数据源
+- [x] Phase 5: 自由组局 + 丰富干预 + 多样交互 + 对照实验
+- [ ] Phase 6: 扩展规模 - 支持 50+ Agent 并行交互
 
 ## 技术架构
 
@@ -248,19 +220,8 @@ DramaSwarm/
 └──────────────────────────┬──────────────────────────────────┘
                            │ 监控所有交互
 ┌──────────────────────────▼──────────────────────────────────┐
-│                  Environment (上帝环境)                       │
-│        时间线 | 天气 | 全局事件 | 广播公告板                  │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │               ReactionBus 反应协调器                  │   │
-│  │                                                      │   │
-│  │  事件 ──→ ① PublicOpinionLayer  (公众舆论/好感度)     │   │
-│  │          ② MediaLayer           (媒体报道/标题生成)   │   │
-│  │          ③ SocialPlatformLayer  (热搜榜/曝光量)       │   │
-│  │          ④ GovernmentLayer      (关键词审查/封禁)     │   │
-│  │          ⑤ CommercialLayer      (品牌代言/商业价值)   │   │
-│  │                                                      │   │
-│  │  ──→ 反馈到 Agent.perceive() 影响后续行为             │   │
-│  └──────────────────────────────────────────────────────┘   │
+│                  CrisisSimulation (仿真引擎)                  │
+│        时间线 | 6阶段生命周期 | 干预系统 | 观众反应          │
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │      TemporalKnowledgeGraph 时序知识图谱               │   │
 │  │   celebrity_scraper/data/*.json → networkx 图         │   │
@@ -275,14 +236,10 @@ DramaSwarm/
 │  Agent A  │   │ Agent B │      │  Agent N    │
 │  人设+记忆 │   │ 人设+记忆│      │  人设+记忆   │
 │ +图谱上下文│   │+图谱上下文│      │ +图谱上下文  │
+│ +危机角色  │   │+危机角色 │      │ +危机角色    │
 └───────────┘   └─────────┘      └─────────────┘
       │               │                   │
       └───────────────┴───────────────────┘
-                     │
-            ┌────────▼────────┐
-            │   Event Loop    │
-            │  (事件驱动引擎)  │
-            └────────┬────────┘
                      │
        ┌─────────────▼──────────────┐
        │   FastAPI Visualization     │
@@ -299,7 +256,6 @@ DramaSwarm/
        │   │  干预面板 · 结果对比 │  │
        │   └─────────────────────┘  │
        │   /api/graph/*             │
-       │   /api/sim/*               │
        │   /api/crisis/*            │
        └────────────────────────────┘
 ```
