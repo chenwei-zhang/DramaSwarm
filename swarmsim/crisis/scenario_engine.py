@@ -316,7 +316,7 @@ class CrisisScenarioEngine:
                     rels = self.kg.get_relationship_context(name_a, name_b)
                     for r in rels:
                         rel_type = r.get("relation_type", "")
-                        if rel_type in ("配偶", "伴侣"):
+                        if rel_type in ("配偶", "前配偶", "伴侣"):
                             spouse_pairs.append((name_a, name_b, rel_type))
                         elif rel_type in ("绯闻", "绯闻对象", "传闻"):
                             affair_person = name_a if r.get("relation_type") else name_b
