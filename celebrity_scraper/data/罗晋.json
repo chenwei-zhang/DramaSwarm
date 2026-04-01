@@ -46,7 +46,17 @@
     "updated_at": "2026-04-01T08:34:46.978887"
   },
   "gossips": [],
-  "relationships": [],
+  "relationships": [
+    {
+      "person_a": "罗晋",
+      "person_b": "唐嫣",
+      "relation_type": "配偶",
+      "is_current": true,
+      "description": "《X女特工》《锦绣未央》等多部剧共同主演",
+      "confidence": 1.0,
+      "strength": 0.9
+    }
+  ],
   "social_media_posts": [
     {
       "id": "QyLfCloLr",
@@ -568,7 +578,7 @@
     "total_posts": 30,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 0,
+    "total_relationships": 1,
     "total_gossips": 0
   }
 }

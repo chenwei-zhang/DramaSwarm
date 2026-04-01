@@ -48,9 +48,18 @@
       "person_b": "罗晋",
       "relation_type": "配偶",
       "is_current": true,
-      "description": "2018年结婚",
+      "description": "《X女特工》《锦绣未央》等多部剧共同主演",
       "confidence": 1.0,
       "strength": 0.9
+    },
+    {
+      "person_a": "唐嫣",
+      "person_b": "杨幂",
+      "relation_type": "搭档",
+      "is_current": true,
+      "description": "《仙剑奇侠传三》共同主演",
+      "confidence": 0.9,
+      "strength": 0.5
     }
   ],
   "social_media_posts": [
@@ -570,7 +579,7 @@
     "total_posts": 30,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 1,
+    "total_relationships": 2,
     "total_gossips": 0
   }
 }

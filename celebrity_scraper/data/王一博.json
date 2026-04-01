@@ -40,7 +40,17 @@
     "updated_at": "2026-04-01T08:32:02.538379"
   },
   "gossips": [],
-  "relationships": [],
+  "relationships": [
+    {
+      "person_a": "王一博",
+      "person_b": "肖战",
+      "relation_type": "搭档",
+      "is_current": true,
+      "description": "《陈情令》共同主演",
+      "confidence": 1.0,
+      "strength": 0.6
+    }
+  ],
   "social_media_posts": [
     {
       "id": "Kvm6gcnp5",
@@ -611,7 +621,7 @@
     "total_posts": 31,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 0,
+    "total_relationships": 1,
     "total_gossips": 0
   }
 }

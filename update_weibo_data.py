@@ -37,25 +37,32 @@ TOP_CELEBRITIES = [
 
 # 已知名人之间的确定关系（人工验证）
 KNOWN_RELATIONSHIPS = [
-    # 配偶
+    # ── 配偶 ──
     {"person_a": "唐嫣", "person_b": "罗晋", "relation_type": "配偶",
      "is_current": True, "description": "2018年结婚", "confidence": 1.0, "strength": 0.9},
-    # 前配偶
+    # ── 前配偶 ──
     {"person_a": "李小璐", "person_b": "贾乃亮", "relation_type": "前配偶",
      "is_current": False, "description": "2012年结婚，2019年离婚", "confidence": 1.0, "strength": 0.7},
     {"person_a": "杨幂", "person_b": "刘恺威", "relation_type": "前配偶",
      "is_current": False, "description": "2014年结婚，2018年离婚", "confidence": 1.0, "strength": 0.7},
     {"person_a": "赵丽颖", "person_b": "冯绍峰", "relation_type": "前配偶",
      "is_current": False, "description": "2018年结婚，2021年离婚", "confidence": 1.0, "strength": 0.7},
-    # 绯闻
+    # ── 绯闻 ──
     {"person_a": "PG One", "person_b": "李小璐", "relation_type": "绯闻",
      "is_current": False, "description": "2017年夜宿门事件", "confidence": 0.95, "strength": 0.8},
-    # 对手
+    # ── 对手 ──
     {"person_a": "PG One", "person_b": "贾乃亮", "relation_type": "对手",
      "is_current": True, "description": "夜宿门导致贾乃亮婚姻破裂", "confidence": 0.95, "strength": 0.8},
-    # 搭档
+    # ── 搭档（共同主演） ──
     {"person_a": "肖战", "person_b": "王一博", "relation_type": "搭档",
      "is_current": True, "description": "《陈情令》共同主演", "confidence": 1.0, "strength": 0.6},
+    {"person_a": "杨幂", "person_b": "唐嫣", "relation_type": "搭档",
+     "is_current": True, "description": "《仙剑奇侠传三》共同主演", "confidence": 0.9, "strength": 0.5},
+    {"person_a": "杨幂", "person_b": "迪丽热巴", "relation_type": "同事",
+     "is_current": True, "description": "嘉行传媒同公司艺人，《三生三世十里桃花》共同出演", "confidence": 0.9, "strength": 0.5},
+    {"person_a": "唐嫣", "person_b": "罗晋", "relation_type": "搭档",
+     "is_current": True, "description": "《X女特工》《锦绣未央》等多部剧共同主演", "confidence": 0.9, "strength": 0.6,
+     "secondary": True},
 ]
 
 
@@ -401,6 +408,42 @@ def _parse_controversies(soup, name: str, result: dict):
 # 跨名人关系提取（简介 + 八卦 + 静态映射）
 # ============================================================
 
+def _add_relation_both_sides(all_data: dict, person_a: str, person_b: str,
+                             rel_type: str, is_current: bool, description: str,
+                             confidence: float, strength: float):
+    """双向写入关系：person_a → person_b 和 person_b → person_a"""
+    # 优先级排序：配偶/前配偶 > 绯闻 > 对手 > 搭档 > 同事 > 关联
+    _priority = {'配偶': 10, '前配偶': 9, '绯闻': 7, '对手': 6, '搭档': 5, '同事': 4, '关联': 1}
+
+    for a, b in [(person_a, person_b), (person_b, person_a)]:
+        if a not in all_data:
+            continue
+        data = all_data[a]
+        rels = data.get('relationships', [])
+        existing = {r['person_b']: r for r in rels}
+
+        if b in existing:
+            old = existing[b]
+            old_pri = _priority.get(old.get('relation_type', ''), 0)
+            new_pri = _priority.get(rel_type, 0)
+            # 只在高优先级时才覆盖关系类型
+            if new_pri > old_pri:
+                old['relation_type'] = rel_type
+                old['is_current'] = is_current
+            old['description'] = description or old.get('description', '')
+            old['confidence'] = max(old.get('confidence', 0), confidence)
+            old['strength'] = max(old.get('strength', 0), strength)
+        else:
+            rels.append({
+                'person_a': a, 'person_b': b,
+                'relation_type': rel_type,
+                'is_current': is_current,
+                'description': description,
+                'confidence': confidence,
+                'strength': strength,
+            })
+
+
 def extract_cross_celebrity_relations(output_dir: Path, all_names: list[str]):
     """批量运行后，从简介/八卦中发现跨名人关系，并注入静态关系"""
     name_set = set(all_names)
@@ -414,101 +457,103 @@ def extract_cross_celebrity_relations(output_dir: Path, all_names: list[str]):
         name = d['celebrity']['name']
         all_data[name] = d
 
-    # --- 第一轮：从简介中检测其他名人提及，推断关系类型 ---
+    # ── 第一轮：共同作品名交叉匹配 ──
+    # 收集每个人简介中提到的《作品》
+    import re as _re
+    celeb_works: dict[str, set[str]] = {}
+    for name, data in all_data.items():
+        bio = data['celebrity'].get('biography', '')
+        works_in_bio = set(_re.findall(r'《([^》]{2,20})》', bio))
+        celeb_works[name] = works_in_bio
+
+    # 如果两位名人都提到同一部作品 → 搭档
+    name_list = list(all_data.keys())
+    for i in range(len(name_list)):
+        for j in range(i + 1, len(name_list)):
+            a, b = name_list[i], name_list[j]
+            shared = celeb_works.get(a, set()) & celeb_works.get(b, set())
+            # 排除太通用的词（如常见节目名）
+            shared -= {'快乐大本营', '奔跑吧兄弟', '天天向上', '春节联欢晚会'}
+            if shared:
+                works_str = '、'.join(f'《{w}》' for w in list(shared)[:3])
+                _add_relation_both_sides(
+                    all_data, a, b, '搭档', True,
+                    f'共同出演: {works_str}',
+                    confidence=0.8, strength=0.5,
+                )
+
+    # ── 第二轮：从简介中检测其他名人提及 ──
     context_keywords = {
-        '配偶': ['结婚', '婚礼', '丈夫', '妻子', '老公', '老婆', '官宣恋情'],
-        '前配偶': ['离婚', '前夫', '前妻', '协议离婚', '官宣离婚'],
-        '绯闻': ['绯闻', '夜宿', '出轨', '亲密', '恋情曝光', '疑似恋情'],
-        '搭档': ['合作', '主演', '搭档', '共同出演', '联袂', '携手'],
-        '对手': ['矛盾', '不和', '互撕', '冲突', '争议', '封杀'],
+        '配偶': ['结婚', '婚礼', '丈夫', '妻子', '老公', '老婆'],
+        '前配偶': ['离婚', '前夫', '前妻'],
+        '绯闻': ['绯闻', '夜宿', '出轨', '亲密', '恋情'],
+        '对手': ['矛盾', '不和', '互撕', '冲突', '封杀'],
     }
 
     for name, data in all_data.items():
         bio = data['celebrity'].get('biography', '')
-        existing_partners = {r['person_b'] for r in data.get('relationships', [])}
+        existing = {r['person_b'] for r in data.get('relationships', [])}
 
         for other_name in name_set:
-            if other_name == name or other_name in existing_partners:
+            if other_name == name or other_name in existing:
                 continue
             if other_name not in bio:
                 continue
 
-            # 找到提及位置，分析上下文
             idx = bio.find(other_name)
-            ctx_before = bio[max(0, idx - 30):idx]
-            ctx_after = bio[idx:idx + len(other_name) + 30]
+            ctx = bio[max(0, idx - 30):idx + len(other_name) + 30]
 
             rel_type = '关联'
             confidence = 0.5
             for rtype, keywords in context_keywords.items():
-                if any(k in ctx_before or k in ctx_after for k in keywords):
+                if any(k in ctx for k in keywords):
                     rel_type = rtype
                     confidence = 0.75
                     break
 
-            if rel_type != '关联' or confidence >= 0.5:
-                data['relationships'].append({
-                    'person_a': name, 'person_b': other_name,
-                    'relation_type': rel_type,
-                    'is_current': rel_type not in ('前配偶',),
-                    'description': f'简介提及: ...{ctx_before[-15:]}{other_name}{ctx_after[len(other_name):15]}...',
-                    'confidence': confidence,
-                    'strength': 0.6 if rel_type != '关联' else 0.3,
-                })
+            _add_relation_both_sides(
+                all_data, name, other_name, rel_type,
+                is_current=rel_type not in ('前配偶',),
+                description=f'简介提及',
+                confidence=confidence,
+                strength=0.6 if rel_type != '关联' else 0.3,
+            )
 
-    # --- 第二轮：从八卦事件中发现关系 ---
+    # ── 第三轮：从八卦事件中发现关系 ──
     for name, data in all_data.items():
         for gossip in data.get('gossips', []):
-            involved = gossip.get('involved_celebrities', [])
-            for other in involved:
+            for other in gossip.get('involved_celebrities', []):
                 if other == name or other not in name_set:
                     continue
-                existing_partners = {r['person_b'] for r in data['relationships']}
-                if other in existing_partners:
+                existing = {r['person_b'] for r in data.get('relationships', [])}
+                if other in existing:
                     continue
-                gossip_type = gossip.get('gossip_type', 'other')
+                gtype = gossip.get('gossip_type', 'other')
                 rel_map = {
                     'cheating': ('绯闻', 0.85),
                     'divorce': ('前配偶', 0.8),
                     'romance': ('绯闻', 0.7),
                     'controversy': ('对手', 0.7),
                 }
-                rel_type, conf = rel_map.get(gossip_type, ('关联', 0.5))
-                data['relationships'].append({
-                    'person_a': name, 'person_b': other,
-                    'relation_type': rel_type,
-                    'is_current': rel_type not in ('前配偶',),
-                    'description': f"八卦: {gossip.get('title', '')}",
-                    'confidence': conf,
-                    'strength': 0.7,
-                })
+                rel_type, conf = rel_map.get(gtype, ('关联', 0.5))
+                _add_relation_both_sides(
+                    all_data, name, other, rel_type,
+                    is_current=rel_type not in ('前配偶',),
+                    description=f"八卦: {gossip.get('title', '')}",
+                    confidence=conf, strength=0.7,
+                )
 
-    # --- 第三轮：注入静态已知关系 ---
+    # ── 第四轮：注入静态已知关系（最高优先级） ──
     for rel in KNOWN_RELATIONSHIPS:
-        a, b = rel['person_a'], rel['person_b']
-        if a not in all_data:
-            continue
-        data = all_data[a]
-        existing_partners = {r['person_b'] for r in data['relationships']}
-        if b in existing_partners:
-            # 用静态数据覆盖/增强已有条目
-            for r in data['relationships']:
-                if r['person_b'] == b:
-                    r['relation_type'] = rel['relation_type']
-                    r['is_current'] = rel.get('is_current', True)
-                    r['description'] = rel.get('description', '')
-                    r['confidence'] = rel.get('confidence', 1.0)
-                    r['strength'] = rel.get('strength', 0.7)
-                    break
-        else:
-            data['relationships'].append({
-                'person_a': a, 'person_b': b,
-                'relation_type': rel['relation_type'],
-                'is_current': rel.get('is_current', True),
-                'description': rel.get('description', ''),
-                'confidence': rel.get('confidence', 1.0),
-                'strength': rel.get('strength', 0.7),
-            })
+        _add_relation_both_sides(
+            all_data,
+            rel['person_a'], rel['person_b'],
+            rel['relation_type'],
+            rel.get('is_current', True),
+            rel.get('description', ''),
+            rel.get('confidence', 1.0),
+            rel.get('strength', 0.7),
+        )
 
     # --- 保存所有文件 ---
     total_rels = 0

@@ -46,7 +46,17 @@
     "updated_at": "2026-04-01T08:33:48.262419"
   },
   "gossips": [],
-  "relationships": [],
+  "relationships": [
+    {
+      "person_a": "迪丽热巴",
+      "person_b": "杨幂",
+      "relation_type": "搭档",
+      "is_current": true,
+      "description": "嘉行传媒同公司艺人，《三生三世十里桃花》共同出演",
+      "confidence": 0.9,
+      "strength": 0.5
+    }
+  ],
   "social_media_posts": [
     {
       "id": "QyPyjeBeQ",
@@ -556,7 +566,7 @@
     "total_posts": 30,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 0,
+    "total_relationships": 1,
     "total_gossips": 0
   }
 }

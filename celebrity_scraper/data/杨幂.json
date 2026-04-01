@@ -53,6 +53,24 @@
       "description": "2014年结婚，2018年离婚",
       "confidence": 1.0,
       "strength": 0.7
+    },
+    {
+      "person_a": "杨幂",
+      "person_b": "唐嫣",
+      "relation_type": "搭档",
+      "is_current": true,
+      "description": "《仙剑奇侠传三》共同主演",
+      "confidence": 0.9,
+      "strength": 0.5
+    },
+    {
+      "person_a": "杨幂",
+      "person_b": "迪丽热巴",
+      "relation_type": "搭档",
+      "is_current": true,
+      "description": "嘉行传媒同公司艺人，《三生三世十里桃花》共同出演",
+      "confidence": 0.9,
+      "strength": 0.5
     }
   ],
   "social_media_posts": [
@@ -564,7 +582,7 @@
     "total_posts": 30,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 1,
+    "total_relationships": 3,
     "total_gossips": 0
   }
 }
