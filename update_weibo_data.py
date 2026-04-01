@@ -255,28 +255,74 @@ def _parse_works(soup, result: dict):
         result['famous_works'] = list(works)[:25]
 
 
+def _looks_like_person_name(text: str) -> bool:
+    """判断文本是否像中国人名（2-4个中文字符，无标点/特殊字符）"""
+    text = text.strip()
+    if not (2 <= len(text) <= 4):
+        return False
+    return bool(re.fullmatch(r'[\u4e00-\u9fff]{2,4}', text))
+
+
 def _parse_relationships(soup, name: str, result: dict):
-    """解析人物关系"""
-    full_text = soup.get_text()
+    """解析人物关系（仅从基本信息表和简介中提取，避免正文噪音）"""
+    # 优先从 dt/dd 信息表提取关系
+    for dt in soup.find_all('dt'):
+        dd = dt.find_next_sibling('dd')
+        if not dd:
+            continue
+        label = re.sub(r'[\s\xa0\u3000]+', '', dt.get_text()).rstrip('：:')
+        value = dd.get_text(strip=True)
+        if not value:
+            continue
 
-    patterns = [
-        (r'(?:丈夫|配偶|老公)[：:，]?\s*([^，。；\n\s]{2,8}?)(?:[，。；\n]|$)', '配偶'),
-        (r'(?:前夫|前妻)[：:，]?\s*([^，。；\n\s]{2,8}?)(?:[，。；\n]|$)', '前配偶'),
-        (r'(?:女儿|儿子)[：:，]?\s*([^，。；\n\s]{2,8}?)(?:[，。；\n]|$)', '子女'),
-    ]
-
-    seen = set()
-    for pattern, rel_type in patterns:
-        for m in re.finditer(pattern, full_text):
-            person = m.group(1).strip()
-            if len(person) >= 2 and person != name and person not in seen:
-                seen.add(person)
+        if '配偶' in label or '丈夫' in label or '妻子' in label:
+            person = re.sub(r'\[.*?\]', '', value).strip()
+            if _looks_like_person_name(person) and person != name:
                 result['relationships'].append({
                     'person_a': name, 'person_b': person,
-                    'relation_type': rel_type,
-                    'is_current': rel_type != '前配偶',
-                    'description': '', 'confidence': 0.8, 'strength': 0.6,
+                    'relation_type': '配偶',
+                    'is_current': True, 'description': '',
+                    'confidence': 0.9, 'strength': 0.8,
                 })
+        elif '前夫' in label or '前妻' in label:
+            person = re.sub(r'\[.*?\]', '', value).strip()
+            if _looks_like_person_name(person) and person != name:
+                result['relationships'].append({
+                    'person_a': name, 'person_b': person,
+                    'relation_type': '前配偶',
+                    'is_current': False, 'description': '',
+                    'confidence': 0.9, 'strength': 0.6,
+                })
+        elif '子女' in label or '女儿' in label or '儿子' in label:
+            # 子女可能有多个，用分隔符拆分
+            for part in re.split(r'[、,，/]', value):
+                person = re.sub(r'\[.*?\]', '', part).strip()
+                if _looks_like_person_name(person) and person != name:
+                    result['relationships'].append({
+                        'person_a': name, 'person_b': person,
+                        'relation_type': '子女',
+                        'is_current': True, 'description': '',
+                        'confidence': 0.9, 'strength': 0.7,
+                    })
+
+    # 从简介中补充（仅匹配紧贴关键词后的人名）
+    summary = result.get('biography', '')
+    if summary:
+        for pattern, rel_type in [
+            (r'(?:丈夫|配偶|老公)[是为]\s*([\u4e00-\u9fff]{2,4})', '配偶'),
+            (r'(?:前夫|前妻)[是为]\s*([\u4e00-\u9fff]{2,4})', '前配偶'),
+        ]:
+            for m in re.finditer(pattern, summary):
+                person = m.group(1)
+                if person != name and not any(
+                    r['person_b'] == person for r in result['relationships']
+                ):
+                    result['relationships'].append({
+                        'person_a': name, 'person_b': person,
+                        'relation_type': rel_type,
+                        'is_current': rel_type != '前配偶',
+                        'description': '', 'confidence': 0.7, 'strength': 0.6,
+                    })
 
 
 def _parse_controversies(soup, name: str, result: dict):

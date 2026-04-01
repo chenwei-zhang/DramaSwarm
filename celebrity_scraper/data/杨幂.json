@@ -44,35 +44,7 @@
     "updated_at": "2026-04-01T08:32:37.375891"
   },
   "gossips": [],
-  "relationships": [
-    {
-      "person_a": "杨幂",
-      "person_b": "的业余爱好",
-      "relation_type": "子女",
-      "is_current": true,
-      "description": "",
-      "confidence": 0.8,
-      "strength": 0.6
-    },
-    {
-      "person_a": "杨幂",
-      "person_b": "从此",
-      "relation_type": "子女",
-      "is_current": true,
-      "description": "",
-      "confidence": 0.8,
-      "strength": 0.6
-    },
-    {
-      "person_a": "杨幂",
-      "person_b": "[103]",
-      "relation_type": "子女",
-      "is_current": true,
-      "description": "",
-      "confidence": 0.8,
-      "strength": 0.6
-    }
-  ],
+  "relationships": [],
   "social_media_posts": [
     {
       "id": "QyOU69wKQ",
@@ -582,7 +554,7 @@
     "total_posts": 30,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 3,
+    "total_relationships": 0,
     "total_gossips": 0
   }
 }

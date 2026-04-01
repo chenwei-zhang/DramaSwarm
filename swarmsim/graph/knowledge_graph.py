@@ -194,6 +194,12 @@ class KnowledgeGraph:
 
     def _add_relationship_edge(self, person_a: str, person_b: str, rel_data: dict) -> None:
         """添加关系边（双向），自动去重"""
+        # 校验人名：只接受2-4个纯中文字符
+        import re
+        for person in (person_a, person_b):
+            if not re.fullmatch(r'[\u4e00-\u9fff]{2,4}', person):
+                return
+
         node_a = f"celebrity:{person_a}"
         node_b = f"celebrity:{person_b}"
 

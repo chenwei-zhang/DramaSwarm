@@ -53,30 +53,7 @@
       "source_type": "sina"
     }
   ],
-  "relationships": [
-    {
-      "person_a": "PG One",
-      "person_b": "李小璐",
-      "relation_type": "绯闻对象",
-      "start_date": null,
-      "end_date": null,
-      "is_current": false,
-      "description": "2017年底夜宿门事件，导致被封杀",
-      "confidence": 0.9,
-      "strength": 0.4
-    },
-    {
-      "person_a": "PG One",
-      "person_b": "贾乃亮",
-      "relation_type": "对手",
-      "start_date": null,
-      "end_date": null,
-      "is_current": false,
-      "description": "因夜宿门事件导致贾乃亮离婚，两人关系彻底敌对",
-      "confidence": 0.95,
-      "strength": 0.1
-    }
-  ],
+  "relationships": [],
   "social_media_posts": [
     {
       "id": "wb_PG One_0",
@@ -740,7 +717,7 @@
     "total_posts": 13,
     "total_comments": 41,
     "total_news": 3,
-    "total_relationships": 2,
+    "total_relationships": 0,
     "total_gossips": 1
   }
 }

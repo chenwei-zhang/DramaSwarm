@@ -43,24 +43,6 @@
   "relationships": [
     {
       "person_a": "贾乃亮",
-      "person_b": "王明轩",
-      "relation_type": "配偶",
-      "is_current": true,
-      "description": "",
-      "confidence": 0.8,
-      "strength": 0.6
-    },
-    {
-      "person_a": "贾乃亮",
-      "person_b": "不仅想篡位",
-      "relation_type": "子女",
-      "is_current": true,
-      "description": "",
-      "confidence": 0.8,
-      "strength": 0.6
-    },
-    {
-      "person_a": "贾乃亮",
       "person_b": "贾云馨",
       "relation_type": "子女",
       "is_current": true,
@@ -614,7 +596,7 @@
     "total_posts": 30,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 3,
+    "total_relationships": 1,
     "total_gossips": 0
   }
 }

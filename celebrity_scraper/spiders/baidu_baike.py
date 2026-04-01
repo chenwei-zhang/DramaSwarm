@@ -380,28 +380,34 @@ class BaiduBaikeSpider:
         if works_found and not profile.famous_works:
             profile.famous_works = list(set(works_found))[:20]
 
-    def _parse_relationships(self, soup: BeautifulSoup, profile: CelebrityProfile, relationships: list):
-        """解析人物关系"""
-        text = profile.biography or ""
-        text += ' ' + ' '.join([p.get_text() for p in soup.find_all('p')])
+    @staticmethod
+    def _is_valid_person_name(text: str) -> bool:
+        """判断是否像中国人名（2-4个纯中文字符）"""
+        text = text.strip()
+        if not (2 <= len(text) <= 4):
+            return False
+        return bool(re.fullmatch(r'[\u4e00-\u9fff]{2,4}', text))
 
-        # 关系模式
+    def _parse_relationships(self, soup: BeautifulSoup, profile: CelebrityProfile, relationships: list):
+        """解析人物关系（仅从简介中提取，严格校验人名格式）"""
+        text = profile.biography or ""
+
+        # 关系模式 — 只匹配紧贴关键词后的纯中文名
         relation_patterns = [
-            (r'(?:配偶|丈夫|老公|妻子|老婆)[：:]\s*([^，。;\n]{2,8})', '配偶'),
-            (r'(?:前夫|前妻|前男友|前女友)[：:]\s*([^，。;\n]{2,8})', '前任'),
-            (r'(?:男友|女朋友|女朋友)[：:]\s*([^，。;\n]{2,8})', '恋人'),
-            (r'(?:绯闻男友|绯闻女友|绯闻对象)[：:]\s*([^，。;\n]{2,8})', '绯闻'),
-            (r'(?:搭档|合作)[：:]\s*([^，。;\n]{2,8})', '搭档'),
-            (r'(?:好友|闺蜜)[：:]\s*([^，。;\n]{2,8})', '朋友'),
-            (r'(?:儿女|儿子|女儿)[：:]\s*([^，。;\n]{2,8})', '子女'),
+            (r'(?:配偶|丈夫|老公|妻子|老婆)[是为]\s*([\u4e00-\u9fff]{2,4})', '配偶'),
+            (r'(?:前夫|前妻|前男友|前女友)[是为]\s*([\u4e00-\u9fff]{2,4})', '前任'),
+            (r'(?:男友|女朋友|女朋友)[是为]\s*([\u4e00-\u9fff]{2,4})', '恋人'),
+            (r'(?:绯闻男友|绯闻女友|绯闻对象)[是为]\s*([\u4e00-\u9fff]{2,4})', '绯闻'),
+            (r'(?:搭档|合作)[是为]\s*([\u4e00-\u9fff]{2,4})', '搭档'),
+            (r'(?:好友|闺蜜)[是为]\s*([\u4e00-\u9fff]{2,4})', '朋友'),
+            (r'(?:儿女|儿子|女儿)[是为]\s*([\u4e00-\u9fff]{2,4})', '子女'),
         ]
 
         for pattern, rel_type in relation_patterns:
             matches = re.finditer(pattern, text)
             for match in matches:
                 related_name = match.group(1).strip()
-                if len(related_name) >= 2 and related_name != profile.name:
-                    # 检查是否已存在
+                if self._is_valid_person_name(related_name) and related_name != profile.name:
                     existing = any(
                         r.person_b == related_name and r.relation_type == rel_type
                         for r in relationships

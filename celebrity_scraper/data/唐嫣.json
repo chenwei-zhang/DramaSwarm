@@ -42,26 +42,7 @@
     "updated_at": "2026-04-01T08:34:17.836805"
   },
   "gossips": [],
-  "relationships": [
-    {
-      "person_a": "唐嫣",
-      "person_b": "夏天美",
-      "relation_type": "子女",
-      "is_current": true,
-      "description": "",
-      "confidence": 0.8,
-      "strength": 0.6
-    },
-    {
-      "person_a": "唐嫣",
-      "person_b": "[58]",
-      "relation_type": "子女",
-      "is_current": true,
-      "description": "",
-      "confidence": 0.8,
-      "strength": 0.6
-    }
-  ],
+  "relationships": [],
   "social_media_posts": [
     {
       "id": "QwWrZ0Aql",
@@ -579,7 +560,7 @@
     "total_posts": 30,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 2,
+    "total_relationships": 0,
     "total_gossips": 0
   }
 }

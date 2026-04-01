@@ -46,26 +46,7 @@
     "updated_at": "2026-04-01T08:33:09.499670"
   },
   "gossips": [],
-  "relationships": [
-    {
-      "person_a": "赵丽颖",
-      "person_b": "国》上映",
-      "relation_type": "子女",
-      "is_current": true,
-      "description": "",
-      "confidence": 0.8,
-      "strength": 0.6
-    },
-    {
-      "person_a": "赵丽颖",
-      "person_b": "“想想”",
-      "relation_type": "子女",
-      "is_current": true,
-      "description": "",
-      "confidence": 0.8,
-      "strength": 0.6
-    }
-  ],
+  "relationships": [],
   "social_media_posts": [
     {
       "id": "Qxo6sFynK",
@@ -400,7 +381,7 @@
     "total_posts": 19,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 2,
+    "total_relationships": 0,
     "total_gossips": 0
   }
 }
