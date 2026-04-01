@@ -65,7 +65,7 @@ def save_uid_map(uid_map: dict):
 
 
 def get_cookie(args) -> str:
-    """获取 cookie"""
+    """获取 cookie（优先级：命令行 > cookie文件 > 环境变量 > .env文件）"""
     if args.cookie:
         return args.cookie
     if args.cookie_file:
@@ -76,13 +76,24 @@ def get_cookie(args) -> str:
         return cookie_path.read_text(encoding='utf-8').strip()
     # 从环境变量读取
     cookie = os.environ.get('WEIBO_COOKIE', '')
-    if not cookie:
-        print("❌ 未提供 Cookie。请通过以下方式之一提供:")
-        print("  --cookie 'YOUR_COOKIE'")
-        print("  --cookie-file cookie.txt")
-        print("  环境变量 WEIBO_COOKIE")
-        sys.exit(1)
-    return cookie
+    if cookie:
+        return cookie
+    # 从 .env 文件读取
+    env_path = Path(__file__).parent / '.env'
+    if env_path.exists():
+        for line in env_path.read_text(encoding='utf-8').splitlines():
+            line = line.strip()
+            if line.startswith('WEIBO_COOKIE='):
+                cookie = line[len('WEIBO_COOKIE='):].strip()
+                if cookie:
+                    return cookie
+    print("❌ 未提供 Cookie。请通过以下方式之一提供:")
+    print("  --cookie 'YOUR_COOKIE'")
+    print("  --cookie-file cookie.txt")
+    print("  环境变量 WEIBO_COOKIE")
+    print("  .env 文件中添加 WEIBO_COOKIE=xxx")
+    sys.exit(1)
+    return ''
 
 
 def update_celebrity(spider: WeiboDeepSpider, name: str, uid: str,
