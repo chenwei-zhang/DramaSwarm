@@ -37,7 +37,57 @@
     ],
     "updated_at": "2026-04-01T08:31:23.611882"
   },
-  "gossips": [],
+  "gossips": [
+    {
+      "title": "《陈情令》爆红",
+      "content": "古装仙侠剧《陈情令》在腾讯视频播出，肖战饰演的魏无羡一角引发全民追剧热潮，使其从无名小演员一跃成为顶流偶像。该剧同时带火了搭档王一博。",
+      "gossip_type": "other",
+      "date": "2019-06-27",
+      "involved_celebrities": [
+        "肖战",
+        "王一博"
+      ],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "227 AO3事件",
+      "content": "肖战粉丝因不满同人文创作而举报AO3平台，引发全网反噬。肖战本人长期沉默被批失声，代言品牌撤下广告，演艺事业遭受重创。此事件成为内娱粉圈文化的标志性事件。",
+      "gossip_type": "controversy",
+      "date": "2020-02-27",
+      "involved_celebrities": [
+        "肖战"
+      ],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "negative"
+    },
+    {
+      "title": "《光点》单曲破纪录",
+      "content": "肖战复工后发布数字单曲《光点》，销售额破1.4亿元创数字单曲销量纪录。但也因粉丝刷单行为再次引发争议。",
+      "gossip_type": "other",
+      "date": "2020-04-25",
+      "involved_celebrities": [
+        "肖战"
+      ],
+      "importance": 0.75,
+      "verified": true,
+      "sentiment": "neutral"
+    },
+    {
+      "title": "《斗罗大陆》播出逐步复出",
+      "content": "肖战主演的玄幻剧《斗罗大陆》在央视播出，标志着其逐步回归主流荧屏。此后陆续接拍多部作品，努力重建公众形象。",
+      "gossip_type": "other",
+      "date": "2021-02-05",
+      "involved_celebrities": [
+        "肖战"
+      ],
+      "importance": 0.8,
+      "verified": true,
+      "sentiment": "positive"
+    }
+  ],
   "relationships": [
     {
       "person_a": "肖战",
@@ -559,6 +609,6 @@
     "total_comments": 0,
     "total_news": 0,
     "total_relationships": 1,
-    "total_gossips": 0
+    "total_gossips": 4
   }
 }

@@ -39,7 +39,73 @@
     ],
     "updated_at": "2026-04-01T08:36:25.165347"
   },
-  "gossips": [],
+  "gossips": [
+    {
+      "title": "乐视盛典向李小璐求婚",
+      "content": "贾乃亮在乐视影视盛典上当众向李小璐求婚，场面感人。贾乃亮曾表示追了李小璐很久，求婚时几度哽咽。",
+      "gossip_type": "romance",
+      "date": "2012-03-31",
+      "involved_celebrities": [
+        "贾乃亮",
+        "李小璐"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与李小璐结婚",
+      "content": "贾乃亮与李小璐结婚，婚后育有女儿甜馨（贾云馨）。一家三口曾参加综艺《爸爸回来了》，家庭形象温馨。",
+      "gossip_type": "romance",
+      "date": "2012-07-06",
+      "involved_celebrities": [
+        "贾乃亮",
+        "李小璐"
+      ],
+      "importance": 0.8,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "夜宿门事件（被出轨方）",
+      "content": "妻子李小璐被拍到与PG One深夜亲密互动。贾乃亮当时正在直播回应网友称「相信我老婆」，事后成为全网同情对象。",
+      "gossip_type": "cheating",
+      "date": "2017-12-29",
+      "involved_celebrities": [
+        "贾乃亮",
+        "李小璐",
+        "PG One"
+      ],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "negative"
+    },
+    {
+      "title": "与李小璐正式离婚",
+      "content": "贾乃亮与李小璐联合声明宣布离婚。离婚后贾乃亮专注事业，参加多档综艺，转型直播带货非常成功。",
+      "gossip_type": "divorce",
+      "date": "2019-11-03",
+      "involved_celebrities": [
+        "贾乃亮",
+        "李小璐"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "negative"
+    },
+    {
+      "title": "转型直播带货成功",
+      "content": "贾乃亮进军直播带货行业，凭借良好口碑和亲民形象，迅速成为头部带货主播，单场销售额破亿。被视为艺人成功转型的典范。",
+      "gossip_type": "other",
+      "date": "2020-06-01",
+      "involved_celebrities": [
+        "贾乃亮"
+      ],
+      "importance": 0.8,
+      "verified": true,
+      "sentiment": "positive"
+    }
+  ],
   "relationships": [
     {
       "person_a": "贾乃亮",
@@ -615,6 +681,6 @@
     "total_comments": 0,
     "total_news": 0,
     "total_relationships": 3,
-    "total_gossips": 0
+    "total_gossips": 5
   }
 }

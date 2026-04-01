@@ -45,7 +45,46 @@
     ],
     "updated_at": "2026-04-01T08:34:46.978887"
   },
-  "gossips": [],
+  "gossips": [
+    {
+      "title": "《穆桂英挂帅》获关注",
+      "content": "罗晋在古装剧《穆桂英挂帅》中饰演杨宗保，开始获得观众关注。此后陆续出演多部历史正剧。",
+      "gossip_type": "other",
+      "date": "2012-10-01",
+      "involved_celebrities": [
+        "罗晋"
+      ],
+      "importance": 0.75,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与唐嫣公开恋情",
+      "content": "罗晋与唐嫣公开恋情，两人从荧幕情侣发展为现实恋人。",
+      "gossip_type": "romance",
+      "date": "2016-12-06",
+      "involved_celebrities": [
+        "罗晋",
+        "唐嫣"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与唐嫣维也纳大婚",
+      "content": "罗晋与唐嫣在维也纳举办婚礼，结束多年爱情长跑。婚后两人低调恩爱，被公认为娱乐圈模范夫妻。",
+      "gossip_type": "romance",
+      "date": "2018-10-28",
+      "involved_celebrities": [
+        "罗晋",
+        "唐嫣"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    }
+  ],
   "relationships": [
     {
       "person_a": "罗晋",
@@ -579,6 +618,6 @@
     "total_comments": 0,
     "total_news": 0,
     "total_relationships": 1,
-    "total_gossips": 0
+    "total_gossips": 3
   }
 }

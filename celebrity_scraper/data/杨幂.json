@@ -43,7 +43,96 @@
     ],
     "updated_at": "2026-04-01T08:32:37.375891"
   },
-  "gossips": [],
+  "gossips": [
+    {
+      "title": "《宫锁心玉》爆红",
+      "content": "穿越剧《宫锁心玉》在湖南卫视首播，杨幂饰演的洛晴川深入人心，使她一夜之间成为家喻户晓的明星。该剧同时引发了穿越剧热潮。",
+      "gossip_type": "romance",
+      "date": "2011-01-31",
+      "involved_celebrities": [
+        "杨幂"
+      ],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "成立嘉行传媒",
+      "content": "杨幂与两位合伙人共同成立嘉行传媒，从演员转型为制片人兼老板，旗下签约迪丽热巴等新人。成为内娱最具商业头脑的女星之一。",
+      "gossip_type": "other",
+      "date": "2012-01-04",
+      "involved_celebrities": [
+        "杨幂",
+        "迪丽热巴"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与刘恺威巴厘岛大婚",
+      "content": "杨幂与刘恺威在印尼巴厘岛举行盛大婚礼，轰动娱乐圈。两人因拍摄《如意》相识相恋。",
+      "gossip_type": "romance",
+      "date": "2014-01-08",
+      "involved_celebrities": [
+        "杨幂",
+        "刘恺威"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "女儿小糯米出生",
+      "content": "杨幂在香港产下女儿，小名「小糯米」。产后迅速复出工作，引发关于事业心与母职的讨论。",
+      "gossip_type": "other",
+      "date": "2014-06-01",
+      "involved_celebrities": [
+        "杨幂"
+      ],
+      "importance": 0.7,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "《三生三世十里桃花》收视狂潮",
+      "content": "杨幂主演的仙侠剧《三生三世十里桃花》全网播放量突破300亿，成为现象级爆款。杨幂担任出品人兼主演，同时带火了旗下艺人迪丽热巴。",
+      "gossip_type": "other",
+      "date": "2017-01-30",
+      "involved_celebrities": [
+        "杨幂",
+        "迪丽热巴"
+      ],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与刘恺威宣布离婚",
+      "content": "杨幂与刘恺威通过经纪公司宣布离婚，结束四年婚姻。女儿小糯米由双方共同抚养。离婚后杨幂专注事业，被网友称为「人间清醒」。",
+      "gossip_type": "divorce",
+      "date": "2018-12-22",
+      "involved_celebrities": [
+        "杨幂",
+        "刘恺威"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "negative"
+    },
+    {
+      "title": "《哈尔滨一九四四》演技争议",
+      "content": "杨幂主演谍战剧《哈尔滨一九四四》播出后，其演技引发两极讨论。部分观众认为表演有进步，也有声音质疑其台词功底。",
+      "gossip_type": "controversy",
+      "date": "2023-05-01",
+      "involved_celebrities": [
+        "杨幂"
+      ],
+      "importance": 0.7,
+      "verified": true,
+      "sentiment": "negative"
+    }
+  ],
   "relationships": [
     {
       "person_a": "杨幂",
@@ -583,6 +672,6 @@
     "total_comments": 0,
     "total_news": 0,
     "total_relationships": 3,
-    "total_gossips": 0
+    "total_gossips": 7
   }
 }

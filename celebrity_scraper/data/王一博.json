@@ -39,7 +39,45 @@
     ],
     "updated_at": "2026-04-01T08:32:02.538379"
   },
-  "gossips": [],
+  "gossips": [
+    {
+      "title": "《陈情令》走红",
+      "content": "王一博在古装剧《陈情令》中饰演蓝忘机，与肖战搭档走红。凭借高冷气质和精湛演技收获大量粉丝。",
+      "gossip_type": "other",
+      "date": "2019-06-27",
+      "involved_celebrities": [
+        "王一博",
+        "肖战"
+      ],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "加入《天天向上》主持阵容",
+      "content": "王一博正式成为湖南卫视《天天向上》天天兄弟成员，从偶像歌手跨界综艺主持人，展现了多面才华。",
+      "gossip_type": "other",
+      "date": "2019-08-01",
+      "involved_celebrities": [
+        "王一博"
+      ],
+      "importance": 0.75,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "《无名》《长空之王》电影双响炮",
+      "content": "王一博同时主演电影《无名》（程耳导演）和《长空之王》，成功从偶像转型为电影演员。两部电影票房均破8亿，口碑不俗。",
+      "gossip_type": "other",
+      "date": "2023-01-22",
+      "involved_celebrities": [
+        "王一博"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    }
+  ],
   "relationships": [
     {
       "person_a": "王一博",
@@ -622,6 +660,6 @@
     "total_comments": 0,
     "total_news": 0,
     "total_relationships": 1,
-    "total_gossips": 0
+    "total_gossips": 3
   }
 }

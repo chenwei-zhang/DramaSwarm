@@ -41,7 +41,59 @@
     ],
     "updated_at": "2026-04-01T08:34:17.836805"
   },
-  "gossips": [],
+  "gossips": [
+    {
+      "title": "《仙剑奇侠传三》走红",
+      "content": "唐嫣在仙侠剧《仙剑奇侠传三》中饰演紫萱，造型惊艳，演技获好评。该剧同时带火了杨幂、刘诗诗等人。",
+      "gossip_type": "other",
+      "date": "2009-06-28",
+      "involved_celebrities": [
+        "唐嫣",
+        "杨幂"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与罗晋公开恋情",
+      "content": "唐嫣与罗晋在女方生日当天公开恋情，两人因合作多部剧结缘。恋情公开后频繁秀恩爱，被网友称为「模范情侣」。",
+      "gossip_type": "romance",
+      "date": "2016-12-06",
+      "involved_celebrities": [
+        "唐嫣",
+        "罗晋"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与罗晋维也纳大婚",
+      "content": "唐嫣与罗晋在奥地利维也纳举办盛大婚礼，场面浪漫唯美。两人因合作《锦绣未央》等剧结缘，是娱乐圈公认的金童玉女。",
+      "gossip_type": "romance",
+      "date": "2018-10-28",
+      "involved_celebrities": [
+        "唐嫣",
+        "罗晋"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "《繁花》演技获赞",
+      "content": "唐嫣在王家卫导演的《繁花》中饰演汪小姐，演技突破获得一致好评。被认为是从偶像派转型实力派的里程碑之作。",
+      "gossip_type": "other",
+      "date": "2024-01-01",
+      "involved_celebrities": [
+        "唐嫣"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    }
+  ],
   "relationships": [
     {
       "person_a": "唐嫣",
@@ -580,6 +632,6 @@
     "total_comments": 0,
     "total_news": 0,
     "total_relationships": 2,
-    "total_gossips": 0
+    "total_gossips": 4
   }
 }

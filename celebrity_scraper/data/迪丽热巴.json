@@ -45,7 +45,57 @@
     ],
     "updated_at": "2026-04-01T08:33:48.262419"
   },
-  "gossips": [],
+  "gossips": [
+    {
+      "title": "《克拉恋人》走红",
+      "content": "迪丽热巴在都市爱情剧《克拉恋人》中饰演高雯，凭借灵动演技和高颜值出圈，获得国剧盛典最受欢迎新人女演员奖。",
+      "gossip_type": "other",
+      "date": "2015-07-01",
+      "involved_celebrities": [
+        "迪丽热巴"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "《三生三世十里桃花》配角爆红",
+      "content": "迪丽热巴在《三生三世十里桃花》中饰演白凤九，虽然不是女主角但人气极高，获得白玉兰奖最佳女配角提名。此剧由嘉行传媒出品，老板杨幂担任主演。",
+      "gossip_type": "other",
+      "date": "2017-01-30",
+      "involved_celebrities": [
+        "迪丽热巴",
+        "杨幂"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "金鹰女神争议",
+      "content": "迪丽热巴当选第七位「金鹰女神」并同时获得金鹰奖观众喜爱女演员和最具人气女演员双料大奖。但由于作品厚度不足，引发巨大争议和质疑，被网友称为「水后」事件。",
+      "gossip_type": "controversy",
+      "date": "2018-10-12",
+      "involved_celebrities": [
+        "迪丽热巴"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "negative"
+    },
+    {
+      "title": "《你是我的荣耀》爆火",
+      "content": "迪丽热巴与杨洋主演的都市爱情剧《你是我的荣耀》成为年度爆款，播放量破40亿。她在剧中饰演的乔晶晶获得观众喜爱，演技获得认可。",
+      "gossip_type": "other",
+      "date": "2021-07-26",
+      "involved_celebrities": [
+        "迪丽热巴"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    }
+  ],
   "relationships": [
     {
       "person_a": "迪丽热巴",
@@ -567,6 +617,6 @@
     "total_comments": 0,
     "total_news": 0,
     "total_relationships": 1,
-    "total_gossips": 0
+    "total_gossips": 4
   }
 }

@@ -45,7 +45,83 @@
     ],
     "updated_at": "2026-04-01T08:33:09.499670"
   },
-  "gossips": [],
+  "gossips": [
+    {
+      "title": "《陆贞传奇》崭露头角",
+      "content": "赵丽颖主演古装剧《陆贞传奇》获得高收视，使她从配角行列晋升为一线女主人选，标志着她演艺事业的转折点。",
+      "gossip_type": "other",
+      "date": "2013-05-05",
+      "involved_celebrities": [
+        "赵丽颖"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "《花千骨》现象级爆红",
+      "content": "仙侠剧《花千骨》创下中国电视剧网络播放量纪录，赵丽颖饰演的花千骨深入人心。该剧使其成为当之无愧的收视女王。",
+      "gossip_type": "other",
+      "date": "2015-06-09",
+      "involved_celebrities": [
+        "赵丽颖"
+      ],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与冯绍峰官宣结婚",
+      "content": "赵丽颖与冯绍峰在生日当天官宣领证结婚，两人因拍摄《知否知否应是绿肥红瘦》结缘。消息震惊全网，微博一度瘫痪。",
+      "gossip_type": "romance",
+      "date": "2018-10-16",
+      "involved_celebrities": [
+        "赵丽颖",
+        "冯绍峰"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "《知否》热播口碑双丰收",
+      "content": "《知否知否应是绿肥红瘦》跨年播出，收视与口碑双丰收，赵丽颖的演技获得广泛认可，被认为是其转型之作。",
+      "gossip_type": "other",
+      "date": "2019-01-01",
+      "involved_celebrities": [
+        "赵丽颖",
+        "冯绍峰"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与冯绍峰官宣离婚",
+      "content": "赵丽颖与冯绍峰官宣离婚，婚姻仅维持两年半。双方表示「和平分手，共同抚养孩子」。离婚后赵丽颖专注事业。",
+      "gossip_type": "divorce",
+      "date": "2021-04-23",
+      "involved_celebrities": [
+        "赵丽颖",
+        "冯绍峰"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "negative"
+    },
+    {
+      "title": "《风吹半夏》口碑回升",
+      "content": "赵丽颖主演商战剧《风吹半夏》，饰演钢铁行业女企业家许半夏。演技大获好评，被认为成功转型为实力派演员。",
+      "gossip_type": "other",
+      "date": "2022-11-01",
+      "involved_celebrities": [
+        "赵丽颖"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "positive"
+    }
+  ],
   "relationships": [
     {
       "person_a": "赵丽颖",
@@ -392,6 +468,6 @@
     "total_comments": 0,
     "total_news": 0,
     "total_relationships": 1,
-    "total_gossips": 0
+    "total_gossips": 6
   }
 }

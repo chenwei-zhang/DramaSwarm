@@ -40,7 +40,60 @@
     ],
     "updated_at": "2026-04-01T08:35:34.557221"
   },
-  "gossips": [],
+  "gossips": [
+    {
+      "title": "凭《天浴》获金马奖最佳女主角",
+      "content": "李小璐凭电影《天浴》获得第35届金马奖最佳女主角奖，年仅17岁，成为最年轻的金马影后。此后被视为最有前途的演员之一。",
+      "gossip_type": "other",
+      "date": "1998-01-01",
+      "involved_celebrities": [
+        "李小璐"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "与贾乃亮结婚",
+      "content": "李小璐与贾乃亮举行婚礼。贾乃亮曾公开表示追求李小璐很久，两人的婚姻一度被视为娱乐圈的模范。",
+      "gossip_type": "romance",
+      "date": "2012-07-06",
+      "involved_celebrities": [
+        "李小璐",
+        "贾乃亮"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "夜宿门事件",
+      "content": "李小璐被拍到与PG One深夜亲密互动，引发娱乐圈最大丑闻之一。当时贾乃亮正在直播中表示「相信我老婆」。此事件直接导致两人婚姻破裂，PG One遭封杀，李小璐退出主流影视圈。",
+      "gossip_type": "cheating",
+      "date": "2017-12-29",
+      "involved_celebrities": [
+        "李小璐",
+        "PG One",
+        "贾乃亮"
+      ],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "negative"
+    },
+    {
+      "title": "与贾乃亮正式离婚",
+      "content": "李小璐与贾乃亮联合声明宣布离婚，结束7年婚姻。女儿甜馨由双方共同抚养。离婚后李小璐转型做网红和直播带货。",
+      "gossip_type": "divorce",
+      "date": "2019-11-03",
+      "involved_celebrities": [
+        "李小璐",
+        "贾乃亮"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "negative"
+    }
+  ],
   "relationships": [
     {
       "person_a": "李小璐",
@@ -574,6 +627,6 @@
     "total_comments": 0,
     "total_news": 0,
     "total_relationships": 2,
-    "total_gossips": 0
+    "total_gossips": 4
   }
 }

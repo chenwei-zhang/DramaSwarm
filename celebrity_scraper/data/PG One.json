@@ -51,6 +51,56 @@
       "sentiment_score": -0.3,
       "source_url": "",
       "source_type": "sina"
+    },
+    {
+      "title": "《中国有嘻哈》夺冠",
+      "content": "PG One（王昊）在选秀节目《中国有嘻哈》中获得双冠军之一，一战成名。其说唱风格和个人魅力吸引大量粉丝，被视为中国说唱的未来之星。",
+      "gossip_type": "other",
+      "date": "2017-09-09",
+      "involved_celebrities": [
+        "PG One"
+      ],
+      "importance": 0.9,
+      "verified": true,
+      "sentiment": "positive"
+    },
+    {
+      "title": "夜宿门事件",
+      "content": "PG One被拍到与好友贾乃亮的妻子李小璐深夜亲密互动，引发轩然大波。事件导致PG One遭到行业封杀，所有商业合作终止，歌曲下架。被指「睡嫂子」违背江湖道义。",
+      "gossip_type": "cheating",
+      "date": "2017-12-29",
+      "involved_celebrities": [
+        "PG One",
+        "李小璐",
+        "贾乃亮"
+      ],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "negative"
+    },
+    {
+      "title": "遭行业全面封杀",
+      "content": "夜宿门事件后，PG One被各大平台全面封杀。其歌曲被指歌词不当（涉及吸毒、侮辱女性）进一步加剧舆论危机。红花会宣布与其解约，演艺事业彻底中断。",
+      "gossip_type": "controversy",
+      "date": "2018-01-06",
+      "involved_celebrities": [
+        "PG One"
+      ],
+      "importance": 0.85,
+      "verified": true,
+      "sentiment": "negative"
+    },
+    {
+      "title": "多次尝试复出未果",
+      "content": "PG One多次尝试复出（改名王唯楚、发布新歌、举办小型演出），但每次都遭到网友抵制和舆论反噬。以地下独立音乐人身份活动，无法回归主流。",
+      "gossip_type": "controversy",
+      "date": "2023-04-01",
+      "involved_celebrities": [
+        "PG One"
+      ],
+      "importance": 0.7,
+      "verified": true,
+      "sentiment": "negative"
     }
   ],
   "relationships": [
@@ -737,6 +787,6 @@
     "total_comments": 41,
     "total_news": 3,
     "total_relationships": 2,
-    "total_gossips": 1
+    "total_gossips": 5
   }
 }
