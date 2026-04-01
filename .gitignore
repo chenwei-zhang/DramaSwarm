@@ -36,6 +36,7 @@ ENV/
 # Environment
 .env
 .env.local
+weibo_cookie.txt
 
 # Testing
 .pytest_cache/

@@ -13,10 +13,12 @@ from typing import Callable
 from .spiders import (
     BaiduBaikeSpider,
     WeiboSpider,
+    WeiboDeepSpider,
     ZhihuSpider,
     DoubanSpider,
     EntertainmentNewsSpider
 )
+from .spiders.weibo_deep_spider import convert_to_celebrity_profile, convert_to_social_posts
 from .models import (
     CelebrityProfile, ScrapeResult, NewsArticle, Comment,
     SocialMediaPost, GossipItem, GossipType, DataSourceType
@@ -85,13 +87,25 @@ class CelebrityScraper:
         output_dir: str = "data",
         enable_all_sources: bool = True,
         progress_callback: Callable | None = None,
-        mock_mode: bool = False
+        mock_mode: bool = False,
+        weibo_mode: str = "mock",
+        weibo_cookie: str = ""
     ):
+        """
+        Args:
+            weibo_mode: 微博爬取模式
+                - "mock": 使用模拟数据
+                - "api": 使用移动端 API（无需 cookie，数据有限）
+                - "deep": 使用 weibo-spider 深度爬取（需要 cookie）
+            weibo_cookie: 微博 cookie，weibo_mode="deep" 时必需
+        """
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(exist_ok=True)
         self.enable_all_sources = enable_all_sources
         self.progress_callback = progress_callback
         self.mock_mode = mock_mode
+        self.weibo_mode = weibo_mode
+        self.weibo_cookie = weibo_cookie
 
         # 初始化所有爬虫
         self.baike_spider = BaiduBaikeSpider()
@@ -100,12 +114,28 @@ class CelebrityScraper:
         self.douban_spider = DoubanSpider()
         self.news_spider = EntertainmentNewsSpider()
 
+        # 深度微博爬虫（按需初始化）
+        self.deep_spider = None
+        if weibo_mode == "deep" and weibo_cookie:
+            self.deep_spider = WeiboDeepSpider(weibo_cookie)
+
+        # 加载 UID 映射
+        self.uid_map = self._load_uid_map()
+
         self.results = []
         self.stats = {
             "total_requests": 0,
             "successful_requests": 0,
             "failed_requests": 0,
         }
+
+    def _load_uid_map(self) -> dict:
+        """加载微博 UID 映射"""
+        map_path = Path(__file__).parent / "weibo_uid_map.json"
+        if map_path.exists():
+            with open(map_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        return {}
 
     async def scrape_celebrity(self, name: str) -> ScrapeResult:
         """爬取单个明星 - 使用所有数据源"""
@@ -157,37 +187,36 @@ class CelebrityScraper:
         # 2. 微博动态
         print(f"[2/6] 📱 搜索微博动态...")
         try:
-            weibo_user = await self.weibo_spider.search_celebrity(name)
-            if weibo_user:
-                print(f"  ✓ 找到微博用户: {weibo_user.get('name')} "
-                      f"({weibo_user.get('followers_count', 0):,} 粉丝)")
+            if self.weibo_mode == "deep" and self.deep_spider:
+                # 深度爬取模式
+                uid = self.uid_map.get(name, "")
+                if uid:
+                    data = self.deep_spider.scrape_celebrity(name, uid, post_pages=5)
+                    if data:
+                        # 更新 celebrity profile
+                        wb_profile = data['profile']
+                        result.celebrity.weibo_id = wb_profile.get('id', '')
+                        result.celebrity.weibo_followers = wb_profile.get('followers', 0)
+                        if wb_profile.get('description'):
+                            result.celebrity.biography = wb_profile['description']
+                        if wb_profile.get('birthday'):
+                            result.celebrity.birth_date = wb_profile['birthday']
+                        result.celebrity.updated_at = datetime.now()
 
-                # 爬取微博
-                posts = await self.weibo_spider.scrape_posts(weibo_user['uid'], count=15)
-                result.social_media_posts.extend(posts)
-                print(f"  ✓ 获取 {len(posts)} 条微博")
-
-                # 更新profile
-                result.celebrity.weibo_id = weibo_user['uid']
-                result.celebrity.weibo_followers = weibo_user.get('followers_count', 0)
-                result.celebrity.avatar_url = weibo_user.get('avatar', '')
-
-                # 获取热门微博的评论
-                if posts:
-                    comments = await self.weibo_spider.scrape_comments(posts[0].id, count=30)
-                    result.comments.extend(comments)
-                    print(f"  ✓ 获取 {len(comments)} 条评论")
+                        # 转换微博动态
+                        posts = convert_to_social_posts(data['posts'], name)
+                        result.social_media_posts.extend(posts)
+                        print(f"  ✓ 深度爬取完成: {len(posts)} 条微博, "
+                              f"粉丝 {wb_profile.get('followers', 0):,}")
+                    else:
+                        print(f"  ✗ 深度爬取失败，尝试 API 模式...")
+                        await self._scrape_weibo_api(name, result)
+                else:
+                    print(f"  ⚠ UID 映射中未找到 {name}，尝试 API 模式...")
+                    await self._scrape_weibo_api(name, result)
             else:
-                print(f"  ✗ 未找到微博用户")
-
-            # 搜索八卦相关微博
-            gossip_keywords = [f"{name} 八卦", f"{name} 绯闻", f"{name} 热搜"]
-            for keyword in gossip_keywords:
-                gossip_posts = await self.weibo_spider.search_gossip(keyword, count=5)
-                result.social_media_posts.extend(gossip_posts)
-                if gossip_posts:
-                    print(f"  ✓ 搜索'{keyword}'到 {len(gossip_posts)} 条微博")
-                await asyncio.sleep(1)
+                # API 模式
+                await self._scrape_weibo_api(name, result)
 
         except Exception as e:
             print(f"  ✗ 微博爬取失败: {e}")
@@ -285,6 +314,37 @@ class CelebrityScraper:
             await self.progress_callback(name, result)
 
         return result
+
+    async def _scrape_weibo_api(self, name: str, result: ScrapeResult):
+        """使用移动端 API 爬取微博数据（回退方案）"""
+        weibo_user = await self.weibo_spider.search_celebrity(name)
+        if weibo_user:
+            print(f"  ✓ 找到微博用户: {weibo_user.get('name')} "
+                  f"({weibo_user.get('followers_count', 0):,} 粉丝)")
+
+            posts = await self.weibo_spider.scrape_posts(weibo_user['uid'], count=15)
+            result.social_media_posts.extend(posts)
+            print(f"  ✓ 获取 {len(posts)} 条微博")
+
+            result.celebrity.weibo_id = weibo_user['uid']
+            result.celebrity.weibo_followers = weibo_user.get('followers_count', 0)
+            result.celebrity.avatar_url = weibo_user.get('avatar', '')
+
+            if posts:
+                comments = await self.weibo_spider.scrape_comments(posts[0].id, count=30)
+                result.comments.extend(comments)
+                print(f"  ✓ 获取 {len(comments)} 条评论")
+        else:
+            print(f"  ✗ 未找到微博用户")
+
+        # 搜索八卦相关微博
+        gossip_keywords = [f"{name} 八卦", f"{name} 绯闻", f"{name} 热搜"]
+        for keyword in gossip_keywords:
+            gossip_posts = await self.weibo_spider.search_gossip(keyword, count=5)
+            result.social_media_posts.extend(gossip_posts)
+            if gossip_posts:
+                print(f"  ✓ 搜索'{keyword}'到 {len(gossip_posts)} 条微博")
+            await asyncio.sleep(1)
 
     def _calculate_completeness(self, result: ScrapeResult) -> float:
         """计算数据完整度"""
