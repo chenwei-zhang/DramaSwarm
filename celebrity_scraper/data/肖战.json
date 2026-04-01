@@ -1,82 +1,51 @@
 {
   "celebrity": {
     "name": "肖战",
-    "english_name": "",
-    "birth_date": "天秤座",
-    "birth_place": "重庆",
+    "english_name": "Sean Xiao",
+    "birth_date": "1991-10-05",
+    "birth_place": "重庆市",
     "age": 0,
     "zodiac": "",
-    "constellation": "",
-    "occupation": [],
+    "constellation": "天秤座",
+    "occupation": [
+      "演员",
+      "歌手"
+    ],
     "company": "",
     "agency": "",
-    "height": "",
+    "height": "183.6 cm",
     "weight": "",
     "blood_type": "",
-    "biography": "有趣的灵魂.",
-    "education": "",
-    "alma_mater": "",
+    "biography": "肖战，1991年10月5日出生于重庆市，中国内地影视男演员、歌手，毕业于重庆工商大学。2015年，以选手的身份参加浙江卫视才艺养成选秀节目《燃烧吧少年》。2016年4月，主演校园星座超能力网络剧《超星星学园》。2018年4月25日，古装奇幻剧《哦！我的皇帝陛下》在腾讯视频播出，肖战凭北堂墨染一角崭露头角。2019年6月27日，古装仙侠剧《陈情令》在腾讯视频播出，肖战凭魏无羡一角赢得广泛关注；9月13日，主演的古装仙侠电影《诛仙I》在全国上映。2020年1月24日，肖战首次登上中央广播电视总台春节联欢晚会，与谢娜等合作表演小品《喜欢你，喜欢我》。2021年2月5日，主演的古装玄幻励志剧《斗罗大陆》登陆CCTV-8；4月22日，主演的央华版话剧《如梦之梦》在武汉首演；12月26日，主演的军旅剧《王牌部队》播出。2022年3月15日，主演的都市情感剧《余生，请多指教》播出。2023年，凭借年代励",
+    "education": "重庆工商大学",
+    "alma_mater": "重庆工商大学",
     "works": [],
-    "famous_works": [],
+    "famous_works": [
+      "藏海传",
+      "梦中的那片海",
+      "陈情令",
+      "王牌部队",
+      "我们"
+    ],
     "weibo_id": "1792951112",
     "weibo_followers": 33848000,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [
-      "weibo"
+      "https://baike.baidu.com/item/%E8%82%96%E6%88%98/18866899"
     ],
-    "updated_at": "2026-03-31T23:10:12.239184"
+    "updated_at": "2026-04-01T08:31:23.611882"
   },
-  "gossips": [
-    {
-      "title": "肖战《射雕英雄传》春节档上映",
-      "content": "2025年春节档肖战主演的《射雕英雄传：侠之大者》上映，由徐克执导，肖战饰演郭靖。这是肖战首次挑大梁主演大制作电影，票房表现引发广泛讨论和关注。",
-      "gossip_type": "other",
-      "date": "2025-01-29",
-      "involved_celebrities": [
-        "肖战"
-      ],
-      "tags": [],
-      "importance": 0.8,
-      "verified": true,
-      "sentiment": "neutral",
-      "sentiment_score": 0.0,
-      "source_url": "",
-      "source_type": "sina"
-    }
-  ],
-  "relationships": [
-    {
-      "person_a": "肖战",
-      "person_b": "王一博",
-      "relation_type": "搭档",
-      "start_date": null,
-      "end_date": null,
-      "is_current": true,
-      "description": "2019年合作《陈情令》，剧后各自发展，CP粉基础庞大",
-      "confidence": 0.9,
-      "strength": 0.75
-    },
-    {
-      "person_a": "肖战",
-      "person_b": "杨幂",
-      "relation_type": "好友",
-      "start_date": null,
-      "end_date": null,
-      "is_current": true,
-      "description": "业内前辈后辈关系，偶有互动",
-      "confidence": 0.6,
-      "strength": 0.4
-    }
-  ],
+  "gossips": [],
+  "relationships": [],
   "social_media_posts": [
     {
       "id": "QwVMF4wmX",
       "platform": "weibo",
       "author": "肖战",
       "content": "每一面，无惧细看！@NARS #NARS超雾瓶粉底# 肖战工作室的微博视频",
-      "likes": 8385316,
+      "likes": 8413536,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-03-20 10:10",
@@ -93,7 +62,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "感谢SMG、感谢东方卫视#电视剧品质盛典#。感谢《藏海传》台前幕后所有的工作人员，感谢每一位观众朋友。  原图",
-      "likes": 7242166,
+      "likes": 7255076,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-03-15 23:45",
@@ -110,7 +79,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "在巴黎芳登广场，与百年世家@Boucheron宝诗龙 回到故事开始的地方。 #百年创艺前沿风范# Boucheron宝诗龙的微博视频",
-      "likes": 7118954,
+      "likes": 7125788,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-03-12 10:10",
@@ -127,7 +96,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "Hi米兰，又见面了@GUCCI #GucciPrimavera#  [组图共4张] 原图",
-      "likes": 10393186,
+      "likes": 10394257,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-28 17:19",
@@ -144,7 +113,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "下班！  [组图共4张] 原图",
-      "likes": 7376895,
+      "likes": 7378845,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-28 04:15",
@@ -157,7 +126,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "再回米兰，@TODS 的美学现场令人难忘。看意式工艺与当代艺术对话，与匠心近距离共鸣。#TODS2026秋冬系列时装秀##ItalianSignature#  [组图共4张] 原图",
-      "likes": 10319122,
+      "likes": 10319939,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-28 00:40",
@@ -176,7 +145,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "我是东北长大的，却一直怕冬天。我不爱跟人太近，习惯躲着。当年因为怕雪，一个人去到南方，以为离得远一点，心里的坎就能过去。再回到故乡… 再次置身凛冽寒风之中，这片土地熟悉，却还是让我不安。       和一群人不期而遇，每天吵吵闹闹，简直不可思议。我一直以为，我是来医治别人的。曾经拼命逃...全文 [组图共2张] 原图",
-      "likes": 7082188,
+      "likes": 7086225,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-22 22:05",
@@ -189,7 +158,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "#小城良方官宣杀青#风停在小城转角，故事收进最后一帧。那些一起熬过的冬雪，早已化作彼此心头的春意。领衔主演：@肖战领衔主演：倪大红 @姜妍二胖 @史彭元 @菅纫姿 @演员张国强特邀主演：@王彦霖  特别主演：陈瑾特别出演：@道哥刘桦 @姜宏波 @房子斌友情出演：丁嘉丽 @任程伟...全文",
-      "likes": 2617638,
+      "likes": 2628989,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-22 10:01",
@@ -206,7 +175,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "【#肖战岁岁年年听得人心暖暖#】#岁岁年年治愈力MAX# 岁月流转，烟火向暖。@肖战 用一首《岁岁年年》唱出团圆与陪伴的温情，歌声之外，万千网友的暖心故事汇聚成璀璨烟火，点燃新春暖意。一起欣赏↓↓愿岁岁安康，年年欢畅！#北京台春晚# 人民日报的微博视频",
-      "likes": 2702561,
+      "likes": 2704703,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-17 22:09",
@@ -227,7 +196,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "新年好！大家新年快乐，马到成功，健康顺遂！[马上有福][马上来财]  [组图共2张] 原图",
-      "likes": 7087970,
+      "likes": 7094514,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-16 23:30",
@@ -240,7 +209,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "与@TODS 的蔚蓝海岸之旅，不为追逐时间，只为享受漫步时光。沿着光影轨迹，找寻质感与匠心。#TODS2026春夏# TODS的微博视频",
-      "likes": 6889855,
+      "likes": 7045471,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-10 17:10",
@@ -257,7 +226,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "每一步滑行都是对要强精神的致敬。蒙牛2026年冬奥《开幕》中国红在哪里，要强就在哪里，骨子里要强的中国人，让世界看见。#蒙牛携张艺谋导演团队为冬奥开幕##蒙牛奥林匹克全球合作伙伴#蒙牛乳业的微博视频",
-      "likes": 2776309,
+      "likes": 2784063,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-06 10:22",
@@ -276,7 +245,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "2025微博之夜盛典荣誉奖项",
-      "likes": 2082362,
+      "likes": 2084186,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-05 22:57",
@@ -289,9 +258,9 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "2025微博之夜盛典荣誉奖项",
-      "likes": 1574292,
+      "likes": 1580471,
       "reposts": 1000000,
-      "comments": 539162,
+      "comments": 552485,
       "publish_time": "2026-02-05 22:00",
       "source_url": "https://weibo.cn/comment/Qqt3jyHSh",
       "tags": [],
@@ -302,7 +271,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "以微博之力，让世界更美！2025#微博之夜# 即将开启，2月5日，和我一起见证年度闪耀时刻！#微博之夜阵容官宣#【请大家严格遵守《微博之夜安全倡议》《禁限带物品须知》，不应援、不聚集、不逗留，为了自己和他人安全，我们线上直播见！】   [组图共2张] 原图",
-      "likes": 4826715,
+      "likes": 4828732,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-02 13:30",
@@ -321,7 +290,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "在更高处的鲜语云上牧场见证更高标准的新鲜有机@每日鲜语 高端鲜奶新标杆! #每日鲜语#每日鲜语的微博视频",
-      "likes": 10662486,
+      "likes": 10662648,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-22 10:10",
@@ -338,7 +307,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "[好运超崽喷雾]马年已至，小寒藏暖，好运正悄然加载。[来抱抱]所谓年味，是与家人相拥的圆满，团圆的彩头，稳稳握在手心。把惦念揉进年礼，牵挂的彩头，安放岁岁年年的温柔。为奥运健儿呐喊助威，拼搏的彩头，燃动一腔热血。过往一年步履铿锵，向阳的彩头，伴自己昂首前行。...全文",
-      "likes": 4191694,
+      "likes": 4192906,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-05 10:29",
@@ -351,7 +320,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "不要回头！东方卫视番茄台的微博视频",
-      "likes": 7215776,
+      "likes": 7216218,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-01 14:10",
@@ -364,7 +333,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "2026，冲吧！  原图",
-      "likes": 7126430,
+      "likes": 7126926,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-01 00:50",
@@ -377,7 +346,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "穿越四季，与@ELLE 相遇。  [组图共9张] 原图",
-      "likes": 5393529,
+      "likes": 5443249,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2025-12-26 12:15",
@@ -390,9 +359,9 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "【2025年终暖心短片丨#为自己喝彩#】2025年快要结束了，回顾这一年，你会想到哪些难以忘怀的瞬间？#2025年终暖心短片为自己喝彩#今日上线，这里有家国的记忆，也有你我的故事。和@肖战 一起，为自己，也为每一个在平凡生活里奋力向前的你，大声喝彩！敬此刻，敬未来！#盘点2025# 人民日报的微博视频",
-      "likes": 1496602,
-      "reposts": 407105,
-      "comments": 235324,
+      "likes": 1496788,
+      "reposts": 407277,
+      "comments": 235402,
       "publish_time": "2025-12-25 09:36",
       "source_url": "https://weibo.cn/comment/Qk0exF5bo",
       "tags": [
@@ -411,7 +380,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "12月31日19:30《梦圆东方·2026东方卫视跨年盛典》，我们不见不散～#东方卫视跨年##闪耀2026#  原图",
-      "likes": 4170417,
+      "likes": 4170781,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2025-12-24 12:01",
@@ -430,7 +399,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "靓☃️  [组图共6张] 原图",
-      "likes": 5081399,
+      "likes": 5482903,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2025-12-23 13:11",
@@ -443,9 +412,9 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "#得闲谨制讲述普通人的抗战故事#【#他们从未得闲我们怎敢忘记# 转发此条微博，抽奖送100张电影票！】今天，@电影得闲谨制 发布“不得闲”人物特辑↓↓危难当前，以莫得闲为代表的百姓挺身而出，从个人觉醒到众人携手，微光终汇聚成希望。以小家见大家，万千血肉躯铸就民族脊梁。电影正在热映，转发本条...全文",
-      "likes": 2645417,
-      "reposts": 788195,
-      "comments": 612767,
+      "likes": 2645560,
+      "reposts": 788718,
+      "comments": 613164,
       "publish_time": "2025-12-14 10:00",
       "source_url": "https://weibo.cn/comment/QikGF6MXg",
       "tags": [
@@ -462,9 +431,9 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "#南京大屠杀惨案88周年#【今天，一起转发！祭奠同胞！#每12秒1条生命消逝勿忘历史#】#铭记12月13日#  1937年的今天，侵华日军野蛮侵入南京，制造了南京大屠杀惨案。30多万同胞在六周内被屠杀，每隔12秒就有一条生命消逝……今天，我们以国之名，祭奠遇难同胞。一起发条微博！勿忘国殇，吾辈自强！...全文 原图",
-      "likes": 1192280,
-      "reposts": 233240,
-      "comments": 134994,
+      "likes": 1192336,
+      "reposts": 233247,
+      "comments": 135006,
       "publish_time": "2025-12-13 00:16",
       "source_url": "https://weibo.cn/comment/Qi7rfhPcn",
       "tags": [
@@ -483,7 +452,7 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "得闲想要，得闲手搓得到。#电影得闲谨制# 肖战的微博视频",
-      "likes": 3722764,
+      "likes": 3725716,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2025-12-12 12:01",
@@ -500,9 +469,9 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "【#得闲谨制背后是不能忘不敢忘的历史#】#得闲谨制勿忘国耻铭记历史# 今天，@电影得闲谨制 发布“铭记”版特别视频↓↓那些斑驳血痕，南京不会忘记，中国人不会忘记。面对侵略者，百姓们汇聚微末之力，为家园筑起坚实堡垒。如今，硝烟散去，但山河破碎的伤痛、同胞罹难的血泪，永不敢忘怀！珍爱和平，...全文",
-      "likes": 803622,
-      "reposts": 298438,
-      "comments": 137927,
+      "likes": 803699,
+      "reposts": 298510,
+      "comments": 137958,
       "publish_time": "2025-12-12 10:00",
       "source_url": "https://weibo.cn/comment/Qi1PEhaqz",
       "tags": [
@@ -519,9 +488,9 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "【#得闲谨制怎么打就这么打#】@电影得闲谨制 发布“打得好！”版后告片↓↓日寇侵入将戈止镇弄得一片鸡飞狗跳，百姓被逼入绝境反击，成功将敌人抓获，轮流上阵出手，让侵略者狠狠体会到什么叫：犯我家园者，必将遭受猛烈打击！#电影得闲谨制# 正在热映，影院见。兰晓龙@伍千万里四十八 @孔笙 @侯鸿亮...全文",
-      "likes": 1660052,
-      "reposts": 500383,
-      "comments": 281967,
+      "likes": 1660102,
+      "reposts": 500481,
+      "comments": 282015,
       "publish_time": "2025-12-10 10:00",
       "source_url": "https://weibo.cn/comment/QhIYHpN94",
       "tags": [
@@ -538,9 +507,9 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "【#得闲谨制是百姓一起干件大事#】 @电影得闲谨制 今日发布“干大事！”版后告片↓朝天吼，办大事！面对外敌，戈止镇村民聚万众之力撼动日军钢铁武器，不退不让，硬刚到底！影片以黑色幽默的笔触，精准揭穿敌军伪善面目，深刻诠释平民在绝境中迸发的生存勇气与守望家园的坚定信念。#电影得闲谨制# 正在...全文",
-      "likes": 1756858,
-      "reposts": 539914,
-      "comments": 310823,
+      "likes": 1756902,
+      "reposts": 540005,
+      "comments": 310857,
       "publish_time": "2025-12-08 10:00",
       "source_url": "https://weibo.cn/comment/Qhq7S3qBe",
       "tags": [
@@ -557,9 +526,9 @@
       "platform": "weibo",
       "author": "肖战",
       "content": "【#得闲谨制MV唱出中华儿女的血性#】@电影得闲谨制 正式发布由@肖战 倾情献唱的同名主题曲MV，展现了抗战时期普通人从追求安稳到奋起抗敌的蜕变。当硝烟弥漫至家园，虽为血肉之躯，也要坚守信念以身抗敌！致敬先辈！#电影得闲谨制# 正在热映，我们影院见！ 央视新闻的微博视频",
-      "likes": 1536999,
-      "reposts": 555477,
-      "comments": 284837,
+      "likes": 1537063,
+      "reposts": 555567,
+      "comments": 284870,
       "publish_time": "2025-12-07 10:00",
       "source_url": "https://weibo.cn/comment/QhgHazo7G",
       "tags": [
@@ -570,431 +539,16 @@
         "得闲谨制MV唱出中华儿女的血性",
         "电影得闲谨制"
       ]
-    },
-    {
-      "id": "Qhb9Ta6W4",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "我是莫得闲，我们的家，我守护。#电影得闲谨制# 肖战的微博视频",
-      "likes": 3029694,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-12-06 19:54",
-      "source_url": "https://weibo.cn/comment/Qhb9Ta6W4",
-      "tags": [
-        "电影得闲谨制"
-      ],
-      "topics": [
-        "电影得闲谨制"
-      ]
-    },
-    {
-      "id": "QgXUds6HS",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "和@欧莱雅男士 一起守住年轻，挑战再升级。#欧莱雅男士淡纹家族# 肖战工作室的微博视频",
-      "likes": 4688451,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-12-05 10:10",
-      "source_url": "https://weibo.cn/comment/QgXUds6HS",
-      "tags": [
-        "欧莱雅男士淡纹家族"
-      ],
-      "topics": [
-        "欧莱雅男士淡纹家族"
-      ]
-    },
-    {
-      "id": "QgEZbcK0h",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "【#得闲谨制以身为盾誓死卫家#】@电影得闲谨制 今日发布“为家 卫家”版预告↓↓硝烟席卷大地，百姓四散流离。这一次，我们以血肉为盾，以家为锋！我们守卫山河，守卫每一个灶台的温热、每一次团聚的笑声。当家园一次次被摧毁，这次不退不让！@肖战 @彭昱畅 @周依然6 @演员杨新鸣 @Gogo严知度 12月6日...全文",
-      "likes": 2212883,
-      "reposts": 664797,
-      "comments": 429227,
-      "publish_time": "2025-12-03 10:00",
-      "source_url": "https://weibo.cn/comment/QgEZbcK0h",
-      "tags": [
-        "得闲谨制以身为盾誓死卫家"
-      ],
-      "topics": [
-        "得闲谨制以身为盾誓死卫家"
-      ]
-    },
-    {
-      "id": "Qgm7Riuuv",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "【#得闲谨制普通人的抗战故事#】@电影得闲谨制 今日发布“守家无退路！”版预告↓↓当年，日寇突袭家园，村落满目凋零，戈止镇的村民们身陷绝境，以血肉迎战！这是一场捍卫家园的殊死较量，家园寸土不让！12月6日，#电影得闲谨制# 全国上映，我们影院见！@肖战 @彭昱畅 @周依然6 @演员杨新鸣...全文",
-      "likes": 2485655,
-      "reposts": 820533,
-      "comments": 500147,
-      "publish_time": "2025-12-01 09:59",
-      "source_url": "https://weibo.cn/comment/Qgm7Riuuv",
-      "tags": [
-        "得闲谨制普通人的抗战故事",
-        "电影得闲谨制"
-      ],
-      "topics": [
-        "得闲谨制普通人的抗战故事",
-        "电影得闲谨制"
-      ]
-    },
-    {
-      "id": "QgcI5agod",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "【#得闲谨制展现抗战不屈信念#】 @电影得闲谨制 今日发布“家园守望”角色海报↓↓孩童眼中的无措与天真，工匠莫得闲的不屈面庞，众人挺起的脊梁……硝烟和乱世之中，众生百态的每一幕都直击心灵。家园既危，不退！不让！无数微光汇聚，便是民族不灭的希望！12月6日，#电影得闲谨制#全国上映，我们影院...全文 [组图共6张] 原图",
-      "likes": 2160942,
-      "reposts": 910760,
-      "comments": 554505,
-      "publish_time": "2025-11-30 10:00",
-      "source_url": "https://weibo.cn/comment/QgcI5agod",
-      "tags": [
-        "得闲谨制展现抗战不屈信念",
-        "电影得闲谨制"
-      ],
-      "topics": [
-        "得闲谨制展现抗战不屈信念",
-        "电影得闲谨制"
-      ]
-    },
-    {
-      "id": "QfTQJhshB",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "#电影得闲谨制定档# 电影《得闲谨制》今日发布“为家而战”版预告，并官宣12月6日上映。工匠莫得闲（肖战 饰）携一家老小扎根于宁静的戈止镇，不料不速之客的突然到访，让原本宁静和谐的家园陷入了危局。危难当前，村民们挺身而出，一场家园守卫战就此打响！面对强敌，这场万般艰险的守家之战能否取得...全文",
-      "likes": 4114586,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-28 10:00",
-      "source_url": "https://weibo.cn/comment/QfTQJhshB",
-      "tags": [
-        "电影得闲谨制定档"
-      ],
-      "topics": [
-        "电影得闲谨制定档"
-      ]
-    },
-    {
-      "id": "QficN5Vvr",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "#荣耀500# 系列2亿人像全能实况，动，就动真格！@荣耀手机 肖战工作室的微博视频",
-      "likes": 7036519,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-24 10:10",
-      "source_url": "https://weibo.cn/comment/QficN5Vvr",
-      "tags": [
-        "荣耀500"
-      ],
-      "topics": [
-        "荣耀500"
-      ]
-    },
-    {
-      "id": "QeGmgutJD",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "【转发海报！#玩火者必自焚#】日本首相高市早苗的涉台错误言论从根本上损害了中日关系的政治基础，激起了中国人民的公愤和谴责。如果日方拒不撤回甚至一错再错，#中方将不得不采取严厉坚决的反制措施#，由此产生的一切后果由日方承担。  原图",
-      "likes": 1507248,
-      "reposts": 237895,
-      "comments": 141223,
-      "publish_time": "2025-11-20 09:49",
-      "source_url": "https://weibo.cn/comment/QeGmgutJD",
-      "tags": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ],
-      "topics": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ]
-    },
-    {
-      "id": "QerJ6of72",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "【转发！#绝不允许日本军国主义复活#】当年，日本军国主义发动的侵略战争给亚洲和世界带来深重灾难。忘战必危、好战必亡。历史的教训不能忘却，不可歪曲，更不容抹杀。今天，我们绝不允许日本军国主义复活，绝不允许任何人挑战战后国际秩序，绝不允许世界和平稳定再遭破坏！  原图",
-      "likes": 1465131,
-      "reposts": 253818,
-      "comments": 135453,
-      "publish_time": "2025-11-18 20:34",
-      "source_url": "https://weibo.cn/comment/QerJ6of72",
-      "tags": [
-        "绝不允许日本军国主义复活"
-      ],
-      "topics": [
-        "绝不允许日本军国主义复活"
-      ]
-    },
-    {
-      "id": "QdLWcqxuR",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "在#元气森林小元气调饮店# 携手我的好搭子小元气，给生活加点元气。@元气森林官方微博  肖战工作室的微博视频",
-      "likes": 8077893,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-14 10:11",
-      "source_url": "https://weibo.cn/comment/QdLWcqxuR",
-      "tags": [
-        "元气森林小元气调饮店"
-      ],
-      "topics": [
-        "元气森林小元气调饮店"
-      ]
-    },
-    {
-      "id": "QbPVB6JA4",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "【#这件4000多年前的上古礼器有多绝#】#4000多年前的黑科技#薄如纸，黑如漆，亮如镜，硬如瓷。摇动时，腹内陶丸叮咚作响。它是史前“绝艺”铸造的上古礼器——蛋壳黑陶高柄杯，口沿最薄处仅为0.2毫米。你能相信这是距今4000多年前的龙山文化先民制作出来的吗？都运用了什么黑科技？戳↓↓@视听中国...全文",
-      "likes": 1847686,
-      "reposts": 316978,
-      "comments": 323772,
-      "publish_time": "2025-11-01 16:39",
-      "source_url": "https://weibo.cn/comment/QbPVB6JA4",
-      "tags": [
-        "这件4000多年前的上古礼器有多绝",
-        "4000多年前的黑科技"
-      ],
-      "topics": [
-        "这件4000多年前的上古礼器有多绝",
-        "4000多年前的黑科技"
-      ]
-    },
-    {
-      "id": "Qb70Odaqg",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "#舒淇独白女孩终极预告##舒淇导演电影女孩预售开启#电影《女孩》发布终极预告，导演舒淇献声旁白，文字选自由她本人编写的剧本，女孩（白小樱 饰）的成长环境和心事被娓娓道来。邱泽与汤毓绮（9m88）饰演带给女孩压抑与恐惧的父母。电影预售进行中，将于11月1日上映。电影女孩的微博视频",
-      "likes": 1145531,
-      "reposts": 117635,
-      "comments": 142080,
-      "publish_time": "2025-10-27 22:19",
-      "source_url": "https://weibo.cn/comment/Qb70Odaqg",
-      "tags": [
-        "舒淇独白女孩终极预告",
-        "舒淇导演电影女孩预售开启"
-      ],
-      "topics": [
-        "舒淇独白女孩终极预告",
-        "舒淇导演电影女孩预售开启"
-      ]
-    },
-    {
-      "id": "QaL3uaJFd",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "#电影阳光俱乐部# 很幸运能出演吴优这个角色，拍摄的过程中，我也一直在被治愈。吴优的视角下，快乐并不复杂，它或许只是被阳光照到的一瞬间。吴优相信，只要乐观、只要去爱，生活就会回以温柔的答案，我也希望大家能在《阳光俱乐部》里感受到这份轻盈的信念。今天，《阳光俱乐部》正式和大家见面，在...全文 原图",
-      "likes": 1063581,
-      "reposts": 111764,
-      "comments": 105445,
-      "publish_time": "2025-10-25 14:25",
-      "source_url": "https://weibo.cn/comment/QaL3uaJFd",
-      "tags": [
-        "电影阳光俱乐部"
-      ],
-      "topics": [
-        "电影阳光俱乐部"
-      ]
-    },
-    {
-      "id": "QaIPSsiw8",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "#今天一起致敬最可爱的人#【75年了，我们永远不会忘记！】今天是中国人民志愿军#抗美援朝出国作战75周年纪念日#。75年前，中国人民志愿军雄赳赳，气昂昂，跨过鸭绿江。历经两年零九个月舍生忘死的浴血奋战，赢得了抗美援朝战争的伟大胜利。这一战，拼来山河无恙、家国安宁！勿忘历史，缅怀先烈，我们始...全文",
-      "likes": 1063965,
-      "reposts": 203841,
-      "comments": 124098,
-      "publish_time": "2025-10-25 08:46",
-      "source_url": "https://weibo.cn/comment/QaIPSsiw8",
-      "tags": [
-        "今天一起致敬最可爱的人",
-        "抗美援朝出国作战75周年纪念日"
-      ],
-      "topics": [
-        "今天一起致敬最可爱的人",
-        "抗美援朝出国作战75周年纪念日"
-      ]
-    },
-    {
-      "id": "QaIPq38dq",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "#台湾光复80周年#【今天，一起转发！#纪念台湾光复#！🇨🇳】#只有一个中国# 1945年的今天，10月25日，日本在台殖民统治终结，台湾作为中国领土的一部分重回中国版图！万千的台湾同胞，在街上热烈庆祝。今天，一起发条微博，为祖国统一、民族复兴的美好未来，共同奋斗！  原图",
-      "likes": 1015730,
-      "reposts": 176168,
-      "comments": 100161,
-      "publish_time": "2025-10-25 08:45",
-      "source_url": "https://weibo.cn/comment/QaIPq38dq",
-      "tags": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ],
-      "topics": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ]
-    },
-    {
-      "id": "Q9Fhe6CTa",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "#小城良方官宣阵容##小城良方开机#我......回来了。#小城良方#  原图",
-      "likes": 10295585,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-18 09:52",
-      "source_url": "https://weibo.cn/comment/Q9Fhe6CTa",
-      "tags": [
-        "小城良方官宣阵容",
-        "小城良方开机",
-        "小城良方"
-      ],
-      "topics": [
-        "小城良方官宣阵容",
-        "小城良方开机",
-        "小城良方"
-      ]
-    },
-    {
-      "id": "Q7Zw6aCoV",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "月光舞剑，对酒当歌。祝大家中秋快乐～🎑 #一笑随歌# 李沁的微博视频",
-      "likes": 1400248,
-      "reposts": 112023,
-      "comments": 164523,
-      "publish_time": "2025-10-07 09:43",
-      "source_url": "https://weibo.cn/comment/Q7Zw6aCoV",
-      "tags": [
-        "一笑随歌"
-      ],
-      "topics": [
-        "一笑随歌"
-      ]
-    },
-    {
-      "id": "Q7Qddvg5A",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "#人民日报中秋定制MV岁岁年年#【#肖战中秋温暖献唱岁岁年年#】“愿岁岁安康，愿年年欢畅。”今天，@人民日报 中秋特别MV《岁岁年年》暖心上线！@肖战 用温暖的歌声，为大家送上中秋祝福↓↓值此佳节，共祝祖国繁荣昌盛、家国同圆！ 人民日报的微博视频",
-      "likes": 7275830,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-06 10:02",
-      "source_url": "https://weibo.cn/comment/Q7Qddvg5A",
-      "tags": [
-        "人民日报中秋定制MV岁岁年年",
-        "肖战中秋温暖献唱岁岁年年"
-      ],
-      "topics": [
-        "人民日报中秋定制MV岁岁年年",
-        "肖战中秋温暖献唱岁岁年年"
-      ]
-    },
-    {
-      "id": "Q7CRgjLs2",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "今天是我的生日，来祝福我吧！",
-      "likes": 6662357,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-05 00:02",
-      "source_url": "https://weibo.cn/comment/Q7CRgjLs2",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q7CQY2Smf",
-      "platform": "weibo",
-      "author": "肖战",
-      "content": "做了一个梦，像是未来递来的一张明信片。那里有我踮脚眺望过的晨光。       醒来才发现，这束未来的光，原来是过去点亮的灯。感谢那些摔过的跤、接住的手。       未来在梦里招手，过去在身后依托，而我正走在路上。  [组图共2张] 原图",
-      "likes": 44963039,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-05 00:01",
-      "source_url": "https://weibo.cn/comment/Q7CQY2Smf",
-      "tags": [],
-      "topics": []
     }
   ],
   "comments": [],
-  "news_articles": [
-    {
-      "title": "肖战现身活动，状态在线",
-      "summary": "网友热议肖战近况",
-      "content": "肖战出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2025-10-25",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/肖战/0",
-      "sentiment": "neutral",
-      "sentiment_score": 0.46325067877643716,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战工作室发声明澄清网络传闻",
-      "summary": "肖战近日动态引发关注",
-      "content": "肖战工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-01-22",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/肖战/1",
-      "sentiment": "positive",
-      "sentiment_score": 0.05897530804349066,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战《藏海传》杀青，与郑晓龙导演合作",
-      "summary": "肖战近日动态引发关注",
-      "content": "肖战主演古装剧《藏海传》正式杀青，由郑晓龙执导，肖战饰演汪藏海一角，预计2025年播出。",
-      "publish_date": "2025-12-01",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/肖战/2",
-      "sentiment": "neutral",
-      "sentiment_score": -0.09453185861235197,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战《射雕英雄传：侠之大者》定档春节，徐克执导引期待",
-      "summary": "网友热议肖战近况",
-      "content": "肖战主演、徐克执导的《射雕英雄传：侠之大者》正式定档2025年春节，肖战饰演郭靖引发热议。",
-      "publish_date": "2026-01-09",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/肖战/3",
-      "sentiment": "neutral",
-      "sentiment_score": 0.4539719054560161,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "肖战商业价值持续走高，多个国际品牌代言",
-      "summary": "肖战近日动态引发关注",
-      "content": "肖战近年商业代言涵盖多个领域，从偶像成功转型实力派演员，商业价值持续走高。",
-      "publish_date": "2025-12-07",
-      "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/肖战/4",
-      "sentiment": "neutral",
-      "sentiment_score": 0.4908243323320341,
-      "category": "",
-      "tags": []
-    }
-  ],
+  "news_articles": [],
   "statistics": {
-    "data_completeness": 0.7,
-    "total_posts": 50,
+    "data_completeness": 0.65,
+    "total_posts": 30,
     "total_comments": 0,
-    "total_news": 5,
-    "total_relationships": 2,
-    "total_gossips": 1
+    "total_news": 0,
+    "total_relationships": 0,
+    "total_gossips": 0
   }
 }

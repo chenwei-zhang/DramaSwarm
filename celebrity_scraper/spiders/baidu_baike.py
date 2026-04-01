@@ -108,34 +108,29 @@ class BaiduBaikeSpider:
 
     def _is_valid_baike_page(self, html: str) -> bool:
         """检查是否是有效的百科页面"""
-        # 排除词
+        # 有效指标优先判断
+        valid_indicators = [
+            "basicInfo-item",
+            "lemma-summary",
+            "view-more-pic",
+            "lemmaTitle",
+        ]
+        has_valid = any(indicator in html for indicator in valid_indicators)
+        if not has_valid:
+            return False
+
+        # 排除明确的错误页面
         invalid_indicators = [
             "百度百科尚未收录词条",
-            "为您推荐",
             "抱歉，您访问的页面不存在",
-            "404",
             "词条已锁定",
             "抱歉，没有找到与",
         ]
-
-        # 有效指标
-        valid_indicators = [
-            "basicInfo-item",  # 基本信息块的class
-            "lemma-summary",   # 简介的class
-            "view-more-pic",   # 图片区域的class
-            "百科",
-        ]
-
         for indicator in invalid_indicators:
             if indicator in html:
                 return False
 
-        # 至少有一个有效指标
-        for indicator in valid_indicators:
-            if indicator in html:
-                return True
-
-        return False
+        return True
 
     def _parse_search_results(self, html: str, name: str) -> Optional[str]:
         """从搜索结果页解析条目链接"""

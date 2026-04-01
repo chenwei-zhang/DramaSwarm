@@ -1,102 +1,102 @@
 {
   "celebrity": {
     "name": "贾乃亮",
-    "english_name": "",
+    "english_name": "Jerry",
     "birth_date": "1984-04-12",
-    "birth_place": "北京 东城区",
+    "birth_place": "黑龙江省哈尔滨松北区",
     "age": 0,
     "zodiac": "",
-    "constellation": "",
-    "occupation": [],
-    "company": "",
+    "constellation": "白羊座",
+    "occupation": [
+      "演员",
+      "歌手"
+    ],
+    "company": "贾乃亮工作室",
     "agency": "",
-    "height": "",
-    "weight": "",
-    "blood_type": "",
-    "biography": "工作事宜 请联络赵先生zhaohongyan@tongletv.cc",
-    "education": "北京电影学院 01级",
-    "alma_mater": "",
+    "height": "181 cm",
+    "weight": "67 kg",
+    "blood_type": "A型",
+    "biography": "贾乃亮（英文名：Jerry），1984年4月12日出生于黑龙江省哈尔滨市松北区，毕业于北京电影学院表演系，中国内地影视男演员、流行乐歌手。2002年，出演个人首部电视剧《北京假日》，从而正式进入演艺圈。2003年，首次担纲男主角，主演了古装剧《大唐歌飞》。2006年8月，参演个人首部电影《第601个电话》。2008年，主演《燃烧的玫瑰》。2011年，其主演的都市爱情悬疑剧《新拿什么拯救你，我的爱人》、都市生活剧《当婆婆遇上妈》相继播出。2012年，获得第8届华鼎奖中国都市题材电视剧最佳男演员奖。2013年，在《最美的时光》中饰演宋翊。2014年，其主演的都市医疗剧《产科男医生》播出；4月，携女儿贾云馨参加真人秀节目《爸爸回来了第一季》。2015年，其主演的《偏偏喜欢你》首播。2016年，获得首届中国电视剧品质盛典年度最具突破男演员奖。2017年，其主演的喜剧电影《东北往事之破马张飞》首映。",
+    "education": "北京电影学院（表演系本科2001级）",
+    "alma_mater": "北京电影学院（表演系本科2001级）",
     "works": [],
-    "famous_works": [],
+    "famous_works": [
+      "偏偏喜欢你",
+      "最美的时光",
+      "当婆婆遇上妈",
+      "产科男医生",
+      "复合大师",
+      "煮妇神探",
+      "离婚前规则"
+    ],
     "weibo_id": "1214435497",
     "weibo_followers": 62514000,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [
-      "weibo"
+      "https://baike.baidu.com/item/%E8%B4%BE%E4%B9%83%E4%BA%AE"
     ],
-    "updated_at": "2026-03-31T23:17:55.135366"
+    "updated_at": "2026-04-01T08:36:25.165347"
   },
-  "gossips": [
-    {
-      "title": "李小璐PG One夜宿门事件",
-      "content": "2017年底李小璐被拍到与PG One深夜亲密互动。贾乃亮当时直播中表示「相信我老婆」，但两人最终于2019年离婚。事件导致PG One遭行业封杀，李小璐退出主流影视圈。贾乃亮转型直播带货成功。该事件至今仍是娱乐圈最具影响力的丑闻之一。",
-      "gossip_type": "cheating",
-      "date": "2017-12-29",
-      "involved_celebrities": [
-        "李小璐",
-        "贾乃亮",
-        "PG One"
-      ],
-      "tags": [],
-      "importance": 0.95,
-      "verified": true,
-      "sentiment": "negative",
-      "sentiment_score": -0.3,
-      "source_url": "",
-      "source_type": "sina"
-    },
-    {
-      "title": "贾乃亮直播带货事业成功转型",
-      "content": "离婚后贾乃亮成功转型直播带货，成为抖音头部明星主播。多次创造高销售纪录，涵盖美妆、食品、家电等品类。被视为明星转型直播的典型案例。同时持续活跃于综艺节目。",
-      "gossip_type": "other",
-      "date": "2024-06-01",
-      "involved_celebrities": [
-        "贾乃亮"
-      ],
-      "tags": [],
-      "importance": 0.65,
-      "verified": true,
-      "sentiment": "neutral",
-      "sentiment_score": 0.0,
-      "source_url": "",
-      "source_type": "sina"
-    }
-  ],
+  "gossips": [],
   "relationships": [
     {
       "person_a": "贾乃亮",
-      "person_b": "李小璐",
-      "relation_type": "前配偶",
-      "start_date": null,
-      "end_date": null,
-      "is_current": false,
-      "description": "2012年结婚，2019年因夜宿门事件离婚，育有一女甜馨",
-      "confidence": 0.99,
-      "strength": 0.2
+      "person_b": "王明轩",
+      "relation_type": "配偶",
+      "is_current": true,
+      "description": "",
+      "confidence": 0.8,
+      "strength": 0.6
     },
     {
       "person_a": "贾乃亮",
-      "person_b": "PG One",
-      "relation_type": "对手",
-      "start_date": null,
-      "end_date": null,
-      "is_current": false,
-      "description": "夜宿门事件中贾乃亮为受害者一方，两人关系敌对",
-      "confidence": 0.95,
-      "strength": 0.1
+      "person_b": "不仅想篡位",
+      "relation_type": "子女",
+      "is_current": true,
+      "description": "",
+      "confidence": 0.8,
+      "strength": 0.6
+    },
+    {
+      "person_a": "贾乃亮",
+      "person_b": "贾云馨",
+      "relation_type": "子女",
+      "is_current": true,
+      "description": "",
+      "confidence": 0.8,
+      "strength": 0.6
     }
   ],
   "social_media_posts": [
+    {
+      "id": "QyNRmsavX",
+      "platform": "weibo",
+      "author": "贾乃亮",
+      "content": "#我的限亮版vlog# 今日爆料！独家曝光我的贴身助理：miumiu，全程陪同开工，工资是小鱼干无限续杯哈哈哈哈哈哈！#愚乐新鲜事# 贾乃亮的微博视频",
+      "likes": 6212,
+      "reposts": 5653,
+      "comments": 4712,
+      "publish_time": "2026-04-01 17:40",
+      "source_url": "https://weibo.cn/comment/QyNRmsavX",
+      "tags": [
+        "我的限亮版vlog",
+        "愚乐新鲜事"
+      ],
+      "topics": [
+        "我的限亮版vlog",
+        "愚乐新鲜事"
+      ]
+    },
     {
       "id": "QyadfwErM",
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "#我的限亮版vlog#  睡到刚起来，翻手机相册才想起之前在珠海的工作碎片还没更呢哈哈哈哈哈哈，😂我这记性！#生活有星意# 贾乃亮的微博视频",
-      "likes": 6506,
-      "reposts": 4725,
-      "comments": 3776,
+      "likes": 6513,
+      "reposts": 4726,
+      "comments": 3777,
       "publish_time": "2026-03-28 12:45",
       "source_url": "https://weibo.cn/comment/QyadfwErM",
       "tags": [
@@ -113,7 +113,7 @@
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "#我的限亮版vlog# 我家音响能有多离谱？猩猩会唱歌，花洒会蹦迪！你们最喜欢哪一个呢？#生活有星意# 贾乃亮的微博视频",
-      "likes": 9361,
+      "likes": 9363,
       "reposts": 6659,
       "comments": 5343,
       "publish_time": "2026-03-25 17:20",
@@ -132,7 +132,7 @@
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "#春天和小狗都很可爱# 今天是国际小狗日，冬梅限定营业照三张。  [组图共3张] 原图",
-      "likes": 8354,
+      "likes": 8355,
       "reposts": 5271,
       "comments": 4369,
       "publish_time": "2026-03-23 14:37",
@@ -149,7 +149,7 @@
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "#我的限亮版vlog# 结果咋样，你们评评理，这猫合格不？#生活有星意# 贾乃亮的微博视频",
-      "likes": 8500,
+      "likes": 8503,
       "reposts": 6674,
       "comments": 5524,
       "publish_time": "2026-03-21 13:03",
@@ -200,9 +200,9 @@
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "#我的限亮版vlog# 当冬梅遇到了“春晚”机器狗！从来没见冬梅这样激动过，哈哈哈放心吧小胖墩儿，我还是爱你的 贾乃亮的微博视频",
-      "likes": 7770,
+      "likes": 7772,
       "reposts": 5695,
-      "comments": 6333,
+      "comments": 6334,
       "publish_time": "2026-03-12 11:48",
       "source_url": "https://weibo.cn/comment/QvJ0pftZO",
       "tags": [
@@ -234,7 +234,7 @@
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "#我的限亮版vlog# 本来是想测试豆包帮我看着MiuMiu，结果它还跟我对上诗了 贾乃亮的微博视频",
-      "likes": 8792,
+      "likes": 8795,
       "reposts": 7933,
       "comments": 6346,
       "publish_time": "2026-03-11 12:18",
@@ -269,7 +269,7 @@
       "author": "贾乃亮",
       "content": "#我的限亮版vlog# 今天开箱了一个新玩意儿，在家随便说句话，想要啥画面直接给你变出来，这东西我能自己搁家捣鼓一整天，太好玩了！ 贾乃亮的微博视频",
       "likes": 9645,
-      "reposts": 7701,
+      "reposts": 7700,
       "comments": 6406,
       "publish_time": "2026-03-09 18:06",
       "source_url": "https://weibo.cn/comment/QvjcvbYrS",
@@ -349,7 +349,7 @@
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "#我的限亮版vlog# 我妈说过年必须年年有余，今天带家人出来全鱼宴安排！咱大东北原汁原味的鱼真真真真真的太香了！#马年大吉##马年马上见# 贾乃亮的微博视频",
-      "likes": 12416,
+      "likes": 12418,
       "reposts": 7652,
       "comments": 5835,
       "publish_time": "2026-02-22 18:30",
@@ -370,7 +370,7 @@
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "#我的限亮版vlog# 三十多年没滑过这么长的大滑梯了，带馨儿来冰雪大世界打出溜滑，太好玩了！#马年大吉##马年马上见# 贾乃亮的微博视频",
-      "likes": 11436,
+      "likes": 11437,
       "reposts": 6734,
       "comments": 5905,
       "publish_time": "2026-02-18 20:15",
@@ -404,7 +404,7 @@
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "祝大家新春快乐！#我的限亮版vlog##明星v放送# 贾乃亮的微博视频",
-      "likes": 7977,
+      "likes": 7978,
       "reposts": 6648,
       "comments": 5735,
       "publish_time": "2026-02-16 22:30",
@@ -480,7 +480,7 @@
       "platform": "weibo",
       "author": "贾乃亮",
       "content": "#我的限亮版vlog# 咱大肚锅锅也是会一点儿才艺的！#老己的冬日小确幸# 贾乃亮的微博视频",
-      "likes": 8376,
+      "likes": 8377,
       "reposts": 6689,
       "comments": 3177,
       "publish_time": "2026-01-29 18:00",
@@ -605,456 +605,16 @@
         "你好2026",
         "一起开启幸运2026"
       ]
-    },
-    {
-      "id": "Qktrflzpv",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "#非正式跨年派对# 小家伙陪我来开工了🐱  [组图共4张] 原图",
-      "likes": 9598,
-      "reposts": 6774,
-      "comments": 5373,
-      "publish_time": "2025-12-28 11:57",
-      "source_url": "https://weibo.cn/comment/Qktrflzpv",
-      "tags": [
-        "非正式跨年派对"
-      ],
-      "topics": [
-        "非正式跨年派对"
-      ]
-    },
-    {
-      "id": "QjrIYmN7L",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "饺子还得是自己包的吃着香 贾乃亮的微博视频",
-      "likes": 8435,
-      "reposts": 6646,
-      "comments": 5836,
-      "publish_time": "2025-12-21 17:45",
-      "source_url": "https://weibo.cn/comment/QjrIYmN7L",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Qjphnw0MU",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "开工日 吃个饺子 #冬至饺好运##一条微博记录冬至#  [组图共4张] 原图",
-      "likes": 11196,
-      "reposts": 9173,
-      "comments": 7024,
-      "publish_time": "2025-12-21 11:31",
-      "source_url": "https://weibo.cn/comment/Qjphnw0MU",
-      "tags": [
-        "冬至饺好运",
-        "一条微博记录冬至"
-      ],
-      "topics": [
-        "冬至饺好运",
-        "一条微博记录冬至"
-      ]
-    },
-    {
-      "id": "QimJnr0G3",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "#非正式跨年派对# 有没有人给我支个招 让冬梅减减肥 贾乃亮的微博视频",
-      "likes": 9502,
-      "reposts": 7718,
-      "comments": 6371,
-      "publish_time": "2025-12-14 15:12",
-      "source_url": "https://weibo.cn/comment/QimJnr0G3",
-      "tags": [
-        "非正式跨年派对"
-      ],
-      "topics": [
-        "非正式跨年派对"
-      ]
-    },
-    {
-      "id": "Qi7mJeHij",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "【#以国之名悼我同胞#】#今天是第12个国家公祭日# 88年前，日本侵略者的滔天罪行，我们永不能忘！永不敢忘！历史的真相不会被掩埋，我们绝不允许日本军国主义复活！#19371213绝不能忘# 新华社的微博视频",
-      "likes": 7143,
-      "reposts": 4774,
-      "comments": 3874,
-      "publish_time": "2025-12-13 00:05",
-      "source_url": "https://weibo.cn/comment/Qi7mJeHij",
-      "tags": [
-        "以国之名悼我同胞",
-        "今天是第12个国家公祭日",
-        "19371213绝不能忘"
-      ],
-      "topics": [
-        "以国之名悼我同胞",
-        "今天是第12个国家公祭日",
-        "19371213绝不能忘"
-      ]
-    },
-    {
-      "id": "QhUBxd8es",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "新成员加入，你们家的猫也这样吗？#2025感谢遇见你##非正式跨年派对# 贾乃亮的微博视频",
-      "likes": 9020,
-      "reposts": 6879,
-      "comments": 5527,
-      "publish_time": "2025-12-11 15:36",
-      "source_url": "https://weibo.cn/comment/QhUBxd8es",
-      "tags": [
-        "2025感谢遇见你",
-        "非正式跨年派对"
-      ],
-      "topics": [
-        "2025感谢遇见你",
-        "非正式跨年派对"
-      ]
-    },
-    {
-      "id": "QeGFBAPAW",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "【转发海报！#玩火者必自焚#】日本首相高市早苗的涉台错误言论从根本上损害了中日关系的政治基础，激起了中国人民的公愤和谴责。如果日方拒不撤回甚至一错再错，#中方将不得不采取严厉坚决的反制措施#，由此产生的一切后果由日方承担。  原图",
-      "likes": 9086,
-      "reposts": 7725,
-      "comments": 6339,
-      "publish_time": "2025-11-20 10:36",
-      "source_url": "https://weibo.cn/comment/QeGFBAPAW",
-      "tags": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ],
-      "topics": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ]
-    },
-    {
-      "id": "QerO0kctu",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "【转发！#绝不允许日本军国主义复活#】当年，日本军国主义发动的侵略战争给亚洲和世界带来深重灾难。忘战必危、好战必亡。历史的教训不能忘却，不可歪曲，更不容抹杀。今天，我们绝不允许日本军国主义复活，绝不允许任何人挑战战后国际秩序，绝不允许世界和平稳定再遭破坏！  原图",
-      "likes": 7150,
-      "reposts": 5749,
-      "comments": 4291,
-      "publish_time": "2025-11-18 20:46",
-      "source_url": "https://weibo.cn/comment/QerO0kctu",
-      "tags": [
-        "绝不允许日本军国主义复活"
-      ],
-      "topics": [
-        "绝不允许日本军国主义复活"
-      ]
-    },
-    {
-      "id": "Qefdb75Cg",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "#我的快乐自留地# 该咋说呢 … 我家冬梅能吃好啊！能吃是福！ 贾乃亮的微博视频",
-      "likes": 9920,
-      "reposts": 7770,
-      "comments": 6567,
-      "publish_time": "2025-11-17 12:42",
-      "source_url": "https://weibo.cn/comment/Qefdb75Cg",
-      "tags": [
-        "我的快乐自留地"
-      ],
-      "topics": [
-        "我的快乐自留地"
-      ]
-    },
-    {
-      "id": "QcLsCcwf6",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "馋东北菜了  点了个外卖  #一条微博记录立冬#  原图",
-      "likes": 10373,
-      "reposts": 5960,
-      "comments": 4620,
-      "publish_time": "2025-11-07 19:07",
-      "source_url": "https://weibo.cn/comment/QcLsCcwf6",
-      "tags": [
-        "一条微博记录立冬"
-      ],
-      "topics": [
-        "一条微博记录立冬"
-      ]
-    },
-    {
-      "id": "QcsjZmkKa",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "#四喜家意满窗海报##四喜定档1107# 青春活力版“玛莎拉弟”时刻准备着，等我上线为全家撑腰！#电视剧四喜#  原图",
-      "likes": 10690,
-      "reposts": 8998,
-      "comments": 6646,
-      "publish_time": "2025-11-05 18:24",
-      "source_url": "https://weibo.cn/comment/QcsjZmkKa",
-      "tags": [
-        "四喜家意满窗海报",
-        "四喜定档1107",
-        "电视剧四喜"
-      ],
-      "topics": [
-        "四喜家意满窗海报",
-        "四喜定档1107",
-        "电视剧四喜"
-      ]
-    },
-    {
-      "id": "Qbw2S4uYJ",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "#山河枕开播# 赤胆无畏，楚瑜以坚韧书写巾帼风华。#山河枕# #山河枕心话大冒险# 来和山河枕贴贴  原图",
-      "likes": 11501,
-      "reposts": 7671,
-      "comments": 6474,
-      "publish_time": "2025-10-30 14:02",
-      "source_url": "https://weibo.cn/comment/Qbw2S4uYJ",
-      "tags": [
-        "山河枕开播",
-        "山河枕",
-        "山河枕心话大冒险"
-      ],
-      "topics": [
-        "山河枕开播",
-        "山河枕",
-        "山河枕心话大冒险"
-      ]
-    },
-    {
-      "id": "QaKGusYXS",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "#电影阳光俱乐部# 很幸运能出演吴优这个角色，拍摄的过程中，我也一直在被治愈。吴优的视角下，快乐并不复杂，它或许只是被阳光照到的一瞬间。吴优相信，只要乐观、只要去爱，生活就会回以温柔的答案，我也希望大家能在《阳光俱乐部》里感受到这份轻盈的信念。今天，《阳光俱乐部》正式和大家见面，在...全文 原图",
-      "likes": 10031,
-      "reposts": 8552,
-      "comments": 7991,
-      "publish_time": "2025-10-25 13:28",
-      "source_url": "https://weibo.cn/comment/QaKGusYXS",
-      "tags": [
-        "电影阳光俱乐部"
-      ],
-      "topics": [
-        "电影阳光俱乐部"
-      ]
-    },
-    {
-      "id": "QaFrRbvHz",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "#台湾光复80周年#【今天，一起转发！#纪念台湾光复#！🇨🇳】#只有一个中国# 1945年的今天，10月25日，日本在台殖民统治终结，台湾作为中国领土的一部分重回中国版图！万千的台湾同胞，在街上热烈庆祝。今天，一起发条微博，为祖国统一、民族复兴的美好未来，共同奋斗！  原图",
-      "likes": 6026,
-      "reposts": 4699,
-      "comments": 3729,
-      "publish_time": "2025-10-25 00:08",
-      "source_url": "https://weibo.cn/comment/QaFrRbvHz",
-      "tags": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ],
-      "topics": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ]
-    },
-    {
-      "id": "QapCPFIX7",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "大宝贝馨儿生日快乐，我闺女又长大一岁了，天天开心，继续快乐成长！永远爱你  原图",
-      "likes": 58709,
-      "reposts": 10044,
-      "comments": 10470,
-      "publish_time": "2025-10-23 07:51",
-      "source_url": "https://weibo.cn/comment/QapCPFIX7",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q9eIjgLUf",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "我团队工作人员可真能疯狂整活儿，太魔性了哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈 [查看全部图片/视频]",
-      "likes": 12202,
-      "reposts": 8389,
-      "comments": 7569,
-      "publish_time": "2025-10-15 14:14",
-      "source_url": "https://weibo.cn/comment/Q9eIjgLUf",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q71aL5lEl",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "【🇨🇳此刻，一起转发！#祝新中国生日快乐#】今天，#中华人民共和国成立76周年#。此刻，无论你身在何方，请一起向祖国道一声祝福！祝福祖国繁荣昌盛，国泰民安！祝新中国生日快乐！#祖国万岁#（转发这一条微博，就能在昵称后点亮国旗icon）  原图",
-      "likes": 9180,
-      "reposts": 6763,
-      "comments": 5880,
-      "publish_time": "2025-10-01 00:05",
-      "source_url": "https://weibo.cn/comment/Q71aL5lEl",
-      "tags": [
-        "祝新中国生日快乐",
-        "中华人民共和国成立76周年",
-        "祖国万岁"
-      ],
-      "topics": [
-        "祝新中国生日快乐",
-        "中华人民共和国成立76周年",
-        "祖国万岁"
-      ]
-    },
-    {
-      "id": "Q6RLnizpm",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "【今日，一起转发！#向烈士致敬#】#烈士纪念日向人民英雄敬献花篮# 一个有希望的民族不能没有英雄，一个有前途的国家不能没有先锋。今天，是国家设立的烈士纪念日。烈士，是永不陨落的星辰，是永不熄灭的火炬！转发传递，一起致敬烈士！#盛世中国如你所愿#  原图",
-      "likes": 6755,
-      "reposts": 6670,
-      "comments": 4672,
-      "publish_time": "2025-09-30 00:08",
-      "source_url": "https://weibo.cn/comment/Q6RLnizpm",
-      "tags": [
-        "向烈士致敬",
-        "烈士纪念日向人民英雄敬献花篮",
-        "盛世中国如你所愿"
-      ],
-      "topics": [
-        "向烈士致敬",
-        "烈士纪念日向人民英雄敬献花篮",
-        "盛世中国如你所愿"
-      ]
-    },
-    {
-      "id": "Q6jsovsoV",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "早啊   原图",
-      "likes": 8619,
-      "reposts": 6923,
-      "comments": 5879,
-      "publish_time": "2025-09-26 08:48",
-      "source_url": "https://weibo.cn/comment/Q6jsovsoV",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q52cP9kOP",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "#勿忘九一八#【一起转发！铭记！#抗日5098天#】1931年9月18日，到1945年9月2日，5098天、14年的浴血抗战，每一天都记录着中国人的不屈！今年，一场盛大阅兵告慰先烈！今日中国，河山锦绣！吾辈自强！#九一八事变# 央视新闻的微博视频",
-      "likes": 7260,
-      "reposts": 5677,
-      "comments": 4318,
-      "publish_time": "2025-09-17 23:03",
-      "source_url": "https://weibo.cn/comment/Q52cP9kOP",
-      "tags": [
-        "勿忘九一八",
-        "抗日5098天",
-        "九一八事变"
-      ],
-      "topics": [
-        "勿忘九一八",
-        "抗日5098天",
-        "九一八事变"
-      ]
-    },
-    {
-      "id": "Q4aNQ0cIk",
-      "platform": "weibo",
-      "author": "贾乃亮",
-      "content": "【今天，一起转发！一起#接30位烈士遗骸回国#！】#英雄回家# 今天，中国空军运-20从韩国接运30位志愿军烈士遗骸回国！4架歼-20为英雄护航！英雄们，请看咱们山河无恙，家国皆安！#英雄永垂不朽#🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳?...全文 原图",
-      "likes": 6953,
-      "reposts": 4662,
-      "comments": 3285,
-      "publish_time": "2025-09-12 07:06",
-      "source_url": "https://weibo.cn/comment/Q4aNQ0cIk",
-      "tags": [
-        "接30位烈士遗骸回国",
-        "英雄回家",
-        "英雄永垂不朽"
-      ],
-      "topics": [
-        "接30位烈士遗骸回国",
-        "英雄回家",
-        "英雄永垂不朽"
-      ]
     }
   ],
   "comments": [],
-  "news_articles": [
-    {
-      "title": "贾乃亮时尚大片发布，造型引热议",
-      "summary": "贾乃亮相关话题登上热搜",
-      "content": "贾乃亮最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2026-02-04",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/贾乃亮/0",
-      "sentiment": "neutral",
-      "sentiment_score": 0.31368996033673874,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "贾乃亮现身活动，状态在线",
-      "summary": "贾乃亮近日动态引发关注",
-      "content": "贾乃亮出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2025-11-30",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/贾乃亮/1",
-      "sentiment": "positive",
-      "sentiment_score": 0.458992295660486,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "贾乃亮工作室发声明澄清网络传闻",
-      "summary": "贾乃亮近日动态引发关注",
-      "content": "贾乃亮工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-02-19",
-      "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/贾乃亮/2",
-      "sentiment": "neutral",
-      "sentiment_score": 0.4377637013131906,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "贾乃亮与甜馨父女互动上热搜，好爸爸形象深入人心",
-      "summary": "网友热议贾乃亮近况",
-      "content": "贾乃亮与女儿甜馨的互动经常成为热门话题，离婚后以好爸爸形象获得公众好感。",
-      "publish_date": "2025-11-09",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/贾乃亮/3",
-      "sentiment": "neutral",
-      "sentiment_score": 0.0707287853137738,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "贾乃亮综艺感获认可，多档节目常驻嘉宾",
-      "summary": "贾乃亮近日动态引发关注",
-      "content": "离婚后贾乃亮活跃于多档综艺节目，展现搞笑天赋和综艺感，事业成功转型。",
-      "publish_date": "2026-02-11",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/贾乃亮/4",
-      "sentiment": "positive",
-      "sentiment_score": 0.3191006060214933,
-      "category": "",
-      "tags": []
-    }
-  ],
+  "news_articles": [],
   "statistics": {
-    "data_completeness": 0.7,
-    "total_posts": 50,
+    "data_completeness": 0.75,
+    "total_posts": 30,
     "total_comments": 0,
-    "total_news": 5,
-    "total_relationships": 2,
-    "total_gossips": 2
+    "total_news": 0,
+    "total_relationships": 3,
+    "total_gossips": 0
   }
 }

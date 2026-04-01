@@ -1,57 +1,62 @@
 {
   "celebrity": {
     "name": "罗晋",
-    "english_name": "",
-    "birth_date": "0001-00-00",
-    "birth_place": "北京",
+    "english_name": "Luo Jin",
+    "birth_date": "1981-11-30",
+    "birth_place": "江西省宜春市铜鼓县[52]",
     "age": 0,
-    "zodiac": "",
-    "constellation": "",
-    "occupation": [],
-    "company": "",
+    "zodiac": "鸡",
+    "constellation": "射手座",
+    "occupation": [
+      "演员"
+    ],
+    "company": "罗晋工作室",
     "agency": "",
-    "height": "",
-    "weight": "",
-    "blood_type": "",
-    "biography": "我就是我！工作室：ningran1128@gmail.com",
-    "education": "",
-    "alma_mater": "",
+    "height": "181 cm",
+    "weight": "68 kg",
+    "blood_type": "O型[52]",
+    "biography": "罗晋（Luo Jin），1981年11月30日出生于江西省宜春市铜鼓县，中国内地影视男演员、二级演员，毕业于北京电影学院表演系。2003年，罗晋客串出演电视剧《售楼处的故事》而正式进入演艺圈。2005年，罗晋出演《双鱼公主》MV。2006年，罗晋大学毕业，并出演电视剧《战争目光》。2007年，主演的第一部电影《金碧辉煌》入围温哥华电影节龙虎奖。2009年，因出演历史剧《三国》和宫廷剧《美人心计》而受到关注。2012年，主演古装剧《穆桂英挂帅》；同年，主演年代剧《乱世佳人》。2013年，出演电视剧《X女特工》并凭借该剧获得安徽卫视2013国剧盛典最具人气男演员奖和安徽卫视亚洲偶像盛典年度最具人气男演员奖；2014年，主演革命剧《十送红军》。2016年，主演古装片《大唐玄奘》上映。2017年，凭借电视剧《锦绣未央》获得“中国电视剧品质盛典”年度全媒体关注度剧星奖。2019年，主演的都市职场情感",
+    "education": "北京电影学院",
+    "alma_mater": "北京电影学院",
     "works": [],
-    "famous_works": [],
+    "famous_works": [
+      "三国",
+      "穆桂英挂帅",
+      "美人心计",
+      "锦绣未央",
+      "鹤唳华亭",
+      "安家",
+      "X女特工",
+      "克拉恋人",
+      "天下长河[37]",
+      "执行法官[92]",
+      "幸福到万家[41]",
+      "修仙记之何仙姑传[99]",
+      "乌云之上[97]",
+      "时差一万公里"
+    ],
     "weibo_id": "1219847813",
-    "weibo_followers": 19915000,
+    "weibo_followers": 19914000,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [
-      "weibo"
+      "https://baike.baidu.com/item/%E7%BD%97%E6%99%8B/2694484"
     ],
-    "updated_at": "2026-03-31T23:15:20.675788"
+    "updated_at": "2026-04-01T08:34:46.978887"
   },
   "gossips": [],
-  "relationships": [
-    {
-      "person_a": "罗晋",
-      "person_b": "唐嫣",
-      "relation_type": "配偶",
-      "start_date": null,
-      "end_date": null,
-      "is_current": true,
-      "description": "2016年因《锦绣未央》相识，2018年维也纳结婚，2020年育有一女，娱乐圈模范夫妻",
-      "confidence": 0.99,
-      "strength": 0.95
-    }
-  ],
+  "relationships": [],
   "social_media_posts": [
     {
       "id": "QyLfCloLr",
       "platform": "weibo",
       "author": "罗晋",
       "content": "這個世界，沒有時間，我們都只是各自停留在哪一個瞬間。其實，都還在。所以不曾忘記，就不曾離去。  原图",
-      "likes": 2281,
-      "reposts": 230,
-      "comments": 375,
-      "publish_time": "2026-03-31 11:02",
+      "likes": 5296,
+      "reposts": 437,
+      "comments": 1091,
+      "publish_time": "2026-04-01 11:02",
       "source_url": "https://weibo.cn/comment/QyLfCloLr",
       "tags": [],
       "topics": []
@@ -61,9 +66,9 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "2026新年伊始，很开心受老朋友@Penfolds奔富 之邀，开启一场杯酒生辉的璀璨盛宴，恰是美好新春的序曲。祝大家2026诸事顺意，#马上奔富# ！网页链接  [组图共9张] 原图",
-      "likes": 48722,
+      "likes": 49041,
       "reposts": 74620,
-      "comments": 115629,
+      "comments": 116210,
       "publish_time": "2026-01-31 11:02",
       "source_url": "https://weibo.cn/comment/QpDBNBO4H",
       "tags": [
@@ -78,9 +83,9 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "《時差一萬公里》的故事，在今天畫上了句號。在這個沒有主角光環的故事里，我陪著付玉東從化學實驗室走到裝修工地；從無人在意的大洋彼岸走回人聲鼎沸的故土；最後，從被推到聚光燈下的“付博士”，走向他自己。在異國他鄉的時候，付玉東的世界很小，小到只裝得下一個張冉，还有讓她過得更好一點的...全文",
-      "likes": 18059,
+      "likes": 18067,
       "reposts": 32650,
-      "comments": 78950,
+      "comments": 78952,
       "publish_time": "2025-12-25 12:14",
       "source_url": "https://weibo.cn/comment/Qk1gLrBT8",
       "tags": [],
@@ -91,9 +96,9 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "#南京大屠杀惨案88周年#【今天，一起转发！祭奠同胞！#每12秒1条生命消逝勿忘历史#】#铭记12月13日#  1937年的今天，侵华日军野蛮侵入南京，制造了南京大屠杀惨案。30多万同胞在六周内被屠杀，每隔12秒就有一条生命消逝……今天，我们以国之名，祭奠遇难同胞。一起发条微博！勿忘国殇，吾辈自强！...全文 原图",
-      "likes": 2346,
+      "likes": 2349,
       "reposts": 397,
-      "comments": 6890,
+      "comments": 6891,
       "publish_time": "2025-12-13 08:04",
       "source_url": "https://weibo.cn/comment/Qiav88FMt",
       "tags": [
@@ -133,9 +138,9 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "#时差一万公里开播# 潮水褪去，晨光將至，那束照亮彼此的光，便是最好的歸處。#时差一万公里# 罗晋的微博视频",
-      "likes": 12272,
+      "likes": 12274,
       "reposts": 54196,
-      "comments": 32199,
+      "comments": 32200,
       "publish_time": "2025-12-01 10:17",
       "source_url": "https://weibo.cn/comment/QgmfjaTTa",
       "tags": [
@@ -152,7 +157,7 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "今天是我的生日，来祝福我吧！",
-      "likes": 13513,
+      "likes": 13514,
       "reposts": 403,
       "comments": 15079,
       "publish_time": "2025-11-30 00:01",
@@ -178,9 +183,9 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "攝影師拍的我和我拍的攝影師 #微博视界大会#  [组图共6张] 原图",
-      "likes": 8141,
+      "likes": 8144,
       "reposts": 30847,
-      "comments": 28655,
+      "comments": 28657,
       "publish_time": "2025-11-03 17:11",
       "source_url": "https://weibo.cn/comment/Qc8Zrp7EZ",
       "tags": [
@@ -195,7 +200,7 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "以熱愛為引，與行業同行！#微博视界大会我宣你# 烏雲破曉，目視凡心，用角色定格更多熱愛瞬間。11月3日，想讓你跟我一起去#微博视界大会#，共同定格屬於我們的高光時刻！  原图",
-      "likes": 5922,
+      "likes": 5924,
       "reposts": 31685,
       "comments": 9430,
       "publish_time": "2025-11-01 12:17",
@@ -214,7 +219,7 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "#时差一万公里繁花相伴海报# #芒果2026大剧片单一键官宣# #2025芒果秋季招商大会# 漂洋过海看遍风景，归途如诗爱意正浓，此程静候花开！@罗晋 @任素汐 #时差一万公里# 敬请期待~芒果TV预约：网页链接微博预约：时差一万公里  原图",
-      "likes": 5041,
+      "likes": 5042,
       "reposts": 31565,
       "comments": 14138,
       "publish_time": "2025-10-28 10:07",
@@ -237,7 +242,7 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "#台湾光复80周年#【今天，一起转发！#纪念台湾光复#！🇨🇳】#只有一个中国# 1945年的今天，10月25日，日本在台殖民统治终结，台湾作为中国领土的一部分重回中国版图！万千的台湾同胞，在街上热烈庆祝。今天，一起发条微博，为祖国统一、民族复兴的美好未来，共同奋斗！  原图",
-      "likes": 2649,
+      "likes": 2650,
       "reposts": 6219,
       "comments": 5634,
       "publish_time": "2025-10-25 13:32",
@@ -279,7 +284,7 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "#鹤唳华亭# 登陆江苏卫视，今日23点18分开播，六年一瞬，无需追忆，可待再遇！  原图",
-      "likes": 11911,
+      "likes": 11912,
       "reposts": 20933,
       "comments": 32120,
       "publish_time": "2025-09-29 18:18",
@@ -296,7 +301,7 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "#勿忘九一八#【一起转发！铭记！#抗日5098天#】1931年9月18日，到1945年9月2日，5098天、14年的浴血抗战，每一天都记录着中国人的不屈！今年，一场盛大阅兵告慰先烈！今日中国，河山锦绣！吾辈自强！#九一八事变# 央视新闻的微博视频",
-      "likes": 5648,
+      "likes": 5649,
       "reposts": 5430,
       "comments": 10252,
       "publish_time": "2025-09-18 07:30",
@@ -330,7 +335,7 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "全組殺青那天，拍了全劇的最後一場戲，我們和蘇牧心、曲桐一起看著天邊染起光亮，燃起一場絕美的朝霞。他從那個雨夜裡走出來，站在漫天的霞光里，拿回了屬於自己的名字，在愛的港灣等到了相伴一生的家人。從此盲目不再“盲”，心中的天光大亮。我殺青那天，導演從酒店拿了吉他，我讓他別唱了，整這煽...全文[查看全部图片/视频]",
-      "likes": 12130,
+      "likes": 12131,
       "reposts": 42240,
       "comments": 13850,
       "publish_time": "2025-09-05 17:31",
@@ -396,7 +401,7 @@
       "platform": "weibo",
       "author": "罗晋",
       "content": "這是我第一次演一個這麼壞的人。如果嚇到你了，很抱歉。第一次讀這個劇本的時候，我也在想，怎麼会有人可以壞到這個地步，對自己的弟弟，愛人，孩子，幾乎看不到任何感情，但又有極其病態的掌控欲。對於他來說，愛只是個標榜在衣服上的東西，並不需要走進心里。他把自己困在一個沒有愛的處境，直到...全文 [组图共2张] 原图",
-      "likes": 15181,
+      "likes": 15183,
       "reposts": 41802,
       "comments": 9208,
       "publish_time": "2025-09-01 18:24",
@@ -554,419 +559,16 @@
       "source_url": "https://weibo.cn/comment/Q1wL1z1aP",
       "tags": [],
       "topics": []
-    },
-    {
-      "id": "Q1svythO8",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "#目之所及定档0828# #电视剧目之所及# 黑暗中如猙獰巨獸，唯有所望的那道光，是自我堅定的尋求。  原图",
-      "likes": 3669,
-      "reposts": 60782,
-      "comments": 3625,
-      "publish_time": "2025-08-25 10:39",
-      "source_url": "https://weibo.cn/comment/Q1svythO8",
-      "tags": [
-        "目之所及定档0828",
-        "电视剧目之所及"
-      ],
-      "topics": [
-        "目之所及定档0828",
-        "电视剧目之所及"
-      ]
-    },
-    {
-      "id": "Q1snw1ZTs",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "#目之所及定档0828# #电视剧目之所及#暗流之下博弈不断，爱会战胜恨的囚徒。领衔主演：@罗晋 @王子文Ava 余男@YUNAN男男 特邀主演：#陈瑾#特别出演：@演员艾丽娅 @爱奇艺 迷雾剧场，敬请期待。爱奇艺预约链接：网页链接 网页链接 目之所及官微的微博视频",
-      "likes": 1790,
-      "reposts": 30321,
-      "comments": 1330,
-      "publish_time": "2025-08-25 10:19",
-      "source_url": "https://weibo.cn/comment/Q1snw1ZTs",
-      "tags": [
-        "目之所及定档0828",
-        "电视剧目之所及",
-        "陈瑾"
-      ],
-      "topics": [
-        "目之所及定档0828",
-        "电视剧目之所及",
-        "陈瑾"
-      ]
-    },
-    {
-      "id": "PzZ5j48nM",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "#七七事变88周年#【今日，此刻，一起转发，铭记历史！】#1937年7月7日永不敢忘#1️⃣9️⃣3️⃣7️⃣年7️⃣月7️⃣日，七七事变爆发，日本侵略者悍然发动全面侵华战争，这是中国全民族抗战的开端。这一刻，一起缅怀先烈！一起告慰遇难同胞！铭记历史！珍视和平！警示未来！  原图",
-      "likes": 16783,
-      "reposts": 1300,
-      "comments": 55843,
-      "publish_time": "2025-07-07 13:21",
-      "source_url": "https://weibo.cn/comment/PzZ5j48nM",
-      "tags": [
-        "七七事变88周年",
-        "1937年7月7日永不敢忘"
-      ],
-      "topics": [
-        "七七事变88周年",
-        "1937年7月7日永不敢忘"
-      ]
-    },
-    {
-      "id": "PyFI7DI8E",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "熱愛為炬，穿梭光影的長河。#中国影视之夜#  [组图共9张] 原图",
-      "likes": 15419,
-      "reposts": 33340,
-      "comments": 79301,
-      "publish_time": "2025-06-28 22:11",
-      "source_url": "https://weibo.cn/comment/PyFI7DI8E",
-      "tags": [
-        "中国影视之夜"
-      ],
-      "topics": [
-        "中国影视之夜"
-      ]
-    },
-    {
-      "id": "Pugw0eGHM",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "很高興擔任#Penfolds奔富#一日店長，一起見證奔富#8号酒窖#啟幕，在跨越時空的風土窖藏中，領略奔富傳奇佳釀魅力，探索經典與創新凝聚的無限可能。  [组图共9张] 原图",
-      "likes": 20245,
-      "reposts": 34024,
-      "comments": 75265,
-      "publish_time": "2025-05-30 22:42",
-      "source_url": "https://weibo.cn/comment/Pugw0eGHM",
-      "tags": [
-        "Penfolds奔富",
-        "8号酒窖"
-      ],
-      "topics": [
-        "Penfolds奔富",
-        "8号酒窖"
-      ]
-    },
-    {
-      "id": "Pogowp0HY",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "#电视剧目之所及# 維護體面掌控溫度，精心豢養完美港灣。  原图",
-      "likes": 14382,
-      "reposts": 33522,
-      "comments": 55220,
-      "publish_time": "2025-04-21 11:21",
-      "source_url": "https://weibo.cn/comment/Pogowp0HY",
-      "tags": [
-        "电视剧目之所及"
-      ],
-      "topics": [
-        "电视剧目之所及"
-      ]
-    },
-    {
-      "id": "PofTzFxQ7",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "#目之所及谎言环生版预告# 爱是见血封喉的毒，誓言是困杀自由的锁。谎言撕开伪善者的咽喉，深渊凝视沉沦者的瞳孔。#电视剧目之所及#领衔主演：@罗晋 @王子文Ava 余男@YUNAN男男 特邀主演：#陈瑾# @爱奇艺 #迷雾剧场# ，敬请期待。爱奇艺预约链接：网页链接 目之所及官微的微博视频",
-      "likes": 9163,
-      "reposts": 34156,
-      "comments": 31743,
-      "publish_time": "2025-04-21 10:05",
-      "source_url": "https://weibo.cn/comment/PofTzFxQ7",
-      "tags": [
-        "目之所及谎言环生版预告",
-        "电视剧目之所及",
-        "陈瑾",
-        "迷雾剧场"
-      ],
-      "topics": [
-        "目之所及谎言环生版预告",
-        "电视剧目之所及",
-        "陈瑾",
-        "迷雾剧场"
-      ]
-    },
-    {
-      "id": "PmVPfye4A",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "在钟伟的手机里发现了一条语音。我们都不知道明天会发生什么，那就先把握好现在，幸福的生活吧☀️—— 来自钟伟的手机客户端 #电视剧乌云之上# 罗晋的微博视频",
-      "likes": 8270,
-      "reposts": 33555,
-      "comments": 17995,
-      "publish_time": "2025-04-12 17:09",
-      "source_url": "https://weibo.cn/comment/PmVPfye4A",
-      "tags": [
-        "电视剧乌云之上"
-      ],
-      "topics": [
-        "电视剧乌云之上"
-      ]
-    },
-    {
-      "id": "PmByEpYPy",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "致不高兴。—— 来自钟伟的手机客户端 #电视剧乌云之上# 罗晋的微博视频",
-      "likes": 17852,
-      "reposts": 35017,
-      "comments": 17282,
-      "publish_time": "2025-04-10 13:33",
-      "source_url": "https://weibo.cn/comment/PmByEpYPy",
-      "tags": [
-        "电视剧乌云之上"
-      ],
-      "topics": [
-        "电视剧乌云之上"
-      ]
-    },
-    {
-      "id": "Pmu4JwZlJ",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "他站在高山上远眺自己全部的人生。韩青，你做到了。—— 来自钟伟的手机客户端 #电视剧乌云之上#  原图",
-      "likes": 9802,
-      "reposts": 31950,
-      "comments": 14264,
-      "publish_time": "2025-04-09 18:31",
-      "source_url": "https://weibo.cn/comment/Pmu4JwZlJ",
-      "tags": [
-        "电视剧乌云之上"
-      ],
-      "topics": [
-        "电视剧乌云之上"
-      ]
-    },
-    {
-      "id": "Pmr8Ty2ZD",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "#乌云之上今日加更# 正義與光明是鐘偉願用生命去守衛的東西。#电视剧乌云之上#  原图",
-      "likes": 3984,
-      "reposts": 31939,
-      "comments": 6970,
-      "publish_time": "2025-04-09 11:03",
-      "source_url": "https://weibo.cn/comment/Pmr8Ty2ZD",
-      "tags": [
-        "乌云之上今日加更",
-        "电视剧乌云之上"
-      ],
-      "topics": [
-        "乌云之上今日加更",
-        "电视剧乌云之上"
-      ]
-    },
-    {
-      "id": "PmkswjBYj",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "他存在过的痕迹。—— 来自钟伟的手机客户端 #电视剧乌云之上#  [组图共9张] 原图",
-      "likes": 5113,
-      "reposts": 30859,
-      "comments": 6714,
-      "publish_time": "2025-04-08 18:02",
-      "source_url": "https://weibo.cn/comment/PmkswjBYj",
-      "tags": [
-        "电视剧乌云之上"
-      ],
-      "topics": [
-        "电视剧乌云之上"
-      ]
-    },
-    {
-      "id": "Pm2gWvyh9",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "明天见。—— 来自钟伟的手机客户端 #电视剧乌云之上#  原图",
-      "likes": 4135,
-      "reposts": 30618,
-      "comments": 5171,
-      "publish_time": "2025-04-06 19:44",
-      "source_url": "https://weibo.cn/comment/Pm2gWvyh9",
-      "tags": [
-        "电视剧乌云之上"
-      ],
-      "topics": [
-        "电视剧乌云之上"
-      ]
-    },
-    {
-      "id": "Pm1pKqQjp",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "#乌云之上全员自证# 招物啟事：誰拿走了鐘偉的東州限量歐牛巔峰細節大師牛仔褲！#电视剧乌云之上#  原图",
-      "likes": 3164,
-      "reposts": 30492,
-      "comments": 3126,
-      "publish_time": "2025-04-06 17:33",
-      "source_url": "https://weibo.cn/comment/Pm1pKqQjp",
-      "tags": [
-        "乌云之上全员自证",
-        "电视剧乌云之上"
-      ],
-      "topics": [
-        "乌云之上全员自证",
-        "电视剧乌云之上"
-      ]
-    },
-    {
-      "id": "PlJ659Njg",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "吃梨润肺，但不要分着吃。 —— 来自钟伟的手机客户端 #电视剧乌云之上#  原图",
-      "likes": 5189,
-      "reposts": 30602,
-      "comments": 4366,
-      "publish_time": "2025-04-04 18:55",
-      "source_url": "https://weibo.cn/comment/PlJ659Njg",
-      "tags": [
-        "电视剧乌云之上"
-      ],
-      "topics": [
-        "电视剧乌云之上"
-      ]
-    },
-    {
-      "id": "PlHfK49PD",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "【一起转发！缅怀民族英魂！#永远记住你#】今天，#清明节#。我们不会忘记，他们用生命换来了山河无恙。今天，发条微博，缅怀英魂！祭奠英烈！薪火永传承！#家国永念#  原图",
-      "likes": 1051,
-      "reposts": 40314,
-      "comments": 320,
-      "publish_time": "2025-04-04 14:13",
-      "source_url": "https://weibo.cn/comment/PlHfK49PD",
-      "tags": [
-        "永远记住你",
-        "清明节",
-        "家国永念"
-      ],
-      "topics": [
-        "永远记住你",
-        "清明节",
-        "家国永念"
-      ]
-    },
-    {
-      "id": "Plzxq9fF8",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "2017年3月15日 利民巷 雨—— 来自钟伟的手机客户端 #乌云之上#  原图",
-      "likes": 4081,
-      "reposts": 33498,
-      "comments": 2550,
-      "publish_time": "2025-04-03 18:35",
-      "source_url": "https://weibo.cn/comment/Plzxq9fF8",
-      "tags": [
-        "乌云之上"
-      ],
-      "topics": [
-        "乌云之上"
-      ]
-    },
-    {
-      "id": "PlxQj6R1i",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "我捡到了钟伟的手机发了这条微博，他去哪了？有人知道吗？—— 来自钟伟的手机客户端  #乌云之上#  原图",
-      "likes": 3331,
-      "reposts": 30405,
-      "comments": 1935,
-      "publish_time": "2025-04-03 14:16",
-      "source_url": "https://weibo.cn/comment/PlxQj6R1i",
-      "tags": [
-        "乌云之上"
-      ],
-      "topics": [
-        "乌云之上"
-      ]
-    },
-    {
-      "id": "Plo4cweCO",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "#罗晋[超话]# 已經是第15年了！日子很快，情意很長。生日快樂🎂",
-      "likes": 8700,
-      "reposts": 2384,
-      "comments": 5719,
-      "publish_time": "2025-04-02 13:22",
-      "source_url": "https://weibo.cn/comment/Plo4cweCO",
-      "tags": [
-        "罗晋[超话]"
-      ],
-      "topics": [
-        "罗晋[超话]"
-      ]
-    },
-    {
-      "id": "PlnJ4wQi2",
-      "platform": "weibo",
-      "author": "罗晋",
-      "content": "#乌云之上定档0403# 黑暗中，每一步都是與真相博弈，鐘偉必將對抗到底。#电视剧乌云之上#  原图",
-      "likes": 5206,
-      "reposts": 31884,
-      "comments": 4501,
-      "publish_time": "2025-04-02 12:30",
-      "source_url": "https://weibo.cn/comment/PlnJ4wQi2",
-      "tags": [
-        "乌云之上定档0403",
-        "电视剧乌云之上"
-      ],
-      "topics": [
-        "乌云之上定档0403",
-        "电视剧乌云之上"
-      ]
     }
   ],
   "comments": [],
-  "news_articles": [
-    {
-      "title": "罗晋现身活动，状态在线",
-      "summary": "网友热议罗晋近况",
-      "content": "罗晋出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2025-10-29",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/罗晋/0",
-      "sentiment": "positive",
-      "sentiment_score": 0.08519957474251894,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋时尚大片发布，造型引热议",
-      "summary": "网友热议罗晋近况",
-      "content": "罗晋最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2025-12-21",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/罗晋/1",
-      "sentiment": "neutral",
-      "sentiment_score": 0.35063529081361294,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "罗晋工作室发声明澄清网络传闻",
-      "summary": "网友热议罗晋近况",
-      "content": "罗晋工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-01-09",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/罗晋/2",
-      "sentiment": "positive",
-      "sentiment_score": 0.013337555543928847,
-      "category": "",
-      "tags": []
-    }
-  ],
+  "news_articles": [],
   "statistics": {
-    "data_completeness": 0.7,
-    "total_posts": 50,
+    "data_completeness": 0.65,
+    "total_posts": 30,
     "total_comments": 0,
-    "total_news": 3,
-    "total_relationships": 1,
+    "total_news": 0,
+    "total_relationships": 0,
     "total_gossips": 0
   }
 }

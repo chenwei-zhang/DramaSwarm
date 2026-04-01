@@ -1,139 +1,101 @@
 {
   "celebrity": {
     "name": "杨幂",
-    "english_name": "",
-    "birth_date": "0001-09-12",
-    "birth_place": "北京",
+    "english_name": "Mi Yang",
+    "birth_date": "1986-09-12",
+    "birth_place": "北京市",
     "age": 0,
     "zodiac": "",
-    "constellation": "",
-    "occupation": [],
-    "company": "",
+    "constellation": "处女座",
+    "occupation": [
+      "演员",
+      "歌手",
+      "制片人"
+    ],
+    "company": "少城时代",
     "agency": "",
-    "height": "",
-    "weight": "",
+    "height": "166.5 cm",
+    "weight": "45 kg（2020年数据）",
     "blood_type": "",
-    "biography": "这里有一只狐狸，幸福，感恩，知足，爱~＞＜",
-    "education": "",
-    "alma_mater": "",
+    "biography": "杨幂，1986年9月12日出生于北京市，毕业于北京电影学院表演系本科班，中国内地影视女演员、歌手、制片人。1990年，4岁的她因参演电视剧《唐明皇》而以童星的身份正式出道。2006年，在金庸武侠剧《神雕侠侣》中饰演郭襄而崭露头角。2009年，主演仙侠剧《仙剑奇侠传三》，使她成为众多网络票选中最受欢迎的明星。2011年，凭穿越剧《宫锁心玉》赢得广泛关注，并获第17届上海电视节白玉兰奖观众票选最具人气女演员奖。2012年，成立工作室，并凭都市剧《北京爱情故事》获多项荣誉。2015年，主演的《小时代》系列电影票房突破18亿人民币。2017年，主演的神话剧《三生三世十里桃花》获颇高关注；并凭科幻片《逆时营救》获休斯顿国际电影节最佳女主角奖。2018年，凭古装片《绣春刀Ⅱ：修罗战场》获第25届北京大学生电影节最受大学生欢迎女演员奖；随后，获第5届中国电视好演员奖绿宝石女演员奖。2021年，首次参加央",
+    "education": "北京电影学院",
+    "alma_mater": "北京电影学院",
     "works": [],
-    "famous_works": [],
+    "famous_works": [
+      "三生三世十里桃花",
+      "宫锁心玉",
+      "小时代",
+      "生万物",
+      "仙剑奇侠传三",
+      "古剑奇谭",
+      "亲爱的翻译官",
+      "北京爱情故事",
+      "美人心计",
+      "爱的供养"
+    ],
     "weibo_id": "1195242865",
     "weibo_followers": 112999999,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [
-      "weibo"
+      "https://baike.baidu.com/item/%E6%9D%A8%E5%B9%82"
     ],
-    "updated_at": "2026-03-31T23:12:13.656563"
+    "updated_at": "2026-04-01T08:32:37.375891"
   },
-  "gossips": [
-    {
-      "title": "杨幂刘恺威离婚",
-      "content": "2018年12月杨幂与刘恺威官宣离婚，结束四年婚姻。女儿小糯米由双方共同抚养。两人2014年结婚，离婚原因未公开详细说明。离婚后杨幂专注事业，2023年离开嘉行传媒成立个人工作室。",
-      "gossip_type": "divorce",
-      "date": "2018-12-22",
-      "involved_celebrities": [
-        "杨幂"
-      ],
-      "tags": [],
-      "importance": 0.9,
-      "verified": true,
-      "sentiment": "neutral",
-      "sentiment_score": 0.0,
-      "source_url": "",
-      "source_type": "sina"
-    },
-    {
-      "title": "杨幂离开嘉行传媒独立发展",
-      "content": "2023年5月杨幂宣布与嘉行传媒解约，结束十余年深度合作。她曾是嘉行创始股东之一，旗下艺人包括迪丽热巴等。解约后成立个人工作室独立运营，被外界视为重新掌控事业的重要一步。此后杨幂在角色选择上明显向正剧转型。",
-      "gossip_type": "other",
-      "date": "2023-05-08",
-      "involved_celebrities": [
-        "杨幂"
-      ],
-      "tags": [],
-      "importance": 0.8,
-      "verified": true,
-      "sentiment": "neutral",
-      "sentiment_score": 0.0,
-      "source_url": "",
-      "source_type": "sina"
-    },
-    {
-      "title": "杨幂《狐妖小红娘》口碑争议",
-      "content": "2024年杨幂主演的《狐妖小红娘·月红篇》在爱奇艺播出，改编自热门国漫。该剧口碑两极分化，杨幂的古装造型和演技受到不同评价，豆瓣评分不及预期。部分观众认为剧情改编过于偏离原著。",
-      "gossip_type": "other",
-      "date": "2024-05-23",
-      "involved_celebrities": [
-        "杨幂"
-      ],
-      "tags": [],
-      "importance": 0.75,
-      "verified": true,
-      "sentiment": "neutral",
-      "sentiment_score": 0.0,
-      "source_url": "",
-      "source_type": "sina"
-    }
-  ],
+  "gossips": [],
   "relationships": [
     {
       "person_a": "杨幂",
-      "person_b": "迪丽热巴",
-      "relation_type": "前同事",
-      "start_date": null,
-      "end_date": null,
-      "is_current": false,
-      "description": "同属嘉行传媒时期的前后辈关系，2023年杨幂离开嘉行后关系淡化",
-      "confidence": 0.95,
-      "strength": 0.5
-    },
-    {
-      "person_a": "杨幂",
-      "person_b": "赵丽颖",
-      "relation_type": "同代竞争",
-      "start_date": null,
-      "end_date": null,
+      "person_b": "的业余爱好",
+      "relation_type": "子女",
       "is_current": true,
-      "description": "同为85花顶流，长期被媒体和粉丝比较，竞争关系明显",
-      "confidence": 0.7,
-      "strength": 0.4
-    },
-    {
-      "person_a": "杨幂",
-      "person_b": "唐嫣",
-      "relation_type": "好友",
-      "start_date": null,
-      "end_date": null,
-      "is_current": true,
-      "description": "娱乐圈多年好友，曾多次合作，私下关系融洽",
+      "description": "",
       "confidence": 0.8,
       "strength": 0.6
     },
     {
       "person_a": "杨幂",
-      "person_b": "肖战",
-      "relation_type": "好友",
-      "start_date": null,
-      "end_date": null,
+      "person_b": "从此",
+      "relation_type": "子女",
       "is_current": true,
-      "description": "曾公开互动，业内关系友好",
-      "confidence": 0.6,
-      "strength": 0.4
+      "description": "",
+      "confidence": 0.8,
+      "strength": 0.6
+    },
+    {
+      "person_a": "杨幂",
+      "person_b": "[103]",
+      "relation_type": "子女",
+      "is_current": true,
+      "description": "",
+      "confidence": 0.8,
+      "strength": 0.6
     }
   ],
   "social_media_posts": [
+    {
+      "id": "QyOU69wKQ",
+      "platform": "weibo",
+      "author": "杨幂",
+      "content": "EP71:生日快乐  [组图共4张] 原图",
+      "likes": 65295,
+      "reposts": 125237,
+      "comments": 12201,
+      "publish_time": "2026-04-01 20:20",
+      "source_url": "https://weibo.cn/comment/QyOU69wKQ",
+      "tags": [],
+      "topics": []
+    },
     {
       "id": "QyGUQ7gn8",
       "platform": "weibo",
       "author": "杨幂",
       "content": "EP70：20岁的🐝🐝快来集合#杨幂绿苑二十周年#  原图",
-      "likes": 107924,
-      "reposts": 92712,
-      "comments": 20704,
-      "publish_time": "2026-03-31 00:00",
+      "likes": 124770,
+      "reposts": 112709,
+      "comments": 23443,
+      "publish_time": "2026-04-01 00:00",
       "source_url": "https://weibo.cn/comment/QyGUQ7gn8",
       "tags": [
         "杨幂绿苑二十周年"
@@ -147,9 +109,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "#江山大同阵容官宣#千程烽烟，几度筹谋，尽释家国前怨；一襟风月，万卷山河，终成天下大同。编剧：金海曙@金老师在2022 、@李想Evelyn导演：@阎建钢美术指导：郑辰造型指导：李宙领衔主演：@杨幂 @Mr_刘学义 @胡军 @刘奕君actor @杨玏 特邀主演：@林永健 @栾元晖 @王鹤润rain 特别主演：...全文 原图",
-      "likes": 156706,
-      "reposts": 102056,
-      "comments": 24707,
+      "likes": 157764,
+      "reposts": 102444,
+      "comments": 27170,
       "publish_time": "2026-03-30 11:39",
       "source_url": "https://weibo.cn/comment/QysDvdi30",
       "tags": [
@@ -164,9 +126,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "生日快乐，顺顺利利，岁岁平安！想你阿么！ @刘诗诗",
-      "likes": 256553,
+      "likes": 256847,
       "reposts": 63625,
-      "comments": 33253,
+      "comments": 33259,
       "publish_time": "2026-03-10 11:44",
       "source_url": "https://weibo.cn/comment/Qvq7zqx1Y",
       "tags": [],
@@ -177,9 +139,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "EP69:愿平安，愿顺遂  [组图共4张] 原图",
-      "likes": 530969,
+      "likes": 531264,
       "reposts": 1000000,
-      "comments": 623046,
+      "comments": 629497,
       "publish_time": "2026-03-03 19:50",
       "source_url": "https://weibo.cn/comment/QupjEySgW",
       "tags": [],
@@ -190,9 +152,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "跟@STACCATO_思加图 一起，迈入都市主场一同开启#都市序调UrbanRhythm# 让精致自我与松弛姿态达成共振#STACCATO# 2026春夏鞋履，全线上新每一双都为都市日常而生，解锁N面生活场景精致亦舒适，当然轻松出圈！网页链接#杨幂STACCATO思加图全球代言人# 杨幂的微博视频",
-      "likes": 75741,
-      "reposts": 80364,
-      "comments": 105474,
+      "likes": 75789,
+      "reposts": 80368,
+      "comments": 105479,
       "publish_time": "2026-02-28 10:30",
       "source_url": "https://weibo.cn/comment/QtTmPFjI0",
       "tags": [
@@ -211,9 +173,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "静候#Prada米兰女装秀#，领略意蕴交织的新季风貌。今晚9点，与我一同观看Miuccia Prada与Raf Simons共同呈现的#Prada2026秋冬女装时装秀#。网页链接  [组图共4张] 原图",
-      "likes": 217801,
-      "reposts": 397818,
-      "comments": 224512,
+      "likes": 217851,
+      "reposts": 399891,
+      "comments": 225236,
       "publish_time": "2026-02-26 16:00",
       "source_url": "https://weibo.cn/comment/QtCFFBG4t",
       "tags": [
@@ -230,9 +192,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "【#团圆时刻更懂无声守护#】张艺谋执导的当代国家安全题材电影《惊蛰无声》今日上映，发布由张艺谋作词、歌手@卡布叻_周深 倾情献唱的主题曲《选择》。周深用极具穿透力的歌声，唱出了当代隐蔽战线每一份坚守的重量和厚度。新春佳节，合家观影，去看见那些日常看不见的守护，感受没有距离感的当...全文",
-      "likes": 60328,
-      "reposts": 6561,
-      "comments": 55973,
+      "likes": 60358,
+      "reposts": 6562,
+      "comments": 55974,
       "publish_time": "2026-02-17 10:23",
       "source_url": "https://weibo.cn/comment/QsdCowREs",
       "tags": [
@@ -247,7 +209,7 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "#你能识破间谍套路吗#【#惊蛰无声最新预告紧张感拉满#】今日，电影《惊蛰无声》开启预售，并发布一支“有嫌疑！”版预告。预告中，国安队伍为拔除暗中作祟的“钉子”，开始内部自查。审讯，复盘，嫌疑范围一步步收窄……谁是“钉子”？谁能守住本心坚守到最后？早看早惊喜，大年初一，带家人一起相约影...全文",
-      "likes": 86812,
+      "likes": 86831,
       "reposts": 28294,
       "comments": 46060,
       "publish_time": "2026-02-09 10:17",
@@ -266,9 +228,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "#惊蛰无声扒开间谍的千层马甲#【期待！#惊蛰无声一边查案子一边找钉子#】由国家安全部指导创作、张艺谋执导的首部当代国家安全题材影片《惊蛰无声》发布一支“有钉子！”版终极预告。预告中，抓捕窃取我国最新战机涉密信息的间谍，找到“钉子”的任务迫在眉睫，一场没有硝烟的战争一触即发。影片聚焦当...全文",
-      "likes": 67742,
+      "likes": 67754,
       "reposts": 18421,
-      "comments": 33497,
+      "comments": 33498,
       "publish_time": "2026-02-06 10:15",
       "source_url": "https://weibo.cn/comment/QqxRSlTGP",
       "tags": [
@@ -285,9 +247,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "2025微博之夜盛典荣誉奖项",
-      "likes": 169047,
+      "likes": 169206,
       "reposts": 53275,
-      "comments": 32110,
+      "comments": 32312,
       "publish_time": "2026-02-05 22:57",
       "source_url": "https://weibo.cn/comment/QqtqAnAGK",
       "tags": [],
@@ -298,9 +260,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "2025微博之夜盛典荣誉奖项",
-      "likes": 96070,
+      "likes": 96090,
       "reposts": 91355,
-      "comments": 26605,
+      "comments": 26606,
       "publish_time": "2026-02-05 21:54",
       "source_url": "https://weibo.cn/comment/Qqt0T7eVy",
       "tags": [],
@@ -311,9 +273,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "EP68：“咬春”喽  原图",
-      "likes": 188460,
-      "reposts": 313464,
-      "comments": 333569,
+      "likes": 188500,
+      "reposts": 313467,
+      "comments": 333571,
       "publish_time": "2026-02-04 18:45",
       "source_url": "https://weibo.cn/comment/QqilWAI3f",
       "tags": [],
@@ -324,9 +286,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "#惊蛰无声怼脸海报#  风向瞬息万变，但我心中有罗盘。白帆接到任务，准备行动！#电影惊蛰无声# 大年初一见。  原图",
-      "likes": 73684,
+      "likes": 73698,
       "reposts": 60142,
-      "comments": 25938,
+      "comments": 25939,
       "publish_time": "2026-02-03 15:03",
       "source_url": "https://weibo.cn/comment/Qq7t44oKq",
       "tags": [
@@ -343,9 +305,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "“持妆，稳当，我的好搭档。”十年，在变的是角色，是身份，是不断进阶的自我；不变的，是每一次登场前那份不怀疑的自信。我们向前突破，真正的王者，从不怕超越自己！全新#第二代DW粉底液# ，再破持妆上限--36小时超贴持妆，0粉感柔雾肌！时间在变，但有些底牌始终在场。#杨幂喊你换新DW#...全文",
-      "likes": 72913,
-      "reposts": 56794,
-      "comments": 23357,
+      "likes": 72925,
+      "reposts": 56795,
+      "comments": 23358,
       "publish_time": "2026-02-03 10:30",
       "source_url": "https://weibo.cn/comment/Qq5Ge153Q",
       "tags": [
@@ -362,7 +324,7 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "以微博之力，让世界更美！2025#微博之夜#  即将开启，2月5日，和我一起见证年度闪耀时刻！#微博之夜阵容官宣# 【请大家严格遵守《微博之夜安全倡议》《禁限带物品须知》，不应援、不聚集、不逗留，为了自己和他人安全，我们线上直播见！】   [组图共2张] 原图",
-      "likes": 69382,
+      "likes": 69392,
       "reposts": 17911,
       "comments": 13341,
       "publish_time": "2026-02-02 16:45",
@@ -381,8 +343,8 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "#电影惊蛰无声间谍在身边#  📶信号已连接！那些不被看见的身影，在用行动守护着我们的日常安稳。#电影惊蛰无声#  大年初一见！ 电影惊蛰无声官微的微博视频",
-      "likes": 222963,
-      "reposts": 40462,
+      "likes": 222966,
+      "reposts": 40461,
       "comments": 33471,
       "publish_time": "2026-01-29 11:40",
       "source_url": "https://weibo.cn/comment/Qpl08Ez1g",
@@ -400,8 +362,8 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "EP67：万事“粥”全 #粥到福到腊八到#  [组图共3张] 原图",
-      "likes": 273355,
-      "reposts": 265997,
+      "likes": 273377,
+      "reposts": 265999,
       "comments": 210895,
       "publish_time": "2026-01-26 18:09",
       "source_url": "https://weibo.cn/comment/QoVgAruU5",
@@ -417,8 +379,8 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "年轻，是享受当下以最佳状态奔赴新岁新年赴宴@雅诗兰黛献上#雅诗兰黛马年鸿运限定礼盒# 内蕴小棕瓶精华，2小时快速修护，1夜淡纹焕亮小棕瓶眼霜，即刻焕亮，淡褪3色黑眼圈全新小棕微雕眼霜，淡褪8大纹，无痕提松垮新年，祝你岁岁更新，岁岁更年轻！网页链接#美之雅韵礼蕴新生#...全文",
-      "likes": 209249,
-      "reposts": 59610,
+      "likes": 209253,
+      "reposts": 59608,
       "comments": 13447,
       "publish_time": "2026-01-25 14:00",
       "source_url": "https://weibo.cn/comment/QoKd41N9A",
@@ -436,7 +398,7 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "【#张艺谋电影惊蛰无声定档春节#】#张艺谋新电影聚焦国安警察# 我国首部由国家安全部指导创作的当代国家安全题材电影《惊蛰无声》，将于春节档上映。影片由张艺谋执导，聚焦一群隐姓埋名的国安警察，讲述他们与境外间谍斗智斗勇、暗中交锋的故事。这部作品以光影之力将“国家安全”这一宏大命题，转化...全文",
-      "likes": 40194,
+      "likes": 40200,
       "reposts": 4031,
       "comments": 11640,
       "publish_time": "2026-01-22 11:46",
@@ -455,7 +417,7 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "【#惊蛰无声打响全民反间谍#】近年来境外间谍频繁活动，手段愈发隐蔽，反间谍早已不是遥远话题。高薪兼职、网红约拍、学术合作……这些看似平常的机遇，却可能是境外间谍精心设计的陷阱。由国家安全部指导创作、张艺谋执导的首部当代国家安全题材影片《惊蛰无声》，官宣定档 2026 年春节。电影由演员...全文",
-      "likes": 32399,
+      "likes": 32402,
       "reposts": 2335,
       "comments": 11955,
       "publish_time": "2026-01-22 11:44",
@@ -472,8 +434,8 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "#张艺谋电影惊蛰无声定档春节#  一步步布下棋局，终局已在算计中。🤫👉网页链接  原图",
-      "likes": 77432,
-      "reposts": 50420,
+      "likes": 77437,
+      "reposts": 50419,
       "comments": 30935,
       "publish_time": "2026-01-22 10:25",
       "source_url": "https://weibo.cn/comment/Qogwcw8vF",
@@ -489,7 +451,7 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "#张艺谋电影惊蛰无声定档春节#张艺谋首部聚焦当代国家安全题材的电影《惊蛰无声》官宣定档春节，并发布“有间谍”版定档预告。预告中，我国最新战机的涉密信息遭到外泄，国家安全面临威胁，一场紧张刺激的“抓间谍”行动上演。影片由国家安全部指导创作，易烊千玺、朱一龙领衔主演，宋佳领衔主演，雷...全文",
-      "likes": 34010,
+      "likes": 34013,
       "reposts": 4341,
       "comments": 10018,
       "publish_time": "2026-01-22 10:08",
@@ -506,9 +468,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "#Prada赤马迎春#  在Prada的镜头里邂逅三角赤马，定格明朗新春。  [组图共4张] 原图",
-      "likes": 351941,
+      "likes": 351942,
       "reposts": 673314,
-      "comments": 230368,
+      "comments": 230369,
       "publish_time": "2026-01-15 12:00",
       "source_url": "https://weibo.cn/comment/Qnd9l6ERV",
       "tags": [
@@ -523,9 +485,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "新年怎么过？当然要滋润地过！@丝塔芙Cetaphil #丝塔芙大白罐# ，全国销量No.1保湿霜，新年滋润超长待机，承包全家一整年的滋润！新年要滋润，当然大白罐！丝塔芙大白罐保湿霜敏感肌温和宝宝树获奖身体乳霜不含烟酰胺#杨幂丝塔芙亚太区品牌代言人##新年要滋润 当然大白罐# 杨幂的微博视频",
-      "likes": 222815,
-      "reposts": 71484,
-      "comments": 56794,
+      "likes": 222873,
+      "reposts": 71486,
+      "comments": 56808,
       "publish_time": "2026-01-05 09:00",
       "source_url": "https://weibo.cn/comment/QlFHtmxQo",
       "tags": [
@@ -544,9 +506,9 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "EP66：2026∞  [组图共9张] 原图",
-      "likes": 451070,
-      "reposts": 875235,
-      "comments": 308710,
+      "likes": 451083,
+      "reposts": 876220,
+      "comments": 308712,
       "publish_time": "2025-12-31 18:06",
       "source_url": "https://weibo.cn/comment/QkY8tBdg6",
       "tags": [],
@@ -557,7 +519,7 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "EP65：冬至快乐🥟  [组图共9张] 原图",
-      "likes": 450534,
+      "likes": 450545,
       "reposts": 519788,
       "comments": 257306,
       "publish_time": "2025-12-21 13:04",
@@ -570,7 +532,7 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "【今天，#第十二个国家公祭日#，以国家的名义祭奠】今天，南京大屠杀死难者国家公祭日。国之殇，莫敢忘，以国之名，祭我遇难同胞！#为30多万死难同胞发条微博# #19371213永不敢忘# 人民日报的微博视频",
-      "likes": 57717,
+      "likes": 57718,
       "reposts": 6202,
       "comments": 13241,
       "publish_time": "2025-12-13 00:11",
@@ -591,7 +553,7 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "明星动态",
-      "likes": 126909,
+      "likes": 126910,
       "reposts": 139567,
       "comments": 93752,
       "publish_time": "2025-12-07 00:30",
@@ -604,435 +566,23 @@
       "platform": "weibo",
       "author": "杨幂",
       "content": "EP PRADA：在无畏探索的路上，遇见了契合的伙伴。  [组图共4张] 原图",
-      "likes": 1034871,
+      "likes": 1034872,
       "reposts": 1000000,
-      "comments": 850192,
+      "comments": 850200,
       "publish_time": "2025-12-05 16:05",
       "source_url": "https://weibo.cn/comment/Qh0ejoKFA",
       "tags": [],
       "topics": []
-    },
-    {
-      "id": "QgEAZ2f9d",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "@丝塔芙cetaphil 疯狂气象报开播了！全城居民请注意，降温、干燥双重危“肌”来袭，用#丝塔芙大白罐# 赶走干痒紧绷，全城一起润起来！#丝塔芙天猫超品日#  今天正式开启！ 我将和大家联手，赶走冬日“干燥怪”，解锁品牌超级福利！不见不散～ 😉#秋冬要滋润 当然大白罐# 杨幂的微博视频",
-      "likes": 190549,
-      "reposts": 40450,
-      "comments": 26974,
-      "publish_time": "2025-12-03 09:00",
-      "source_url": "https://weibo.cn/comment/QgEAZ2f9d",
-      "tags": [
-        "丝塔芙大白罐",
-        "丝塔芙天猫超品日",
-        "秋冬要滋润 当然大白罐"
-      ],
-      "topics": [
-        "丝塔芙大白罐",
-        "丝塔芙天猫超品日",
-        "秋冬要滋润 当然大白罐"
-      ]
-    },
-    {
-      "id": "QgvXh9rVk",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "在感性主导的潮流语境中，我们以“智”回应。和@FILA 一起因智而酷，释出智性美学风格宣言。FILA VETTA · V头鞋，每处细节，实现老爹鞋瘦身。一抹V形轮廓，勾勒流动的智性美。鞋底V爪镂空，增强缓震更加轻盈。鞋头V字收窄，悄然打造黄金比例。不跟风，自成风。准备好了吗？灯光亮起， 智酷到...全文",
-      "likes": 207305,
-      "reposts": 66926,
-      "comments": 17331,
-      "publish_time": "2025-12-02 11:00",
-      "source_url": "https://weibo.cn/comment/QgvXh9rVk",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QfJygmQAX",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "希望香港同胞无恙[祈祷]请大家一定要注意安全！",
-      "likes": 203221,
-      "reposts": 16573,
-      "comments": 28153,
-      "publish_time": "2025-11-27 07:47",
-      "source_url": "https://weibo.cn/comment/QfJygmQAX",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Qf1gJ9Mic",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "EP64：小雪❄️  [组图共12张] 原图",
-      "likes": 460519,
-      "reposts": 774978,
-      "comments": 287404,
-      "publish_time": "2025-11-22 15:03",
-      "source_url": "https://weibo.cn/comment/Qf1gJ9Mic",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QeGAFt69B",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "【转发海报！#玩火者必自焚#】日本首相高市早苗的涉台错误言论从根本上损害了中日关系的政治基础，激起了中国人民的公愤和谴责。如果日方拒不撤回甚至一错再错，#中方将不得不采取严厉坚决的反制措施#，由此产生的一切后果由日方承担。  原图",
-      "likes": 52015,
-      "reposts": 5440,
-      "comments": 10218,
-      "publish_time": "2025-11-20 10:24",
-      "source_url": "https://weibo.cn/comment/QeGAFt69B",
-      "tags": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ],
-      "topics": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ]
-    },
-    {
-      "id": "QeCuLqveA",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "【转发！#绝不允许日本军国主义复活#】当年，日本军国主义发动的侵略战争给亚洲和世界带来深重灾难。忘战必危、好战必亡。历史的教训不能忘却，不可歪曲，更不容抹杀。今天，我们绝不允许日本军国主义复活，绝不允许任何人挑战战后国际秩序，绝不允许世界和平稳定再遭破坏！  原图",
-      "likes": 45047,
-      "reposts": 4517,
-      "comments": 10046,
-      "publish_time": "2025-11-19 23:58",
-      "source_url": "https://weibo.cn/comment/QeCuLqveA",
-      "tags": [
-        "绝不允许日本军国主义复活"
-      ],
-      "topics": [
-        "绝不允许日本军国主义复活"
-      ]
-    },
-    {
-      "id": "QdMyPes4G",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "EP63：您的破军在下笑纳了✌🏻  原图",
-      "likes": 416829,
-      "reposts": 270654,
-      "comments": 268372,
-      "publish_time": "2025-11-14 11:46",
-      "source_url": "https://weibo.cn/comment/QdMyPes4G",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QcaYE4wPu",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "明星动态",
-      "likes": 243746,
-      "reposts": 253336,
-      "comments": 213260,
-      "publish_time": "2025-11-03 22:15",
-      "source_url": "https://weibo.cn/comment/QcaYE4wPu",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QbZ8ujP3r",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "【#原来松弛感早就被古人拿捏了#】#古人在砖画上玩起了穿越# 青砖镌刻千年对话，八位跨越700年的自由灵魂在此重逢。这幅作品不仅是砖画，更是数百块“密码砖”拼就的南朝“超级拼图”。千年前匠人如何用模印拼嵌的超前工艺，将风骨铸入砖石传之后世？戳↓↓#国宝时刻#@视听中国 人民日报的微博视频",
-      "likes": 56072,
-      "reposts": 4126,
-      "comments": 15168,
-      "publish_time": "2025-11-02 16:06",
-      "source_url": "https://weibo.cn/comment/QbZ8ujP3r",
-      "tags": [
-        "原来松弛感早就被古人拿捏了",
-        "古人在砖画上玩起了穿越",
-        "国宝时刻"
-      ],
-      "topics": [
-        "原来松弛感早就被古人拿捏了",
-        "古人在砖画上玩起了穿越",
-        "国宝时刻"
-      ]
-    },
-    {
-      "id": "QbXWXb4uh",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "以热爱为引，与行业同行！#微博视界大会我宣你#   让我们一起，把日子过出花来。11月3日，想让你跟我一起去#微博视界大会# ，共同定格属于我们的高光时刻！  原图",
-      "likes": 74308,
-      "reposts": 38690,
-      "comments": 15729,
-      "publish_time": "2025-11-02 13:05",
-      "source_url": "https://weibo.cn/comment/QbXWXb4uh",
-      "tags": [
-        "微博视界大会我宣你",
-        "微博视界大会"
-      ],
-      "topics": [
-        "微博视界大会我宣你",
-        "微博视界大会"
-      ]
-    },
-    {
-      "id": "QaFqpusnf",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "【转发纪念！#台湾重回中国版图80年了#】中国人民抗日战争的胜利，使台湾重回中国版图。80年了，#胜利属于每个中国人#！#纪念台湾光复80周年#人民日报的微博视频",
-      "likes": 57432,
-      "reposts": 5215,
-      "comments": 14487,
-      "publish_time": "2025-10-25 00:05",
-      "source_url": "https://weibo.cn/comment/QaFqpusnf",
-      "tags": [
-        "台湾重回中国版图80年了",
-        "胜利属于每个中国人",
-        "纪念台湾光复80周年"
-      ],
-      "topics": [
-        "台湾重回中国版图80年了",
-        "胜利属于每个中国人",
-        "纪念台湾光复80周年"
-      ]
-    },
-    {
-      "id": "QathJk9Nq",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "EP62：霜降喝杯花茶，一会见～#VOGUE时尚之力盛会#  原图",
-      "likes": 429146,
-      "reposts": 259761,
-      "comments": 266528,
-      "publish_time": "2025-10-23 17:10",
-      "source_url": "https://weibo.cn/comment/QathJk9Nq",
-      "tags": [
-        "VOGUE时尚之力盛会"
-      ],
-      "topics": [
-        "VOGUE时尚之力盛会"
-      ]
-    },
-    {
-      "id": "Qa7iCalYT",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "很高兴成为@凯度电器 全球代言人从今天起，和凯度一起全新出发，从心认识一下！❤幂享新厨电，用点“mimi”魔法🪄，用心致敬生活家~#杨幂凯度全球代言人##幂享凯度新厨电##凯度电器#  原图",
-      "likes": 385636,
-      "reposts": 116847,
-      "comments": 40734,
-      "publish_time": "2025-10-21 09:12",
-      "source_url": "https://weibo.cn/comment/Qa7iCalYT",
-      "tags": [
-        "杨幂凯度全球代言人",
-        "幂享凯度新厨电",
-        "凯度电器"
-      ],
-      "topics": [
-        "杨幂凯度全球代言人",
-        "幂享凯度新厨电",
-        "凯度电器"
-      ]
-    },
-    {
-      "id": "Q9ZveyiLQ",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "致亲爱的读者朋友们：        生命中真正重要的不是你遭遇了什么，而是你记住了哪些事，又是如何铭记的。                                                                一一马尔克斯                                          ...全文 [组图共4张] 原图",
-      "likes": 49089,
-      "reposts": 3118,
-      "comments": 10001,
-      "publish_time": "2025-10-20 13:21",
-      "source_url": "https://weibo.cn/comment/Q9ZveyiLQ",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q9OLa2P0R",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "十月关键词：粉红守护！作为世界乳腺癌防治月，这个月的每一抹粉，都是对健康的珍视。30多年前，伊芙琳·兰黛夫人用一条粉红丝带，点亮了乳腺健康关爱之路；如今，这份温暖仍在传递。此刻，我正和@雅诗兰黛中国 粉红丝带星火计划同行，以小行动聚大力量，认真“粉”自己，也把关爱传递出去。今天我粉了...全文",
-      "likes": 135253,
-      "reposts": 22749,
-      "comments": 214029,
-      "publish_time": "2025-10-19 10:00",
-      "source_url": "https://weibo.cn/comment/Q9OLa2P0R",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q9vQnqPm1",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "EP61：到家啦 豆腐脑吃上了 圆满[奶牛猫]  原图",
-      "likes": 303962,
-      "reposts": 144575,
-      "comments": 282698,
-      "publish_time": "2025-10-17 09:51",
-      "source_url": "https://weibo.cn/comment/Q9vQnqPm1",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q9cJFmUX1",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "高梵云锦鹅绒服，首发黑金「龙锦金」。云锦为冕，龙纹为序，东方匠心邂逅巴黎工艺，重塑全新时尚。在此冬季，与@高梵Guvet 一起，共赏云锦与黑金的隽永诗篇。#杨幂高梵全球品牌代言人##高梵黑金鹅绒服#   网页链接 杨幂的微博视频",
-      "likes": 242456,
-      "reposts": 55003,
-      "comments": 29369,
-      "publish_time": "2025-10-15 09:12",
-      "source_url": "https://weibo.cn/comment/Q9cJFmUX1",
-      "tags": [
-        "杨幂高梵全球品牌代言人",
-        "高梵黑金鹅绒服"
-      ],
-      "topics": [
-        "杨幂高梵全球品牌代言人",
-        "高梵黑金鹅绒服"
-      ]
-    },
-    {
-      "id": "Q8TSF5Dhi",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "秋冬肌肤干痒紧绷？用丝塔芙大白罐！72h长效滋润，不干痒、不紧绷，要多润，有多润~@丝塔芙Cetaphil 大白罐，连续3年全国销量NO.1保湿霜，我的滋润挚爱。秋冬要滋润，当然大白罐！丝塔芙大白罐保湿霜敏感肌温和宝宝树获奖身体乳霜不含烟酰胺#杨幂丝塔芙亚太区品牌代言人##丝塔芙大白罐##秋冬要滋润 当然大白罐# 杨幂的微博视频",
-      "likes": 281383,
-      "reposts": 122670,
-      "comments": 209360,
-      "publish_time": "2025-10-13 09:12",
-      "source_url": "https://weibo.cn/comment/Q8TSF5Dhi",
-      "tags": [
-        "杨幂丝塔芙亚太区品牌代言人",
-        "丝塔芙大白罐",
-        "秋冬要滋润 当然大白罐"
-      ],
-      "topics": [
-        "杨幂丝塔芙亚太区品牌代言人",
-        "丝塔芙大白罐",
-        "秋冬要滋润 当然大白罐"
-      ]
-    },
-    {
-      "id": "Q8rUvqK7J",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "穿出可能，美自成局很高兴成为@SIINSIIN 全球品牌代言人希望终有一天，我们都可以穿上自己的无数可能。与世界，一起美。穿上SIINSIIN，一起轻塑新时尚！SIINSIIN的微博视频#SIINSIIN##杨幂SIINSIIN全球品牌代言人##穿出可能美自成局#",
-      "likes": 264158,
-      "reposts": 79629,
-      "comments": 33686,
-      "publish_time": "2025-10-10 10:00",
-      "source_url": "https://weibo.cn/comment/Q8rUvqK7J",
-      "tags": [
-        "SIINSIIN",
-        "杨幂SIINSIIN全球品牌代言人",
-        "穿出可能美自成局"
-      ],
-      "topics": [
-        "SIINSIIN",
-        "杨幂SIINSIIN全球品牌代言人",
-        "穿出可能美自成局"
-      ]
-    },
-    {
-      "id": "Q8lSB75Lw",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "EP60:下班打卡  [组图共4张] 原图",
-      "likes": 357723,
-      "reposts": 326295,
-      "comments": 112970,
-      "publish_time": "2025-10-09 18:39",
-      "source_url": "https://weibo.cn/comment/Q8lSB75Lw",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q7QbhuRhk",
-      "platform": "weibo",
-      "author": "杨幂",
-      "content": "EP59：日子和月亮一样圆~#十一休time#  [组图共4张] 原图",
-      "likes": 380289,
-      "reposts": 672683,
-      "comments": 171983,
-      "publish_time": "2025-10-06 09:57",
-      "source_url": "https://weibo.cn/comment/Q7QbhuRhk",
-      "tags": [
-        "十一休time"
-      ],
-      "topics": [
-        "十一休time"
-      ]
     }
   ],
   "comments": [],
-  "news_articles": [
-    {
-      "title": "杨幂《狐妖小红娘·月红篇》口碑两极，原著粉争议不断",
-      "summary": "杨幂近日动态引发关注",
-      "content": "改编自热门国漫的《狐妖小红娘》播出后口碑分化，部分观众认为改编偏离原著，但也有粉丝力挺杨幂演技。",
-      "publish_date": "2026-01-29",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/杨幂/0",
-      "sentiment": "neutral",
-      "sentiment_score": -0.17188732605577633,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂《哈尔滨一九四四》热播，一人分饰两角挑战谍战题材",
-      "summary": "杨幂相关话题登上热搜",
-      "content": "杨幂主演的民国谍战剧《哈尔滨一九四四》正在热播，与秦昊搭档，杨幂挑战双角色演技获关注。",
-      "publish_date": "2026-02-23",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/杨幂/1",
-      "sentiment": "positive",
-      "sentiment_score": 0.46418229309009246,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂工作室发声明澄清网络传闻",
-      "summary": "杨幂相关话题登上热搜",
-      "content": "杨幂工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-02-26",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/杨幂/2",
-      "sentiment": "neutral",
-      "sentiment_score": 0.14064160619521465,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂独立发展后首部作品开播，转型之路引发讨论",
-      "summary": "网友热议杨幂近况",
-      "content": "离开嘉行传媒后杨幂以个人工作室身份接洽项目，角色选择向正剧转型，业界关注其未来发展路径。",
-      "publish_date": "2026-01-01",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/杨幂/3",
-      "sentiment": "positive",
-      "sentiment_score": 0.019152028056676512,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "杨幂现身活动，状态在线",
-      "summary": "网友热议杨幂近况",
-      "content": "杨幂出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2026-01-23",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/杨幂/4",
-      "sentiment": "neutral",
-      "sentiment_score": 0.10405732897321834,
-      "category": "",
-      "tags": []
-    }
-  ],
+  "news_articles": [],
   "statistics": {
-    "data_completeness": 0.7,
-    "total_posts": 50,
+    "data_completeness": 0.75,
+    "total_posts": 30,
     "total_comments": 0,
-    "total_news": 5,
-    "total_relationships": 4,
-    "total_gossips": 3
+    "total_news": 0,
+    "total_relationships": 3,
+    "total_gossips": 0
   }
 }

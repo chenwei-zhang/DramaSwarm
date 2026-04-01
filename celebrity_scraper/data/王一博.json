@@ -1,73 +1,55 @@
 {
   "celebrity": {
     "name": "王一博",
-    "english_name": "",
-    "birth_date": "狮子座",
-    "birth_place": "北京",
+    "english_name": "YiBo",
+    "birth_date": "1997-08-05",
+    "birth_place": "河南省洛阳市",
     "age": 0,
     "zodiac": "",
-    "constellation": "",
-    "occupation": [],
-    "company": "",
+    "constellation": "狮子座",
+    "occupation": [
+      "演员",
+      "歌手",
+      "赛车手[1]"
+    ],
+    "company": "乐华娱乐",
     "agency": "",
-    "height": "",
-    "weight": "",
+    "height": "180 cm",
+    "weight": "59 kg",
     "blood_type": "",
-    "biography": "U and I。商务洽谈及合作联系：bdyibo@yuehuamusic.com",
-    "education": "",
-    "alma_mater": "",
+    "biography": "王一博（YiBo），1997年8月5日出生于河南省洛阳市，中国内地影视男演员、流行乐歌手、职业赛车手，EVISU独家签约赛车手。2014年，以UNIQ组合成员身份正式出道。2015年，因主演影片《梦想合伙人》而进军影视界。2016年，随组合凭歌曲《EOEO》获美国“International-K Music”音乐奖最佳编舞奖；同年，加入综艺《天天向上》常驻主持阵容“天天兄弟”；主演都市爱情剧《人间至味是清欢》。2018年担任竞演类真人秀节目《创造101》舞蹈导师。2019年，主演仙侠古装剧《陈情令》；同年，发行个人音乐单曲《无感》，该曲刷新数字单曲销量最快破1000万纪录。2020年，主演古装武侠剧《有翡》播出；同年，凭青春励志剧《陪你到世界之巅》获第30届中国电视金鹰奖观众喜爱的男演员奖。2021年起，主演的古装悬疑剧《风起洛阳》、刑侦剧《冰雨火》相继播出。2023年，主演剧情片《无名》",
+    "education": "韩国首尔翰林艺术高中",
+    "alma_mater": "韩国首尔翰林艺术高中",
     "works": [],
-    "famous_works": [],
+    "famous_works": [
+      "长空之王",
+      "无名",
+      "热烈",
+      "追风者",
+      "陪你到世界之巅",
+      "陈情令"
+    ],
     "weibo_id": "5492443184",
     "weibo_followers": 41519000,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [
-      "weibo"
+      "https://baike.baidu.com/item/%E7%8E%8B%E4%B8%80%E5%8D%9A/15818247"
     ],
-    "updated_at": "2026-03-31T23:11:19.463459"
+    "updated_at": "2026-04-01T08:32:02.538379"
   },
-  "gossips": [
-    {
-      "title": "王一博与乐华娱乐合约传闻",
-      "content": "2024-2025年间，王一博与乐华娱乐的合约到期传闻持续发酵。作为乐华上市后商业价值最高的艺人，他的去向直接影响乐华股价。市场高度关注其是否会续约或独立发展。",
-      "gossip_type": "other",
-      "date": "2024-11-15",
-      "involved_celebrities": [
-        "王一博"
-      ],
-      "tags": [],
-      "importance": 0.7,
-      "verified": false,
-      "sentiment": "neutral",
-      "sentiment_score": 0.0,
-      "source_url": "",
-      "source_type": "sina"
-    }
-  ],
-  "relationships": [
-    {
-      "person_a": "王一博",
-      "person_b": "肖战",
-      "relation_type": "搭档",
-      "start_date": null,
-      "end_date": null,
-      "is_current": true,
-      "description": "2019年合作《陈情令》，剧后各自发展，CP粉基础庞大",
-      "confidence": 0.9,
-      "strength": 0.75
-    }
-  ],
+  "gossips": [],
+  "relationships": [],
   "social_media_posts": [
     {
       "id": "Kvm6gcnp5",
       "platform": "weibo",
       "author": "王一博",
       "content": "倡议书  原图",
-      "likes": 2663015,
+      "likes": 2663159,
       "reposts": 1000000,
-      "comments": 644349,
+      "comments": 644443,
       "publish_time": "2021-08-27 09:04",
       "source_url": "https://weibo.cn/comment/Kvm6gcnp5",
       "tags": [],
@@ -78,10 +60,10 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "每一次和@UGG官方微博 的新尝试，都会有不一样的感受，但自在的感觉从没变过。穿UGG去春天也不错，春夏本来就可以很UGG。UGG官方微博的微博视频#UGG全球代言人王一博##FeelsLikeUGG##春夏也UGG#",
-      "likes": 373109,
-      "reposts": 300947,
-      "comments": 44388,
-      "publish_time": "2026-03-31 10:00",
+      "likes": 843475,
+      "reposts": 417294,
+      "comments": 100580,
+      "publish_time": "2026-04-01 10:00",
       "source_url": "https://weibo.cn/comment/QyKQia8n2",
       "tags": [
         "UGG全球代言人王一博",
@@ -99,7 +81,7 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "很高兴成为@水卫士seaways 品牌全球代言人全屋清洁，我选水卫士用植物的力量，守护家庭的洁净家有水卫士，清洁无难事水卫士，植物基家庭清洁卫士快来水卫士京东自营旗舰店，GET我的同款吧#水卫士##王一博代言水卫士##家有水卫士清洁无难事#水卫士seaways的微博视频",
-      "likes": 6647444,
+      "likes": 6649679,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-03-21 09:00",
@@ -120,9 +102,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "燃擎在即，85号新程开启。以能量为势，以潮流为锋，以探索为核。本赛季将携手首席能量官天丝集团红牛品牌@红牛RedBull官微 ，官方潮流官@UNDEFEATED_OFFICIAL ，联合共创官@HELLYHANSEN海丽汉森 一起迎接赛道新挑战！#85RACING#  原图",
-      "likes": 1925750,
+      "likes": 1926641,
       "reposts": 1000000,
-      "comments": 321155,
+      "comments": 321334,
       "publish_time": "2026-03-14 10:30",
       "source_url": "https://weibo.cn/comment/Qw1lB9u1y",
       "tags": [
@@ -137,9 +119,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "香奈儿2026秋冬系列发布会给我带来了不一样的感受。我看到了更多会想去尝试的衣服。对经典套装的演绎也有与众不同的造型方式，比如中性气质的收腰外套和稍长一点的工装衬衣搭配，轻便又随性。廓形层层递进，整体风格自由又洒脱。#香奈儿时尚发布会#  [组图共9张] 原图",
-      "likes": 1801181,
+      "likes": 1801536,
       "reposts": 1000000,
-      "comments": 234615,
+      "comments": 234682,
       "publish_time": "2026-03-10 22:16",
       "source_url": "https://weibo.cn/comment/Qvug60zCO",
       "tags": [
@@ -154,9 +136,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "和我一起探索@Lacoste 巴黎秀场，抵达传承与革新的交界。网页链接#LACOSTE2026秋冬巴黎时装秀#  [组图共2张] 原图",
-      "likes": 1487210,
+      "likes": 1487465,
       "reposts": 1000000,
-      "comments": 180501,
+      "comments": 180528,
       "publish_time": "2026-03-08 19:00",
       "source_url": "https://weibo.cn/comment/Qva7zD49j",
       "tags": [
@@ -171,9 +153,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "在#罗意威2026秋冬时装秀# 上，两位创意总监Jack和Lazaro再次让我看到工艺的无穷可能。这一季不仅延续了他们对品牌匠艺传承的坚持，更注入了玩趣表达。很开心能见证这个系列的发布，我很喜欢。 [查看全部图片/视频]",
-      "likes": 1531114,
+      "likes": 1531343,
       "reposts": 1000000,
-      "comments": 174917,
+      "comments": 174926,
       "publish_time": "2026-03-07 20:00",
       "source_url": "https://weibo.cn/comment/Qv15zlloC",
       "tags": [
@@ -188,9 +170,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#这就是中国精神#【#奋进十五五主题短片中国精神#】什么是中国精神？这就是以爱国主义为核心的民族精神，以改革创新为核心的时代精神。“时间属于奋进者！历史属于奋进者！”跟随习近平总书记的原声，弘扬中国精神，奋进“十五五”、续写新篇章，我们一起加油！#奋进中国# 人民日报的微博视频",
-      "likes": 398155,
-      "reposts": 170092,
-      "comments": 56978,
+      "likes": 398282,
+      "reposts": 170095,
+      "comments": 56993,
       "publish_time": "2026-03-03 10:30",
       "source_url": "https://weibo.cn/comment/QulEcowTR",
       "tags": [
@@ -209,9 +191,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "祝大家新年快乐 身体健康 马力十足 动起来！ UNIQ-王一博的微博视频",
-      "likes": 2255502,
+      "likes": 2255634,
       "reposts": 1000000,
-      "comments": 447895,
+      "comments": 447922,
       "publish_time": "2026-02-17 15:15",
       "source_url": "https://weibo.cn/comment/QsfwPcOsU",
       "tags": [],
@@ -222,9 +204,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "2025微博之夜盛典荣誉奖项",
-      "likes": 1225867,
-      "reposts": 889893,
-      "comments": 204253,
+      "likes": 1225946,
+      "reposts": 889905,
+      "comments": 204258,
       "publish_time": "2026-02-05 21:28",
       "source_url": "https://weibo.cn/comment/QqsQdo2NK",
       "tags": [],
@@ -235,9 +217,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "很高兴与@嘉实多Castrol官方微博  一起走过了这一年，这一年走了不少路，记录的公里数里，有着每个全力以赴的自己；新的一年，发动引擎，望向前方，一起驶向心之所向。哪里有努力赶路的你，哪里就有嘉实多。#王一博嘉实多品牌代言人##嘉实多新春贺岁大片##每一程为你嘉油# 嘉实多Castrol官方微博的微博视频",
-      "likes": 1264596,
+      "likes": 1264671,
       "reposts": 1000000,
-      "comments": 197390,
+      "comments": 197393,
       "publish_time": "2026-02-05 09:00",
       "source_url": "https://weibo.cn/comment/QqnWFmYSa",
       "tags": [
@@ -256,9 +238,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "以微博之力，让世界更美！2025#微博之夜# 即将开启，2月5日，和我一起见证年度闪耀时刻！#微博之夜阵容官宣#【请大家严格遵守《微博之夜安全倡议》《禁限带物品须知》，不应援、不聚集、不逗留，为了自己和他人安全，我们线上直播见！】   [组图共2张] 原图",
-      "likes": 1881643,
+      "likes": 1881683,
       "reposts": 1000000,
-      "comments": 185810,
+      "comments": 185812,
       "publish_time": "2026-02-02 13:01",
       "source_url": "https://weibo.cn/comment/QpXf01Y1V",
       "tags": [
@@ -275,9 +257,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "快把我的美味搭子@纯甄 吸吸果粒酸奶“袋”回家！「蒙牛营养生活家」小程序已上新，来GET同款吧#王一博纯甄品牌代言人##蒙牛奥林匹克全球合作伙伴##要强接彩头#纯甄的微博视频",
-      "likes": 1075173,
+      "likes": 1075213,
       "reposts": 1000000,
-      "comments": 162183,
+      "comments": 162186,
       "publish_time": "2026-01-29 10:00",
       "source_url": "https://weibo.cn/comment/Qpklvb8KP",
       "tags": [
@@ -296,7 +278,7 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "很高兴成为@FLYCO飞科 品牌全球代言人。 这，是我的风度之选——飞科星环智能高速吹风机。 AI感应控温，不烫头皮，Gyro姿态感应， 过烫防护，智能启停系统，懂风更懂你。和我一起体验智感吹护时代！ #王一博飞科品牌全球代言人##飞科星环智能高速吹风机##飞跃科技博出精彩#FLYCO飞科的微博视频",
-      "likes": 8497094,
+      "likes": 8497131,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-28 10:00",
@@ -317,9 +299,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "只要认准自己的选择，就铆足牛劲儿向前冲。每一份坚持，祝大家最后都能马到成功！新的一年，与@红牛RedBull官微 一起，为能量加码，为热爱加牛劲儿！用硬核状态迎接每一场挑战！#红牛挺你 能量加码##王一博代言天丝集团红牛品牌##你真牛 红牛挺你# 红牛RedBull官微的微博视频",
-      "likes": 1245108,
+      "likes": 1245143,
       "reposts": 1000000,
-      "comments": 177567,
+      "comments": 177570,
       "publish_time": "2026-01-26 10:00",
       "source_url": "https://weibo.cn/comment/QoS40C0aN",
       "tags": [
@@ -338,9 +320,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "很高兴与专业益生菌@lifespace益倍适 「益」路同行第二年。新年聚餐、送礼、旅游，我选益倍适超感益生菌，新年畅顺超有感！我的同款益生菌已在lifespace益倍适天猫官方海外旗舰店上线，快来GET同款~2026，与lifespace益倍适继续「益」起同行！#王一博同款益倍适超感益生菌#...全文",
-      "likes": 1600635,
+      "likes": 1600665,
       "reposts": 1000000,
-      "comments": 252735,
+      "comments": 252736,
       "publish_time": "2026-01-20 11:00",
       "source_url": "https://weibo.cn/comment/QnXTotSjI",
       "tags": [
@@ -355,9 +337,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "短暂的触冰 UNIQ-王一博的微博视频",
-      "likes": 1780450,
+      "likes": 1780513,
       "reposts": 1000000,
-      "comments": 243745,
+      "comments": 243750,
       "publish_time": "2026-01-18 15:50",
       "source_url": "https://weibo.cn/comment/QnGWbBvfL",
       "tags": [],
@@ -368,9 +350,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#乐华家族新春单曲上线# 2026我们一起“闹”新春🧧乐华家族全新单曲《新年快乐GoGoGo》今日正式上线！马年flag 已就位：希望大家2026“马力全开”！好运“马不停蹄”！#乐华家族新年快乐GoGoGo#QQ音乐：新年快乐Go Go Go酷狗音乐：网页链接酷我音乐：网页链接...全文",
-      "likes": 1031403,
-      "reposts": 91659,
-      "comments": 84780,
+      "likes": 1031420,
+      "reposts": 91660,
+      "comments": 84781,
       "publish_time": "2026-01-16 12:25",
       "source_url": "https://weibo.cn/comment/QnmJWvNOv",
       "tags": [
@@ -387,9 +369,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "春运的汽笛声里藏着团圆的期待～2026春节来临，温暖过年，白象相伴。不管你是奔赴团圆还是仍在岗位， @白象食品 一碗热面暖胃更暖心。白象中国面，温暖中国每一面。#白象中国面温暖中国每一面##白象##王一博白象品牌代言人#白象食品的微博视频",
-      "likes": 1392547,
+      "likes": 1392566,
       "reposts": 1000000,
-      "comments": 207291,
+      "comments": 207292,
       "publish_time": "2026-01-15 09:00",
       "source_url": "https://weibo.cn/comment/QnbYbFvq9",
       "tags": [
@@ -408,9 +390,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#被探索新境治愈到的瞬间##探索新境# EP13「岩上新境（上）」已经上线啦！@UNIQ-王一博 和Discovery中国探索家@周鹏-jiniao 在北京白河“休闲”游的一天，攀岩、溜索、吃美食，畅谈北美的攀岩经历~一博的岩上新境等你来见证~#探索新境登顶计划#第13集预告：王一博回到攀岩的起点，接受启蒙老师周鹏的检测！ 正片指路👉🏻...全文",
-      "likes": 1479253,
-      "reposts": 542583,
-      "comments": 188918,
+      "likes": 1479274,
+      "reposts": 542589,
+      "comments": 188924,
       "publish_time": "2026-01-09 12:07",
       "source_url": "https://weibo.cn/comment/QmiDic7uh",
       "tags": [
@@ -429,9 +411,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "LOEWE罗意威以2026新春系列致意中国传统佳节，并以春节时分象征团圆与希望的灯笼为创作灵感，呈现“盏盏新年”系列策划。此次新春系列动画创意片讲述了一个关于自我确信和勇气的故事：我遇见了一匹小马，他在取灯的路上，遇到了一个重要的抉择...... #盏盏新年##罗意威新春系列#...全文",
-      "likes": 1695755,
+      "likes": 1695771,
       "reposts": 1000000,
-      "comments": 209927,
+      "comments": 209929,
       "publish_time": "2026-01-06 10:00",
       "source_url": "https://weibo.cn/comment/QlPw663ah",
       "tags": [
@@ -448,9 +430,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#探索新境# 幕后花絮 [查看全部图片/视频]",
-      "likes": 1657454,
+      "likes": 1657503,
       "reposts": 1000000,
-      "comments": 178261,
+      "comments": 178264,
       "publish_time": "2026-01-03 12:30",
       "source_url": "https://weibo.cn/comment/QlodyufSh",
       "tags": [
@@ -465,9 +447,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#探索新境#EP11「直上山巅(上)」已上线~@UNIQ-王一博 和《探索新境2》攀岩导师金国威、攀岩搭档@RyderStroud-史瑞德 来到了攀岩的宇宙中心优胜美地，开启了终极大岩壁的攀爬，历时三天、运用所学去完成此次大岩壁挑战！#探索新境登顶计划#第11集预告：终极挑战来袭！王一博开启三天两夜高负荷攀岩挑战 正片指路👉🏻第11集：直上山巅（上）",
-      "likes": 1086275,
-      "reposts": 420254,
-      "comments": 90938,
+      "likes": 1086287,
+      "reposts": 420259,
+      "comments": 90945,
       "publish_time": "2026-01-02 11:35",
       "source_url": "https://weibo.cn/comment/QleqFyOgZ",
       "tags": [
@@ -484,9 +466,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "2026继续向上攀登 祝大家新的一年快乐顺遂 UNIQ-王一博的微博视频",
-      "likes": 1892297,
+      "likes": 1892298,
       "reposts": 1000000,
-      "comments": 177815,
+      "comments": 177818,
       "publish_time": "2026-01-01 19:37",
       "source_url": "https://weibo.cn/comment/Ql89QhigU",
       "tags": [],
@@ -497,9 +479,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "新岁启封，勇攀高峰生而无畏，放马过来新的一年@雪花啤酒勇闯天涯 superX继续为你注满前行的勇气，2026和我一起继续勇闯天涯！雪花啤酒勇闯天涯的微博视频#勇敢的人永远18岁##王一博代言勇闯天涯superx#",
-      "likes": 1126187,
+      "likes": 1126196,
       "reposts": 1000000,
-      "comments": 120491,
+      "comments": 120493,
       "publish_time": "2025-12-31 09:00",
       "source_url": "https://weibo.cn/comment/QkUyLDJiv",
       "tags": [
@@ -516,9 +498,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "马年有奇迹，法丽兹金马礼盒，马上送到！把马力十足的元气，幸福加码的心意，马到成功的运气，统统送给你！年货礼盒就选法丽兹！@法丽兹官方微博 法丽兹官方微博的微博视频#王一博法丽兹品牌代言人##一口酥成沙 夹心更丝滑##法丽兹金马礼盒#",
-      "likes": 1550382,
+      "likes": 1550395,
       "reposts": 1000000,
-      "comments": 155297,
+      "comments": 155298,
       "publish_time": "2025-12-29 08:30",
       "source_url": "https://weibo.cn/comment/QkBvB0fdc",
       "tags": [
@@ -537,9 +519,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#探索新境#第二季EP10「先锋之路（下）」上线啦！在片刻的休息中，感受自然，缓解疲劳的最佳方式：钓鱼、看风景、享受美食；在攀岩新线路的摸索中，成就更好的自己~和@UNIQ-王一博 同行的路上，我们都在不断成长！#探索新境登顶计划#第10集预告：模拟考来了！王一博攀岩能力大检测 正片指路👉🏻网页链接",
-      "likes": 1163127,
-      "reposts": 353308,
-      "comments": 108457,
+      "likes": 1163143,
+      "reposts": 353312,
+      "comments": 108463,
       "publish_time": "2025-12-27 12:56",
       "source_url": "https://weibo.cn/comment/QkkoIdB6g",
       "tags": [
@@ -556,9 +538,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#探索新境2# 幕后花絮 [查看全部图片/视频]",
-      "likes": 1491746,
+      "likes": 1491754,
       "reposts": 1000000,
-      "comments": 202471,
+      "comments": 202472,
       "publish_time": "2025-12-26 12:30",
       "source_url": "https://weibo.cn/comment/QkaNS0MXl",
       "tags": [
@@ -573,7 +555,7 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#探索新境2# 幕后花絮 [查看全部图片/视频]",
-      "likes": 2193614,
+      "likes": 2193645,
       "reposts": 1000000,
       "comments": 248853,
       "publish_time": "2025-12-20 11:41",
@@ -590,9 +572,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#探索新境#EP07「热爱之上（上）」在进行了整月的攀岩挑战之后，@UNIQ-王一博 和攀岩搭档@RyderStroud-史瑞德 来到了华盛顿州洛佩兹岛，两人需要充电以更好的状态迎接新的挑战！在洛佩兹岛体验泥滩上挖蛤蜊、攀树等户外运动，感受一博口中的“第一种快乐”。正片上线，一起来看！#探索新境登顶计划#...全文",
-      "likes": 1109523,
-      "reposts": 355855,
-      "comments": 108643,
+      "likes": 1109533,
+      "reposts": 355858,
+      "comments": 108648,
       "publish_time": "2025-12-19 13:42",
       "source_url": "https://weibo.cn/comment/Qj7hh83If",
       "tags": [
@@ -609,9 +591,9 @@
       "platform": "weibo",
       "author": "王一博",
       "content": "#探索新境2# 幕后花絮 [查看全部图片/视频]",
-      "likes": 2075907,
+      "likes": 2075918,
       "reposts": 1000000,
-      "comments": 231232,
+      "comments": 231233,
       "publish_time": "2025-12-14 11:29",
       "source_url": "https://weibo.cn/comment/Qilh8z3BS",
       "tags": [
@@ -620,467 +602,16 @@
       "topics": [
         "探索新境2"
       ]
-    },
-    {
-      "id": "Qi7lx3ywJ",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "【今天，#第十二个国家公祭日#，以国家的名义祭奠】今天，南京大屠杀死难者国家公祭日。国之殇，莫敢忘，以国之名，祭我遇难同胞！#为30多万死难同胞发条微博# #19371213永不敢忘# 人民日报的微博视频",
-      "likes": 1003773,
-      "reposts": 142135,
-      "comments": 62864,
-      "publish_time": "2025-12-13 00:02",
-      "source_url": "https://weibo.cn/comment/Qi7lx3ywJ",
-      "tags": [
-        "第十二个国家公祭日",
-        "为30多万死难同胞发条微博",
-        "19371213永不敢忘"
-      ],
-      "topics": [
-        "第十二个国家公祭日",
-        "为30多万死难同胞发条微博",
-        "19371213永不敢忘"
-      ]
-    },
-    {
-      "id": "Qi2k90KiU",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "#王一博首次挑战深水抱石# EP5「深水边界」上线！@UNIQ-王一博 在北美首次挑战深水抱石，体验海钓又有什么样的收获？更有海中央蒸桑拿、海边做饭......精彩内容等你解锁；戳链接，和一博一起开启海上探险之旅吧#探索新境##探索新境登顶计划# 第5集预告：向快乐出发！王一博出海钓大鱼，收获满满 正片指路👉🏻...全文",
-      "likes": 1156688,
-      "reposts": 350745,
-      "comments": 111729,
-      "publish_time": "2025-12-12 11:15",
-      "source_url": "https://weibo.cn/comment/Qi2k90KiU",
-      "tags": [
-        "王一博首次挑战深水抱石",
-        "探索新境",
-        "探索新境登顶计划"
-      ],
-      "topics": [
-        "王一博首次挑战深水抱石",
-        "探索新境",
-        "探索新境登顶计划"
-      ]
-    },
-    {
-      "id": "QhpJlwD6Y",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "零食搭子上线@盐津铺子大魔王 ！很高兴成为大魔王品牌全球代言人，麻酱素毛肚，当属大魔王。和我一起，开启正宗麻酱素毛肚的美味之旅吧！#王一博大魔王品牌全球代言人##盐津铺子大魔王# 盐津铺子大魔王的微博视频",
-      "likes": 10374864,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-12-08 09:00",
-      "source_url": "https://weibo.cn/comment/QhpJlwD6Y",
-      "tags": [
-        "王一博大魔王品牌全球代言人",
-        "盐津铺子大魔王"
-      ],
-      "topics": [
-        "王一博大魔王品牌全球代言人",
-        "盐津铺子大魔王"
-      ]
-    },
-    {
-      "id": "QhaiVz1T7",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "@UNIQ-王一博 出席香奈儿2026高级手工坊系列纽约发布会。 #香奈儿高级手工坊##香奈儿时尚发布会# 香奈儿CHANEL的微博视频",
-      "likes": 1204790,
-      "reposts": 1000000,
-      "comments": 115550,
-      "publish_time": "2025-12-06 17:43",
-      "source_url": "https://weibo.cn/comment/QhaiVz1T7",
-      "tags": [
-        "香奈儿高级手工坊",
-        "香奈儿时尚发布会"
-      ],
-      "topics": [
-        "香奈儿高级手工坊",
-        "香奈儿时尚发布会"
-      ]
-    },
-    {
-      "id": "Qh8yZE0Um",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "#探索新境2# 探索幕后 [查看全部图片/视频]",
-      "likes": 1628799,
-      "reposts": 1000000,
-      "comments": 125339,
-      "publish_time": "2025-12-06 13:17",
-      "source_url": "https://weibo.cn/comment/Qh8yZE0Um",
-      "tags": [
-        "探索新境2"
-      ],
-      "topics": [
-        "探索新境2"
-      ]
-    },
-    {
-      "id": "QgYlrFdJS",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "#探索新境##探索新境2# EP03「奔赴林海（上）」现已上线。跟随@UNIQ-王一博 深入加拿大斯阔米什，在攀岩爱好者向往的花岗岩上挑战器械攀登。这次，要依靠不同大小的塞子，在岩壁上安全攀登，想要信任它，就必须了解它。并体验了伐木文化、飞斧投掷、水上滚木，感受传统竞技活动的快乐。戳链接，解锁正...全文",
-      "likes": 1109827,
-      "reposts": 631331,
-      "comments": 92932,
-      "publish_time": "2025-12-05 11:17",
-      "source_url": "https://weibo.cn/comment/QgYlrFdJS",
-      "tags": [
-        "探索新境",
-        "探索新境2"
-      ],
-      "topics": [
-        "探索新境",
-        "探索新境2"
-      ]
-    },
-    {
-      "id": "QgOO4yliT",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "有人走过秀场，有人留住时间...我非常喜欢Matthieu Blazy的#香奈儿高级手工坊#系列和这场特别的#香奈儿时尚发布会#。充满松弛感的设计，或是精致的西装造型，在这场电影感的发布会中，人物、风格、音乐还有剧情，时而平凡，时而隆重。纽约城市中人的故事，人和人的对话，流行文化与精湛工艺的融合，还...全文 [组图共9张] 原图",
-      "likes": 1550331,
-      "reposts": 1000000,
-      "comments": 140775,
-      "publish_time": "2025-12-04 11:00",
-      "source_url": "https://weibo.cn/comment/QgOO4yliT",
-      "tags": [
-        "香奈儿高级手工坊",
-        "香奈儿时尚发布会"
-      ],
-      "topics": [
-        "香奈儿高级手工坊",
-        "香奈儿时尚发布会"
-      ]
-    },
-    {
-      "id": "Qg3MEllpf",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "#探索新境2# 幕后花絮 [查看全部图片/视频]",
-      "likes": 2297055,
-      "reposts": 1000000,
-      "comments": 224935,
-      "publish_time": "2025-11-29 11:17",
-      "source_url": "https://weibo.cn/comment/Qg3MEllpf",
-      "tags": [
-        "探索新境2"
-      ],
-      "topics": [
-        "探索新境2"
-      ]
-    },
-    {
-      "id": "QfUxRbWnl",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "《#探索新境#》第二季EP01「裂隙之间（上）」已上线！节目发起人@UNIQ-王一博 再出发！本次启程，不断拓宽自己的能力边界，开启深耕热爱之路！心境转变、攀岩初心，王一博在垂直世界里寻找水平人生的平衡。戳腾讯视频链接，解锁首期「裂隙之间」#每一步攀登都算数# #探索新境2#  第1集预告：高燃回归！王一博开启攀岩新旅程...全文",
-      "likes": 1234381,
-      "reposts": 619828,
-      "comments": 118808,
-      "publish_time": "2025-11-28 11:46",
-      "source_url": "https://weibo.cn/comment/QfUxRbWnl",
-      "tags": [
-        "探索新境",
-        "每一步攀登都算数",
-        "探索新境2"
-      ],
-      "topics": [
-        "探索新境",
-        "每一步攀登都算数",
-        "探索新境2"
-      ]
-    },
-    {
-      "id": "QeTeq7hT1",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "【@UNIQ-王一博：未来已来，行动在我】作为COP30中国角形象大使，王一博发出视频倡议，青年一代是未来的创造者，是气候行动的中坚力量。呼吁全球青年关注气候变化，为推动气候行动贡献力量，用实践展示青年对全球可持续发展的承诺。#COP30##贝伦传真# 生态环境部的微博视频",
-      "likes": 1565612,
-      "reposts": 636989,
-      "comments": 149741,
-      "publish_time": "2025-11-21 18:35",
-      "source_url": "https://weibo.cn/comment/QeTeq7hT1",
-      "tags": [
-        "COP30",
-        "贝伦传真"
-      ],
-      "topics": [
-        "COP30",
-        "贝伦传真"
-      ]
-    },
-    {
-      "id": "QeG9Uj1dN",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "【转发海报！#玩火者必自焚#】日本首相高市早苗的涉台错误言论从根本上损害了中日关系的政治基础，激起了中国人民的公愤和谴责。如果日方拒不撤回甚至一错再错，#中方将不得不采取严厉坚决的反制措施#，由此产生的一切后果由日方承担。  原图",
-      "likes": 1041809,
-      "reposts": 138571,
-      "comments": 60238,
-      "publish_time": "2025-11-20 09:18",
-      "source_url": "https://weibo.cn/comment/QeG9Uj1dN",
-      "tags": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ],
-      "topics": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ]
-    },
-    {
-      "id": "QerRlswoB",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "【转发！#绝不允许日本军国主义复活#】当年，日本军国主义发动的侵略战争给亚洲和世界带来深重灾难。忘战必危、好战必亡。历史的教训不能忘却，不可歪曲，更不容抹杀。今天，我们绝不允许日本军国主义复活，绝不允许任何人挑战战后国际秩序，绝不允许世界和平稳定再遭破坏！  原图",
-      "likes": 1030651,
-      "reposts": 263819,
-      "comments": 64517,
-      "publish_time": "2025-11-18 20:54",
-      "source_url": "https://weibo.cn/comment/QerRlswoB",
-      "tags": [
-        "绝不允许日本军国主义复活"
-      ],
-      "topics": [
-        "绝不允许日本军国主义复活"
-      ]
-    },
-    {
-      "id": "Qeee0CoUn",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "攀岩是寻找自我的一种方式，在岩壁上，有兴奋、有痛苦、有不断面对选择时所带来的恐惧和坚持；选择哪条线路，选择继续攀爬还是下降，都是攀登的一个过程。期待和大家一起感受#探索新境# 第二季，在热爱中寻找向上的生命力。#王一博探索新境2北美攀岩总宣##王一博探索新境2定档1128#...全文",
-      "likes": 3355186,
-      "reposts": 1000000,
-      "comments": 293063,
-      "publish_time": "2025-11-17 10:11",
-      "source_url": "https://weibo.cn/comment/Qeee0CoUn",
-      "tags": [
-        "探索新境",
-        "王一博探索新境2北美攀岩总宣",
-        "王一博探索新境2定档1128"
-      ],
-      "topics": [
-        "探索新境",
-        "王一博探索新境2北美攀岩总宣",
-        "王一博探索新境2定档1128"
-      ]
-    },
-    {
-      "id": "Qee9htFxc",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "怀揣热爱，向岩而生，不断探索新境，活出生命的极致！与@腾讯视频 @Discovery探索频道 再出发，共同打造#探索新境# 第二季北美攀岩公路之旅。11月28日起每周五周六11点腾讯视频独播。#王一博探索新境2定档1128#  原图",
-      "likes": 1317999,
-      "reposts": 1000000,
-      "comments": 127610,
-      "publish_time": "2025-11-17 10:00",
-      "source_url": "https://weibo.cn/comment/Qee9htFxc",
-      "tags": [
-        "探索新境",
-        "王一博探索新境2定档1128"
-      ],
-      "topics": [
-        "探索新境",
-        "王一博探索新境2定档1128"
-      ]
-    },
-    {
-      "id": "QdtcXgcOo",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "这次，和朋友们@UGG官方微博 @苏翊鸣 一起出发，去尝试更多的可能，自在做自己，感觉正好！ #FeelsLikeUGG##王一博苏翊鸣很UGG# UGG官方微博的微博视频",
-      "likes": 10643162,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-12 10:30",
-      "source_url": "https://weibo.cn/comment/QdtcXgcOo",
-      "tags": [
-        "FeelsLikeUGG",
-        "王一博苏翊鸣很UGG"
-      ],
-      "topics": [
-        "FeelsLikeUGG",
-        "王一博苏翊鸣很UGG"
-      ]
-    },
-    {
-      "id": "QbDSSs3Eu",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "是「一」次温暖的再出发，也是「一」场默契的再延续。与@YAYA鸭鸭 同行第三年，我们再启温暖篇章。这个冬天，让我们「一」起将温暖穿在身上。#天冷了就穿鸭鸭##王一博鸭鸭品牌全球首席代言人##鸭鸭羽绒服#  [组图共9张] 原图",
-      "likes": 4230403,
-      "reposts": 1000000,
-      "comments": 362889,
-      "publish_time": "2025-10-31 10:00",
-      "source_url": "https://weibo.cn/comment/QbDSSs3Eu",
-      "tags": [
-        "天冷了就穿鸭鸭",
-        "王一博鸭鸭品牌全球首席代言人",
-        "鸭鸭羽绒服"
-      ],
-      "topics": [
-        "天冷了就穿鸭鸭",
-        "王一博鸭鸭品牌全球首席代言人",
-        "鸭鸭羽绒服"
-      ]
-    },
-    {
-      "id": "QaFv5iM55",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "#台湾光复80周年#【今天，一起转发！#纪念台湾光复#！🇨🇳】#只有一个中国# 1945年的今天，10月25日，日本在台殖民统治终结，台湾作为中国领土的一部分重回中国版图！万千的台湾同胞，在街上热烈庆祝。今天，一起发条微博，为祖国统一、民族复兴的美好未来，共同奋斗！  原图",
-      "likes": 1118807,
-      "reposts": 283813,
-      "comments": 96648,
-      "publish_time": "2025-10-25 00:16",
-      "source_url": "https://weibo.cn/comment/QaFv5iM55",
-      "tags": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ],
-      "topics": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ]
-    },
-    {
-      "id": "QagE0srN8",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "怎样的汤，才能算正宗？ @白象食品 汤好喝坚持选用1年以上老母鸡，慢熬6小时，熬出汤好喝，正宗白象老母鸡汤面，就是汤好喝！#王一博白象品牌代言人##王一博问为什么白象汤好喝##白象汤好喝# 白象食品的微博视频",
-      "likes": 1512930,
-      "reposts": 1000000,
-      "comments": 240965,
-      "publish_time": "2025-10-22 09:00",
-      "source_url": "https://weibo.cn/comment/QagE0srN8",
-      "tags": [
-        "王一博白象品牌代言人",
-        "王一博问为什么白象汤好喝",
-        "白象汤好喝"
-      ],
-      "topics": [
-        "王一博白象品牌代言人",
-        "王一博问为什么白象汤好喝",
-        "白象汤好喝"
-      ]
-    },
-    {
-      "id": "Qa7duAsUH",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "我的科技新搭档——SKG健腹仪！日常运动时搭配使用，练腹更加高效。我的同款健腹仪已经在SKG各大旗舰店上线！快和我一起，解锁健腹训练的新模式。@SKG未来健康 #王一博SKG品牌全球代言人##全球健康科技就选SKG#SKG未来健康的微博视频",
-      "likes": 1505049,
-      "reposts": 1000000,
-      "comments": 170786,
-      "publish_time": "2025-10-21 09:00",
-      "source_url": "https://weibo.cn/comment/Qa7duAsUH",
-      "tags": [
-        "王一博SKG品牌全球代言人",
-        "全球健康科技就选SKG"
-      ],
-      "topics": [
-        "王一博SKG品牌全球代言人",
-        "全球健康科技就选SKG"
-      ]
-    },
-    {
-      "id": "Q9XsJjGhc",
-      "platform": "weibo",
-      "author": "王一博",
-      "content": "热爱，一口便知；携手，一年又始！与@法丽兹官方微博 同行第2年，酥沙「心」旅程，丝滑「心」世界！#王一博法丽兹品牌代言人##王一博的法丽兹小饼干##一口酥成沙 夹心更丝滑#  原图",
-      "likes": 2308940,
-      "reposts": 1000000,
-      "comments": 205499,
-      "publish_time": "2025-10-20 08:10",
-      "source_url": "https://weibo.cn/comment/Q9XsJjGhc",
-      "tags": [
-        "王一博法丽兹品牌代言人",
-        "王一博的法丽兹小饼干",
-        "一口酥成沙 夹心更丝滑"
-      ],
-      "topics": [
-        "王一博法丽兹品牌代言人",
-        "王一博的法丽兹小饼干",
-        "一口酥成沙 夹心更丝滑"
-      ]
     }
   ],
   "comments": [],
-  "news_articles": [
-    {
-      "title": "王一博与乐华娱乐合约将到期，去向成焦点",
-      "summary": "王一博相关话题登上热搜",
-      "content": "作为乐华娱乐核心艺人，王一博的合约续约情况持续受到市场关注，直接影响公司股价走向。",
-      "publish_date": "2026-02-14",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/王一博/0",
-      "sentiment": "neutral",
-      "sentiment_score": 0.44539430333414715,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "王一博新片《人鱼》筹备中，程耳执导",
-      "summary": "王一博相关话题登上热搜",
-      "content": "王一博将与导演程耳再度合作新片《人鱼》，此前两人合作的《无名》获得良好口碑。",
-      "publish_date": "2025-10-05",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/王一博/1",
-      "sentiment": "positive",
-      "sentiment_score": 0.09552149141081606,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "王一博工作室发声明澄清网络传闻",
-      "summary": "网友热议王一博近况",
-      "content": "王一博工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-01-31",
-      "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/王一博/2",
-      "sentiment": "neutral",
-      "sentiment_score": 0.1492518081798344,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "王一博现身活动，状态在线",
-      "summary": "网友热议王一博近况",
-      "content": "王一博出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2026-03-21",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/王一博/3",
-      "sentiment": "positive",
-      "sentiment_score": -0.10042270401462047,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "王一博《探索新境》获好评，展现户外探索实力",
-      "summary": "王一博近日动态引发关注",
-      "content": "王一博与Discovery合作的户外探索纪实节目《探索新境》播出，展现摩托车、攀岩等多面才华。",
-      "publish_date": "2026-03-24",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/王一博/4",
-      "sentiment": "positive",
-      "sentiment_score": -0.17402866225696279,
-      "category": "",
-      "tags": []
-    }
-  ],
+  "news_articles": [],
   "statistics": {
-    "data_completeness": 0.7,
-    "total_posts": 51,
+    "data_completeness": 0.65,
+    "total_posts": 31,
     "total_comments": 0,
-    "total_news": 5,
-    "total_relationships": 1,
-    "total_gossips": 1
+    "total_news": 0,
+    "total_relationships": 0,
+    "total_gossips": 0
   }
 }

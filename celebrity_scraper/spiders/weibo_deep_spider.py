@@ -382,7 +382,7 @@ class WeiboDeepSpider:
             return ''
 
     def _get_publish_time(self, info) -> str:
-        """获取发布时间"""
+        """获取发布时间，自动处理跨年"""
         try:
             str_time_list = info.xpath("div/span[@class='ct']")
             if not str_time_list:
@@ -390,20 +390,27 @@ class WeiboDeepSpider:
             str_time = _handle_garbled(str_time_list[0])
             publish_time = str_time.split('来自')[0].strip()
 
+            now = datetime.now()
+
             if '刚刚' in publish_time:
-                return datetime.now().strftime('%Y-%m-%d %H:%M')
+                return now.strftime('%Y-%m-%d %H:%M')
             elif '分钟' in publish_time:
                 minute = int(re.search(r'(\d+)', publish_time).group(1))
-                return (datetime.now() - timedelta(minutes=minute)).strftime('%Y-%m-%d %H:%M')
+                return (now - timedelta(minutes=minute)).strftime('%Y-%m-%d %H:%M')
             elif '今天' in publish_time:
-                today = datetime.now().strftime('%Y-%m-%d')
+                today = now.strftime('%Y-%m-%d')
                 t = publish_time.replace('今天', '').strip()
                 return f'{today} {t}'[:16]
             elif '月' in publish_time:
-                year = datetime.now().strftime('%Y')
+                # 自动判断年份：如果月份大于当前月份，则为去年
                 m = re.search(r'(\d{1,2})月(\d{1,2})日\s*(\d{1,2}:\d{2})', publish_time)
                 if m:
-                    return f'{year}-{int(m.group(1)):02d}-{int(m.group(2)):02d} {m.group(3)}'
+                    month = int(m.group(1))
+                    if month > now.month:
+                        year = now.year - 1
+                    else:
+                        year = now.year
+                    return f'{year}-{month:02d}-{int(m.group(2)):02d} {m.group(3)}'
             else:
                 return publish_time[:16]
             return publish_time

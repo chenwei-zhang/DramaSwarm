@@ -1,71 +1,63 @@
 {
   "celebrity": {
     "name": "唐嫣",
-    "english_name": "",
-    "birth_date": null,
-    "birth_place": "上海",
+    "english_name": "Tang YanTiffany Tang",
+    "birth_date": "1983-12-06",
+    "birth_place": "上海市黄浦区",
     "age": 0,
     "zodiac": "",
-    "constellation": "",
-    "occupation": [],
-    "company": "",
+    "constellation": "射手座",
+    "occupation": [
+      "演员"
+    ],
+    "company": "唐嫣工作室",
     "agency": "",
-    "height": "",
+    "height": "172 cm",
     "weight": "",
-    "blood_type": "",
-    "biography": "work@ty-studio.cn 糖糖.TIFFANY.糖囡。烦恼最小化~快乐最大化~!要做糖糖糖糖开心糖~!正能量的某颗糖o(^_^)o",
-    "education": "",
-    "alma_mater": "",
+    "blood_type": "O型",
+    "biography": "唐嫣（Tiffany Tang），1983年12月6日出生于上海市黄浦区，毕业于中央戏剧学院表演系本科班，中国内地影视女演员，二级演员。2001年，获得第三届舒蕾世纪星选美比赛冠军。2004年，作为“奥运宝贝”参与雅典奥运会闭幕式演出。2009年，因主演古装仙侠剧《仙剑奇侠传三》获得关注。2011年，主演的都市剧《夏家三千金》获卫视年度收视冠军，她也凭此获国剧盛典最受欢迎女演员奖。2012年，成立个人工作室。2013年，凭动作剧《X女特工》获得第13届华鼎奖中国近代革命题材电视剧最佳女演员及国剧盛典年度极具商业价值演员。2014年，凭借古装剧《金玉良缘》获得第5届中国大学生电视节最受欢迎女演员，并凭爱情电影《露水红颜》获得第3届国际华语电影节金骑士奖最佳女配角奖。2015年1月10日，主演的爱情剧《何以笙箫默》播出；该剧获第17届华鼎奖当代题材电视剧最佳女演员；2016年，担任第11届金鹰",
+    "education": "中央戏剧学院",
+    "alma_mater": "中央戏剧学院",
     "works": [],
-    "famous_works": [],
+    "famous_works": [
+      "何以笙箫默",
+      "锦绣未央",
+      "夏家三千金",
+      "仙剑奇侠传三",
+      "繁花",
+      "金玉良缘",
+      "X女特工",
+      "克拉恋人",
+      "念无双",
+      "归去来"
+    ],
     "weibo_id": "1230663070",
     "weibo_followers": 76480000,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [
-      "weibo"
+      "https://baike.baidu.com/item/%E5%94%90%E5%AB%A3/10390217"
     ],
-    "updated_at": "2026-03-31T23:14:34.683496"
+    "updated_at": "2026-04-01T08:34:17.836805"
   },
-  "gossips": [
-    {
-      "title": "唐嫣凭《繁花》事业翻红",
-      "content": "2023-2024年唐嫣主演王家卫导演的《繁花》饰演汪小姐，演技获广泛好评，被视为演艺生涯突破性角色。该剧热度极高，唐嫣商业价值大幅攀升，代言增多，重回一线女星行列。",
-      "gossip_type": "other",
-      "date": "2024-01-01",
-      "involved_celebrities": [
-        "唐嫣"
-      ],
-      "tags": [],
-      "importance": 0.85,
-      "verified": true,
-      "sentiment": "neutral",
-      "sentiment_score": 0.0,
-      "source_url": "",
-      "source_type": "sina"
-    }
-  ],
+  "gossips": [],
   "relationships": [
     {
       "person_a": "唐嫣",
-      "person_b": "罗晋",
-      "relation_type": "配偶",
-      "start_date": null,
-      "end_date": null,
+      "person_b": "夏天美",
+      "relation_type": "子女",
       "is_current": true,
-      "description": "2016年因《锦绣未央》相识，2018年维也纳结婚，2020年育有一女",
-      "confidence": 0.99,
-      "strength": 0.95
+      "description": "",
+      "confidence": 0.8,
+      "strength": 0.6
     },
     {
       "person_a": "唐嫣",
-      "person_b": "杨幂",
-      "relation_type": "好友",
-      "start_date": null,
-      "end_date": null,
+      "person_b": "[58]",
+      "relation_type": "子女",
       "is_current": true,
-      "description": "娱乐圈多年好友，关系稳定",
+      "description": "",
       "confidence": 0.8,
       "strength": 0.6
     }
@@ -76,9 +68,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "【#唐嫣谈繁花出海#】#唐嫣说汪小姐是长在身体里的伙伴# 随着电视剧《繁花》走向世界，中国故事被更多海外观众看到。近日，演员@唐嫣 接受采访，她认为《繁花》的魅力在于真诚表达个体在大时代中的奋斗与热爱，优秀的作品本身就是最有力量的文化交流。“汪小姐”于她，不只是一个角色，更是长在身体里...全文",
-      "likes": 22774,
-      "reposts": 12144,
-      "comments": 15364,
+      "likes": 22851,
+      "reposts": 12170,
+      "comments": 15463,
       "publish_time": "2026-03-20 11:52",
       "source_url": "https://weibo.cn/comment/QwWrZ0Aql",
       "tags": [
@@ -95,9 +87,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "#Tiffany三里屯开幕# 蒂芙尼中国品牌代言人@唐嫣 佩戴#蒂芙尼石上鸟#系列耳环，“飞羽”项链、手镯及戒指，搭配让·史隆伯杰高级珠宝系列“石上鸟”摩根石戒指，亮相蒂芙尼北京三里屯太古里旗舰店开幕蓝毯；随后佩戴让·史隆伯杰高级珠宝系列“石上鸟”胸针及同系列红宝石耳环，搭配#蒂芙尼高级珠宝#系列...全文 [组图共3张] 原图",
-      "likes": 44092,
+      "likes": 44112,
       "reposts": 16495,
-      "comments": 13002,
+      "comments": 13006,
       "publish_time": "2026-03-16 13:05",
       "source_url": "https://weibo.cn/comment/QwldL0SJk",
       "tags": [
@@ -116,9 +108,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "收工小确幸❄️☃️💜  原图",
-      "likes": 39195,
-      "reposts": 16281,
-      "comments": 14999,
+      "likes": 39213,
+      "reposts": 16284,
+      "comments": 15004,
       "publish_time": "2026-03-05 08:30",
       "source_url": "https://weibo.cn/comment/QuDIl5Iud",
       "tags": [],
@@ -129,9 +121,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "如“7”而至🩷@嘉人 @MixWei  [组图共18张] 原图",
-      "likes": 38511,
+      "likes": 38523,
       "reposts": 18712,
-      "comments": 11453,
+      "comments": 11465,
       "publish_time": "2026-03-04 21:14",
       "source_url": "https://weibo.cn/comment/Quzi6dosF",
       "tags": [],
@@ -142,9 +134,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "祝大家元宵节快乐，记得吃汤圆哦🌕  [组图共2张] 原图",
-      "likes": 74210,
-      "reposts": 26219,
-      "comments": 12292,
+      "likes": 74224,
+      "reposts": 26217,
+      "comments": 12293,
       "publish_time": "2026-03-03 15:58",
       "source_url": "https://weibo.cn/comment/QunNzAha2",
       "tags": [],
@@ -155,9 +147,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "【#2026逐梦中国#】#第15棒我接力# 岁序更替，华章日新，逐梦扬帆正当时。文旅市场热气腾腾，冰雪健儿神采飞扬，科技创新再攀新高……从人间烟火到大国重器，从赛场拼搏到科创探索，每一次向前，都凝聚着你我追梦的力量。全国两会召开在即，这个春天，14亿多人民的心声，汇聚于此。一起转发，...全文",
-      "likes": 11979,
+      "likes": 11982,
       "reposts": 10665,
-      "comments": 10354,
+      "comments": 10355,
       "publish_time": "2026-03-03 10:09",
       "source_url": "https://weibo.cn/comment/QulvHnVrA",
       "tags": [
@@ -174,7 +166,7 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "继中国大陆、中国港台、西班牙、葡萄牙、韩国、北美之后，2月26日起，《繁花》将在拉丁美洲、德国、奥地利、瑞士、法国、意大利、土耳其、比利时、荷兰、卢森堡、印度等多个国家及地区，登陆流媒体平台MUBI上线播出。向世界讲述中国故事，展现意义非凡时代图景。繁花出海，步履不停，未来将在更多国...全文 [组图共9张] 原图",
-      "likes": 48393,
+      "likes": 48395,
       "reposts": 12050,
       "comments": 12261,
       "publish_time": "2026-02-27 00:17",
@@ -187,9 +179,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "哈哈哈，在米兰遇上汪小姐，哪都是姐的码头🤓  原图",
-      "likes": 23288,
+      "likes": 23292,
       "reposts": 12398,
-      "comments": 10488,
+      "comments": 10489,
       "publish_time": "2026-02-25 23:17",
       "source_url": "https://weibo.cn/comment/Qtw6rvXdB",
       "tags": [],
@@ -200,7 +192,7 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "📸[yeah]#Hello时装周#  原图",
-      "likes": 36866,
+      "likes": 36868,
       "reposts": 32538,
       "comments": 11937,
       "publish_time": "2026-02-25 22:31",
@@ -217,7 +209,7 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "倒数计时18000秒⏰，提前解锁了@FENDI 首席创意官Maria Grazia Chiuri的全新2026秋冬系列，期待我的新造型吗？即刻锁定#FENDI2026秋冬时装秀#微博直播间网页链接和我一起秀场见吧~ 💖 #FendiFW26# 唐嫣的微博视频",
-      "likes": 114388,
+      "likes": 114390,
       "reposts": 104327,
       "comments": 16421,
       "publish_time": "2026-02-25 16:28",
@@ -291,9 +283,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "🩷  [组图共2张] 原图",
-      "likes": 60111,
+      "likes": 60112,
       "reposts": 16407,
-      "comments": 17590,
+      "comments": 17592,
       "publish_time": "2026-01-15 00:20",
       "source_url": "https://weibo.cn/comment/Qn8zfz11W",
       "tags": [],
@@ -304,9 +296,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "一切不过是曲折梦一场，把破碎遗憾的留在原地，眼前又是新的一程。#电视剧人之初#  原图",
-      "likes": 50680,
-      "reposts": 16265,
-      "comments": 19281,
+      "likes": 50682,
+      "reposts": 16266,
+      "comments": 19282,
       "publish_time": "2026-01-11 23:10",
       "source_url": "https://weibo.cn/comment/QmFPmjISU",
       "tags": [
@@ -323,7 +315,7 @@
       "content": "#此刻的生活谁家灯火版大片#清影横窗书岁月，灯火晕开生活诗。一室柔光，定格此刻。导演/总编剧：@胡坤821导演/摄影指导：于小忱编剧：@编剧孟婕 、徐达克 领衔主演：@唐嫣领衔主演：俞飞鸿@俞飞鸿工作室特邀领衔：@我是娜扎领衔主演：@朱珠ZhuZhu领衔主演：@张歆艺 特邀主演：...全文 [组图共6张] 原图",
       "likes": 90447,
       "reposts": 90895,
-      "comments": 46279,
+      "comments": 46280,
       "publish_time": "2026-01-09 09:58",
       "source_url": "https://weibo.cn/comment/QmhMK39Gy",
       "tags": [
@@ -338,9 +330,9 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "🌸  原图",
-      "likes": 31213,
+      "likes": 31215,
       "reposts": 13622,
-      "comments": 18338,
+      "comments": 18339,
       "publish_time": "2026-01-08 15:35",
       "source_url": "https://weibo.cn/comment/Qmazn0tsz",
       "tags": [],
@@ -351,7 +343,7 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "原图",
-      "likes": 23389,
+      "likes": 23390,
       "reposts": 34336,
       "comments": 10677,
       "publish_time": "2026-01-08 10:30",
@@ -381,7 +373,7 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "#人之初欢迎来到90年代# 曲梦来了 舞台上的光，和心里的光，哪个更亮？来直播间，回答你们想听的所有故事~ #电视剧人之初# #剧星驾到#  唐嫣的微博直播",
-      "likes": 20788,
+      "likes": 20789,
       "reposts": 22974,
       "comments": 10474,
       "publish_time": "2026-01-05 17:00",
@@ -402,7 +394,7 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "天地阔，且徜徉。 祝大家2026心中有梦，眼里有光  原图",
-      "likes": 70678,
+      "likes": 70677,
       "reposts": 16165,
       "comments": 10536,
       "publish_time": "2026-01-01 15:27",
@@ -415,7 +407,7 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "#打卡2026# 新的一年，希望大家都可以和曲梦一起，无论身在何方，都能守护属于自己的希望。在#微博跨年狂欢节#，祝大家新年快乐！#电视剧人之初# 唐嫣 的红包",
-      "likes": 59448,
+      "likes": 59449,
       "reposts": 12268,
       "comments": 10214,
       "publish_time": "2026-01-01 01:00",
@@ -436,7 +428,7 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "曲梦，来了💛#电视剧人之初#  原图",
-      "likes": 120622,
+      "likes": 120624,
       "reposts": 44074,
       "comments": 12241,
       "publish_time": "2025-12-28 15:00",
@@ -550,7 +542,7 @@
       "platform": "weibo",
       "author": "唐嫣",
       "content": "#南京大屠杀惨案88周年#【今天，一起转发！祭奠同胞！#每12秒1条生命消逝勿忘历史#】#铭记12月13日#  1937年的今天，侵华日军野蛮侵入南京，制造了南京大屠杀惨案。30多万同胞在六周内被屠杀，每隔12秒就有一条生命消逝……今天，我们以国之名，祭奠遇难同胞。一起发条微博！勿忘国殇，吾辈自强！...全文 原图",
-      "likes": 16427,
+      "likes": 16428,
       "reposts": 13862,
       "comments": 12708,
       "publish_time": "2025-12-13 09:11",
@@ -578,193 +570,16 @@
       "source_url": "https://weibo.cn/comment/Qh3ly6dI5",
       "tags": [],
       "topics": []
-    },
-    {
-      "id": "QeHewnpVa",
-      "platform": "weibo",
-      "author": "唐嫣",
-      "content": "【转发海报！#玩火者必自焚#】日本首相高市早苗的涉台错误言论从根本上损害了中日关系的政治基础，激起了中国人民的公愤和谴责。如果日方拒不撤回甚至一错再错，#中方将不得不采取严厉坚决的反制措施#，由此产生的一切后果由日方承担。  原图",
-      "likes": 32388,
-      "reposts": 22590,
-      "comments": 17570,
-      "publish_time": "2025-11-20 12:02",
-      "source_url": "https://weibo.cn/comment/QeHewnpVa",
-      "tags": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ],
-      "topics": [
-        "玩火者必自焚",
-        "中方将不得不采取严厉坚决的反制措施"
-      ]
-    },
-    {
-      "id": "QervhCudx",
-      "platform": "weibo",
-      "author": "唐嫣",
-      "content": "【转发！#绝不允许日本军国主义复活#】当年，日本军国主义发动的侵略战争给亚洲和世界带来深重灾难。忘战必危、好战必亡。历史的教训不能忘却，不可歪曲，更不容抹杀。今天，我们绝不允许日本军国主义复活，绝不允许任何人挑战战后国际秩序，绝不允许世界和平稳定再遭破坏！  原图",
-      "likes": 26674,
-      "reposts": 10794,
-      "comments": 12109,
-      "publish_time": "2025-11-18 20:00",
-      "source_url": "https://weibo.cn/comment/QervhCudx",
-      "tags": [
-        "绝不允许日本军国主义复活"
-      ],
-      "topics": [
-        "绝不允许日本军国主义复活"
-      ]
-    },
-    {
-      "id": "QboKm1JPP",
-      "platform": "weibo",
-      "author": "唐嫣",
-      "content": "#重阳久久安康#【#唐嫣的重阳节祝福#】“祝福全天下的爸爸妈妈、所有的长辈，都能够健康平安、福寿绵长。”戳视频↓↓查收来自@唐嫣 @演员王景春 @陈龙 张芝华 @李宗翰 的#重阳节祝福#。多一些爱与陪伴，给惦念你的人~ 央视新闻的微博视频",
-      "likes": 24224,
-      "reposts": 11524,
-      "comments": 19342,
-      "publish_time": "2025-10-29 19:28",
-      "source_url": "https://weibo.cn/comment/QboKm1JPP",
-      "tags": [
-        "重阳久久安康",
-        "唐嫣的重阳节祝福",
-        "重阳节祝福"
-      ],
-      "topics": [
-        "重阳久久安康",
-        "唐嫣的重阳节祝福",
-        "重阳节祝福"
-      ]
-    },
-    {
-      "id": "QaFArv6DW",
-      "platform": "weibo",
-      "author": "唐嫣",
-      "content": "#台湾光复80周年#【今天，一起转发！#纪念台湾光复#！🇨🇳】#只有一个中国# 1945年的今天，10月25日，日本在台殖民统治终结，台湾作为中国领土的一部分重回中国版图！万千的台湾同胞，在街上热烈庆祝。今天，一起发条微博，为祖国统一、民族复兴的美好未来，共同奋斗！  原图",
-      "likes": 33826,
-      "reposts": 11152,
-      "comments": 10426,
-      "publish_time": "2025-10-25 00:30",
-      "source_url": "https://weibo.cn/comment/QaFArv6DW",
-      "tags": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ],
-      "topics": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ]
-    },
-    {
-      "id": "Q8Ui4kuBs",
-      "platform": "weibo",
-      "author": "唐嫣",
-      "content": "#爱情没有神话成人世界版预告# #独身女人改名爱情没有神话# 放下旧执着，向前走的每一天，都是新生活。#爱情没有神话# 电视剧爱情没有神话的微博视频",
-      "likes": 47994,
-      "reposts": 98591,
-      "comments": 20224,
-      "publish_time": "2025-10-13 10:15",
-      "source_url": "https://weibo.cn/comment/Q8Ui4kuBs",
-      "tags": [
-        "爱情没有神话成人世界版预告",
-        "独身女人改名爱情没有神话",
-        "爱情没有神话"
-      ],
-      "topics": [
-        "爱情没有神话成人世界版预告",
-        "独身女人改名爱情没有神话",
-        "爱情没有神话"
-      ]
-    },
-    {
-      "id": "Q7UzqrHrr",
-      "platform": "weibo",
-      "author": "唐嫣",
-      "content": "每个人都会和美好相逢～中秋快乐[好事甜圆] #央视中秋晚会#  唐嫣的微博视频",
-      "likes": 32120,
-      "reposts": 70715,
-      "comments": 16665,
-      "publish_time": "2025-10-06 21:07",
-      "source_url": "https://weibo.cn/comment/Q7UzqrHrr",
-      "tags": [
-        "央视中秋晚会"
-      ],
-      "topics": [
-        "央视中秋晚会"
-      ]
     }
   ],
   "comments": [],
-  "news_articles": [
-    {
-      "title": "唐嫣《繁花》汪小姐爆红，王家卫赞不绝口",
-      "summary": "网友热议唐嫣近况",
-      "content": "唐嫣在王家卫执导的《繁花》中饰演汪小姐，演技获得广泛好评，被视为演艺生涯突破性角色。",
-      "publish_date": "2026-02-19",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/唐嫣/0",
-      "sentiment": "neutral",
-      "sentiment_score": 0.03181188313950395,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "唐嫣《繁花》后商业价值飙升，代言接到手软",
-      "summary": "唐嫣相关话题登上热搜",
-      "content": "《繁花》播出后唐嫣商业价值大幅攀升，多个品牌争相邀请代言，重回一线女星行列。",
-      "publish_date": "2026-02-24",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/唐嫣/1",
-      "sentiment": "neutral",
-      "sentiment_score": 0.4982817507837514,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "唐嫣时尚大片发布，造型引热议",
-      "summary": "唐嫣相关话题登上热搜",
-      "content": "唐嫣最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2026-01-30",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/唐嫣/2",
-      "sentiment": "neutral",
-      "sentiment_score": -0.18067026302686184,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "唐嫣现身活动，状态在线",
-      "summary": "唐嫣近日动态引发关注",
-      "content": "唐嫣出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2026-03-21",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/唐嫣/3",
-      "sentiment": "positive",
-      "sentiment_score": 0.25023395702344803,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "唐嫣罗晋婚后低调恩爱，娱乐圈模范夫妻",
-      "summary": "唐嫣近日动态引发关注",
-      "content": "唐嫣与罗晋2018年结婚，婚后保持低调但偶尔秀恩爱，被视为娱乐圈模范夫妻代表。",
-      "publish_date": "2025-12-31",
-      "source": "新浪娱乐",
-      "source_url": "https://example.com/news/唐嫣/4",
-      "sentiment": "neutral",
-      "sentiment_score": 0.03501160082693905,
-      "category": "",
-      "tags": []
-    }
-  ],
+  "news_articles": [],
   "statistics": {
-    "data_completeness": 0.6,
-    "total_posts": 36,
+    "data_completeness": 0.75,
+    "total_posts": 30,
     "total_comments": 0,
-    "total_news": 5,
+    "total_news": 0,
     "total_relationships": 2,
-    "total_gossips": 1
+    "total_gossips": 0
   }
 }

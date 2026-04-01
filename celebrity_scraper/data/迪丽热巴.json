@@ -1,56 +1,99 @@
 {
   "celebrity": {
     "name": "迪丽热巴",
-    "english_name": "",
-    "birth_date": "双子座",
-    "birth_place": "上海",
+    "english_name": "Dilraba Dilmurat",
+    "birth_date": "1992-06-03",
+    "birth_place": "新疆维吾尔自治区乌鲁木齐市",
     "age": 0,
-    "zodiac": "",
-    "constellation": "",
-    "occupation": [],
-    "company": "",
+    "zodiac": "猴",
+    "constellation": "双子座",
+    "occupation": [
+      "演员"
+    ],
+    "company": "嘉行天下工作室",
     "agency": "",
-    "height": "",
-    "weight": "",
-    "blood_type": "",
-    "biography": "一只喜欢默默表演的小透明。工作联系jaywalk@jaywalk.com.cn 🍒",
+    "height": "169 cm",
+    "weight": "47 kg",
+    "blood_type": "AB型[19]",
+    "biography": "迪丽热巴（Dilraba），全名迪丽热巴·迪力木拉提，1992年6月3日出生于新疆维吾尔自治区乌鲁木齐市，毕业于上海戏剧学院表演系，中国内地影视女演员。2013年，迪丽热巴因主演个人首部电视剧《阿娜尔罕》而出道。2014年，主演奇幻剧《逆光之恋》。2015年，凭借爱情剧《克拉恋人》赢得高人气，并获得国剧盛典最受欢迎新人女演员奖。2016年，主演现代剧《麻辣变形计》；同年，主演都市爱情励志喜剧《漂亮的李慧珍》，还凭借喜剧片《傲娇与偏见》获得中英电影节最佳新人奖。2017年，凭借玄幻剧《三生三世十里桃花》获得白玉兰奖最佳女配角提名。2018年，迪丽热巴成为了金鹰电视艺术节的第七位“金鹰女神”，并获得了第29届中国电视金鹰奖观众喜爱的女演员、第12届中国金鹰电视艺术节最具人气女演员两项殊荣。2020年，主演的玄幻剧《三生三世枕上书》播出。2021年3月，主演古装传奇剧《长歌行》。2022年，主演",
     "education": "上海戏剧学院",
-    "alma_mater": "",
+    "alma_mater": "上海戏剧学院",
     "works": [],
-    "famous_works": [],
+    "famous_works": [
+      "阿娜尔罕",
+      "三生三世枕上书",
+      "漂亮的李慧珍",
+      "你是我的荣耀",
+      "幸福",
+      "触手可及！[69]",
+      "长歌行",
+      "与君初相识",
+      "一千零一夜",
+      "克拉恋人",
+      "三生三世十里桃花",
+      "麻辣变形计",
+      "烈火如歌",
+      "利剑·玫瑰"
+    ],
     "weibo_id": "1669879400",
-    "weibo_followers": 82310000,
+    "weibo_followers": 82311000,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [
-      "weibo"
+      "https://baike.baidu.com/item/%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4"
     ],
-    "updated_at": "2026-03-31T23:13:55.748033"
+    "updated_at": "2026-04-01T08:33:48.262419"
   },
   "gossips": [],
-  "relationships": [
-    {
-      "person_a": "迪丽热巴",
-      "person_b": "杨幂",
-      "relation_type": "前同事",
-      "start_date": null,
-      "end_date": null,
-      "is_current": false,
-      "description": "嘉行传媒时期的前辈与后辈，杨幂曾是公司创始股东",
-      "confidence": 0.95,
-      "strength": 0.5
-    }
-  ],
+  "relationships": [],
   "social_media_posts": [
+    {
+      "id": "QyPyjeBeQ",
+      "platform": "weibo",
+      "author": "迪丽热巴",
+      "content": "今天归墟过节 大家记得随心所愚~#白日提灯#  原图",
+      "likes": 216363,
+      "reposts": 19596,
+      "comments": 28926,
+      "publish_time": "2026-04-01 21:59",
+      "source_url": "https://weibo.cn/comment/QyPyjeBeQ",
+      "tags": [
+        "白日提灯"
+      ],
+      "topics": [
+        "白日提灯"
+      ]
+    },
+    {
+      "id": "QyNFSmhuQ",
+      "platform": "weibo",
+      "author": "迪丽热巴",
+      "content": "#白日提灯五感体验日# 本尊邀请大家来这归墟玩一趟，管来可不管走～～#白日提灯# #白日提灯全网集五感#  Dear-迪丽热巴的微博直播",
+      "likes": 93392,
+      "reposts": 8260,
+      "comments": 31285,
+      "publish_time": "2026-04-01 17:12",
+      "source_url": "https://weibo.cn/comment/QyNFSmhuQ",
+      "tags": [
+        "白日提灯五感体验日",
+        "白日提灯",
+        "白日提灯全网集五感"
+      ],
+      "topics": [
+        "白日提灯五感体验日",
+        "白日提灯",
+        "白日提灯全网集五感"
+      ]
+    },
     {
       "id": "QyrTbCI3s",
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "每一次闪耀背后是对细节的极致呵护✨每一次向上生长都是时间的温柔回应很高兴成为 @KAZOO可逐 全球品牌代言人共同见证细节里的向上力量让每一寸被忽略的细节都慢慢生长出属于自己的光未来逐光而行，闪耀不止和我一起，「颈」快变美吧～#迪丽热巴可逐全球品牌代言人##颈快变美吧#...全文",
-      "likes": 550068,
-      "reposts": 237880,
-      "comments": 232315,
+      "likes": 656945,
+      "reposts": 493962,
+      "comments": 286015,
       "publish_time": "2026-03-30 09:45",
       "source_url": "https://weibo.cn/comment/QyrTbCI3s",
       "tags": [
@@ -67,9 +110,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "本尊就坐在这，你来看便是。#白日提灯#  [组图共3张] 原图",
-      "likes": 684848,
-      "reposts": 166185,
-      "comments": 90297,
+      "likes": 703144,
+      "reposts": 208394,
+      "comments": 93990,
       "publish_time": "2026-03-29 20:29",
       "source_url": "https://weibo.cn/comment/QymGiCYnC",
       "tags": [
@@ -84,9 +127,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "明星动态",
-      "likes": 337096,
-      "reposts": 61466,
-      "comments": 65238,
+      "likes": 340553,
+      "reposts": 65765,
+      "comments": 67376,
       "publish_time": "2026-03-28 18:00",
       "source_url": "https://weibo.cn/comment/Qych82zNQ",
       "tags": [],
@@ -97,9 +140,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "#白日提灯赏灯休沐局# 归墟灵主限时休沐闲聊，你可想加入？#白日提灯直播# #白日提灯#  Dear-迪丽热巴的微博直播",
-      "likes": 141936,
-      "reposts": 19093,
-      "comments": 106622,
+      "likes": 143703,
+      "reposts": 19186,
+      "comments": 106690,
       "publish_time": "2026-03-28 17:00",
       "source_url": "https://weibo.cn/comment/QybSKlvWA",
       "tags": [
@@ -118,9 +161,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "#你好星期六谁是我的知己# 听说今晚要找到我的“结咒”知己：“活泼”“多才多艺”“努力”，这么有趣的TA到底是谁？快来和我一起猜猜看吧！#你好星期六#  [组图共9张] 原图",
-      "likes": 265903,
-      "reposts": 43901,
-      "comments": 28473,
+      "likes": 270204,
+      "reposts": 46290,
+      "comments": 28755,
       "publish_time": "2026-03-28 16:43",
       "source_url": "https://weibo.cn/comment/QybM2f4X9",
       "tags": [
@@ -137,9 +180,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "#白日提灯今天开播# 身居归墟中央，亦见人间霞光。在下不才，立于苍茫之中，提一盏不灭的灯。#白日提灯心念殊途海报#  #白日提灯#   原图",
-      "likes": 347586,
-      "reposts": 74781,
-      "comments": 41942,
+      "likes": 349684,
+      "reposts": 76839,
+      "comments": 42414,
       "publish_time": "2026-03-28 11:36",
       "source_url": "https://weibo.cn/comment/Qy9Lomz2i",
       "tags": [
@@ -158,9 +201,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "和@DIOR迪奥 一起解锁春日穿搭灵感🌿 #DIOR迪奥#  [组图共6张] 原图",
-      "likes": 2174591,
+      "likes": 2283672,
       "reposts": 1000000,
-      "comments": 213980,
+      "comments": 241840,
       "publish_time": "2026-03-27 20:52",
       "source_url": "https://weibo.cn/comment/Qy3YwxIAS",
       "tags": [
@@ -175,9 +218,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "【灯你知道】#白日提灯宿命相缠版预告# 一面是不见天日的海底，一面是鲜活温暖的人间。万物须臾之间，是要美好罅隙间匆匆一瞥，还是永生永世冷寂高悬？故事里的他们来过、爱过、坚守过。明日，且看靡靡情深如何打破桎梏，破局而出。领衔主演：@Dear-迪丽热巴 @陈飞宇Arthur 特邀主演：...全文",
-      "likes": 323360,
-      "reposts": 29577,
-      "comments": 40242,
+      "likes": 324077,
+      "reposts": 29634,
+      "comments": 40372,
       "publish_time": "2026-03-27 11:45",
       "source_url": "https://weibo.cn/comment/Qy0oLoCOY",
       "tags": [
@@ -192,9 +235,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "洗澡是一天结束时，给自己的温柔仪式在玫瑰香气里，卸下所有疲惫，自在绽放很高兴和@半亩花田 一起在这个春天，用沐浴开启归家后的悦己时刻#半亩花田鲜花精华沐浴露#90%护肤精华，5重保湿，整晚留香像被春天温柔环抱，整晚都被自然花香萦绕鲜花精华浴，香遇自绽放在这个春天，遇见花香，遇见更...全文",
-      "likes": 501234,
-      "reposts": 457017,
-      "comments": 202902,
+      "likes": 502861,
+      "reposts": 461376,
+      "comments": 209995,
       "publish_time": "2026-03-25 09:32",
       "source_url": "https://weibo.cn/comment/QxGFGnC81",
       "tags": [
@@ -209,9 +252,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "从2013年的电视剧《阿娜尔罕》算起，@Dear-迪丽热巴 的演员之路已经走到第13年。她有过全年无休的阶段，也逐渐找到舒适、从容的节奏。从起初苛求完美、常怀忐忑，到如今心境明澈、进退自知，她为角色注入生命，角色也带给她丰沛的滋养。走进角色的内心世界，诠释人物的生命历程，把感受归纳成表演心...全文 [组图共2张] 原图",
-      "likes": 555170,
-      "reposts": 32841,
-      "comments": 80645,
+      "likes": 555748,
+      "reposts": 32898,
+      "comments": 84925,
       "publish_time": "2026-03-23 15:27",
       "source_url": "https://weibo.cn/comment/Qxq8Dx1iS",
       "tags": [],
@@ -222,7 +265,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "和@DIOR迪奥 共度了美好的夜晚🌙  [组图共9张] 原图",
-      "likes": 12374279,
+      "likes": 12376061,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-03-21 13:22",
@@ -235,7 +278,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "#白日提灯定档0328# 本尊的法度，不可忤逆。#白日提灯#  [组图共9张] 原图",
-      "likes": 2889492,
+      "likes": 2951276,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-03-20 12:57",
@@ -254,9 +297,9 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "#白日提灯定档# #白日提灯因缘抉择版预告#万灵为尊，执剑为伴，执念难敌宿命惊鸿。执念为引，心有归向，众生同渡尘世浮沉。3月28日起，#白日提灯# @腾讯视频 全网独播！原著：黎青燃@青燃君 导演：@秦榛Zoe领衔主演：@Dear-迪丽热巴 @陈飞宇Arthur 特邀主演：@魏哲鸣Miles @张俪特别主演：...全文",
-      "likes": 579701,
-      "reposts": 60295,
-      "comments": 167380,
+      "likes": 579975,
+      "reposts": 60601,
+      "comments": 172415,
       "publish_time": "2026-03-20 10:25",
       "source_url": "https://weibo.cn/comment/QwVSx2QzO",
       "tags": [
@@ -275,7 +318,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "和大家报个平安，现在我和团队的伙伴们都已安全，各方面的事项公司也已经处理安排好，我们一切都好，请放心。很抱歉让大家担心了，感谢大家对我的关心希望大家都能平平安安的",
-      "likes": 3175652,
+      "likes": 3175913,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-03-04 20:19",
@@ -288,7 +331,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "小马在手，福气全有～🧧新的一年，愿大家喜乐安康，万事顺顺当当🐎  [组图共9张] 原图",
-      "likes": 10318861,
+      "likes": 10319017,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-17 10:43",
@@ -301,7 +344,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "很荣幸来到 #春晚# 四川宜宾分会场，和大家共度除夕！新的一年，祝大家策马扬鞭，好运奔腾而来！[点赞][马到成功]  [组图共9张] 原图",
-      "likes": 4923575,
+      "likes": 4923807,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-16 23:13",
@@ -318,7 +361,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "🩴🆚🪏  [组图共6张] 原图",
-      "likes": 6770885,
+      "likes": 6771013,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-02-13 19:08",
@@ -331,7 +374,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "毛茸茸返场🐰  [组图共6张] 原图",
-      "likes": 6794821,
+      "likes": 6794966,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-28 22:05",
@@ -344,7 +387,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "很高兴成为@Fakeme眼镜官方微博 首位全球品牌代言人，演绎不一样的「我」。你、我都不止一面，温柔和酷飒、安静和果敢，也并不矛盾。Fakeme，find me。戴上#Fakeme#，更清晰地找到自己的每一面。#Fakeme首位全球品牌代言人迪丽热巴# #Fakeme和迪丽热巴的双向奔赴#  [组图共9张] 原图",
-      "likes": 8655606,
+      "likes": 8655693,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-26 12:32",
@@ -365,7 +408,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "好运派送成功，和@DIOR迪奥 一起开启好运吧🍀  [组图共7张] 原图",
-      "likes": 3239352,
+      "likes": 3239423,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-18 16:58",
@@ -378,7 +421,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "端着优雅摆个 pose [cool][yeah]📸  [组图共3张] 原图",
-      "likes": 10558054,
+      "likes": 10558119,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-08 19:15",
@@ -391,7 +434,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "元旦快乐！一抹#迪奥烈艳蓝金唇膏#808 锦鲤红，2026红运开年，心想事成~@DIOR迪奥 #迪奥开运红#  [组图共5张] 原图",
-      "likes": 10040481,
+      "likes": 10040532,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2026-01-01 13:58",
@@ -410,7 +453,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "2026啥都🀄！#一起开启幸运2026#  [组图共15张] 原图",
-      "likes": 11610275,
+      "likes": 11610345,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2025-12-31 16:40",
@@ -427,8 +470,8 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "#迪丽热巴时尚芭莎开年刊# 对于@Dear-迪丽热巴 而言，真正的进取，从来都是一场精准的奔赴。于她而言，成长从不是刻意的转身，而是带着清醒，步步向光而行。她恰似惊涛之上掌舵的船长，不被浪潮裹挟，只锚定远方的航向。在风浪里沉淀自我，于航行中更新羽翼。克制里藏着极致的热爱，严谨中透着诗意的从...全文 [组图共18张] 原图",
-      "likes": 1155942,
-      "reposts": 259274,
+      "likes": 1155985,
+      "reposts": 259281,
       "comments": 1000000,
       "publish_time": "2025-12-30 12:55",
       "source_url": "https://weibo.cn/comment/QkMFH1MRh",
@@ -444,7 +487,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "冬天就是要暖fufu的  [组图共3张] 原图",
-      "likes": 10057316,
+      "likes": 10057361,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2025-12-18 19:51",
@@ -457,7 +500,7 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "#虽然不能同时拥有一切杀青# 人生没有标准答案，每一次的抉择都会交织成独属于“我们”的生命脉络。卫蓝，期待我们再相遇#虽然不能同时拥有一切#  [组图共2张] 原图",
-      "likes": 3663195,
+      "likes": 3663227,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2025-12-15 11:18",
@@ -476,8 +519,8 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "【#以国之名悼我同胞#】#今天是第12个国家公祭日# 88年前，日本侵略者的滔天罪行，我们永不能忘！永不敢忘！历史的真相不会被掩埋，我们绝不允许日本军国主义复活！#19371213绝不能忘# 新华社的微博视频",
-      "likes": 291911,
-      "reposts": 23983,
+      "likes": 291941,
+      "reposts": 23982,
       "comments": 1000000,
       "publish_time": "2025-12-13 00:18",
       "source_url": "https://weibo.cn/comment/Qi7siyNCF",
@@ -497,480 +540,23 @@
       "platform": "weibo",
       "author": "迪丽热巴",
       "content": "阿罗，恭喜你呀，终于活成了自己最想要的模样～那段陪你闯青壤的日子，至今想来仍像在昨天。那些与你一起度过的瞬间，让我也深深读懂了你藏在心底的温柔与骨子里的坚韧💪 最初的你，只想做个“普通人”，与泥巴为伴，筹备自己的个人展览，远离那些打打杀杀、生离死别的纷争。你在自己专属的小院里...全文 [组图共18张] 原图",
-      "likes": 10313294,
+      "likes": 10313346,
       "reposts": 1000000,
       "comments": 1000000,
       "publish_time": "2025-12-11 19:32",
       "source_url": "https://weibo.cn/comment/QhW9w5PDp",
       "tags": [],
       "topics": []
-    },
-    {
-      "id": "QgnhBquLh",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "【完整版！#迪丽热巴说通过角色传递社会价值#】#迪丽热巴说坚持热爱不负每分努力# 电视剧《枭起青壤》正在热播，主演@Dear-迪丽热巴 在采访中谈到，希望通过自己的演绎，让观众感受到坚守与勇敢的力量。谈及表演这条路，她说自己仍在不断探索，渴望去体验更多样的角色与人生，她说：“愿我们都能一直热...全文",
-      "likes": 2062421,
-      "reposts": 90416,
-      "comments": 1000000,
-      "publish_time": "2025-12-01 12:55",
-      "source_url": "https://weibo.cn/comment/QgnhBquLh",
-      "tags": [
-        "迪丽热巴说通过角色传递社会价值",
-        "迪丽热巴说坚持热爱不负每分努力"
-      ],
-      "topics": [
-        "迪丽热巴说通过角色传递社会价值",
-        "迪丽热巴说坚持热爱不负每分努力"
-      ]
-    },
-    {
-      "id": "QghoKDjYu",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#枭起青壤放个枭息# “有幸”来过南山，才发现南山已经被淋透了，在线为南山猎人团点一首《南山“难”》#枭起青壤#",
-      "likes": 358286,
-      "reposts": 21095,
-      "comments": 1000000,
-      "publish_time": "2025-11-30 21:57",
-      "source_url": "https://weibo.cn/comment/QghoKDjYu",
-      "tags": [
-        "枭起青壤放个枭息",
-        "枭起青壤"
-      ],
-      "topics": [
-        "枭起青壤放个枭息",
-        "枭起青壤"
-      ]
-    },
-    {
-      "id": "QfD0RDvJ3",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "不是今天拍的，但是想今天发  [组图共4张] 原图",
-      "likes": 10158731,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-26 15:08",
-      "source_url": "https://weibo.cn/comment/QfD0RDvJ3",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QfweA9sgE",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#枭起青壤# 我们蚱儿的口水巾呢？@Dear-迪丽热巴  原图",
-      "likes": 408447,
-      "reposts": 56766,
-      "comments": 1000000,
-      "publish_time": "2025-11-25 21:52",
-      "source_url": "https://weibo.cn/comment/QfweA9sgE",
-      "tags": [
-        "枭起青壤"
-      ],
-      "topics": [
-        "枭起青壤"
-      ]
-    },
-    {
-      "id": "QftW8q15n",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#枭起青壤夜枭搭子双向奔赴# 你的夜枭搭子聂九罗准时赴约！速戳#枭起青壤# 直播间，看我如何拿“聂”搭子团~#剧星驾到#  Dear-迪丽热巴的微博直播",
-      "likes": 220735,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-25 16:02",
-      "source_url": "https://weibo.cn/comment/QftW8q15n",
-      "tags": [
-        "枭起青壤夜枭搭子双向奔赴",
-        "枭起青壤",
-        "剧星驾到"
-      ],
-      "topics": [
-        "枭起青壤夜枭搭子双向奔赴",
-        "枭起青壤",
-        "剧星驾到"
-      ]
-    },
-    {
-      "id": "Qfaxe0YfA",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "聂九罗说她有照片想发🤨#枭起青壤#  [组图共18张] 原图",
-      "likes": 10238649,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-23 14:38",
-      "source_url": "https://weibo.cn/comment/Qfaxe0YfA",
-      "tags": [
-        "枭起青壤"
-      ],
-      "topics": [
-        "枭起青壤"
-      ]
-    },
-    {
-      "id": "Qf22bjfff",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "来#枭起青壤夜枭情报局# 吃点夜枭，想把星星纸里面的趣事都说给你听，速戳直播间解锁#枭起青壤# 的故事。#剧星驾到#  Dear-迪丽热巴的微博直播",
-      "likes": 230424,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-22 17:00",
-      "source_url": "https://weibo.cn/comment/Qf22bjfff",
-      "tags": [
-        "枭起青壤夜枭情报局",
-        "枭起青壤",
-        "剧星驾到"
-      ],
-      "topics": [
-        "枭起青壤夜枭情报局",
-        "枭起青壤",
-        "剧星驾到"
-      ]
-    },
-    {
-      "id": "QeZIoyVRW",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#枭起青壤今日开播# 左手造物，右手杀枭。光暗同源，皆是我相。今晚18:00 #枭起青壤# 聂九罗就位  原图",
-      "likes": 3356245,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-22 11:05",
-      "source_url": "https://weibo.cn/comment/QeZIoyVRW",
-      "tags": [
-        "枭起青壤今日开播",
-        "枭起青壤"
-      ],
-      "topics": [
-        "枭起青壤今日开播",
-        "枭起青壤"
-      ]
-    },
-    {
-      "id": "QeZhICm0B",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "明星动态",
-      "likes": 1325550,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-22 10:00",
-      "source_url": "https://weibo.cn/comment/QeZhICm0B",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QexT4nzS6",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "【转发！#绝不允许日本军国主义复活#】当年，日本军国主义发动的侵略战争给亚洲和世界带来深重灾难。忘战必危、好战必亡。历史的教训不能忘却，不可歪曲，更不容抹杀。今天，我们绝不允许日本军国主义复活，绝不允许任何人挑战战后国际秩序，绝不允许世界和平稳定再遭破坏！  原图",
-      "likes": 251200,
-      "reposts": 61631,
-      "comments": 850604,
-      "publish_time": "2025-11-19 12:15",
-      "source_url": "https://weibo.cn/comment/QexT4nzS6",
-      "tags": [
-        "绝不允许日本军国主义复活"
-      ],
-      "topics": [
-        "绝不允许日本军国主义复活"
-      ]
-    },
-    {
-      "id": "QeerwbP2c",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#枭起青壤定档11月22日# #枭起青壤枭里藏刀版预告#地枭现世，千年青壤旧局重启；南山再聚，众人誓佑苍生太平。人枭对决，一触即发👊11月22日起，@腾讯视频 全网独播，#枭起青壤# 谜底将启。原著：尾鱼@行走的一尾鱼 总导演：田里@田田土里 导演：何坦 领衔主演：@Dear-迪丽热巴...全文",
-      "likes": 3399490,
-      "reposts": 391291,
-      "comments": 1000000,
-      "publish_time": "2025-11-17 10:45",
-      "source_url": "https://weibo.cn/comment/QeerwbP2c",
-      "tags": [
-        "枭起青壤定档11月22日",
-        "枭起青壤枭里藏刀版预告",
-        "枭起青壤"
-      ],
-      "topics": [
-        "枭起青壤定档11月22日",
-        "枭起青壤枭里藏刀版预告",
-        "枭起青壤"
-      ]
-    },
-    {
-      "id": "QdZ0PyzKg",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#你好星期六全员CPU告急# 求解密💥#你好星期六#  [组图共3张] 原图",
-      "likes": 2951305,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-11-15 19:28",
-      "source_url": "https://weibo.cn/comment/QdZ0PyzKg",
-      "tags": [
-        "你好星期六全员CPU告急",
-        "你好星期六"
-      ],
-      "topics": [
-        "你好星期六全员CPU告急",
-        "你好星期六"
-      ]
-    },
-    {
-      "id": "QaJIFkjis",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#台湾光复80周年#【今天，一起转发！#纪念台湾光复#！🇨🇳】#只有一个中国# 1945年的今天，10月25日，日本在台殖民统治终结，台湾作为中国领土的一部分重回中国版图！万千的台湾同胞，在街上热烈庆祝。今天，一起发条微博，为祖国统一、民族复兴的美好未来，共同奋斗！  原图",
-      "likes": 335610,
-      "reposts": 31254,
-      "comments": 872738,
-      "publish_time": "2025-10-25 11:01",
-      "source_url": "https://weibo.cn/comment/QaJIFkjis",
-      "tags": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ],
-      "topics": [
-        "台湾光复80周年",
-        "纪念台湾光复",
-        "只有一个中国"
-      ]
-    },
-    {
-      "id": "QaFMKol8X",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#今天一起致敬最可爱的人#【75年了，我们永远不会忘记！】今天是中国人民志愿军#抗美援朝出国作战75周年纪念日#。75年前，中国人民志愿军雄赳赳，气昂昂，跨过鸭绿江。历经两年零九个月舍生忘死的浴血奋战，赢得了抗美援朝战争的伟大胜利。这一战，拼来山河无恙、家国安宁！勿忘历史，缅怀先烈，我们始...全文",
-      "likes": 241378,
-      "reposts": 20643,
-      "comments": 80124,
-      "publish_time": "2025-10-25 01:00",
-      "source_url": "https://weibo.cn/comment/QaFMKol8X",
-      "tags": [
-        "今天一起致敬最可爱的人",
-        "抗美援朝出国作战75周年纪念日"
-      ],
-      "topics": [
-        "今天一起致敬最可爱的人",
-        "抗美援朝出国作战75周年纪念日"
-      ]
-    },
-    {
-      "id": "QaBWXDyaF",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#虽然不能同时拥有一切开机# 两种人生意外交错，突破困境重新选择。故事序幕现已拉开。#虽然不能同时拥有一切# 开机大吉！领衔主演：@Dear-迪丽热巴领衔主演：@Edward陳昊森友情主演：@严宽演员严屹宽特别出演：@叶童友情出演：@朱茵麻麻 @徐梦洁 田水 @张瑞涵ZRH @鹤秋_H特别邀请：...全文 [组图共9张] 原图",
-      "likes": 2842831,
-      "reposts": 360167,
-      "comments": 1000000,
-      "publish_time": "2025-10-24 15:14",
-      "source_url": "https://weibo.cn/comment/QaBWXDyaF",
-      "tags": [
-        "虽然不能同时拥有一切开机",
-        "虽然不能同时拥有一切"
-      ],
-      "topics": [
-        "虽然不能同时拥有一切开机",
-        "虽然不能同时拥有一切"
-      ]
-    },
-    {
-      "id": "Qahqq57co",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "很高兴成为@CAMEL骆驼 全球品牌代言人，户外不是遥远的风景，而是一场值得奔赴的旅程。直面凛冽，坚定前行，无垠旷野中，总有温暖相伴。穿上#骆驼羽神鹅绒服# 以探索，致热爱。#骆驼全球品牌代言人迪丽热巴##骆驼户外第一品牌#  [组图共9张] 原图",
-      "likes": 10648321,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-22 10:59",
-      "source_url": "https://weibo.cn/comment/Qahqq57co",
-      "tags": [
-        "骆驼羽神鹅绒服",
-        "骆驼全球品牌代言人迪丽热巴",
-        "骆驼户外第一品牌"
-      ],
-      "topics": [
-        "骆驼羽神鹅绒服",
-        "骆驼全球品牌代言人迪丽热巴",
-        "骆驼户外第一品牌"
-      ]
-    },
-    {
-      "id": "Q9YwJePxd",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "#虽然不能同时拥有一切官宣# 两个卫蓝意外相遇，两种人生开始交叠。 一场关于重新选择的命运游戏，也在他人的生命里漾开涟漪。#虽然不能同时拥有一切#全阵容官宣，敬请期待！领衔主演：@Dear-迪丽热巴领衔主演：@Edward陳昊森友情主演：@严宽演员严屹宽特别出演：@叶童友情出演：@朱茵麻麻...全文 原图",
-      "likes": 2803240,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-20 10:52",
-      "source_url": "https://weibo.cn/comment/Q9YwJePxd",
-      "tags": [
-        "虽然不能同时拥有一切官宣",
-        "虽然不能同时拥有一切"
-      ],
-      "topics": [
-        "虽然不能同时拥有一切官宣",
-        "虽然不能同时拥有一切"
-      ]
-    },
-    {
-      "id": "Q96Xe5vRn",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "转转转进秋天🍁  [组图共3张] 原图",
-      "likes": 10601997,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-14 18:29",
-      "source_url": "https://weibo.cn/comment/Q96Xe5vRn",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q7Tq9B1rl",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "猜猜我吃的什么馅😉  [组图共3张] 原图",
-      "likes": 10114835,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-06 18:12",
-      "source_url": "https://weibo.cn/comment/Q7Tq9B1rl",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q7RezCDpU",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "【#迪丽热巴天女散花尽显东方美学#】#迪丽热巴河南秋晚演出天女散花#在@河南卫视 2025#中秋奇妙游#舞台，@Dear-迪丽热巴 《天女散花》化身天女，以舞传情，以花寄愿，将东方美学演绎得淋漓尽致。一起欣赏↓↓ 新华社的微博视频",
-      "likes": 1046192,
-      "reposts": 86133,
-      "comments": 1000000,
-      "publish_time": "2025-10-06 12:38",
-      "source_url": "https://weibo.cn/comment/Q7RezCDpU",
-      "tags": [
-        "迪丽热巴天女散花尽显东方美学",
-        "迪丽热巴河南秋晚演出天女散花",
-        "中秋奇妙游"
-      ],
-      "topics": [
-        "迪丽热巴天女散花尽显东方美学",
-        "迪丽热巴河南秋晚演出天女散花",
-        "中秋奇妙游"
-      ]
-    },
-    {
-      "id": "Q7j1ip5l4",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "嘘🤫最后还有一些给大家准备的花絮哦😉 @DIOR迪奥  #迪奥二零二六春夏秀#  [组图共7张] 原图",
-      "likes": 12615746,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-02 21:32",
-      "source_url": "https://weibo.cn/comment/Q7j1ip5l4",
-      "tags": [
-        "迪奥二零二六春夏秀"
-      ],
-      "topics": [
-        "迪奥二零二六春夏秀"
-      ]
-    },
-    {
-      "id": "Q7hrE1KLD",
-      "platform": "weibo",
-      "author": "迪丽热巴",
-      "content": "感谢@DIOR迪奥 创意总监Jonathan Anderson带来这么多精彩作品🤩，每一套LOOK都戳中我的心，期待下次再见！#迪奥二零二六春夏秀#  原图",
-      "likes": 22533599,
-      "reposts": 1000000,
-      "comments": 1000000,
-      "publish_time": "2025-10-02 17:31",
-      "source_url": "https://weibo.cn/comment/Q7hrE1KLD",
-      "tags": [
-        "迪奥二零二六春夏秀"
-      ],
-      "topics": [
-        "迪奥二零二六春夏秀"
-      ]
     }
   ],
   "comments": [],
-  "news_articles": [
-    {
-      "title": "迪丽热巴工作室发声明澄清网络传闻",
-      "summary": "迪丽热巴近日动态引发关注",
-      "content": "迪丽热巴工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2026-01-22",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/0",
-      "sentiment": "neutral",
-      "sentiment_score": 0.4528504326149749,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "迪丽热巴现身活动，状态在线",
-      "summary": "迪丽热巴近日动态引发关注",
-      "content": "迪丽热巴出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2026-01-24",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/1",
-      "sentiment": "neutral",
-      "sentiment_score": 0.2873153283775873,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "迪丽热巴多部待播剧引期待，《枭起青壤》备受瞩目",
-      "summary": "网友热议迪丽热巴近况",
-      "content": "迪丽热巴与陈星旭合作的《枭起青壤》改编自尾鱼小说，备受粉丝期待。",
-      "publish_date": "2025-10-10",
-      "source": "凤凰网娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/2",
-      "sentiment": "positive",
-      "sentiment_score": 0.25889564392760517,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "迪丽热巴时尚大片发布，造型引热议",
-      "summary": "迪丽热巴近日动态引发关注",
-      "content": "迪丽热巴最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2026-03-23",
-      "source": "搜狐娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/3",
-      "sentiment": "positive",
-      "sentiment_score": 0.2625092059732115,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "迪丽热巴时尚资源不断，多个奢侈品牌大使",
-      "summary": "网友热议迪丽热巴近况",
-      "content": "迪丽热巴持续活跃于时尚领域，代言多个国际奢侈品牌，商业价值位列顶流行列。",
-      "publish_date": "2026-01-24",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/迪丽热巴/4",
-      "sentiment": "neutral",
-      "sentiment_score": -0.04781632618703319,
-      "category": "",
-      "tags": []
-    }
-  ],
+  "news_articles": [],
   "statistics": {
-    "data_completeness": 0.7,
-    "total_posts": 50,
+    "data_completeness": 0.65,
+    "total_posts": 30,
     "total_comments": 0,
-    "total_news": 5,
-    "total_relationships": 1,
+    "total_news": 0,
+    "total_relationships": 0,
     "total_gossips": 0
   }
 }

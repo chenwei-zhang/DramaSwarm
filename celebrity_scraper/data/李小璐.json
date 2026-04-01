@@ -1,77 +1,47 @@
 {
   "celebrity": {
     "name": "李小璐",
-    "english_name": "",
-    "birth_date": null,
-    "birth_place": "北京",
+    "english_name": "Jacqueline[41]",
+    "birth_date": "1981-09-30",
+    "birth_place": "北京市[104]",
     "age": 0,
     "zodiac": "",
-    "constellation": "",
-    "occupation": [],
+    "constellation": "天秤座",
+    "occupation": [
+      "演员",
+      "歌手[41]"
+    ],
     "company": "",
     "agency": "",
-    "height": "",
+    "height": "162.5 cm",
     "weight": "",
-    "blood_type": "",
-    "biography": "没有什么能阻挡那心中一抹阳光",
-    "education": "",
-    "alma_mater": "",
+    "blood_type": "O型[39]",
+    "biography": "李小璐，1981年9月30日出生于北京市，籍贯安徽省，毕业于北京美国英语语言学院，中国内地影视女演员、歌手。1986年，因出演剧情片《我只流三次泪》，从而正式出道。1998年，凭借电影《天浴》获得第35届台湾电影金马奖最佳女主角奖及第16届巴黎国际电影节最佳女演员奖。2001年，主演《都是天使惹的祸》，在剧中饰演林小如一角。2007年，参演《奋斗》，在剧中饰演杨晓芸一角。2008年，发行首张EP《东方美》。2010年6月，友情客串的喜剧电影《人在囧途》上映。2013年，主演奇幻爱情电影《时光恋人》。2015年2月27日，担任科学竞技真人秀节目《最强大脑》特邀嘉宾。2017年10月，其参加的东方卫视原创真人秀节目《青春旅社》播出。2019年，主演电视剧《读心》，在剧中饰演姚遥一角。",
+    "education": "北京美国英语语言学院",
+    "alma_mater": "北京美国英语语言学院",
     "works": [],
-    "famous_works": [],
+    "famous_works": [
+      "天浴",
+      "都是天使惹的祸",
+      "赤子乘龙",
+      "八大豪侠",
+      "奋斗",
+      "唐宫美人天下",
+      "金太郎的幸福生活",
+      "母亲[146]"
+    ],
     "weibo_id": "1191044977",
     "weibo_followers": 42975000,
     "avatar_url": "",
     "popularity_score": 0.0,
     "hot_search_count": 0,
     "sources": [
-      "weibo"
+      "https://baike.baidu.com/item/%E6%9D%8E%E5%B0%8F%E7%92%90/339651"
     ],
-    "updated_at": "2026-03-31T23:16:42.123516"
+    "updated_at": "2026-04-01T08:35:34.557221"
   },
-  "gossips": [
-    {
-      "title": "李小璐PG One夜宿门事件",
-      "content": "2017年底李小璐被拍到与PG One深夜亲密互动。贾乃亮当时直播中表示「相信我老婆」，但两人最终于2019年离婚。事件导致PG One遭行业封杀，李小璐退出主流影视圈。贾乃亮转型直播带货成功。该事件至今仍是娱乐圈最具影响力的丑闻之一。",
-      "gossip_type": "cheating",
-      "date": "2017-12-29",
-      "involved_celebrities": [
-        "李小璐",
-        "贾乃亮",
-        "PG One"
-      ],
-      "tags": [],
-      "importance": 0.95,
-      "verified": true,
-      "sentiment": "negative",
-      "sentiment_score": -0.3,
-      "source_url": "",
-      "source_type": "sina"
-    }
-  ],
-  "relationships": [
-    {
-      "person_a": "李小璐",
-      "person_b": "贾乃亮",
-      "relation_type": "前配偶",
-      "start_date": null,
-      "end_date": null,
-      "is_current": false,
-      "description": "2012年结婚，2019年离婚，关系已彻底结束",
-      "confidence": 0.99,
-      "strength": 0.2
-    },
-    {
-      "person_a": "李小璐",
-      "person_b": "PG One",
-      "relation_type": "绯闻对象",
-      "start_date": null,
-      "end_date": null,
-      "is_current": false,
-      "description": "2017年底夜宿门事件当事人，关系导致双方事业受损",
-      "confidence": 0.9,
-      "strength": 0.4
-    }
-  ],
+  "gossips": [],
+  "relationships": [],
   "social_media_posts": [
     {
       "id": "KeElJo2Nh",
@@ -91,9 +61,9 @@
       "platform": "weibo",
       "author": "李小璐",
       "content": "大方做自己，就是最漂亮的姿态 李小璐Super璐的微博视频",
-      "likes": 894,
+      "likes": 895,
       "reposts": 29,
-      "comments": 134,
+      "comments": 136,
       "publish_time": "2026-03-22 19:27",
       "source_url": "https://weibo.cn/comment/QxihDwGyo",
       "tags": [],
@@ -105,7 +75,7 @@
       "author": "李小璐",
       "content": "我们都是地球的孩子#世界和平 李小璐Super璐的微博视频",
       "likes": 907,
-      "reposts": 37,
+      "reposts": 38,
       "comments": 110,
       "publish_time": "2026-03-21 18:43",
       "source_url": "https://weibo.cn/comment/Qx8zbzGlx",
@@ -134,9 +104,9 @@
       "platform": "weibo",
       "author": "李小璐",
       "content": "眼前一亮又一亮#转场 #海边 李小璐Super璐的微博视频",
-      "likes": 723,
+      "likes": 722,
       "reposts": 30,
-      "comments": 70,
+      "comments": 71,
       "publish_time": "2026-03-19 18:34",
       "source_url": "https://weibo.cn/comment/QwPEM46B5",
       "tags": [
@@ -168,7 +138,7 @@
       "platform": "weibo",
       "author": "李小璐",
       "content": "祝你在无数个选择中走向自己#旅行碎片 #海边随拍 #生命力 李小璐Super璐的微博视频",
-      "likes": 810,
+      "likes": 811,
       "reposts": 38,
       "comments": 125,
       "publish_time": "2026-03-07 18:40",
@@ -575,373 +545,16 @@
       "topics": [
         "就要穿的漂漂亮亮去聚会"
       ]
-    },
-    {
-      "id": "QjQUaup1O",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "【不辜负当下，一步一个脚印往前走】成长需要脚踏实地的努力。与其在徘徊中止步不前，不如让每一天都有所积累。沉下心来，每天进步一点点，时光不会辜负努力前行的人。新的一天，#追光的你#，早安。  原图",
-      "likes": 221,
-      "reposts": 12,
-      "comments": 30,
-      "publish_time": "2025-12-24 09:51",
-      "source_url": "https://weibo.cn/comment/QjQUaup1O",
-      "tags": [
-        "追光的你"
-      ],
-      "topics": [
-        "追光的你"
-      ]
-    },
-    {
-      "id": "QibeGz1EL",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "【今天，#第十二个国家公祭日#，以国家的名义祭奠】今天，南京大屠杀死难者国家公祭日。国之殇，莫敢忘，以国之名，祭我遇难同胞！#为30多万死难同胞发条微博# #19371213永不敢忘# 人民日报的微博视频",
-      "likes": 113,
-      "reposts": 10,
-      "comments": 28,
-      "publish_time": "2025-12-13 09:56",
-      "source_url": "https://weibo.cn/comment/QibeGz1EL",
-      "tags": [
-        "第十二个国家公祭日",
-        "为30多万死难同胞发条微博",
-        "19371213永不敢忘"
-      ],
-      "topics": [
-        "第十二个国家公祭日",
-        "为30多万死难同胞发条微博",
-        "19371213永不敢忘"
-      ]
-    },
-    {
-      "id": "Qi5P5BhNj",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "卡点轻松拿下#卡点舞 李小璐Super璐的微博视频",
-      "likes": 925,
-      "reposts": 43,
-      "comments": 148,
-      "publish_time": "2025-12-12 20:09",
-      "source_url": "https://weibo.cn/comment/Qi5P5BhNj",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QhMBADORm",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "诞愿每个日落之后，都是平安顺遂#超前预制的圣诞穿搭 李小璐Super璐的微博视频",
-      "likes": 883,
-      "reposts": 40,
-      "comments": 118,
-      "publish_time": "2025-12-10 19:14",
-      "source_url": "https://weibo.cn/comment/QhMBADORm",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QfXbXyIg2",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "要热烈明媚的生活，去感知冬日的温暖#穿搭#用暖系氛围感打开冬日#暖系 李小璐Super璐的微博视频",
-      "likes": 903,
-      "reposts": 44,
-      "comments": 135,
-      "publish_time": "2025-11-28 18:30",
-      "source_url": "https://weibo.cn/comment/QfXbXyIg2",
-      "tags": [
-        "穿搭"
-      ],
-      "topics": [
-        "穿搭"
-      ]
-    },
-    {
-      "id": "QfOer2R8J",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "试试新风格的舞#花田错#柠檬叉 李小璐Super璐的微博视频",
-      "likes": 1053,
-      "reposts": 41,
-      "comments": 121,
-      "publish_time": "2025-11-27 19:42",
-      "source_url": "https://weibo.cn/comment/QfOer2R8J",
-      "tags": [
-        "花田错"
-      ],
-      "topics": [
-        "花田错"
-      ]
-    },
-    {
-      "id": "QfEofxWMV",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "在生活的某个瞬间停了秒，去体验，去感受那份纯粹。 李小璐Super璐的微博视频",
-      "likes": 1749,
-      "reposts": 50,
-      "comments": 233,
-      "publish_time": "2025-11-26 18:38",
-      "source_url": "https://weibo.cn/comment/QfEofxWMV",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QdPDZor7y",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "希望下一次见面，可以鲜活又明亮。 李小璐Super璐的微博视频",
-      "likes": 1719,
-      "reposts": 70,
-      "comments": 185,
-      "publish_time": "2025-11-14 19:37",
-      "source_url": "https://weibo.cn/comment/QdPDZor7y",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QdFUa3MnE",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "我与世界的帧帧瞬间#治愈瞬间 李小璐Super璐的微博视频",
-      "likes": 1324,
-      "reposts": 45,
-      "comments": 126,
-      "publish_time": "2025-11-13 18:49",
-      "source_url": "https://weibo.cn/comment/QdFUa3MnE",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Qdba7wVpZ",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "乙巳年 十一月金霞漫天仲冬霜月岁月暮秋伶伶然如独立于时空之外🍂🪐#我的日常plog##plog[超话]##晚霞##日常穿搭##天秤座##日常穿搭分享#  [组图共10张] 原图",
-      "likes": 1116,
-      "reposts": 41,
-      "comments": 148,
-      "publish_time": "2025-11-10 12:33",
-      "source_url": "https://weibo.cn/comment/Qdba7wVpZ",
-      "tags": [
-        "我的日常plog",
-        "plog[超话]",
-        "晚霞",
-        "日常穿搭",
-        "天秤座"
-      ],
-      "topics": [
-        "我的日常plog",
-        "plog[超话]",
-        "晚霞",
-        "日常穿搭",
-        "天秤座"
-      ]
-    },
-    {
-      "id": "Qc9G9lCr7",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "“靠近阳光里 运气就会好”#拿捏冬季暖感#冬季暖出型 李小璐Super璐的微博视频",
-      "likes": 1495,
-      "reposts": 94,
-      "comments": 176,
-      "publish_time": "2025-11-03 18:56",
-      "source_url": "https://weibo.cn/comment/Qc9G9lCr7",
-      "tags": [
-        "拿捏冬季暖感"
-      ],
-      "topics": [
-        "拿捏冬季暖感"
-      ]
-    },
-    {
-      "id": "Qc0g9v3Xp",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "保持柔软快乐就会越好看#百大红人暖系流光上新啦#暖系流光#暖系#有点东西好心动 李小璐Super璐的微博视频",
-      "likes": 913,
-      "reposts": 31,
-      "comments": 103,
-      "publish_time": "2025-11-02 18:58",
-      "source_url": "https://weibo.cn/comment/Qc0g9v3Xp",
-      "tags": [
-        "百大红人暖系流光上新啦",
-        "暖系"
-      ],
-      "topics": [
-        "百大红人暖系流光上新啦",
-        "暖系"
-      ]
-    },
-    {
-      "id": "QbQVm6ZqI",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "愿你既有强大的温柔 也有松弛的平静#在深秋开启热爱的旅程#秋天氛围感 李小璐Super璐的微博视频",
-      "likes": 953,
-      "reposts": 44,
-      "comments": 93,
-      "publish_time": "2025-11-01 19:12",
-      "source_url": "https://weibo.cn/comment/QbQVm6ZqI",
-      "tags": [
-        "在深秋开启热爱的旅程"
-      ],
-      "topics": [
-        "在深秋开启热爱的旅程"
-      ]
-    },
-    {
-      "id": "QbHv4cLzW",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "记录这个冬天❄️#定格生活里的美好瞬间 李小璐Super璐的微博视频",
-      "likes": 591,
-      "reposts": 24,
-      "comments": 62,
-      "publish_time": "2025-10-31 19:12",
-      "source_url": "https://weibo.cn/comment/QbHv4cLzW",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QbyeMtmoC",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "只活一次的人生，要比谁都炙热#把秋冬专属氛围穿身上 李小璐Super璐的微博视频",
-      "likes": 1113,
-      "reposts": 40,
-      "comments": 109,
-      "publish_time": "2025-10-30 19:37",
-      "source_url": "https://weibo.cn/comment/QbyeMtmoC",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Qbp2tBXIo",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "天气渐冷注意保暖按时吃饭记得开心#天冷了记得穿得毛绒绒 李小璐Super璐的微博视频",
-      "likes": 903,
-      "reposts": 31,
-      "comments": 111,
-      "publish_time": "2025-10-29 20:12",
-      "source_url": "https://weibo.cn/comment/Qbp2tBXIo",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "QaJP0CaVh",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "【#童声合唱版团圆听泪目了#】“走丢了不要怕呀，会重逢！”天使童声合唱团演唱电视剧《沉默的荣耀》插曲《团圆》，纯净歌声唱出每一个中华儿女共同的期盼：团圆！团圆！#女孩演唱团圆眼里有泪花# 人民日报的微博视频",
-      "likes": 240,
-      "reposts": 12,
-      "comments": 20,
-      "publish_time": "2025-10-25 11:16",
-      "source_url": "https://weibo.cn/comment/QaJP0CaVh",
-      "tags": [
-        "童声合唱版团圆听泪目了",
-        "女孩演唱团圆眼里有泪花"
-      ],
-      "topics": [
-        "童声合唱版团圆听泪目了",
-        "女孩演唱团圆眼里有泪花"
-      ]
-    },
-    {
-      "id": "QaqMtnbaA",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "亲爱的女儿：醒来第一时间就去看了你的朋友圈，时间就是那么悄悄地划过我们，你也从一个嘴里总会咿咿呀呀的小宝宝，到每天“妈妈妈妈””问很多十万个为什么的大宝宝，再到现在会跟我分析问题但也会关上门跟好朋友们哈哈大笑的少女，总感觉我已经跟不上你成长的速度一样，你就这么如穿梭般地跟我一样...全文 [组图共9张] 原图",
-      "likes": 9937,
-      "reposts": 149,
-      "comments": 698,
-      "publish_time": "2025-10-23 10:48",
-      "source_url": "https://weibo.cn/comment/QaqMtnbaA",
-      "tags": [],
-      "topics": []
-    },
-    {
-      "id": "Q9yWNBp02",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "已经开始期待冬天❄️了#秋冬氛围感#冬季蕾丝风穿搭#冬日氛围感拉满 李小璐Super璐的微博视频",
-      "likes": 725,
-      "reposts": 37,
-      "comments": 82,
-      "publish_time": "2025-10-17 17:45",
-      "source_url": "https://weibo.cn/comment/Q9yWNBp02",
-      "tags": [
-        "秋冬氛围感"
-      ],
-      "topics": [
-        "秋冬氛围感"
-      ]
-    },
-    {
-      "id": "Q9pospWdw",
-      "platform": "weibo",
-      "author": "李小璐",
-      "content": "“步履不停 无限续航”#in趋势#去时装周看秀怎么穿 李小璐Super璐的微博视频",
-      "likes": 1251,
-      "reposts": 58,
-      "comments": 142,
-      "publish_time": "2025-10-16 17:26",
-      "source_url": "https://weibo.cn/comment/Q9pospWdw",
-      "tags": [
-        "in趋势"
-      ],
-      "topics": [
-        "in趋势"
-      ]
     }
   ],
   "comments": [],
-  "news_articles": [
-    {
-      "title": "李小璐时尚大片发布，造型引热议",
-      "summary": "李小璐近日动态引发关注",
-      "content": "李小璐最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
-      "publish_date": "2026-03-19",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/李小璐/0",
-      "sentiment": "positive",
-      "sentiment_score": 0.2752333986598305,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "李小璐现身活动，状态在线",
-      "summary": "李小璐相关话题登上热搜",
-      "content": "李小璐出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
-      "publish_date": "2026-02-13",
-      "source": "腾讯娱乐",
-      "source_url": "https://example.com/news/李小璐/1",
-      "sentiment": "positive",
-      "sentiment_score": -0.060016476930336016,
-      "category": "",
-      "tags": []
-    },
-    {
-      "title": "李小璐工作室发声明澄清网络传闻",
-      "summary": "网友热议李小璐近况",
-      "content": "李小璐工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
-      "publish_date": "2025-11-16",
-      "source": "网易娱乐",
-      "source_url": "https://example.com/news/李小璐/2",
-      "sentiment": "neutral",
-      "sentiment_score": 0.3196908432259466,
-      "category": "",
-      "tags": []
-    }
-  ],
+  "news_articles": [],
   "statistics": {
-    "data_completeness": 0.6,
-    "total_posts": 51,
+    "data_completeness": 0.65,
+    "total_posts": 31,
     "total_comments": 0,
-    "total_news": 3,
-    "total_relationships": 2,
-    "total_gossips": 1
+    "total_news": 0,
+    "total_relationships": 0,
+    "total_gossips": 0
   }
 }
