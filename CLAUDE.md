@@ -8,10 +8,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Install dependencies
 pip install -r requirements.txt
 
-# Run all crisis & temporal tests
-pytest tests/test_crisis_engine.py tests/test_temporal_graph.py -v
+# Run all tests (102 tests)
+pytest tests/ -v
 
-# Run crisis & experiment tests
+# Run specific test suites
+pytest tests/test_crisis_engine.py tests/test_temporal_graph.py -v
+pytest tests/test_persona_agent.py tests/test_audience.py tests/test_memory_store.py -v
 pytest tests/test_crisis_engine.py tests/test_experiment.py -v
 
 # Run single test
@@ -48,11 +50,14 @@ Copy `.env.example` to `.env` and set `GEMINI_API_KEY`. Other keys (`OPENAI_API_
 CrisisSimulation.step() → per day:
   1. Timeline      → CrisisTimeline.advance_day() → determine CrisisPhase
   2. Intervention  → InterventionSystem.check() → apply user's what-if conditions
-  3. Decision      → sequential agent actions with peer_actions + audience_reactions
-  4. Effects       → CrisisActionSpace.compute_effect() → approval/heat/brand deltas
-  5. Reactions     → InformationVacuumDetector → silence → rumor cascade
-  6. Update        → trending topics, media headlines, brand statuses
-  7. Decay         → heat -10%, approval regresses toward role-specific target
+  3. Decision      → randomized agent order, sequential decisions with peer_actions + audience_reactions
+  4. MessageBus    → audience reactions + celebrity actions broadcast to bus
+  5. Effects       → CrisisActionSpace or FreeActionSpace (mode-dependent) → approval/heat/brand deltas
+  6. Debunk        → STATEMENT/LAWSUIT can debunk rumors (40%/60% chance)
+  7. Reactions     → InformationVacuumDetector → silence → rumor cascade
+  8. Update        → trending topics, media headlines, brand statuses
+  9. Decay         → heat -10%, approval regresses toward role-specific target
+ 10. Termination   → heat <15 for 3 days OR regulatory level 5 → early end
 ```
 
 ### Key Module Relationships
@@ -63,40 +68,46 @@ swarmsim/graph/
 └── temporal.py           # TemporalKnowledgeGraph — date-indexed, person timelines
 
 swarmsim/crisis/          # Crisis simulation engine
-├── models.py             # CrisisPhase(6), PRAction(10), CrisisRole(4), InteractionMode, FreeAction(8), CrisisState, etc.
+├── models.py             # CrisisPhase(6), PRAction(10), CrisisRole(4), InteractionMode, FreeAction(11), CrisisState, etc.
 ├── timeline.py           # 1 turn = 1 day, 6-phase lifecycle
 ├── action_space.py       # 10 PR actions × 6 phases effect matrix + Big Five mods
-├── free_action_space.py  # FreeActionSpace — simplified effect computation (no phase modifiers)
+│                         # FreeActionSpace — 11 free actions × 6 phases + personality mods + low-approval penalty
 ├── persona_agent.py      # CelebrityPersonaAgent (rule/LLM), builds persona from GraphRAG
 │                         # crisis_role (PERPETRATOR/VICTIM/ACCOMPLICE/BYSTANDER) injected by engine
-│                         # Role-aware decision: perp banned from comeback, victim won't apologize
-│                         # Extended peer_influence: 绯闻对象/前配偶 relationship handling
-│                         # LLM prompt enhanced with role context + gossip_type
-│                         # Supports peer_actions + audience_reactions for inter-agent interaction
+│                         # gossip_type (CHEATING/SCANDAL/DIVORCE/DRUGS/TAX_EVASION/OTHER) drives decision
+│                         # Role-aware + gossip-type-aware decision: perp banned from comeback, drugs bans counterattack
+│                         # Extended peer_influence: strength-weighted (relation strength 0-1 scales boost)
+│                         # Memory-driven: consecutive silence → urgency, repeated apology → strategy switch
+│                         # Semantic repeat penalty: similar action groups share penalty (SILENCE+HIDE, etc.)
+│                         # Audience semantic analysis: keyword extraction → action-specific boosts
+│                         # Structured memory via MemoryStore (add/search/get_recent/get_important)
+│                         # Personality natural language description for LLM prompts
+│                         # LLM prompt: graph context + timeline events + memory summary + personality description
 │                         # Free mode: generate_free_response() / _rule_decide_free() / _llm_decide_free()
+│                         # Enhanced free LLM prompt: includes state/role/gossip_type/audience
 ├── vacuum_detector.py    # Silence → rumor cascade, probability escalates with days
+│                         # Debunk mechanism: STATEMENT/LAWSUIT can debunk rumors (severity → 20%)
 ├── intervention.py       # User what-if conditions with trigger types (TIME_ABSOLUTE/TIME_RELATIVE/STATE_THRESHOLD)
 │                         # External events (MEDIA_REPORT/VIDEO_LEAK/COMPETITOR_ANNOUNCE/etc.)
 ├── experiment.py         # ExperimentManager, Experiment, ExperimentGroup, ComparisonResult — A/B testing
 ├── scenario_engine.py    # CrisisScenarioEngine (load + role inference) + CrisisSimulation (async run loop)
-│                         # _infer_person_roles(): auto-infer PERPETRATOR/VICTIM/ACCOMPLICE from graph relations
-│                         # Sequential decision making: later agents see earlier actions
-│                         # Branches on interaction_mode (CRISIS vs FREE)
-│                         # Role-aware daily decay: perp target=25 rate=0.1, victim target=60 rate=0.8
+│                         # _infer_person_roles(): auto-infer for CHEATING/DRUGS/TAX_EVASION/DIVORCE/SCANDAL
+│                         # Randomized decision order per day (avoids first-mover bias)
+│                         # MessageBus integration: audience reactions + celebrity actions broadcast
+│                         # Dynamic termination: heat <15 for 3 days or regulatory level 5
+│                         # Free mode effects computed via FreeActionSpace (with phase modifiers)
 ├── message_bus.py        # Agent-to-agent message bus (broadcast/direct/per-type filtering)
 ├── audience.py           # AudiencePool (30 agents: 粉丝/路人/理中客/黑粉) + reaction templates
+│                         # AudienceAgent has comment memory: repeated action → lower comment probability
+│                         # Semantic similarity groups: SILENCE+HIDE, APOLOGIZE+CHARITY share repeat penalty
 └── outcome_analyzer.py   # Compare sim vs historical baseline, generate PR recommendations
 
-swarmsim/viz/
-├── server.py             # FastAPI app, uses TemporalKnowledgeGraph, mounts all routers
-├── api_graph.py          # Graph API routes
-├── api_crisis.py         # Crisis API: scenarios, start, step, run, intervene, etc.
-│                         # Experiment API: POST /experiment/create, POST /experiment/{id}/run,
-│                         #   GET /experiment/{id}/compare, GET /experiments
-└── serializer.py         # networkx → D3 JSON
-
-swarmsim/llm/client.py    # LLM client: Gemini, OpenAI, Anthropic via get_client()
 swarmsim/memory/base.py   # MemoryStore ABC → InMemoryStore, SQLiteStore
+│                         # MemoryEntry: id, agent_id, timestamp, content, source, importance, tags, metadata
+│                         # get_recent() — by timestamp, get_important() — by importance
+│                         # decay_importance() — forgetting curve (importance -= rate × days)
+swarmsim/llm/client.py    # LLM client: Gemini, OpenAI, Anthropic via get_client()
+│                         # generate_with_retry() — exponential backoff retry (3 attempts)
 celebrity_scraper/        # Independent module: 5 web spiders + mock data
 ```
 
