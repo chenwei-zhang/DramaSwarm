@@ -92,6 +92,23 @@ class MemoryStore:
         """获取最近的记忆"""
         raise NotImplementedError
 
+    def get_important(
+        self,
+        agent_id: str,
+        n: int = 5
+    ) -> list[MemoryEntry]:
+        """获取最重要的记忆（按 importance 排序）"""
+        raise NotImplementedError
+
+    def decay_importance(
+        self,
+        agent_id: str,
+        days_passed: int = 1,
+        rate: float = 0.05,
+    ) -> None:
+        """遗忘曲线：降低所有记忆的重要性"""
+        raise NotImplementedError
+
     def delete(self, memory_id: str) -> bool:
         """删除记忆"""
         raise NotImplementedError
@@ -164,6 +181,30 @@ class InMemoryStore(MemoryStore):
     ) -> list[MemoryEntry]:
         """获取最近的记忆"""
         return self.get_by_agent(agent_id, limit=n)
+
+    def get_important(
+        self,
+        agent_id: str,
+        n: int = 5
+    ) -> list[MemoryEntry]:
+        """获取最重要的记忆（按 importance 排序）"""
+        memory_ids = self._agent_index.get(agent_id, [])
+        memories = [
+            self._memories[mid] for mid in memory_ids
+            if mid in self._memories
+        ]
+        memories.sort(key=lambda m: m.importance, reverse=True)
+        return memories[:n]
+
+    def decay_importance(
+        self,
+        agent_id: str,
+        days_passed: int = 1,
+        rate: float = 0.05,
+    ) -> None:
+        """遗忘曲线：降低所有记忆的重要性"""
+        for memory in self.get_by_agent(agent_id, limit=1000):
+            memory.importance = max(0.0, memory.importance - rate * days_passed)
 
     def delete(self, memory_id: str) -> bool:
         """删除记忆"""
@@ -297,6 +338,36 @@ class SQLiteStore(MemoryStore):
         """获取最近的记忆"""
         return self.get_by_agent(agent_id, limit=n)
 
+    def get_important(
+        self,
+        agent_id: str,
+        n: int = 5
+    ) -> list[MemoryEntry]:
+        """获取最重要的记忆（按 importance 排序）"""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.execute("""
+                SELECT * FROM memories
+                WHERE agent_id = ?
+                ORDER BY importance DESC
+                LIMIT ?
+            """, (agent_id, n))
+            return [self._row_to_memory(row) for row in cursor.fetchall()]
+
+    def decay_importance(
+        self,
+        agent_id: str,
+        days_passed: int = 1,
+        rate: float = 0.05,
+    ) -> None:
+        """遗忘曲线：降低所有记忆的重要性"""
+        with sqlite3.connect(self.db_path) as conn:
+            conn.execute("""
+                UPDATE memories
+                SET importance = MAX(0, importance - ?)
+                WHERE agent_id = ?
+            """, (rate * days_passed, agent_id))
+            conn.commit()
+
     def delete(self, memory_id: str) -> bool:
         """删除记忆"""
         with sqlite3.connect(self.db_path) as conn:
@@ -332,7 +403,7 @@ class SQLiteStore(MemoryStore):
 
 
 # 全局记忆存储实例
-_global_store: InMemoryStore | None = None
+_global_store: MemoryStore | None = None
 
 
 def get_memory_store(use_persistent: bool = False) -> MemoryStore:

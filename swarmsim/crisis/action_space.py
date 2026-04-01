@@ -306,22 +306,117 @@ FREE_ACTION_EFFECTS: dict[FreeAction, dict] = {
 }
 
 
+# ── 自由动作阶段修正系数 ──
+
+FREE_PHASE_MODIFIERS: dict[CrisisPhase, dict[FreeAction, float]] = {
+    CrisisPhase.BREAKOUT: {
+        FreeAction.SPEAK: 0.6,        # 爆发期发言容易引火烧身
+        FreeAction.SUPPORT: 0.5,      # 急于站队风险大
+        FreeAction.CRITICIZE: 0.8,
+        FreeAction.COLLABORATE: 0.3,
+        FreeAction.SOCIALIZE: 0.3,    # 危机当前社交活动不合时宜
+        FreeAction.ANNOUNCE: 0.7,
+        FreeAction.IGNORE: 1.0,
+        FreeAction.PRIVATE_MSG: 1.0,
+        FreeAction.MEDIATE: 0.4,
+        FreeAction.RUMOR: 1.2,        # 爆发期谣言传播最快
+        FreeAction.RETREAT: 0.8,
+    },
+    CrisisPhase.ESCALATION: {
+        FreeAction.SPEAK: 0.8,
+        FreeAction.SUPPORT: 0.7,
+        FreeAction.CRITICIZE: 1.0,
+        FreeAction.COLLABORATE: 0.5,
+        FreeAction.SOCIALIZE: 0.4,
+        FreeAction.ANNOUNCE: 0.9,
+        FreeAction.IGNORE: 0.8,
+        FreeAction.PRIVATE_MSG: 1.0,
+        FreeAction.MEDIATE: 0.6,
+        FreeAction.RUMOR: 1.0,
+        FreeAction.RETREAT: 0.9,
+    },
+    CrisisPhase.PEAK: {
+        FreeAction.SPEAK: 1.0,
+        FreeAction.SUPPORT: 1.0,
+        FreeAction.CRITICIZE: 1.2,    # 高峰期批评效果放大
+        FreeAction.COLLABORATE: 0.5,
+        FreeAction.SOCIALIZE: 0.3,
+        FreeAction.ANNOUNCE: 1.1,
+        FreeAction.IGNORE: 0.6,       # 高峰期无视代价大
+        FreeAction.PRIVATE_MSG: 0.8,
+        FreeAction.MEDIATE: 0.8,
+        FreeAction.RUMOR: 1.0,
+        FreeAction.RETREAT: 0.7,
+    },
+    CrisisPhase.MITIGATION: {
+        FreeAction.SPEAK: 1.0,
+        FreeAction.SUPPORT: 1.1,
+        FreeAction.CRITICIZE: 0.8,
+        FreeAction.COLLABORATE: 1.0,
+        FreeAction.SOCIALIZE: 0.8,
+        FreeAction.ANNOUNCE: 0.9,
+        FreeAction.IGNORE: 1.0,
+        FreeAction.PRIVATE_MSG: 1.0,
+        FreeAction.MEDIATE: 1.2,      # 应对期调停效果最好
+        FreeAction.RUMOR: 0.7,
+        FreeAction.RETREAT: 1.0,
+    },
+    CrisisPhase.RESOLUTION: {
+        FreeAction.SPEAK: 0.9,
+        FreeAction.SUPPORT: 1.0,
+        FreeAction.CRITICIZE: 0.6,
+        FreeAction.COLLABORATE: 1.2,  # 收尾期合作修复关系效果好
+        FreeAction.SOCIALIZE: 1.0,
+        FreeAction.ANNOUNCE: 0.8,
+        FreeAction.IGNORE: 1.0,
+        FreeAction.PRIVATE_MSG: 1.0,
+        FreeAction.MEDIATE: 1.0,
+        FreeAction.RUMOR: 0.5,
+        FreeAction.RETREAT: 1.0,
+    },
+    CrisisPhase.AFTERMATH: {
+        FreeAction.SPEAK: 0.8,
+        FreeAction.SUPPORT: 0.9,
+        FreeAction.CRITICIZE: 0.4,
+        FreeAction.COLLABORATE: 1.3,  # 余波期合作最有效
+        FreeAction.SOCIALIZE: 1.1,
+        FreeAction.ANNOUNCE: 0.7,
+        FreeAction.IGNORE: 1.0,
+        FreeAction.PRIVATE_MSG: 1.0,
+        FreeAction.MEDIATE: 0.8,
+        FreeAction.RUMOR: 0.3,
+        FreeAction.RETREAT: 1.0,
+    },
+}
+
+
 class FreeActionSpace:
     """自由互动动作空间"""
 
     def compute_effect(
         self,
         action: FreeAction,
+        phase: CrisisPhase | None = None,
+        base_approval: float = 50.0,
         personality: dict | None = None,
     ) -> dict:
-        """计算自由动作效果（无阶段修正，简化版）"""
+        """计算自由动作效果（含阶段修正）"""
         base = FREE_ACTION_EFFECTS.get(action, FREE_ACTION_EFFECTS[FreeAction.IGNORE])
 
+        # 阶段修正
+        phase_mod = 1.0
+        if phase:
+            phase_mod = FREE_PHASE_MODIFIERS.get(phase, {}).get(action, 1.0)
+
+        # 性格修正
         pers_mod = 1.0
         if personality:
             extraversion = personality.get("extraversion", 0.5)
             agreeableness = personality.get("agreeableness", 0.5)
             public_visibility = personality.get("public_visibility", 0.5)
+            neuroticism = personality.get("neuroticism", 0.5)
+            risk_tolerance = personality.get("risk_tolerance", 0.5)
+            openness = personality.get("openness", 0.5)
 
             if action == FreeAction.SPEAK:
                 pers_mod *= 1 + extraversion * 0.2
@@ -329,18 +424,37 @@ class FreeActionSpace:
                 pers_mod *= 1 + agreeableness * 0.2
             elif action == FreeAction.CRITICIZE:
                 pers_mod *= 1 + (1 - agreeableness) * 0.15
+                pers_mod *= 1 + neuroticism * 0.1
             elif action == FreeAction.IGNORE:
                 pers_mod *= 1 - public_visibility * 0.1
             elif action == FreeAction.MEDIATE:
                 pers_mod *= 1 + agreeableness * 0.3
-
             elif action == FreeAction.ANNOUNCE:
                 pers_mod *= 1 + extraversion * 0.15
+            elif action == FreeAction.COLLABORATE:
+                pers_mod *= 1 + openness * 0.15
+            elif action == FreeAction.SOCIALIZE:
+                pers_mod *= 1 + extraversion * 0.2
+            elif action == FreeAction.PRIVATE_MSG:
+                pers_mod *= 1 + agreeableness * 0.1
+            elif action == FreeAction.RUMOR:
+                pers_mod *= 1 + (1 - agreeableness) * 0.2
+                pers_mod *= 1 + risk_tolerance * 0.15
+            elif action == FreeAction.RETREAT:
+                pers_mod *= 1 - extraversion * 0.1
+
+        # 低口碑时正面动作效果打折
+        if base_approval < 30 and action in (
+            FreeAction.SUPPORT, FreeAction.COLLABORATE, FreeAction.SOCIALIZE,
+        ):
+            pers_mod *= 0.7
+
+        modifier = phase_mod * pers_mod
 
         return {
-            "approval_delta": round(base["approval_delta"] * pers_mod, 1),
-            "heat_delta": round(base["heat_delta"] * pers_mod, 1),
-            "brand_delta": round(base["brand_delta"] * pers_mod, 1),
+            "approval_delta": round(base["approval_delta"] * modifier, 1),
+            "heat_delta": round(base["heat_delta"] * modifier, 1),
+            "brand_delta": round(base["brand_delta"] * modifier, 1),
             "description": base["description"],
-            "modifier": round(pers_mod, 2),
+            "modifier": round(modifier, 2),
         }

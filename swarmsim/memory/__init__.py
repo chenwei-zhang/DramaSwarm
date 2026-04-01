@@ -1,5 +1,5 @@
 """Memory management modules."""
 
-from swarmsim.memory.base import Memory, MemoryStore
+from swarmsim.memory.base import MemoryEntry, MemoryStore, InMemoryStore, SQLiteStore
 
-__all__ = ["Memory", "MemoryStore"]
+__all__ = ["MemoryEntry", "MemoryStore", "InMemoryStore", "SQLiteStore"]

@@ -145,9 +145,20 @@ REACTION_TEMPLATES: dict[str, dict[str, list[str]]] = {
 class AudienceAgent:
     """单个观众 Agent"""
 
+    # 语义相似的动作分组（同一组重复评论概率降低）
+    SIMILAR_ACTION_GROUPS: list[set[PRAction]] = [
+        {PRAction.SILENCE, PRAction.HIDE},
+        {PRAction.APOLOGIZE, PRAction.CHARITY},
+        {PRAction.STATEMENT, PRAction.GO_ON_SHOW},
+    ]
+
     def __init__(self, persona_type: str, persons: list[str]):
         self.persona_type = persona_type
         self.bias: dict[str, float] = {}
+
+        # 简易记忆：最近评论过的 (动作类型, 目标明星) 组合
+        self._comment_history: list[tuple[PRAction, str]] = []
+        self._max_history = 5
 
         # 根据观众类型设定对明星的偏好
         for person in persons:
@@ -166,6 +177,19 @@ class AudienceAgent:
             fav = random.choice(persons)
             self.bias[fav] = random.uniform(0.7, 1.0)
 
+    def _is_repetitive(self, action: PRAction, actor: str) -> bool:
+        """检查是否对类似动作已评论过"""
+        for past_action, past_actor in self._comment_history:
+            if past_actor != actor:
+                continue
+            if past_action == action:
+                return True
+            # 检查语义相似
+            for group in self.SIMILAR_ACTION_GROUPS:
+                if past_action in group and action in group:
+                    return True
+        return False
+
     def react_to_action(
         self, action: CrisisAction, day: int
     ) -> AgentMessage | None:
@@ -173,8 +197,10 @@ class AudienceAgent:
         actor = action.actor
         bias = self.bias.get(actor, 0.0)
 
-        # 基于偏好决定是否评论
+        # 记忆驱动：如果之前已对类似动作评论过，降低评论概率
         comment_prob = 0.3 + abs(bias) * 0.5
+        if self._is_repetitive(action.action, actor):
+            comment_prob *= 0.3  # 大幅降低重复评论概率
         if random.random() > comment_prob:
             return None
 
@@ -195,13 +221,20 @@ class AudienceAgent:
         else:
             sentiment = "neutral"
 
-        return AgentMessage(
+        msg = AgentMessage(
             sender=f"audience_{self.persona_type}_{id(self) % 1000}",
             content=content,
             day=day,
             sentiment=sentiment,
             source="audience",
         )
+
+        # 记录评论历史
+        self._comment_history.append((action.action, actor))
+        if len(self._comment_history) > self._max_history:
+            self._comment_history.pop(0)
+
+        return msg
 
 
 class AudiencePool:

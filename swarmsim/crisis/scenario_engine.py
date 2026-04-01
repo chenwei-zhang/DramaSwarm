@@ -367,6 +367,33 @@ class CrisisScenarioEngine:
                                 roles[person] = CrisisRole.PERPETRATOR
                                 break
 
+        elif gossip_type == GossipType.DIVORCE:
+            # 离婚事件：查找配偶/前配偶关系
+            for i, name_a in enumerate(involved_persons):
+                for name_b in involved_persons[i + 1:]:
+                    rels = self.kg.get_relationship_context(name_a, name_b)
+                    for r in rels:
+                        rel_type = r.get("relation_type", "")
+                        if rel_type in ("配偶", "前配偶", "伴侣"):
+                            # 离婚双方默认都设为 VICTIM（无明确加害者）
+                            roles[name_a] = CrisisRole.VICTIM
+                            roles[name_b] = CrisisRole.VICTIM
+                            break
+
+        elif gossip_type == GossipType.SCANDAL:
+            # 丑闻事件：查找 involved_in 中 role=primary 的为 PERPETRATOR
+            for person in involved_persons:
+                node_id = f"celebrity:{person}"
+                if self.kg._graph.has_node(node_id):
+                    for _, _, data in self.kg._graph.edges(node_id, data=True):
+                        if data.get("edge_type") == "involved_in":
+                            if data.get("role", "") in ("primary", "主角", "当事人", "subject"):
+                                roles[person] = CrisisRole.PERPETRATOR
+                                break
+                    else:
+                        # 其余人为 BYSTANDER（默认）
+                        pass
+
         return roles
 
 
@@ -499,11 +526,15 @@ class CrisisSimulation:
 
         day_actions: list[CrisisAction] = []
         interaction_log: list[dict] = []
-        is_free_mode = bool = (
+        is_free_mode = (
             self.scenario.interaction_mode == InteractionMode.FREE
         )
 
-        for name, agent in self.agents.items():
+        # 随机打乱决策顺序，避免固定先手/后手偏差
+        agent_order = list(self.agents.items())
+        random.shuffle(agent_order)
+
+        for name, agent in agent_order:
             forced = forced_actions.get(name)
 
             peer_actions = list(day_actions)
@@ -514,6 +545,8 @@ class CrisisSimulation:
                 audience_reactions = await self.audience_pool.generate_reactions(
                     day, peer_actions, state_dict,
                 )
+                # 将观众反应写入消息总线
+                self.message_bus.broadcast_list(audience_reactions)
 
             # 根据 interaction_mode 分支决策
             if is_free_mode:
@@ -532,6 +565,17 @@ class CrisisSimulation:
 
             action.day = day
             day_actions.append(action)
+
+            # 将明星动作广播到消息总线
+            action_msg = AgentMessage(
+                sender=name,
+                content=action.content or action.action.label,
+                day=day,
+                sentiment="neutral",
+                source="celebrity",
+                action=action.action,
+            )
+            self.message_bus.broadcast(action_msg)
 
             # 记录交互关系
             if action.triggered_by:
@@ -568,12 +612,22 @@ class CrisisSimulation:
 
         # 5. 计算动作效果
         for action in day_actions:
-            effect = self.action_space.compute_effect(
-                action=action.action,
-                phase=phase,
-                base_approval=self.current_state.approval_scores.get(action.actor, 50),
-                personality=self.agents[action.actor].personality if action.actor in self.agents else None,
-            )
+            if action.free_action:
+                # 自由模式：使用 FreeActionSpace
+                effect = self.free_action_space.compute_effect(
+                    action=action.free_action,
+                    phase=phase,
+                    base_approval=self.current_state.approval_scores.get(action.actor, 50),
+                    personality=self.agents[action.actor].personality if action.actor in self.agents else None,
+                )
+            else:
+                # 危机模式：使用 CrisisActionSpace
+                effect = self.action_space.compute_effect(
+                    action=action.action,
+                    phase=phase,
+                    base_approval=self.current_state.approval_scores.get(action.actor, 50),
+                    personality=self.agents[action.actor].personality if action.actor in self.agents else None,
+                )
             action.effects = effect
             action.day = day
 
@@ -655,6 +709,16 @@ class CrisisSimulation:
         self.state_history.append(new_state)
 
         if self.timeline.is_finished():
+            self._finished = True
+
+        # 动态终止条件：热度连续 3 天低于 15 → 危机自然消散
+        if len(self.state_history) >= 3:
+            recent_heat = [s.heat_index for s in self.state_history[-3:]]
+            if all(h < 15 for h in recent_heat):
+                self._finished = True
+
+        # 监管最高级别 → 强制封杀结束
+        if self.current_state.regulatory_level >= 5:
             self._finished = True
 
         return new_state

@@ -120,6 +120,32 @@ class LLMClient(ABC):
                 return msg.content
         return messages[-1].content
 
+    async def generate_with_retry(
+        self,
+        prompt: str,
+        system_prompt: str | None = None,
+        history: list[Message] | None = None,
+        max_retries: int = 3,
+        base_delay: float = 1.0,
+    ) -> LLMResponse:
+        """带指数退避重试的异步生成"""
+        import logging
+        logger = logging.getLogger(__name__)
+        for attempt in range(max_retries):
+            try:
+                return await self.generate_async(prompt, system_prompt, history)
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    delay = base_delay * (2 ** attempt)
+                    logger.warning(
+                        f"[LLM] 重试 {attempt + 1}/{max_retries}，"
+                        f"{delay:.1f}s 后重试: {type(e).__name__}: {e}"
+                    )
+                    await asyncio.sleep(delay)
+                else:
+                    logger.error(f"[LLM] 重试 {max_retries} 次后仍失败: {e}")
+                    raise
+
 
 class GeminiClient(LLMClient):
     """

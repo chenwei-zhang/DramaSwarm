@@ -10,12 +10,14 @@ from __future__ import annotations
 
 import hashlib
 import random
+import re
 from typing import Any
 
 from swarmsim.crisis.models import (
     CrisisPhase, PRAction, CrisisAction, AgentMessage, FreeAction, CrisisRole, GossipType,
 )
 from swarmsim.graph.temporal import TemporalKnowledgeGraph
+from swarmsim.memory.base import MemoryEntry, MemoryStore, InMemoryStore
 
 
 # ── PR 动作对应的中文描述模板 ──
@@ -56,6 +58,7 @@ class CelebrityPersonaAgent:
         name: str,
         kg: TemporalKnowledgeGraph,
         use_llm: bool = False,
+        memory_store: MemoryStore | None = None,
     ):
         self.name = name
         self.kg = kg
@@ -68,9 +71,11 @@ class CelebrityPersonaAgent:
         # 从图谱构建性格画像 (Big Five)
         self.personality = self._build_personality()
 
-        # 记忆缓冲（最近事件）
-        self.memory: list[str] = []
+        # 结构化记忆系统
+        self._memory_store = memory_store or InMemoryStore()
+        self.memory: list[str] = []  # 保留兼容性（存储传播标记等简易信息）
         self.past_actions: list[PRAction] = []
+        self._memory_counter = 0
 
     def _build_personality(self) -> dict[str, float]:
         """从图谱推断完整性格画像（Big Five + 扩展维度）
@@ -194,28 +199,71 @@ class CelebrityPersonaAgent:
                 traits["neuroticism"] = max(traits["neuroticism"], 0.65 + importance * 0.2)
                 traits["agreeableness"] = min(traits["agreeableness"], 0.4)
 
-        # ── 7. 关系网络拓扑 → openness + agreeableness ──
+        # ── 7. 关系网络拓扑 → openness + agreeableness（含强度加权）──
         try:
             neighbors = self.kg.get_social_neighborhood(self.name, max_depth=1)
             conn_count = len(neighbors)
             # 连接类型统计
             rel_types = set()
+            strong_rel_count = 0
             for n in neighbors:
                 rels = self.kg.get_relationship_context(self.name, n)
                 for r in rels:
                     rel_types.add(r.get("relation_type", ""))
+                    if r.get("strength", 0.5) >= 0.7:
+                        strong_rel_count += 1
 
             if conn_count >= 10:
                 traits["openness"] = min(1.0, traits["openness"] + 0.15)
             elif conn_count >= 5:
                 traits["openness"] = min(1.0, traits["openness"] + 0.08)
 
+            # 强关系多 → 更容易信任他人
+            if strong_rel_count >= 3:
+                traits["agreeableness"] = min(1.0, traits["agreeableness"] + 0.1)
+
             if any(t in rel_types for t in ("配偶", "家人", "亲属", "闺蜜", "好友")):
                 traits["agreeableness"] = min(1.0, traits["agreeableness"] + 0.08)
             if any(t in rel_types for t in ("对手", "宿敌", "竞争对手")):
                 traits["neuroticism"] = min(1.0, traits["neuroticism"] + 0.05)
+
+            # 二度连接数 → 社交广度 → openness
+            try:
+                neighbors_2 = self.kg.get_social_neighborhood(self.name, max_depth=2)
+                indirect = len(set(neighbors_2) - set(neighbors))
+                if indirect >= 15:
+                    traits["openness"] = min(1.0, traits["openness"] + 0.1)
+                elif indirect >= 8:
+                    traits["openness"] = min(1.0, traits["openness"] + 0.05)
+            except Exception:
+                pass
+
         except Exception:
             pass
+
+        # ── 7.5 年龄 → risk_tolerance + conscientiousness ──
+        birth_date = data.get("birth_date", "")
+        if birth_date:
+            try:
+                from datetime import datetime
+                birth = datetime.strptime(str(birth_date)[:10], "%Y-%m-%d")
+                age = (datetime.now() - birth).days // 365
+                if age < 25:
+                    traits["risk_tolerance"] = min(1.0, traits.get("risk_tolerance", 0.5) + 0.1)
+                elif age > 45:
+                    traits["conscientiousness"] = min(1.0, traits["conscientiousness"] + 0.1)
+                    traits["risk_tolerance"] = max(0.0, traits.get("risk_tolerance", 0.5) - 0.05)
+            except (ValueError, TypeError):
+                pass
+
+        # ── 7.6 正面新闻事件 → conscientiousness ──
+        all_events = self.kg.get_person_timeline(self.name)
+        positive_events = [
+            e for e in all_events
+            if e.get("type") == "news" and e.get("sentiment") == "positive"
+        ]
+        if len(positive_events) >= 3:
+            traits["conscientiousness"] = min(1.0, traits["conscientiousness"] + 0.08)
 
         # ── 8. 从性格推导 risk_tolerance ──
         traits["risk_tolerance"] = (
@@ -312,6 +360,22 @@ class CelebrityPersonaAgent:
         self.past_actions.append(action)
         self.memory.append(f"Day {state.get('day', 0)}: {action.label}")
 
+        # 写入结构化记忆
+        importance = 0.3
+        if action in (PRAction.APOLOGIZE, PRAction.COUNTERATTACK, PRAction.COMEBACK):
+            importance = 0.8
+        elif action in (PRAction.STATEMENT, PRAction.GO_ON_SHOW, PRAction.LAWSUIT):
+            importance = 0.6
+        elif action == PRAction.SILENCE:
+            importance = 0.2
+        self._add_memory(
+            content=f"Day {state.get('day', 0)}: {action.label}",
+            source="crisis_action",
+            importance=importance,
+            tags=[action.value, phase.value],
+            metadata={"approval": state.get("approval_scores", {}).get(self.name, 50)},
+        )
+
         return crisis_action
 
     def _apply_peer_influence(
@@ -319,43 +383,46 @@ class CelebrityPersonaAgent:
         peer_actions: list[CrisisAction],
         candidates: list[tuple[PRAction, float]],
     ) -> None:
-        """根据关系类型和对方动作，调整候选动作权重"""
+        """根据关系类型、关系强度和对方动作，调整候选动作权重"""
         for peer_action in peer_actions:
             rels = self.kg.get_relationship_context(self.name, peer_action.actor)
             if not rels:
                 continue
-            relation_type = rels[0].get("relation_type", "")
+            rel = rels[0]
+            relation_type = rel.get("relation_type", "")
+            # 关系强度：默认 0.5，强关系影响更大
+            strength = rel.get("strength", 0.5)
 
             # 配偶/家人道歉了 → 我也倾向缓和
             if relation_type in ("配偶", "伴侣", "家人", "亲属") and \
                peer_action.action == PRAction.APOLOGIZE:
-                self._boost(candidates, PRAction.APOLOGIZE, 1.5)
-                self._boost(candidates, PRAction.STATEMENT, 1.0)
-                self._boost(candidates, PRAction.SILENCE, 0.8)
+                self._boost(candidates, PRAction.APOLOGIZE, 1.5 * strength)
+                self._boost(candidates, PRAction.STATEMENT, 1.0 * strength)
+                self._boost(candidates, PRAction.SILENCE, 0.8 * strength)
 
             # 配偶/家人反击了 → 我也倾向强硬
             if relation_type in ("配偶", "伴侣", "家人", "亲属") and \
                peer_action.action == PRAction.COUNTERATTACK:
-                self._boost(candidates, PRAction.COUNTERATTACK, 1.2)
-                self._boost(candidates, PRAction.STATEMENT, 1.5)
+                self._boost(candidates, PRAction.COUNTERATTACK, 1.2 * strength)
+                self._boost(candidates, PRAction.STATEMENT, 1.5 * strength)
 
             # 对手反击了 → 我也倾向反击
             if relation_type in ("对手", "竞争对手", "宿敌", "同代竞争") and \
                peer_action.action == PRAction.COUNTERATTACK:
-                self._boost(candidates, PRAction.COUNTERATTACK, 1.5)
-                self._boost(candidates, PRAction.STATEMENT, 1.0)
+                self._boost(candidates, PRAction.COUNTERATTACK, 1.5 * strength)
+                self._boost(candidates, PRAction.STATEMENT, 1.0 * strength)
 
             # 对手道歉了 → 我可以高姿态沉默
             if relation_type in ("对手", "竞争对手", "宿敌", "同代竞争") and \
                peer_action.action == PRAction.APOLOGIZE:
-                self._boost(candidates, PRAction.SILENCE, 1.5)
-                self._boost(candidates, PRAction.PLAY_VICTIM, 1.0)
+                self._boost(candidates, PRAction.SILENCE, 1.5 * strength)
+                self._boost(candidates, PRAction.PLAY_VICTIM, 1.0 * strength)
 
             # 对手卖惨 → 我发声明澄清
             if relation_type in ("对手", "竞争对手", "宿敌", "同代竞争") and \
                peer_action.action == PRAction.PLAY_VICTIM:
-                self._boost(candidates, PRAction.STATEMENT, 2.0)
-                self._boost(candidates, PRAction.COUNTERATTACK, 1.0)
+                self._boost(candidates, PRAction.STATEMENT, 2.0 * strength)
+                self._boost(candidates, PRAction.COUNTERATTACK, 1.0 * strength)
 
             # 被指名了 → 必须回应
             if peer_action.target == self.name:
@@ -365,32 +432,32 @@ class CelebrityPersonaAgent:
             # 绯闻对象道歉了 → 我也倾向隐退/声明
             if relation_type in ("绯闻对象", "绯闻", "传闻") and \
                peer_action.action == PRAction.APOLOGIZE:
-                self._boost(candidates, PRAction.HIDE, 1.5)
-                self._boost(candidates, PRAction.STATEMENT, 1.0)
+                self._boost(candidates, PRAction.HIDE, 1.5 * strength)
+                self._boost(candidates, PRAction.STATEMENT, 1.0 * strength)
 
             # 绯闻对象反击了 → 我倾向声明/沉默
             if relation_type in ("绯闻对象", "绯闻", "传闻") and \
                peer_action.action == PRAction.COUNTERATTACK:
-                self._boost(candidates, PRAction.STATEMENT, 1.5)
-                self._boost(candidates, PRAction.SILENCE, 1.0)
+                self._boost(candidates, PRAction.STATEMENT, 1.5 * strength)
+                self._boost(candidates, PRAction.SILENCE, 1.0 * strength)
 
             # 前配偶道歉了 → 我发声明表明立场
             if relation_type in ("前配偶", "前任") and \
                peer_action.action == PRAction.APOLOGIZE:
-                self._boost(candidates, PRAction.STATEMENT, 1.5)
+                self._boost(candidates, PRAction.STATEMENT, 1.5 * strength)
 
             # 前配偶反击了 → 我倾向起诉/声明
             if relation_type in ("前配偶", "前任") and \
                peer_action.action == PRAction.COUNTERATTACK:
-                self._boost(candidates, PRAction.LAWSUIT, 2.0)
-                self._boost(candidates, PRAction.STATEMENT, 1.5)
+                self._boost(candidates, PRAction.LAWSUIT, 2.0 * strength)
+                self._boost(candidates, PRAction.STATEMENT, 1.5 * strength)
 
     def _apply_audience_influence(
         self,
         audience_reactions: list[AgentMessage],
         candidates: list[tuple[PRAction, float]],
     ) -> None:
-        """根据观众反应调整决策"""
+        """根据观众反应调整决策（含性格交叉和语义分析）"""
         if not audience_reactions:
             return
 
@@ -398,16 +465,40 @@ class CelebrityPersonaAgent:
         neg = sum(1 for r in audience_reactions if r.sentiment == "negative")
         total = max(1, pos + neg)
         neg_ratio = neg / total
+        neuroticism = self.personality.get("neuroticism", 0.5)
 
-        # 观众愤怒为主 → 倾向道歉/沉默
+        # 观众愤怒为主
         if neg_ratio > 0.6:
-            self._boost(candidates, PRAction.APOLOGIZE, 1.5)
-            self._boost(candidates, PRAction.SILENCE, 1.0)
+            if neuroticism > 0.6:
+                # 高神经质 + 负面观众 → 倾向反击而非道歉
+                self._boost(candidates, PRAction.COUNTERATTACK, 1.5)
+                self._boost(candidates, PRAction.STATEMENT, 1.0)
+            else:
+                # 正常 → 倾向道歉/沉默
+                self._boost(candidates, PRAction.APOLOGIZE, 1.5)
+                self._boost(candidates, PRAction.SILENCE, 1.0)
 
         # 观众支持为主 → 倾向声明/反击
         elif neg_ratio < 0.3:
             self._boost(candidates, PRAction.STATEMENT, 1.0)
             self._boost(candidates, PRAction.COUNTERATTACK, 0.8)
+
+        # 意见分歧区间 (0.3-0.6) → 主动表态
+        else:
+            self._boost(candidates, PRAction.STATEMENT, 1.0)
+            self._boost(candidates, PRAction.GO_ON_SHOW, 0.8)
+
+        # 语义分析：从观众评论中提取关键诉求
+        all_content = " ".join(r.content for r in audience_reactions if r.content)
+        if "道歉" in all_content or "认错" in all_content:
+            self._boost(candidates, PRAction.APOLOGIZE, 0.8)
+        if "解释" in all_content or "真相" in all_content or "声明" in all_content:
+            self._boost(candidates, PRAction.STATEMENT, 1.0)
+        if "封杀" in all_content or "滚" in all_content:
+            self._boost(candidates, PRAction.HIDE, 1.0)
+            self._boost(candidates, PRAction.APOLOGIZE, 0.5)
+        if "起诉" in all_content or "律师" in all_content:
+            self._boost(candidates, PRAction.LAWSUIT, 0.8)
 
     @staticmethod
     def _boost(
@@ -441,19 +532,38 @@ class CelebrityPersonaAgent:
         media_savvy = self.personality.get("media_savvy", 0.5)
         controversy_history = self.personality.get("controversy_history", 0.3)
 
-        # 重复动作惩罚：连续做同一动作降低优先级
-        recent = self.past_actions[-3:] if self.past_actions else []
+        # 重复动作惩罚：连续做同一动作降低优先级（含语义相似组）
+        recent = self.past_actions[-5:] if self.past_actions else []
         action_weights: dict[PRAction, float] = {}
+
+        # 语义相似动作组
+        SIMILAR_GROUPS: list[set[PRAction]] = [
+            {PRAction.SILENCE, PRAction.HIDE},
+            {PRAction.STATEMENT, PRAction.GO_ON_SHOW},
+            {PRAction.APOLOGIZE, PRAction.CHARITY},
+            {PRAction.COUNTERATTACK, PRAction.LAWSUIT},
+        ]
 
         for action in PRAction:
             weight = 1.0
 
-            # 重复降权
+            # 直接重复惩罚
             repeat_count = recent.count(action)
-            if repeat_count >= 2:
+            if repeat_count >= 3:
+                weight *= 0.1
+            elif repeat_count >= 2:
                 weight *= 0.2
             elif repeat_count == 1:
                 weight *= 0.5
+
+            # 语义相似组惩罚
+            for group in SIMILAR_GROUPS:
+                if action in group:
+                    group_repeats = sum(1 for a in recent if a in group)
+                    if group_repeats >= 3:
+                        weight *= 0.3
+                    elif group_repeats >= 2:
+                        weight *= 0.6
 
             action_weights[action] = weight
 
@@ -544,6 +654,49 @@ class CelebrityPersonaAgent:
             self._boost(candidates, PRAction.APOLOGIZE, 1.0)
             self._boost(candidates, PRAction.COUNTERATTACK, -1.5)
 
+        # ── 八卦类型修正 ──
+        if self.gossip_type == GossipType.CHEATING:
+            # 出轨事件：加害者倾向道歉隐退，受害者倾向声明起诉
+            if self.crisis_role == CrisisRole.PERPETRATOR:
+                self._boost(candidates, PRAction.APOLOGIZE, 2.0)
+                self._boost(candidates, PRAction.HIDE, 1.5)
+                self._boost(candidates, PRAction.COUNTERATTACK, -3.0)
+            elif self.crisis_role == CrisisRole.VICTIM:
+                self._boost(candidates, PRAction.STATEMENT, 2.0)
+                self._boost(candidates, PRAction.LAWSUIT, 1.5)
+        elif self.gossip_type in (GossipType.DRUGS, GossipType.TAX_EVASION):
+            # 涉毒/偷税：几乎只能隐退+公益，禁止反击
+            self._boost(candidates, PRAction.HIDE, 2.5)
+            self._boost(candidates, PRAction.CHARITY, 1.5)
+            self._boost(candidates, PRAction.COUNTERATTACK, -5.0)
+            self._boost(candidates, PRAction.PLAY_VICTIM, -3.0)
+            self._boost(candidates, PRAction.COMEBACK, -4.0)
+        elif self.gossip_type == GossipType.DIVORCE:
+            # 离婚事件：倾向声明，各方相对中立
+            self._boost(candidates, PRAction.STATEMENT, 1.5)
+            self._boost(candidates, PRAction.GO_ON_SHOW, 1.0)
+        elif self.gossip_type == GossipType.SCANDAL:
+            # 丑闻：倾向声明+上节目澄清
+            self._boost(candidates, PRAction.STATEMENT, 1.5)
+            self._boost(candidates, PRAction.GO_ON_SHOW, 1.0)
+            if self.crisis_role == CrisisRole.PERPETRATOR:
+                self._boost(candidates, PRAction.COUNTERATTACK, -2.0)
+
+        # ── 记忆驱动的决策修正 ──
+        silence_days = self._get_consecutive_silence_days()
+        if silence_days >= 3:
+            # 连续沉默3天+，紧迫感提升，倾向主动出击
+            self._boost(candidates, PRAction.STATEMENT, 2.0 + silence_days * 0.3)
+            self._boost(candidates, PRAction.APOLOGIZE, 1.5)
+            self._boost(candidates, PRAction.SILENCE, -2.0)
+
+        apology_count = self._get_apology_count()
+        if apology_count >= 2 and approval < 40:
+            # 多次道歉无效，切换策略
+            self._boost(candidates, PRAction.APOLOGIZE, -2.0)
+            self._boost(candidates, PRAction.HIDE, 2.0)
+            self._boost(candidates, PRAction.CHARITY, 1.5)
+
         # 高热度 → 必须有动作
         if heat > 70 and approval < 50:
             candidates.append((PRAction.STATEMENT, 3.5))
@@ -560,6 +713,23 @@ class CelebrityPersonaAgent:
         # 观众影响
         if audience_reactions:
             self._apply_audience_influence(audience_reactions, candidates)
+
+        # 传播触发：如果 memory 中有 PROPAGATION 标记，提高回应倾向
+        propagation_triggers = [
+            m for m in self.memory
+            if isinstance(m, str) and m.startswith("PROPAGATION:")
+        ]
+        if propagation_triggers:
+            # 最近一次传播触发
+            latest_trigger = propagation_triggers[-1]
+            self._boost(candidates, PRAction.STATEMENT, 2.0)
+            if "道歉" in latest_trigger:
+                self._boost(candidates, PRAction.APOLOGIZE, 1.5)
+            elif "反击" in latest_trigger:
+                self._boost(candidates, PRAction.COUNTERATTACK, 1.5)
+            elif "卖惨" in latest_trigger:
+                self._boost(candidates, PRAction.STATEMENT, 1.5)
+                self._boost(candidates, PRAction.PLAY_VICTIM, 1.0)
 
         # 应用权重并选择
         weighted = []
@@ -598,10 +768,10 @@ class CelebrityPersonaAgent:
             content = response.content if hasattr(response, 'content') else str(response)
             logger.info(f"[LLM] {self.name} LLM 响应: {content[:100]}")
 
-            # 解析 LLM 返回的动作
+            # 解析 LLM 返回的动作（使用正则匹配完整单词）
             action_map = {a.value: a for a in PRAction}
             for value, action in action_map.items():
-                if value in content.lower():
+                if re.search(r'\b' + re.escape(value) + r'\b', content.lower()):
                     logger.info(f"[LLM] {self.name} 选择动作: {action.label}")
                     return action
 
@@ -659,17 +829,86 @@ class CelebrityPersonaAgent:
         if self.gossip_type:
             role_context += f"\n这是一起{self.gossip_type.label}事件。"
 
+        # 图谱上下文
+        graph_context = ""
+        try:
+            graph_context = self.kg.to_context_string(self.name, max_chars=500)
+            if graph_context:
+                graph_context = f"\n你的社会关系网络：\n{graph_context}\n"
+        except Exception:
+            pass
+
+        # 历史事件摘要
+        timeline_summary = ""
+        try:
+            events = self.kg.get_person_timeline(self.name)
+            important_events = sorted(
+                events, key=lambda e: e.get("importance", 0.3), reverse=True
+            )[:3]
+            if important_events:
+                lines = [f"  - {e.get('title', '')} ({e.get('date', '')})" for e in important_events]
+                timeline_summary = "\n你的重要历史事件：\n" + "\n".join(lines) + "\n"
+        except Exception:
+            pass
+
+        # 记忆摘要
+        memory_summary = ""
+        recent_memories = self._get_recent_memories(n=5)
+        if recent_memories:
+            mem_lines = [f"  - {m.content}" for m in recent_memories]
+            memory_summary = "\n你最近的记忆：\n" + "\n".join(mem_lines) + "\n"
+
+        # 性格自然语言描述
+        personality_desc = self._describe_personality()
+
         return (
             f"你是明星{self.name}，正面临公关危机。\n"
             f"{role_context}\n"
             f"当前第{day}天，阶段：{phase.label}，"
             f"你的口碑分：{approval:.0f}/100，舆情热度：{heat:.0f}/100。\n"
-            f"你的性格特质：{self.personality}\n"
+            f"你的性格：{personality_desc}\n"
             f"最近动作：{recent}\n"
+            f"{graph_context}{timeline_summary}{memory_summary}"
             f"{peer_info}{audience_info}"
             f"可选动作：{actions_str}\n"
             f"请从可选动作中选择一个，只回复动作的英文value。"
         )
+
+    def _describe_personality(self) -> str:
+        """将性格数值转为自然语言描述"""
+        p = self.personality
+        parts = []
+
+        o = p.get("openness", 0.5)
+        c = p.get("conscientiousness", 0.5)
+        e = p.get("extraversion", 0.5)
+        a = p.get("agreeableness", 0.5)
+        n = p.get("neuroticism", 0.5)
+
+        if e > 0.7: parts.append("外向活泼，善于社交")
+        elif e < 0.3: parts.append("内向低调，不善社交")
+
+        if n > 0.7: parts.append("情绪波动大，容易冲动")
+        elif n < 0.3: parts.append("情绪稳定，冷静理性")
+
+        if a > 0.7: parts.append("温和随和，善于合作")
+        elif a < 0.3: parts.append("强硬好斗，不易妥协")
+
+        if c > 0.7: parts.append("严谨负责，做事有计划")
+        elif c < 0.3: parts.append("随性散漫")
+
+        risk = p.get("risk_tolerance", 0.5)
+        if risk > 0.7: parts.append("敢于冒险")
+        elif risk < 0.3: parts.append("谨慎保守")
+
+        vis = p.get("public_visibility", 0.5)
+        if vis > 0.8: parts.append("顶流明星，公众关注度极高")
+        elif vis < 0.3: parts.append("知名度一般")
+
+        controversy = p.get("controversy_history", 0.3)
+        if controversy > 0.7: parts.append("过往争议较多")
+
+        return "；".join(parts) if parts else "性格中等，无明显特征"
 
     def get_action_description(self, action: PRAction) -> str:
         """获取动作的中文描述"""
@@ -678,8 +917,60 @@ class CelebrityPersonaAgent:
     def reset(self):
         self.memory.clear()
         self.past_actions.clear()
+        self._memory_store.clear_agent(self.name)
         self.crisis_role = CrisisRole.BYSTANDER
         self.gossip_type = None
+
+    # ── 记忆管理 ──
+
+    def _add_memory(
+        self,
+        content: str,
+        source: str = "action",
+        importance: float = 0.5,
+        tags: list[str] | None = None,
+        metadata: dict | None = None,
+    ) -> None:
+        """写入结构化记忆"""
+        from datetime import datetime
+        self._memory_counter += 1
+        entry = MemoryEntry(
+            id=f"{self.name}_{self._memory_counter}",
+            agent_id=self.name,
+            timestamp=datetime.now(),
+            content=content,
+            source=source,
+            importance=importance,
+            tags=tags or [],
+            metadata=metadata or {},
+        )
+        self._memory_store.add(entry)
+        # 同步写入简易 memory（保留兼容性）
+        self.memory.append(content)
+
+    def _get_recent_memories(self, n: int = 5) -> list[MemoryEntry]:
+        """获取最近的记忆"""
+        return self._memory_store.get_recent(self.name, n=n)
+
+    def _get_important_memories(self, n: int = 5) -> list[MemoryEntry]:
+        """获取最重要的记忆"""
+        return self._memory_store.get_important(self.name, n=n)
+
+    def _get_consecutive_silence_days(self) -> int:
+        """计算连续沉默天数"""
+        recent = self._get_recent_memories(n=10)
+        count = 0
+        for m in reversed(recent):
+            if "SILENCE" in m.content or "HIDE" in m.content:
+                count += 1
+            else:
+                break
+        return count
+
+    def _get_apology_count(self, n: int = 5) -> int:
+        """获取最近 N 条记忆中道歉的次数"""
+        recent = self._get_recent_memories(n=n)
+        return sum(1 for m in recent if "APOLOGIZE" in m.content or "道歉" in m.content)
 
     # ── 自由互动模式 ──
 
@@ -722,6 +1013,23 @@ class CelebrityPersonaAgent:
 
         self.past_actions.append(PRAction.SILENCE)
         self.memory.append(f"Day {state.get('day', 0)}: [自由]{free_action.label}")
+
+        # 写入结构化记忆
+        importance = 0.4
+        if free_action in (FreeAction.CRITICIZE, FreeAction.RUMOR, FreeAction.ANNOUNCE):
+            importance = 0.7
+        elif free_action in (FreeAction.SUPPORT, FreeAction.MEDIATE):
+            importance = 0.6
+        elif free_action == FreeAction.IGNORE:
+            importance = 0.2
+        self._add_memory(
+            content=f"Day {state.get('day', 0)}: [自由]{free_action.label}",
+            source="free_action",
+            importance=importance,
+            tags=[free_action.value],
+            metadata={"approval": state.get("approval_scores", {}).get(self.name, 50)},
+        )
+
         return crisis_action
 
     def _rule_decide_free(
@@ -821,11 +1129,37 @@ class CelebrityPersonaAgent:
                     lines.append(f"  {pa.actor}(关系:{rel_type})做了:{action_text}")
                 peer_info = "\n其他人今天的动作：\n" + "\n".join(lines)
 
+            # 角色上下文
+            role_context = ""
+            if self.crisis_role == CrisisRole.PERPETRATOR:
+                role_context = "你是这场危机的主要过错方。"
+            elif self.crisis_role == CrisisRole.VICTIM:
+                role_context = "你是这场危机的受害者。"
+            elif self.crisis_role == CrisisRole.ACCOMPLICE:
+                role_context = "你是这场危机的关联当事人。"
+            if self.gossip_type:
+                role_context += f" 这是一起{self.gossip_type.label}事件。"
+
+            approval = state.get("approval_scores", {}).get(self.name, 50.0)
+            heat = state.get("heat_index", 50.0)
+            personality_desc = self._describe_personality()
+            recent = ", ".join(a.label for a in self.past_actions[-3:]) or "无"
+
+            # 观众反应
+            audience_info = ""
+            if audience_reactions:
+                pos = sum(1 for r in audience_reactions if r.sentiment == "positive")
+                neg = sum(1 for r in audience_reactions if r.sentiment == "negative")
+                audience_info = f"\n观众反应：正面{pos}条，负面{neg}条。\n"
+
             prompt = (
                 f"你是明星{self.name}，处于自由互动模式。\n"
-                f"第{state.get('day', 0)}天。\n"
-                f"你的性格：{self.personality}\n"
-                f"{peer_info}\n"
+                f"{role_context}\n"
+                f"第{state.get('day', 0)}天，口碑分：{approval:.0f}/100，"
+                f"舆情热度：{heat:.0f}/100。\n"
+                f"你的性格：{personality_desc}\n"
+                f"最近动作：{recent}\n"
+                f"{peer_info}{audience_info}"
                 f"可选动作：{actions_str}\n"
                 f"请只回复动作的英文value。"
             )
@@ -835,7 +1169,7 @@ class CelebrityPersonaAgent:
 
             action_map = {a.value: a for a in FreeAction}
             for value, action in action_map.items():
-                if value in content.lower():
+                if re.search(r'\b' + re.escape(value) + r'\b', content.lower()):
                     return action
 
             return self._rule_decide_free(state, peer_actions, audience_reactions)

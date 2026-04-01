@@ -137,6 +137,47 @@ class InformationVacuumDetector:
             "rumor_count_delta": 1,
         }
 
+    def try_debunk(
+        self,
+        person: str,
+        action_type: str,
+        day: int,
+    ) -> list[dict]:
+        """尝试辟谣已生成的谣言
+
+        当 Agent 执行 STATEMENT/LAWSUIT 等主动回应动作时调用。
+        辟谣概率取决于动作类型：STATEMENT 40%, LAWSUIT 60%, GO_ON_SHOW 50%
+
+        Args:
+            person: 辟谣的人
+            action_type: 动作类型（PRAction.value）
+            day: 当前天数
+
+        Returns:
+            被辟谣的谣言列表
+        """
+        debunk_chances = {
+            "statement": 0.4,
+            "go_on_show": 0.5,
+            "lawsuit": 0.6,
+            "counterattack": 0.3,
+        }
+        chance = debunk_chances.get(action_type, 0.2)
+
+        debunked = []
+        for rumor in self.generated_rumors:
+            if rumor.get("debunked"):
+                continue
+            if rumor.get("person") != person:
+                continue
+            if random.random() < chance:
+                rumor["debunked"] = True
+                rumor["debunked_day"] = day
+                rumor["severity"] = max(0.05, rumor["severity"] * 0.2)
+                debunked.append(rumor)
+
+        return debunked
+
     def get_silence_status(self) -> dict[str, int]:
         return dict(self.silence_days)
 
