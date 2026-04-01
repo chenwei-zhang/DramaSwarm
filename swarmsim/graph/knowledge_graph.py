@@ -149,15 +149,30 @@ class KnowledgeGraph:
         if not name:
             return
 
-        # 创建 Celebrity 节点
-        self._add_celebrity_node(name, {
+        # 创建 Celebrity 节点 — 保存全部属性
+        node_attrs = {
             "english_name": celebrity.get("english_name", ""),
+            "birth_date": celebrity.get("birth_date"),
+            "birth_place": celebrity.get("birth_place", ""),
+            "age": celebrity.get("age", 0),
+            "zodiac": celebrity.get("zodiac", ""),
+            "constellation": celebrity.get("constellation", ""),
             "occupation": celebrity.get("occupation", []),
             "company": celebrity.get("company", ""),
+            "agency": celebrity.get("agency", ""),
+            "height": celebrity.get("height", ""),
+            "weight": celebrity.get("weight", ""),
+            "blood_type": celebrity.get("blood_type", ""),
             "biography": celebrity.get("biography", ""),
+            "education": celebrity.get("education", ""),
+            "alma_mater": celebrity.get("alma_mater", ""),
             "famous_works": celebrity.get("famous_works", []),
+            "weibo_id": celebrity.get("weibo_id", ""),
             "weibo_followers": celebrity.get("weibo_followers", 0),
-        })
+            "avatar_url": celebrity.get("avatar_url", ""),
+            "popularity_score": celebrity.get("popularity_score", 0.0),
+        }
+        self._add_celebrity_node(name, node_attrs)
         stats["celebrities"] += 1
 
         # 创建 relationship 边

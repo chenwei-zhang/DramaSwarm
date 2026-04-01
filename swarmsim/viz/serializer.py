@@ -58,8 +58,18 @@ def graph_to_d3(
             node["name"] = data.get("name", "")
             node["occupation"] = data.get("occupation", [])
             node["company"] = data.get("company", "")
+            node["biography"] = data.get("biography", "")
             node["famous_works"] = data.get("famous_works", [])
             node["weibo_followers"] = data.get("weibo_followers", 0)
+            node["birth_date"] = data.get("birth_date", "")
+            node["birth_place"] = data.get("birth_place", "")
+            node["constellation"] = data.get("constellation", "")
+            node["height"] = data.get("height", "")
+            node["education"] = data.get("education", "")
+            node["alma_mater"] = data.get("alma_mater", "")
+            node["avatar_url"] = data.get("avatar_url", "")
+            node["weibo_id"] = data.get("weibo_id", "")
+            node["popularity_score"] = data.get("popularity_score", 0.0)
         elif node_type == "gossip":
             node["title"] = data.get("title", "")
             node["gossip_type"] = data.get("gossip_type", "other")
@@ -169,11 +179,25 @@ def person_detail(kg: KnowledgeGraph, name: str) -> dict:
 
     result = {
         "name": data.get("name", name),
+        "english_name": data.get("english_name", ""),
+        "birth_date": data.get("birth_date", ""),
+        "birth_place": data.get("birth_place", ""),
+        "constellation": data.get("constellation", ""),
+        "zodiac": data.get("zodiac", ""),
+        "height": data.get("height", ""),
+        "weight": data.get("weight", ""),
+        "blood_type": data.get("blood_type", ""),
         "occupation": data.get("occupation", []),
         "company": data.get("company", ""),
+        "agency": data.get("agency", ""),
         "biography": data.get("biography", ""),
+        "education": data.get("education", ""),
+        "alma_mater": data.get("alma_mater", ""),
         "famous_works": data.get("famous_works", []),
+        "weibo_id": data.get("weibo_id", ""),
         "weibo_followers": data.get("weibo_followers", 0),
+        "avatar_url": data.get("avatar_url", ""),
+        "popularity_score": data.get("popularity_score", 0.0),
         "neighbors": kg.get_social_neighborhood(name, max_depth=1),
         "events": kg.get_related_events(name),
     }
