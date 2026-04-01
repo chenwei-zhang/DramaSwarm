@@ -1663,12 +1663,31 @@ async function loadDetail(d) {
         </div>
       </div>`;
 
-    if (data.company) html += `<div style="margin-bottom:8px;font-size:12px;color:#8899aa">公司: ${data.company}</div>`;
+    // 基本信息
+    const infoItems = [];
+    if (data.birth_date) infoItems.push(`生日: ${data.birth_date}`);
+    if (data.birth_place) infoItems.push(`出生地: ${data.birth_place}`);
+    if (data.constellation) infoItems.push(`星座: ${data.constellation}`);
+    if (data.height) infoItems.push(`身高: ${data.height}`);
+    if (data.education) infoItems.push(`学历: ${data.education}`);
+    if (data.alma_mater) infoItems.push(`院校: ${data.alma_mater}`);
+    if (data.company) infoItems.push(`公司: ${data.company}`);
     if (data.weibo_followers) {
       const f = data.weibo_followers;
       const text = f >= 1e8 ? (f/1e8).toFixed(1) + '亿' : f >= 1e4 ? (f/1e4).toFixed(0) + '万' : f;
-      html += `<div style="margin-bottom:12px;font-size:12px;color:#8899aa">微博粉丝: ${text}</div>`;
+      infoItems.push(`微博粉丝: ${text}`);
     }
+    if (infoItems.length) {
+      html += `<div style="margin-bottom:10px;font-size:11px;color:#8899aa;line-height:1.8">${infoItems.join(' &nbsp;|&nbsp; ')}</div>`;
+    }
+
+    // 简介
+    if (data.biography) {
+      const shortBio = data.biography.length > 200 ? data.biography.substring(0, 200) + '...' : data.biography;
+      html += `<div style="margin-bottom:12px;font-size:11px;color:#a0aab4;line-height:1.7;background:#1a2a3a;padding:8px;border-radius:4px">${shortBio}</div>`;
+    }
+
+    // 代表作品
     if (data.famous_works && data.famous_works.length) {
       html += `<div class="detail-section"><h4>代表作品</h4><div>${data.famous_works.slice(0,8).map(w => `<span class="detail-tag">${w}</span>`).join('')}</div></div>`;
     }
@@ -1677,16 +1696,18 @@ async function loadDetail(d) {
     if (data.relationships && data.relationships.length) {
       html += `<div class="detail-section"><h4>关系 (${data.relationships.length})</h4>`;
       data.relationships.forEach(r => {
-        const color = RELATION_COLORS[r.relation_type] || '#4a6a8a';
+        const relType = r.relation_type || '';
+        const relColor = RELATION_COLORS ? (RELATION_COLORS[relType] || '#4a6a8a') : '#4a6a8a';
+        const rName = r.name || r.person_b || '';
         const strPct = Math.round((r.strength || 0.5) * 100);
-        const confPct = Math.round((r.confidence || 0.5) * 100);
+        const desc = r.description || '';
         html += `
-          <div class="rel-item" onclick="navigateToNode('${r.name}')">
-            <span class="rel-type" style="background:${color}">${r.relation_type}</span>
-            <span class="rel-name">${r.name}</span>
+          <div class="rel-item" onclick="navigateToNode('${rName}')">
+            <span class="rel-type" style="background:${relColor}">${relType}</span>
+            <span class="rel-name">${rName}</span>
+            ${desc ? `<span style="font-size:10px;color:#667788;margin-left:4px">${desc.substring(0,30)}</span>` : ''}
             <div class="rel-bars">
-              <div class="rel-bar"><div class="fill" style="width:${strPct}%;background:${color}"></div></div>
-              <div class="rel-bar"><div class="fill" style="width:${confPct}%;background:#4FC3F7"></div></div>
+              <div class="rel-bar"><div class="fill" style="width:${strPct}%;background:${relColor}"></div></div>
             </div>
           </div>`;
       });
