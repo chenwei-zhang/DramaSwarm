@@ -46,7 +46,17 @@
     "updated_at": "2026-04-01T08:33:09.499670"
   },
   "gossips": [],
-  "relationships": [],
+  "relationships": [
+    {
+      "person_a": "赵丽颖",
+      "person_b": "冯绍峰",
+      "relation_type": "前配偶",
+      "is_current": false,
+      "description": "2018年结婚，2021年离婚",
+      "confidence": 1.0,
+      "strength": 0.7
+    }
+  ],
   "social_media_posts": [
     {
       "id": "Qxo6sFynK",
@@ -381,7 +391,7 @@
     "total_posts": 19,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 0,
+    "total_relationships": 1,
     "total_gossips": 0
   }
 }

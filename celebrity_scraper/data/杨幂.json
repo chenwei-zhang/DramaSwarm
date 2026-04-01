@@ -44,7 +44,17 @@
     "updated_at": "2026-04-01T08:32:37.375891"
   },
   "gossips": [],
-  "relationships": [],
+  "relationships": [
+    {
+      "person_a": "杨幂",
+      "person_b": "刘恺威",
+      "relation_type": "前配偶",
+      "is_current": false,
+      "description": "2014年结婚，2018年离婚",
+      "confidence": 1.0,
+      "strength": 0.7
+    }
+  ],
   "social_media_posts": [
     {
       "id": "QyOU69wKQ",
@@ -554,7 +564,7 @@
     "total_posts": 30,
     "total_comments": 0,
     "total_news": 0,
-    "total_relationships": 0,
+    "total_relationships": 1,
     "total_gossips": 0
   }
 }

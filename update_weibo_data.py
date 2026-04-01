@@ -35,6 +35,29 @@ TOP_CELEBRITIES = [
     "唐嫣", "罗晋", "李小璐", "贾乃亮", "PG One",
 ]
 
+# 已知名人之间的确定关系（人工验证）
+KNOWN_RELATIONSHIPS = [
+    # 配偶
+    {"person_a": "唐嫣", "person_b": "罗晋", "relation_type": "配偶",
+     "is_current": True, "description": "2018年结婚", "confidence": 1.0, "strength": 0.9},
+    # 前配偶
+    {"person_a": "李小璐", "person_b": "贾乃亮", "relation_type": "前配偶",
+     "is_current": False, "description": "2012年结婚，2019年离婚", "confidence": 1.0, "strength": 0.7},
+    {"person_a": "杨幂", "person_b": "刘恺威", "relation_type": "前配偶",
+     "is_current": False, "description": "2014年结婚，2018年离婚", "confidence": 1.0, "strength": 0.7},
+    {"person_a": "赵丽颖", "person_b": "冯绍峰", "relation_type": "前配偶",
+     "is_current": False, "description": "2018年结婚，2021年离婚", "confidence": 1.0, "strength": 0.7},
+    # 绯闻
+    {"person_a": "PG One", "person_b": "李小璐", "relation_type": "绯闻",
+     "is_current": False, "description": "2017年夜宿门事件", "confidence": 0.95, "strength": 0.8},
+    # 对手
+    {"person_a": "PG One", "person_b": "贾乃亮", "relation_type": "对手",
+     "is_current": True, "description": "夜宿门导致贾乃亮婚姻破裂", "confidence": 0.95, "strength": 0.8},
+    # 搭档
+    {"person_a": "肖战", "person_b": "王一博", "relation_type": "搭档",
+     "is_current": True, "description": "《陈情令》共同主演", "confidence": 1.0, "strength": 0.6},
+]
+
 
 def load_uid_map() -> dict:
     map_path = Path(__file__).parent / "celebrity_scraper" / "weibo_uid_map.json"
@@ -375,6 +398,134 @@ def _parse_controversies(soup, name: str, result: dict):
 
 
 # ============================================================
+# 跨名人关系提取（简介 + 八卦 + 静态映射）
+# ============================================================
+
+def extract_cross_celebrity_relations(output_dir: Path, all_names: list[str]):
+    """批量运行后，从简介/八卦中发现跨名人关系，并注入静态关系"""
+    name_set = set(all_names)
+
+    # 收集所有数据
+    all_data: dict[str, dict] = {}
+    for f in sorted(output_dir.glob("*.json")):
+        if f.name == "summary.json":
+            continue
+        d = json.load(open(f, encoding='utf-8'))
+        name = d['celebrity']['name']
+        all_data[name] = d
+
+    # --- 第一轮：从简介中检测其他名人提及，推断关系类型 ---
+    context_keywords = {
+        '配偶': ['结婚', '婚礼', '丈夫', '妻子', '老公', '老婆', '官宣恋情'],
+        '前配偶': ['离婚', '前夫', '前妻', '协议离婚', '官宣离婚'],
+        '绯闻': ['绯闻', '夜宿', '出轨', '亲密', '恋情曝光', '疑似恋情'],
+        '搭档': ['合作', '主演', '搭档', '共同出演', '联袂', '携手'],
+        '对手': ['矛盾', '不和', '互撕', '冲突', '争议', '封杀'],
+    }
+
+    for name, data in all_data.items():
+        bio = data['celebrity'].get('biography', '')
+        existing_partners = {r['person_b'] for r in data.get('relationships', [])}
+
+        for other_name in name_set:
+            if other_name == name or other_name in existing_partners:
+                continue
+            if other_name not in bio:
+                continue
+
+            # 找到提及位置，分析上下文
+            idx = bio.find(other_name)
+            ctx_before = bio[max(0, idx - 30):idx]
+            ctx_after = bio[idx:idx + len(other_name) + 30]
+
+            rel_type = '关联'
+            confidence = 0.5
+            for rtype, keywords in context_keywords.items():
+                if any(k in ctx_before or k in ctx_after for k in keywords):
+                    rel_type = rtype
+                    confidence = 0.75
+                    break
+
+            if rel_type != '关联' or confidence >= 0.5:
+                data['relationships'].append({
+                    'person_a': name, 'person_b': other_name,
+                    'relation_type': rel_type,
+                    'is_current': rel_type not in ('前配偶',),
+                    'description': f'简介提及: ...{ctx_before[-15:]}{other_name}{ctx_after[len(other_name):15]}...',
+                    'confidence': confidence,
+                    'strength': 0.6 if rel_type != '关联' else 0.3,
+                })
+
+    # --- 第二轮：从八卦事件中发现关系 ---
+    for name, data in all_data.items():
+        for gossip in data.get('gossips', []):
+            involved = gossip.get('involved_celebrities', [])
+            for other in involved:
+                if other == name or other not in name_set:
+                    continue
+                existing_partners = {r['person_b'] for r in data['relationships']}
+                if other in existing_partners:
+                    continue
+                gossip_type = gossip.get('gossip_type', 'other')
+                rel_map = {
+                    'cheating': ('绯闻', 0.85),
+                    'divorce': ('前配偶', 0.8),
+                    'romance': ('绯闻', 0.7),
+                    'controversy': ('对手', 0.7),
+                }
+                rel_type, conf = rel_map.get(gossip_type, ('关联', 0.5))
+                data['relationships'].append({
+                    'person_a': name, 'person_b': other,
+                    'relation_type': rel_type,
+                    'is_current': rel_type not in ('前配偶',),
+                    'description': f"八卦: {gossip.get('title', '')}",
+                    'confidence': conf,
+                    'strength': 0.7,
+                })
+
+    # --- 第三轮：注入静态已知关系 ---
+    for rel in KNOWN_RELATIONSHIPS:
+        a, b = rel['person_a'], rel['person_b']
+        if a not in all_data:
+            continue
+        data = all_data[a]
+        existing_partners = {r['person_b'] for r in data['relationships']}
+        if b in existing_partners:
+            # 用静态数据覆盖/增强已有条目
+            for r in data['relationships']:
+                if r['person_b'] == b:
+                    r['relation_type'] = rel['relation_type']
+                    r['is_current'] = rel.get('is_current', True)
+                    r['description'] = rel.get('description', '')
+                    r['confidence'] = rel.get('confidence', 1.0)
+                    r['strength'] = rel.get('strength', 0.7)
+                    break
+        else:
+            data['relationships'].append({
+                'person_a': a, 'person_b': b,
+                'relation_type': rel['relation_type'],
+                'is_current': rel.get('is_current', True),
+                'description': rel.get('description', ''),
+                'confidence': rel.get('confidence', 1.0),
+                'strength': rel.get('strength', 0.7),
+            })
+
+    # --- 保存所有文件 ---
+    total_rels = 0
+    for name, data in all_data.items():
+        n = len(data['relationships'])
+        data['statistics']['total_relationships'] = n
+        total_rels += n
+
+        safe_name = name.replace("/", "_").replace("\\", "_").replace(":", "_")
+        fpath = output_dir / f"{safe_name}.json"
+        with open(fpath, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+    print(f"\n跨名人关系提取完成: 共 {total_rels} 条关系")
+
+
+# ============================================================
 # 主流程
 # ============================================================
 
@@ -541,6 +692,11 @@ def main():
             time.sleep(delay)
 
     save_uid_map(uid_map)
+
+    # 跨名人关系提取
+    print(f"\n{'='*60}")
+    print("跨名人关系提取...")
+    extract_cross_celebrity_relations(output_dir, names)
 
     summary = {
         "scraped_at": datetime.now().isoformat(),
