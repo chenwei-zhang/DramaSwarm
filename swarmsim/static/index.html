@@ -253,7 +253,7 @@ body {
 
 #crisis-chart {
   width: 100%;
-  height: 240px;
+  height: 150px;
   background: var(--bg-deep);
   border-radius: 8px;
   border: 1px solid var(--border);
@@ -337,12 +337,28 @@ body {
 
 /* ── Agent Interaction Panel ── */
 .interaction-flow {
-  max-height: 260px;
+  max-height: calc(100vh - 520px);
+  min-height: 200px;
   overflow-y: auto;
   padding: 4px 0;
 }
 .interaction-flow::-webkit-scrollbar { width: 4px; }
 .interaction-flow::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.day-section { margin-bottom: 4px; }
+.day-section-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 8px; cursor: pointer; user-select: none;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px;
+  font-size: 12px; font-weight: 600; transition: background 0.2s, border-color 0.2s;
+}
+.day-section-header:hover { background: rgba(79,195,247,0.08); border-color: var(--accent-blue); }
+.day-section-header .toggle-icon { color: var(--accent-blue); font-size: 10px; transition: transform 0.2s; display: inline-block; width: 14px; text-align: center; }
+.day-section.collapsed .toggle-icon { transform: rotate(-90deg); }
+.day-section-header .day-title { color: var(--text-primary); }
+.day-section-header .day-summary { color: var(--text-muted); font-size: 10px; font-weight: 400; margin-left: auto; }
+.day-section-body { padding: 4px 0 0; }
+.day-section.collapsed .day-section-body { display: none; }
 
 .interaction-card {
   background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26,42,58,0.6) 100%);
@@ -1220,9 +1236,9 @@ body.loaded #right-sidebar { transform: translateX(0); }
         <button class="btn danger" id="crisis-stop-btn" style="display:none;">停止</button>
         <button class="btn" id="crisis-outcome-btn">查看结果</button>
         <div class="speed-control">
-          <label style="font-size:10px;color:#8899aa;white-space:nowrap;">速度</label>
+          <label style="font-size:10px;color:#8899aa;white-space:nowrap;">间隔</label>
           <input type="range" id="crisis-speed" min="0.3" max="3.0" step="0.1" value="1.0">
-          <span id="crisis-speed-val" style="font-size:10px;color:#8899aa;width:24px;">1s</span>
+          <span id="crisis-speed-val" style="font-size:10px;color:#8899aa;width:28px;">1.0s</span>
         </div>
         <span id="crisis-status" style="font-size:12px;color:#8899aa;"></span>
       </div>
@@ -2270,6 +2286,7 @@ async function runCrisisSim() {
 
 async function resetCrisisSim() {
   _runningSim = false;
+  _lastInteractionDay = -1;
   await apiPost('/api/crisis/reset', {});
   crisisHistory = [];
   _prevTrendingMap = {};
@@ -2295,29 +2312,55 @@ async function resetCrisisSim() {
 
 // ── Agent Interaction Visualization ──
 
+let _lastInteractionDay = -1;
+
 function showDayInteraction(state) {
   const panel = document.getElementById('crisis-interactions');
   if (!panel) return;
 
+  const day = state.day;
   const actions = state.agent_actions || [];
   const reactions = state.audience_reactions || [];
   const persons = Object.keys(state.approval_scores || {});
   const interventions = state.active_interventions || [];
 
   document.getElementById('interaction-day-label').textContent =
-    `— 第${state.day}天 ${state.phase_label || ''}`;
+    `— 第${day}天 ${state.phase_label || ''}`;
 
-  if (!actions.length && !reactions.length) {
-    panel.innerHTML = '<div style="color:#556677;font-size:11px;">本日无动作</div>';
+  // Remove placeholder on first call
+  if (_lastInteractionDay < 0) {
+    panel.innerHTML = '';
+  }
+
+  // Auto-collapse previous day section
+  if (_lastInteractionDay >= 0) {
+    const prevSection = document.getElementById('day-section-' + _lastInteractionDay);
+    if (prevSection) prevSection.classList.add('collapsed');
+  }
+
+  // Skip duplicate days
+  const existingSection = document.getElementById('day-section-' + day);
+  if (existingSection) {
+    existingSection.classList.remove('collapsed');
+    _lastInteractionDay = day;
+    panel.scrollTop = panel.scrollHeight;
     return;
   }
 
-  let html = '';
+  // Build summary for header
+  const actionSummary = actions.map(a => a.action_label || a.action).join(', ');
+  const reactionCount = reactions.length;
+  let summaryParts = [];
+  if (actions.length) summaryParts.push(`${actions.length}个动作`);
+  if (reactionCount) summaryParts.push(`${reactionCount}条评论`);
+  const summary = summaryParts.length ? summaryParts.join(' · ') : '无动作';
+
+  let bodyHtml = '';
 
   // Interventions
   if (interventions.length) {
     interventions.forEach(iv => {
-      html += `<div class="interaction-card" style="border-left:3px solid #FF7043;">
+      bodyHtml += `<div class="interaction-card" style="border-left:3px solid #FF7043;">
         <div class="actor" style="color:#FF7043;">🎯 干预: ${iv.description || ''}</div>
       </div>`;
     });
@@ -2329,13 +2372,13 @@ function showDayInteraction(state) {
     const color = PERSON_COLORS[personIdx >= 0 ? personIdx % PERSON_COLORS.length : idx];
     const isTriggered = !!a.triggered_by;
 
-    html += `<div class="interaction-card${isTriggered ? ' triggered' : ''}" style="animation-delay:${idx * 100}ms">`;
-    html += `<div class="actor" style="color:${color};">
+    bodyHtml += `<div class="interaction-card${isTriggered ? ' triggered' : ''}" style="animation-delay:${idx * 100}ms">`;
+    bodyHtml += `<div class="actor" style="color:${color};">
       <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${color};margin-right:4px;vertical-align:middle;"></span>`;
-    html += `${a.actor} → <b>${a.action_label || (a.action || '').replace(/_/g, ' ')}</b></div>`;
+    bodyHtml += `${a.actor} → <b>${a.action_label || (a.action || '').replace(/_/g, ' ')}</b></div>`;
 
     if (a.content) {
-      html += `<div class="action-content">${a.content.substring(0, 100)}</div>`;
+      bodyHtml += `<div class="action-content">${a.content.substring(0, 100)}</div>`;
     }
 
     // Effects summary
@@ -2343,23 +2386,23 @@ function showDayInteraction(state) {
       const ap = a.effects.approval_delta || 0;
       const ht = a.effects.heat_delta || 0;
       const br = a.effects.brand_delta || 0;
-      html += `<div class="effects-info">`;
-      html += `口碑${ap >= 0 ? '+' : ''}${ap.toFixed(1)}`;
-      html += ` · 热度${ht >= 0 ? '+' : ''}${ht.toFixed(1)}`;
-      if (br) html += ` · 品牌${br >= 0 ? '+' : ''}${br.toFixed(1)}`;
-      html += `</div>`;
+      bodyHtml += `<div class="effects-info">`;
+      bodyHtml += `口碑${ap >= 0 ? '+' : ''}${ap.toFixed(1)}`;
+      bodyHtml += ` · 热度${ht >= 0 ? '+' : ''}${ht.toFixed(1)}`;
+      if (br) bodyHtml += ` · 品牌${br >= 0 ? '+' : ''}${br.toFixed(1)}`;
+      bodyHtml += `</div>`;
     }
 
-    // Trigger info - look up the trigger action label from same day's actions
+    // Trigger info
     if (isTriggered) {
       const triggerAction = actions.find(b => b.actor === a.triggered_by);
       const triggerLabel = triggerAction ? (triggerAction.action_label || triggerAction.action) : '';
-      html += `<div class="trigger-info">⚡ 被 ${a.triggered_by} 的 ${triggerLabel} 触发`;
-      if (a.trigger_relation) html += ` [${a.trigger_relation}]`;
-      html += `</div>`;
+      bodyHtml += `<div class="trigger-info">⚡ 被 ${a.triggered_by} 的 ${triggerLabel} 触发`;
+      if (a.trigger_relation) bodyHtml += ` [${a.trigger_relation}]`;
+      bodyHtml += `</div>`;
     }
 
-    html += `</div>`;
+    bodyHtml += `</div>`;
   });
 
   // Audience reactions
@@ -2367,20 +2410,40 @@ function showDayInteraction(state) {
     const posCount = reactions.filter(r => r.sentiment === 'positive').length;
     const negCount = reactions.filter(r => r.sentiment === 'negative').length;
     const neuCount = reactions.filter(r => r.sentiment === 'neutral').length;
-    html += `<div class="interaction-audience-label">🗣️ 观众反应 (${reactions.length}) `;
-    html += `<span style="color:#66BB6A;">+${posCount}</span> / `;
-    html += `<span style="color:#F44336;">-${negCount}</span> / `;
-    html += `<span style="color:#556677;">=${neuCount}</span></div>`;
+    bodyHtml += `<div class="interaction-audience-label">🗣️ 观众反应 (${reactions.length}) `;
+    bodyHtml += `<span style="color:#66BB6A;">+${posCount}</span> / `;
+    bodyHtml += `<span style="color:#F44336;">-${negCount}</span> / `;
+    bodyHtml += `<span style="color:#556677;">=${neuCount}</span></div>`;
     reactions.slice(0, 8).forEach((r, idx) => {
       const icon = r.sentiment === 'positive' ? '🟢' : r.sentiment === 'negative' ? '🔴' : '⚪';
-      html += `<div class="interaction-audience-bubble" style="animation-delay:${(actions.length + idx) * 60}ms">`;
-      html += `${icon} ${(r.content || '').substring(0, 60)}`;
-      html += `</div>`;
+      bodyHtml += `<div class="interaction-audience-bubble" style="animation-delay:${(actions.length + idx) * 60}ms">`;
+      bodyHtml += `${icon} ${(r.content || '').substring(0, 60)}`;
+      bodyHtml += `</div>`;
     });
   }
 
-  panel.innerHTML = html;
+  if (!bodyHtml) bodyHtml = '<div style="color:#556677;font-size:11px;">本日无动作</div>';
+
+  // Build day section
+  const sectionHtml = `
+    <div class="day-section" id="day-section-${day}">
+      <div class="day-section-header" onclick="toggleDaySection(${day})">
+        <span class="toggle-icon">▼</span>
+        <span class="day-title">第${day}天 — ${state.phase_label || ''}</span>
+        <span class="day-summary">${summary}</span>
+      </div>
+      <div class="day-section-body">${bodyHtml}</div>
+    </div>`;
+
+  panel.insertAdjacentHTML('beforeend', sectionHtml);
+  _lastInteractionDay = day;
   panel.scrollTop = panel.scrollHeight;
+}
+
+function toggleDaySection(day) {
+  const section = document.getElementById('day-section-' + day);
+  if (section) section.classList.toggle('collapsed');
+}
 }
 
 async function loadCrisisOutcome() {
