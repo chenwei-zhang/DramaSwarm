@@ -251,12 +251,17 @@ body {
   outline: none;
 }
 
-#crisis-chart {
+#crisis-chart-wrapper {
   width: 100%;
   height: 150px;
   background: var(--bg-deep);
   border-radius: 8px;
   border: 1px solid var(--border);
+  position: relative;
+}
+#crisis-chart {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .trending-item {
@@ -1218,7 +1223,9 @@ body.loaded #right-sidebar { transform: translateX(0); }
         <h4 style="border:none;margin:0;padding:0;">口碑走势</h4>
         <span id="crisis-day-label" style="font-size:13px;color:#4FC3F7;"></span>
       </div>
-      <canvas id="crisis-chart"></canvas>
+      <div id="crisis-chart-wrapper">
+        <canvas id="crisis-chart"></canvas>
+      </div>
 
       <!-- Timeline Scrubber -->
       <div class="timeline-scrubber" id="timeline-scrubber" style="display:none;">
