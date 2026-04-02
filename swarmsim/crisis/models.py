@@ -286,7 +286,8 @@ class CrisisState:
                  "free_action_label": a.free_action.label if a.free_action else None,
                  "content": a.content, "day": a.day,
                  "triggered_by": a.triggered_by,
-                 "trigger_relation": a.trigger_relation}
+                 "trigger_relation": a.trigger_relation,
+                 "effects": a.effects}
                 for a in self.agent_actions
             ],
             "active_interventions": self.active_interventions,
