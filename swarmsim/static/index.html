@@ -2444,7 +2444,6 @@ function toggleDaySection(day) {
   const section = document.getElementById('day-section-' + day);
   if (section) section.classList.toggle('collapsed');
 }
-}
 
 async function loadCrisisOutcome() {
   const res = await api('/api/crisis/outcome');
