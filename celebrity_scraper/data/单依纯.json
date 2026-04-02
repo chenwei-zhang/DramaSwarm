@@ -1,0 +1,906 @@
+{
+  "celebrity": {
+    "name": "单依纯",
+    "english_name": "",
+    "birth_date": "",
+    "birth_place": "",
+    "age": 0,
+    "zodiac": "",
+    "constellation": "",
+    "occupation": [
+      "演员"
+    ],
+    "company": "",
+    "agency": "",
+    "height": "",
+    "weight": "",
+    "blood_type": "",
+    "biography": "单依纯，中国内地知名艺人，活跃于影视圈。",
+    "education": "",
+    "alma_mater": "",
+    "works": [],
+    "famous_works": [],
+    "weibo_id": "",
+    "weibo_followers": 47519691,
+    "avatar_url": "",
+    "popularity_score": 0.0,
+    "hot_search_count": 0,
+    "sources": [],
+    "updated_at": "2026-04-02T15:22:16.327530"
+  },
+  "gossips": [],
+  "relationships": [],
+  "social_media_posts": [
+    {
+      "id": "wb_单依纯_0",
+      "platform": "douyin",
+      "author": "单依纯",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 398916,
+      "reposts": 9209,
+      "comments": 3527,
+      "publish_time": "2025-07-06",
+      "source_url": "https://weibo.com/单依纯/0",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "新剧",
+        "期待"
+      ]
+    },
+    {
+      "id": "wb_单依纯_1",
+      "platform": "douyin",
+      "author": "单依纯",
+      "content": "感谢品牌方的邀请",
+      "likes": 136006,
+      "reposts": 37706,
+      "comments": 56,
+      "publish_time": "2025-11-05",
+      "source_url": "https://weibo.com/单依纯/1",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "新剧",
+        "期待"
+      ]
+    },
+    {
+      "id": "wb_单依纯_2",
+      "platform": "weibo",
+      "author": "单依纯",
+      "content": "今天的拍摄很顺利，感谢大家的支持！",
+      "likes": 39223,
+      "reposts": 45845,
+      "comments": 944,
+      "publish_time": "2025-08-14",
+      "source_url": "https://weibo.com/单依纯/2",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_单依纯_3",
+      "platform": "weibo",
+      "author": "单依纯",
+      "content": "剧组日常，认真工作中",
+      "likes": 420039,
+      "reposts": 39202,
+      "comments": 4456,
+      "publish_time": "2026-01-26",
+      "source_url": "https://weibo.com/单依纯/3",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_单依纯_4",
+      "platform": "weibo",
+      "author": "单依纯",
+      "content": "路演见",
+      "likes": 439063,
+      "reposts": 37040,
+      "comments": 6805,
+      "publish_time": "2025-04-11",
+      "source_url": "https://weibo.com/单依纯/4",
+      "tags": [
+        "感恩",
+        "粉丝"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_单依纯_5",
+      "platform": "weibo",
+      "author": "单依纯",
+      "content": "新歌听听看",
+      "likes": 279221,
+      "reposts": 26872,
+      "comments": 2295,
+      "publish_time": "2025-12-17",
+      "source_url": "https://weibo.com/单依纯/5",
+      "tags": [
+        "工作",
+        "努力"
+      ],
+      "topics": [
+        "工作",
+        "努力"
+      ]
+    },
+    {
+      "id": "wb_单依纯_6",
+      "platform": "weibo",
+      "author": "单依纯",
+      "content": "新作品即将上线，敬请期待！",
+      "likes": 19930,
+      "reposts": 26267,
+      "comments": 9005,
+      "publish_time": "2026-03-27",
+      "source_url": "https://weibo.com/单依纯/6",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_单依纯_7",
+      "platform": "weibo",
+      "author": "单依纯",
+      "content": "工作花絮分享~",
+      "likes": 37636,
+      "reposts": 30047,
+      "comments": 98,
+      "publish_time": "2025-07-01",
+      "source_url": "https://weibo.com/单依纯/7",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_单依纯_8",
+      "platform": "weibo",
+      "author": "单依纯",
+      "content": "收工啦，晚安！",
+      "likes": 154624,
+      "reposts": 46332,
+      "comments": 1496,
+      "publish_time": "2025-10-31",
+      "source_url": "https://weibo.com/单依纯/8",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_单依纯_9",
+      "platform": "douyin",
+      "author": "单依纯",
+      "content": "新剧开机，加油！",
+      "likes": 72292,
+      "reposts": 12020,
+      "comments": 7249,
+      "publish_time": "2026-01-20",
+      "source_url": "https://weibo.com/单依纯/9",
+      "tags": [
+        "感恩",
+        "粉丝"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
+      ]
+    },
+    {
+      "id": "wb_单依纯_10",
+      "platform": "douyin",
+      "author": "单依纯",
+      "content": "健身打卡",
+      "likes": 283323,
+      "reposts": 8762,
+      "comments": 9007,
+      "publish_time": "2025-12-18",
+      "source_url": "https://weibo.com/单依纯/10",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_单依纯_11",
+      "platform": "weibo",
+      "author": "单依纯",
+      "content": "公益行动，传递正能量",
+      "likes": 177800,
+      "reposts": 33254,
+      "comments": 7489,
+      "publish_time": "2026-01-28",
+      "source_url": "https://weibo.com/单依纯/11",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "工作",
+        "努力"
+      ]
+    },
+    {
+      "id": "wb_单依纯_12",
+      "platform": "weibo",
+      "author": "单依纯",
+      "content": "感谢粉丝们的支持！",
+      "likes": 201226,
+      "reposts": 35073,
+      "comments": 5504,
+      "publish_time": "2025-07-07",
+      "source_url": "https://weibo.com/单依纯/12",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "content": "支持单依纯！加油",
+      "author": "用户7899",
+      "likes": 4388,
+      "replies": 35,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户7438",
+      "likes": 464,
+      "replies": 26,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户1945",
+      "likes": 3263,
+      "replies": 34,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯永远的神",
+      "author": "用户4712",
+      "likes": 3235,
+      "replies": 49,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户1768",
+      "likes": 2795,
+      "replies": 24,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户7360",
+      "likes": 319,
+      "replies": 54,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持单依纯！加油",
+      "author": "用户2321",
+      "likes": 4482,
+      "replies": 41,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户8298",
+      "likes": 680,
+      "replies": 76,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持单依纯！加油",
+      "author": "用户8775",
+      "likes": 1820,
+      "replies": 99,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户5858",
+      "likes": 2331,
+      "replies": 34,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户4604",
+      "likes": 1267,
+      "replies": 94,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户1669",
+      "likes": 2779,
+      "replies": 79,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户1921",
+      "likes": 4053,
+      "replies": 41,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户6012",
+      "likes": 4657,
+      "replies": 100,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户8211",
+      "likes": 2242,
+      "replies": 31,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持单依纯！加油",
+      "author": "用户2687",
+      "likes": 4413,
+      "replies": 19,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户4790",
+      "likes": 1285,
+      "replies": 93,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户5374",
+      "likes": 2003,
+      "replies": 78,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持单依纯！加油",
+      "author": "用户9055",
+      "likes": 1477,
+      "replies": 37,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯的演技越来越好了",
+      "author": "用户2988",
+      "likes": 1195,
+      "replies": 74,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户9133",
+      "likes": 2746,
+      "replies": 44,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户5577",
+      "likes": 4291,
+      "replies": 10,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户3787",
+      "likes": 315,
+      "replies": 80,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户4376",
+      "likes": 2310,
+      "replies": 27,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户7129",
+      "likes": 93,
+      "replies": 55,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户3838",
+      "likes": 470,
+      "replies": 98,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户2879",
+      "likes": 312,
+      "replies": 25,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户5899",
+      "likes": 1161,
+      "replies": 32,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户3586",
+      "likes": 4460,
+      "replies": 34,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户5034",
+      "likes": 4758,
+      "replies": 52,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户9652",
+      "likes": 3652,
+      "replies": 58,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持单依纯！加油",
+      "author": "用户3123",
+      "likes": 4187,
+      "replies": 81,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户9732",
+      "likes": 4959,
+      "replies": 3,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户8366",
+      "likes": 3277,
+      "replies": 76,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯永远的神",
+      "author": "用户1152",
+      "likes": 4610,
+      "replies": 16,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户3611",
+      "likes": 1439,
+      "replies": 12,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户1015",
+      "likes": 127,
+      "replies": 0,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "今天状态真好",
+      "author": "用户5545",
+      "likes": 643,
+      "replies": 31,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "单依纯的演技越来越好了",
+      "author": "用户3553",
+      "likes": 4537,
+      "replies": 1,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户9258",
+      "likes": 3415,
+      "replies": 79,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "支持单依纯！加油",
+      "author": "用户2611",
+      "likes": 1704,
+      "replies": 77,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户3464",
+      "likes": 424,
+      "replies": 2,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户6501",
+      "likes": 4484,
+      "replies": 56,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户8942",
+      "likes": 4586,
+      "replies": 76,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯永远的神",
+      "author": "用户5732",
+      "likes": 839,
+      "replies": 72,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户2502",
+      "likes": 3310,
+      "replies": 79,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户7199",
+      "likes": 3984,
+      "replies": 58,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户3595",
+      "likes": 4458,
+      "replies": 7,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户7152",
+      "likes": 4813,
+      "replies": 96,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户5862",
+      "likes": 4487,
+      "replies": 4,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户8737",
+      "likes": 3547,
+      "replies": 70,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户8860",
+      "likes": 1803,
+      "replies": 97,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户1865",
+      "likes": 4652,
+      "replies": 82,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户4327",
+      "likes": 241,
+      "replies": 27,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户2289",
+      "likes": 2650,
+      "replies": 25,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯好棒！",
+      "author": "用户5481",
+      "likes": 2117,
+      "replies": 100,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "单依纯永远的神",
+      "author": "用户5916",
+      "likes": 758,
+      "replies": 76,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户6415",
+      "likes": 2720,
+      "replies": 64,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户6563",
+      "likes": 2676,
+      "replies": 39,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户3763",
+      "likes": 4967,
+      "replies": 37,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持单依纯！加油",
+      "author": "用户9049",
+      "likes": 4806,
+      "replies": 0,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户1111",
+      "likes": 4746,
+      "replies": 67,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户6401",
+      "likes": 2285,
+      "replies": 96,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户5075",
+      "likes": 4295,
+      "replies": 31,
+      "is_top": true,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    }
+  ],
+  "news_articles": [
+    {
+      "title": "单依纯工作室发声明澄清网络传闻",
+      "summary": "单依纯近日动态引发关注",
+      "content": "单依纯工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
+      "publish_date": "2025-11-19",
+      "source": "腾讯娱乐",
+      "source_url": "https://example.com/news/单依纯/0",
+      "sentiment": "neutral",
+      "sentiment_score": 0.4228629490480316,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "单依纯时尚大片发布，造型引热议",
+      "summary": "单依纯近日动态引发关注",
+      "content": "单依纯最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
+      "publish_date": "2026-01-17",
+      "source": "搜狐娱乐",
+      "source_url": "https://example.com/news/单依纯/1",
+      "sentiment": "positive",
+      "sentiment_score": 0.03767004022435225,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "单依纯现身活动，状态在线",
+      "summary": "单依纯近日动态引发关注",
+      "content": "单依纯出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
+      "publish_date": "2026-02-07",
+      "source": "腾讯娱乐",
+      "source_url": "https://example.com/news/单依纯/2",
+      "sentiment": "neutral",
+      "sentiment_score": -0.04163562321060521,
+      "category": "",
+      "tags": []
+    }
+  ],
+  "statistics": {
+    "data_completeness": 0.65,
+    "total_posts": 13,
+    "total_comments": 64,
+    "total_news": 3,
+    "total_relationships": 0,
+    "total_gossips": 0
+  }
+}

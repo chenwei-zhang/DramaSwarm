@@ -1,0 +1,139 @@
+{
+  "celebrity": {
+    "name": "董宇辉",
+    "english_name": "",
+    "birth_date": "1993-03-04",
+    "birth_place": "陕西省渭南市",
+    "age": 33,
+    "zodiac": "鸡",
+    "constellation": "双鱼座",
+    "occupation": ["主播", "带货达人", "前英语教师"],
+    "company": "与辉同行（北京）科技有限公司",
+    "agency": "",
+    "height": "",
+    "weight": "",
+    "blood_type": "",
+    "biography": "董宇辉，前新东方英语教师，转型直播带货后凭借博学多才的直播风格迅速走红。曾在东方甄选担任头部主播，2023年底独立创办「与辉同行」直播品牌。以知识型带货著称，粉丝群体忠诚度高，被视为直播行业的一股清流。",
+    "education": "西安外国语大学",
+    "alma_mater": "西安外国语大学",
+    "works": [],
+    "famous_works": [],
+    "weibo_id": "",
+    "weibo_followers": 12000000,
+    "avatar_url": "",
+    "popularity_score": 0.85,
+    "hot_search_count": 50,
+    "sources": [],
+    "updated_at": "2026-04-02T10:00:00.000000"
+  },
+  "gossips": [
+    {
+      "title": "与辉同行带货优思益",
+      "content": "与辉同行直播间曾销售优思益保健品，董宇辉在直播中推荐该产品。凭借其高信任度的形象和庞大粉丝群体，带货效果显著。",
+      "gossip_type": "other",
+      "date": "2025-11-01",
+      "involved_celebrities": ["董宇辉"],
+      "importance": 0.5,
+      "verified": true,
+      "sentiment": "neutral"
+    },
+    {
+      "title": "优思益假洋品牌丑闻",
+      "content": "央视曝光「澳洲优思益」为假洋品牌后，与辉同行团队因曾带货该产品被卷入风波。与李若彤、明道仅退部分佣金的做法不同，与辉同行第一时间宣布对所有购买者「全额退款」，不设任何限制条件，成为所有涉事主播中退赔力度最大、反应最快的。此举措赢得舆论好评，但也引发讨论：全额退款是否意味着承认选品失职？人民日报点名评论此事件，三部门约谈三大平台。",
+      "gossip_type": "scandal",
+      "date": "2026-04-01",
+      "involved_celebrities": ["李若彤", "明道", "董宇辉"],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "negative"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "董宇辉",
+      "person_b": "李若彤",
+      "relation_type": "同行",
+      "is_current": true,
+      "description": "同涉优思益代言/带货事件",
+      "confidence": 0.85,
+      "strength": 0.2
+    },
+    {
+      "person_a": "董宇辉",
+      "person_b": "明道",
+      "relation_type": "同行",
+      "is_current": true,
+      "description": "同为带货主播，同涉优思益事件",
+      "confidence": 0.85,
+      "strength": 0.25
+    }
+  ],
+  "social_media_posts": [
+    {
+      "id": "dyh001",
+      "platform": "weibo",
+      "author": "与辉同行",
+      "content": "今天给大家带来一款来自澳洲的优质保健品——优思益，天然成分，科学配比，让你从内而外焕发活力。 #与辉同行 #优思益",
+      "likes": 85000,
+      "reposts": 5200,
+      "comments": 6800,
+      "publish_time": "2025-11-05 20:30",
+      "source_url": "",
+      "tags": ["与辉同行", "优思益"],
+      "topics": ["与辉同行", "优思益"]
+    },
+    {
+      "id": "dyh002",
+      "platform": "weibo",
+      "author": "与辉同行",
+      "content": "感谢每一位来到直播间的朋友。我们一直努力选好品，但这次确实让我们警醒。关于优思益事件，与辉同行决定对所有消费者全额退款，没有任何附加条件。这是我们该做的。",
+      "likes": 210000,
+      "reposts": 28000,
+      "comments": 85000,
+      "publish_time": "2026-04-01 16:00",
+      "source_url": "",
+      "tags": ["优思益"],
+      "topics": ["优思益"]
+    },
+    {
+      "id": "dyh003",
+      "platform": "weibo",
+      "author": "与辉同行",
+      "content": "今日直播正常进行。我们会更加严格把控选品流程，引入第三方检测机制。感谢大家的监督和信任。",
+      "likes": 120000,
+      "reposts": 8500,
+      "comments": 32000,
+      "publish_time": "2026-04-02 10:00",
+      "source_url": "",
+      "tags": [],
+      "topics": []
+    }
+  ],
+  "comments": [],
+  "news_articles": [
+    {
+      "title": "与辉同行回应带货优思益：全额退款",
+      "source": "澎湃新闻",
+      "url": "",
+      "publish_time": "2026-04-01",
+      "summary": "与辉同行团队第一时间宣布对优思益产品消费者全额退款，成为涉事主播中退赔力度最大者。",
+      "sentiment": "neutral"
+    },
+    {
+      "title": "三部门约谈抖音、淘天、小红书",
+      "source": "央视",
+      "url": "",
+      "publish_time": "2026-04-02",
+      "summary": "国务院食安办、市场监管总局、海关总署对跨境电商进口优思益保健品违规营销等问题涉及的3家平台企业进行约谈。",
+      "sentiment": "negative"
+    }
+  ],
+  "statistics": {
+    "data_completeness": 0.75,
+    "total_posts": 3,
+    "total_comments": 0,
+    "total_news": 2,
+    "total_relationships": 2,
+    "total_gossips": 2
+  }
+}

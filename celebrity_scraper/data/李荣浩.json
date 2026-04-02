@@ -1,0 +1,636 @@
+{
+  "celebrity": {
+    "name": "李荣浩",
+    "english_name": "",
+    "birth_date": "",
+    "birth_place": "",
+    "age": 0,
+    "zodiac": "",
+    "constellation": "",
+    "occupation": [
+      "演员"
+    ],
+    "company": "",
+    "agency": "",
+    "height": "",
+    "weight": "",
+    "blood_type": "",
+    "biography": "李荣浩，中国内地知名艺人，活跃于影视圈。",
+    "education": "",
+    "alma_mater": "",
+    "works": [],
+    "famous_works": [],
+    "weibo_id": "",
+    "weibo_followers": 44024107,
+    "avatar_url": "",
+    "popularity_score": 0.0,
+    "hot_search_count": 0,
+    "sources": [],
+    "updated_at": "2026-04-02T15:22:16.135891"
+  },
+  "gossips": [],
+  "relationships": [],
+  "social_media_posts": [
+    {
+      "id": "wb_李荣浩_0",
+      "platform": "weibo",
+      "author": "李荣浩",
+      "content": "剧组日常，认真工作中",
+      "likes": 147635,
+      "reposts": 12004,
+      "comments": 2389,
+      "publish_time": "2025-05-24",
+      "source_url": "https://weibo.com/李荣浩/0",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_1",
+      "platform": "weibo",
+      "author": "李荣浩",
+      "content": "公益行动，传递正能量",
+      "likes": 370108,
+      "reposts": 12128,
+      "comments": 1865,
+      "publish_time": "2026-01-19",
+      "source_url": "https://weibo.com/李荣浩/1",
+      "tags": [
+        "感恩",
+        "粉丝"
+      ],
+      "topics": [
+        "工作",
+        "努力"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_2",
+      "platform": "douyin",
+      "author": "李荣浩",
+      "content": "健身打卡",
+      "likes": 228953,
+      "reposts": 45559,
+      "comments": 4667,
+      "publish_time": "2025-10-01",
+      "source_url": "https://weibo.com/李荣浩/2",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "生活",
+        "记录"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_3",
+      "platform": "douyin",
+      "author": "李荣浩",
+      "content": "新作品即将上线，敬请期待！",
+      "likes": 225094,
+      "reposts": 34821,
+      "comments": 6385,
+      "publish_time": "2025-05-31",
+      "source_url": "https://weibo.com/李荣浩/3",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_4",
+      "platform": "weibo",
+      "author": "李荣浩",
+      "content": "感谢品牌方的邀请",
+      "likes": 477763,
+      "reposts": 29423,
+      "comments": 3707,
+      "publish_time": "2026-02-13",
+      "source_url": "https://weibo.com/李荣浩/4",
+      "tags": [
+        "日常",
+        "分享"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_5",
+      "platform": "weibo",
+      "author": "李荣浩",
+      "content": "杂志拍摄完成，期待正片",
+      "likes": 289816,
+      "reposts": 47544,
+      "comments": 2536,
+      "publish_time": "2025-05-29",
+      "source_url": "https://weibo.com/李荣浩/5",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_6",
+      "platform": "douyin",
+      "author": "李荣浩",
+      "content": "新歌听听看",
+      "likes": 251538,
+      "reposts": 36619,
+      "comments": 3346,
+      "publish_time": "2026-03-09",
+      "source_url": "https://weibo.com/李荣浩/6",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "日常",
+        "分享"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_7",
+      "platform": "weibo",
+      "author": "李荣浩",
+      "content": "工作花絮分享~",
+      "likes": 309338,
+      "reposts": 34982,
+      "comments": 8124,
+      "publish_time": "2025-08-02",
+      "source_url": "https://weibo.com/李荣浩/7",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_8",
+      "platform": "weibo",
+      "author": "李荣浩",
+      "content": "感谢粉丝们的支持！",
+      "likes": 383305,
+      "reposts": 4266,
+      "comments": 8986,
+      "publish_time": "2025-08-17",
+      "source_url": "https://weibo.com/李荣浩/8",
+      "tags": [
+        "杀青",
+        "新戏"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_9",
+      "platform": "douyin",
+      "author": "李荣浩",
+      "content": "今天的拍摄很顺利，感谢大家的支持！",
+      "likes": 306061,
+      "reposts": 43821,
+      "comments": 6154,
+      "publish_time": "2025-07-06",
+      "source_url": "https://weibo.com/李荣浩/9",
+      "tags": [
+        "生活",
+        "记录"
+      ],
+      "topics": [
+        "杀青",
+        "新戏"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_10",
+      "platform": "weibo",
+      "author": "李荣浩",
+      "content": "路演见",
+      "likes": 140192,
+      "reposts": 23096,
+      "comments": 2167,
+      "publish_time": "2025-05-12",
+      "source_url": "https://weibo.com/李荣浩/10",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "工作",
+        "努力"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_11",
+      "platform": "weibo",
+      "author": "李荣浩",
+      "content": "收工啦，晚安！",
+      "likes": 388507,
+      "reposts": 8892,
+      "comments": 1695,
+      "publish_time": "2025-04-29",
+      "source_url": "https://weibo.com/李荣浩/11",
+      "tags": [
+        "工作",
+        "努力"
+      ],
+      "topics": [
+        "感恩",
+        "粉丝"
+      ]
+    },
+    {
+      "id": "wb_李荣浩_12",
+      "platform": "douyin",
+      "author": "李荣浩",
+      "content": "新剧开机，加油！",
+      "likes": 99336,
+      "reposts": 24515,
+      "comments": 1065,
+      "publish_time": "2025-07-05",
+      "source_url": "https://weibo.com/李荣浩/12",
+      "tags": [
+        "新剧",
+        "期待"
+      ],
+      "topics": [
+        "新剧",
+        "期待"
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "content": "永远支持",
+      "author": "用户6914",
+      "likes": 4461,
+      "replies": 55,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "李荣浩好棒！",
+      "author": "用户7200",
+      "likes": 1083,
+      "replies": 83,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户1002",
+      "likes": 2082,
+      "replies": 31,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "李荣浩好棒！",
+      "author": "用户6064",
+      "likes": 1972,
+      "replies": 6,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户7879",
+      "likes": 4577,
+      "replies": 6,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "永远支持",
+      "author": "用户5955",
+      "likes": 186,
+      "replies": 41,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "李荣浩的演技越来越好了",
+      "author": "用户1012",
+      "likes": 4278,
+      "replies": 36,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户6717",
+      "likes": 3029,
+      "replies": 26,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户2316",
+      "likes": 1857,
+      "replies": 19,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户7626",
+      "likes": 2252,
+      "replies": 5,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户4501",
+      "likes": 1598,
+      "replies": 89,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "李荣浩永远的神",
+      "author": "用户8314",
+      "likes": 3950,
+      "replies": 84,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "期待新作品！",
+      "author": "用户5903",
+      "likes": 1476,
+      "replies": 52,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持李荣浩！加油",
+      "author": "用户1949",
+      "likes": 1840,
+      "replies": 14,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户5685",
+      "likes": 382,
+      "replies": 46,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持李荣浩！加油",
+      "author": "用户7878",
+      "likes": 342,
+      "replies": 4,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "新剧什么时候出？",
+      "author": "用户1813",
+      "likes": 3639,
+      "replies": 28,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "李荣浩的演技越来越好了",
+      "author": "用户9212",
+      "likes": 4113,
+      "replies": 67,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户2188",
+      "likes": 862,
+      "replies": 84,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "李荣浩永远的神",
+      "author": "用户3541",
+      "likes": 4357,
+      "replies": 48,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "李荣浩好棒！",
+      "author": "用户4966",
+      "likes": 859,
+      "replies": 0,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "支持李荣浩！加油",
+      "author": "用户5993",
+      "likes": 1784,
+      "replies": 50,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "neutral"
+    },
+    {
+      "content": "李荣浩永远的神",
+      "author": "用户3184",
+      "likes": 1617,
+      "replies": 38,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户1637",
+      "likes": 2146,
+      "replies": 72,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户6995",
+      "likes": 1807,
+      "replies": 5,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户3864",
+      "likes": 4118,
+      "replies": 50,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "路人转粉了",
+      "author": "用户3996",
+      "likes": 748,
+      "replies": 18,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "negative"
+    },
+    {
+      "content": "综艺里好搞笑",
+      "author": "用户6113",
+      "likes": 2889,
+      "replies": 70,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "positive"
+    },
+    {
+      "content": "看哭了，太感人了",
+      "author": "用户8068",
+      "likes": 3151,
+      "replies": 9,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "李荣浩的演技越来越好了",
+      "author": "用户4668",
+      "likes": 1126,
+      "replies": 9,
+      "is_top": true,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "李荣浩永远的神",
+      "author": "用户8651",
+      "likes": 4490,
+      "replies": 93,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "李荣浩永远的神",
+      "author": "用户1522",
+      "likes": 51,
+      "replies": 77,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    },
+    {
+      "content": "爱了爱了",
+      "author": "用户5781",
+      "likes": 1497,
+      "replies": 47,
+      "is_top": false,
+      "source_platform": "douyin",
+      "sentiment": "negative"
+    },
+    {
+      "content": "这颜值真的绝了",
+      "author": "用户6205",
+      "likes": 1953,
+      "replies": 20,
+      "is_top": false,
+      "source_platform": "weibo",
+      "sentiment": "positive"
+    }
+  ],
+  "news_articles": [
+    {
+      "title": "李荣浩现身活动，状态在线",
+      "summary": "李荣浩相关话题登上热搜",
+      "content": "李荣浩出席品牌活动，状态十分在线，引来媒体和粉丝关注。",
+      "publish_date": "2025-12-25",
+      "source": "腾讯娱乐",
+      "source_url": "https://example.com/news/李荣浩/0",
+      "sentiment": "neutral",
+      "sentiment_score": 0.13560432977132364,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "李荣浩时尚大片发布，造型引热议",
+      "summary": "李荣浩近日动态引发关注",
+      "content": "李荣浩最新时尚大片正式发布，展现独特时尚品味，引发网友热议。",
+      "publish_date": "2026-02-06",
+      "source": "凤凰网娱乐",
+      "source_url": "https://example.com/news/李荣浩/1",
+      "sentiment": "neutral",
+      "sentiment_score": 0.02648291049910681,
+      "category": "",
+      "tags": []
+    },
+    {
+      "title": "李荣浩工作室发声明澄清网络传闻",
+      "summary": "李荣浩相关话题登上热搜",
+      "content": "李荣浩工作室就近期网络不实传闻发布声明澄清，呼吁理性讨论。",
+      "publish_date": "2025-11-29",
+      "source": "凤凰网娱乐",
+      "source_url": "https://example.com/news/李荣浩/2",
+      "sentiment": "neutral",
+      "sentiment_score": 0.2858667678632569,
+      "category": "",
+      "tags": []
+    }
+  ],
+  "statistics": {
+    "data_completeness": 0.65,
+    "total_posts": 13,
+    "total_comments": 34,
+    "total_news": 3,
+    "total_relationships": 0,
+    "total_gossips": 0
+  }
+}

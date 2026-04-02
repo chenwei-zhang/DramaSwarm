@@ -141,11 +141,17 @@ class CrisisScenarioEngine:
                             "date": event.get("date", ""),
                         })
 
+            # 构建场景描述：标题 + 事件详情
+            event_content = scenario_data.get("content", "")
+            description = f"{title} - 涉及{', '.join(involved)}"
+            if event_content:
+                description = event_content
+
             scenario = CrisisScenario(
                 scenario_id=f"crisis_{title}",
                 title=title,
                 crisis_date=scenario_data.get("date", ""),
-                description=f"{title} - 涉及{', '.join(involved)}",
+                description=description,
                 involved_persons=involved,
                 initial_severity=scenario_data.get("importance", 0.5),
                 gossip_type=gossip_type,
@@ -470,6 +476,7 @@ class CrisisSimulation:
 
         self.vacuum_detector = InformationVacuumDetector(
             content_generator=self._rumor_gen,
+            scenario_description=scenario.description,
         )
         self.message_bus = MessageBus()
         self.audience_pool = AudiencePool(

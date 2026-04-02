@@ -1,0 +1,131 @@
+{
+  "celebrity": {
+    "name": "明道",
+    "english_name": "Ming Dao",
+    "birth_date": "1980-02-26",
+    "birth_place": "台湾省台北市",
+    "age": 46,
+    "zodiac": "猴",
+    "constellation": "双鱼座",
+    "occupation": ["演员", "歌手", "主持人"],
+    "company": "明道工作室",
+    "agency": "",
+    "height": "180 cm",
+    "weight": "72 kg",
+    "blood_type": "",
+    "biography": "明道（本名林朝章），台湾男演员、歌手、主持人。2004年因主演偶像剧《王子变青蛙》饰演单均昊一角红遍两岸三地，成为台湾偶像剧一哥。此后主演《爱情魔发师》《樱野三加一》等多部热门偶像剧。近年转型参与直播带货，活跃于大陆市场。",
+    "education": "醒吾技术学院",
+    "alma_mater": "醒吾技术学院",
+    "works": [],
+    "famous_works": ["王子变青蛙", "爱情魔发师", "樱野三加一", "唐宫美人天下"],
+    "weibo_id": "",
+    "weibo_followers": 3800000,
+    "avatar_url": "",
+    "popularity_score": 0.7,
+    "hot_search_count": 12,
+    "sources": [],
+    "updated_at": "2026-04-02T10:00:00.000000"
+  },
+  "gossips": [
+    {
+      "title": "代言优思益保健品",
+      "content": "明道近年转型直播带货，曾为「优思益」保健品代言直播，在直播间中力推该产品，称其为「澳洲大牌、品质有保证」。凭借其偶像剧男神的形象为产品背书。",
+      "gossip_type": "other",
+      "date": "2025-09-01",
+      "involved_celebrities": ["明道"],
+      "importance": 0.5,
+      "verified": true,
+      "sentiment": "neutral"
+    },
+    {
+      "title": "优思益假洋品牌丑闻",
+      "content": "央视曝光「澳洲优思益」为假洋品牌后，明道作为代言人被推上风口浪尖。其直播间销售记录显示带货优思益产品销售额可观，但消费者维权时发现其团队仅同意限时限未拆封退货。与李若彤、董宇辉等同涉此事件，但退赔标准各异，引发舆论对明星带货责任的广泛讨论。三部门约谈抖音、淘天、小红书等平台。",
+      "gossip_type": "scandal",
+      "date": "2026-04-01",
+      "involved_celebrities": ["李若彤", "明道", "董宇辉"],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "negative"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "明道",
+      "person_b": "李若彤",
+      "relation_type": "同行",
+      "is_current": true,
+      "description": "同为优思益代言人",
+      "confidence": 0.9,
+      "strength": 0.3
+    },
+    {
+      "person_a": "明道",
+      "person_b": "董宇辉",
+      "relation_type": "同行",
+      "is_current": true,
+      "description": "同为带货主播，同涉优思益事件",
+      "confidence": 0.85,
+      "strength": 0.25
+    }
+  ],
+  "social_media_posts": [
+    {
+      "id": "md001",
+      "platform": "weibo",
+      "author": "明道",
+      "content": "直播间的家人们，今天给大家带来澳洲优思益的内调好物，这个我自己也在吃，真正澳洲原装进口。 #优思益 #明道直播间",
+      "likes": 28000,
+      "reposts": 1500,
+      "comments": 3200,
+      "publish_time": "2025-10-10 20:00",
+      "source_url": "",
+      "tags": ["优思益", "明道直播间"],
+      "topics": ["优思益", "明道直播间"]
+    },
+    {
+      "id": "md002",
+      "platform": "weibo",
+      "author": "明道",
+      "content": "今天在片场收工，看看日落。生活还是要继续向前。",
+      "likes": 15000,
+      "reposts": 800,
+      "comments": 600,
+      "publish_time": "2026-03-25 18:30",
+      "source_url": "",
+      "tags": [],
+      "topics": []
+    },
+    {
+      "id": "md003",
+      "platform": "weibo",
+      "author": "明道",
+      "content": "关于优思益的事，我深感愧疚。对不起大家，我正在和团队商量退赔方案，请大家给我们一点时间。",
+      "likes": 62000,
+      "reposts": 9500,
+      "comments": 38000,
+      "publish_time": "2026-04-01 22:00",
+      "source_url": "",
+      "tags": ["优思益"],
+      "topics": ["优思益"]
+    }
+  ],
+  "comments": [],
+  "news_articles": [
+    {
+      "title": "带货优思益的明星网红退赔标准不一",
+      "source": "央视",
+      "url": "",
+      "publish_time": "2026-04-01",
+      "summary": "多位明星网红曾代言带货优思益，事发后退赔标准不一：部分全额退款，有的限时限未拆封，甚至仅退15%佣金。",
+      "sentiment": "negative"
+    }
+  ],
+  "statistics": {
+    "data_completeness": 0.7,
+    "total_posts": 3,
+    "total_comments": 0,
+    "total_news": 1,
+    "total_relationships": 2,
+    "total_gossips": 2
+  }
+}

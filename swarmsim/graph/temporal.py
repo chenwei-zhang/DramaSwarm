@@ -253,6 +253,7 @@ class TemporalKnowledgeGraph(KnowledgeGraph):
                 "date": data.get("date", ""),
                 "importance": data.get("importance", 0),
                 "gossip_type": data.get("gossip_type", "other"),
+                "content": data.get("content", ""),
                 "involved_persons": involved,
             })
 

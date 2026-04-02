@@ -1,0 +1,131 @@
+{
+  "celebrity": {
+    "name": "李若彤",
+    "english_name": "Carman Lee",
+    "birth_date": "1966-08-16",
+    "birth_place": "香港",
+    "age": 59,
+    "zodiac": "马",
+    "constellation": "狮子座",
+    "occupation": ["演员", "健身达人"],
+    "company": "",
+    "agency": "",
+    "height": "165 cm",
+    "weight": "",
+    "blood_type": "",
+    "biography": "李若彤，香港女演员。1995年主演金庸武侠剧《神雕侠侣》饰演小龙女一角成名，被观众誉为最经典的小龙女。此后又出演《天龙八部》中的王语嫣等角色。近年转型为健身达人，积极推广健康生活方式，在社交媒体拥有大量粉丝。常接健康类产品代言。",
+    "education": "",
+    "alma_mater": "",
+    "works": [],
+    "famous_works": ["神雕侠侣", "天龙八部", "杨门女将", "大内密探零零发"],
+    "weibo_id": "",
+    "weibo_followers": 5200000,
+    "avatar_url": "",
+    "popularity_score": 0.75,
+    "hot_search_count": 15,
+    "sources": [],
+    "updated_at": "2026-04-02T10:00:00.000000"
+  },
+  "gossips": [
+    {
+      "title": "代言优思益保健品",
+      "content": "李若彤作为健身达人，曾为澳洲品牌「优思益」保健品代言，在社交媒体和直播中多次推荐该产品，称其为「自己一直在吃的澳洲大牌保健品」。凭借其健康形象为品牌背书。",
+      "gossip_type": "other",
+      "date": "2025-06-01",
+      "involved_celebrities": ["李若彤"],
+      "importance": 0.5,
+      "verified": true,
+      "sentiment": "neutral"
+    },
+    {
+      "title": "优思益假洋品牌丑闻",
+      "content": "央视3·15曝光「澳洲优思益」实为营销包装的假洋品牌：标注的澳洲生产地址实为汽修厂，虚构海外研发背景，购买国际奖项，通过明星代言和网红带货大肆营销。李若彤作为代言人之一被舆论追责。事发后李若彤发文致歉，表示「将全力配合退赔」，但其退赔标准被指仅退15%佣金，引发更大争议。人民日报评论称「彻查优思益一案，斩断一链」。",
+      "gossip_type": "scandal",
+      "date": "2026-04-01",
+      "involved_celebrities": ["李若彤", "明道", "董宇辉"],
+      "importance": 0.95,
+      "verified": true,
+      "sentiment": "negative"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "李若彤",
+      "person_b": "明道",
+      "relation_type": "同行",
+      "is_current": true,
+      "description": "同为优思益代言人",
+      "confidence": 0.9,
+      "strength": 0.3
+    },
+    {
+      "person_a": "李若彤",
+      "person_b": "董宇辉",
+      "relation_type": "合作",
+      "is_current": false,
+      "description": "同涉优思益带货事件",
+      "confidence": 0.85,
+      "strength": 0.2
+    }
+  ],
+  "social_media_posts": [
+    {
+      "id": "yrt001",
+      "platform": "weibo",
+      "author": "李若彤",
+      "content": "健身是我这些年坚持最久的事，吃也要吃得健康。最近在吃优思益的内调产品，澳洲原装进口，感觉很放心。 #优思益 #健康生活",
+      "likes": 35000,
+      "reposts": 2800,
+      "comments": 1200,
+      "publish_time": "2025-08-15 10:30",
+      "source_url": "",
+      "tags": ["优思益", "健康生活"],
+      "topics": ["优思益", "健康生活"]
+    },
+    {
+      "id": "yrt002",
+      "platform": "weibo",
+      "author": "李若彤",
+      "content": "坚持运动打卡第100天！年龄从来不是借口，只要你愿意开始。💪",
+      "likes": 52000,
+      "reposts": 3100,
+      "comments": 2400,
+      "publish_time": "2026-03-20 08:00",
+      "source_url": "",
+      "tags": [],
+      "topics": []
+    },
+    {
+      "id": "yrt003",
+      "platform": "weibo",
+      "author": "李若彤",
+      "content": "关于优思益事件，我非常抱歉。作为代言人，我没有尽到审核责任，对消费者造成伤害。我正在与品牌方沟通退赔事宜，会给大家一个交代。对不起。",
+      "likes": 89000,
+      "reposts": 12000,
+      "comments": 45000,
+      "publish_time": "2026-04-01 20:15",
+      "source_url": "",
+      "tags": ["优思益"],
+      "topics": ["优思益"]
+    }
+  ],
+  "comments": [],
+  "news_articles": [
+    {
+      "title": "曾带货优思益 李若彤明道等致歉",
+      "source": "央视",
+      "url": "",
+      "publish_time": "2026-04-01",
+      "summary": "央视曝光优思益为假洋品牌后，多位代言明星发声明致歉，但退赔标准不一。",
+      "sentiment": "negative"
+    }
+  ],
+  "statistics": {
+    "data_completeness": 0.7,
+    "total_posts": 3,
+    "total_comments": 0,
+    "total_news": 1,
+    "total_relationships": 2,
+    "total_gossips": 2
+  }
+}
