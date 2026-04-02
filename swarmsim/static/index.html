@@ -403,19 +403,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.speed-control {
-  display: flex; align-items: center; gap: 4px; margin-left: auto;
-}
-.speed-control input[type="range"] {
-  width: 60px; height: 4px;
-  -webkit-appearance: none; appearance: none;
-  background: var(--border); border-radius: 2px; outline: none;
-}
-.speed-control input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 12px; height: 12px;
-  background: var(--accent-blue); border-radius: 50%; cursor: pointer;
-  box-shadow: 0 0 6px var(--glow-blue);
-}
 
 .outcome-box {
   background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26,42,58,0.6) 100%);
@@ -1245,11 +1232,7 @@ body.loaded #right-sidebar { transform: translateX(0); }
         <button class="btn" id="crisis-run-btn">逐步运行</button>
         <button class="btn danger" id="crisis-stop-btn" style="display:none;">停止</button>
         <button class="btn" id="crisis-outcome-btn">查看结果</button>
-        <div class="speed-control">
-          <label style="font-size:10px;color:#8899aa;white-space:nowrap;">间隔</label>
-          <input type="range" id="crisis-speed" min="0.3" max="3.0" step="0.1" value="1.0">
-          <span id="crisis-speed-val" style="font-size:10px;color:#8899aa;width:28px;">1.0s</span>
-        </div>
+
         <span id="crisis-status" style="font-size:12px;color:#8899aa;"></span>
       </div>
 
@@ -2072,9 +2055,7 @@ function setupEventListeners() {
   document.getElementById('crisis-reset-btn').addEventListener('click', resetCrisisSim);
   document.getElementById('crisis-outcome-btn').addEventListener('click', loadCrisisOutcome);
   document.getElementById('crisis-iv-add').addEventListener('click', addCrisisIntervention);
-  document.getElementById('crisis-speed').addEventListener('input', e => {
-    document.getElementById('crisis-speed-val').textContent = parseFloat(e.target.value).toFixed(1) + 's';
-  });
+
 
   // Custom scenario controls
   document.getElementById('crisis-toggle-custom').addEventListener('click', toggleCustomScenario);
@@ -2280,8 +2261,7 @@ async function runCrisisSim() {
       // Will likely end soon
     }
 
-    const speed = parseFloat(document.getElementById('crisis-speed').value) || 1.0;
-    await new Promise(r => setTimeout(r, speed * 1000));
+    await new Promise(r => setTimeout(r, 1000));
   }
 
   _runningSim = false;
