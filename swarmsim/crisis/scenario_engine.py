@@ -8,6 +8,7 @@ CrisisSimulation: 单次危机仿真运行（核心循环）
 
 from __future__ import annotations
 
+import logging
 import random
 from typing import Any
 
@@ -23,8 +24,11 @@ from swarmsim.crisis.persona_agent import CelebrityPersonaAgent
 from swarmsim.crisis.intervention import InterventionSystem
 from swarmsim.crisis.vacuum_detector import InformationVacuumDetector
 from swarmsim.crisis.message_bus import MessageBus
-from swarmsim.crisis.audience import AudiencePool
+from swarmsim.crisis.audience import AudiencePool, REACTION_TEMPLATES
 from swarmsim.graph.temporal import TemporalKnowledgeGraph
+from swarmsim.llm.content_gen import get_content_generator
+
+logger = logging.getLogger(__name__)
 
 
 # ── 历史基线数据 ──
@@ -430,10 +434,47 @@ class CrisisSimulation:
         if interventions:
             self.intervention_system.add_interventions(interventions)
 
-        self.vacuum_detector = InformationVacuumDetector()
+        # 内容生成器（LLM 优先，失败自动回退模板）
+        llm_client = None
+        content_mode = "template"
+        if use_llm:
+            try:
+                from swarmsim.llm import get_client as _get_llm_client
+                llm_client = _get_llm_client()
+                content_mode = "auto"
+            except Exception as e:
+                logger.warning(f"LLM 客户端初始化失败，使用模板模式: {e}")
+
+        # 谣言生成器
+        from swarmsim.crisis.vacuum_detector import RUMOR_TEMPLATES
+        self._rumor_gen = get_content_generator(
+            "rumor", RUMOR_TEMPLATES, llm_client, content_mode,
+        )
+
+        # 观众评论生成器
+        self._comment_gen = get_content_generator(
+            "audience_comment", REACTION_TEMPLATES, llm_client, content_mode,
+        )
+
+        # 媒体头条+热搜生成器
+        # 合并两种模板作为 fallback
+        _all_media_templates: list[str] = []
+        for phase_templates in TRENDING_TEMPLATES.values():
+            _all_media_templates.extend(phase_templates)
+        for phase_templates in MEDIA_TEMPLATES.values():
+            for _, title in phase_templates:
+                _all_media_templates.append(title)
+        self._media_gen = get_content_generator(
+            "headline", _all_media_templates, llm_client, content_mode,
+        )
+
+        self.vacuum_detector = InformationVacuumDetector(
+            content_generator=self._rumor_gen,
+        )
         self.message_bus = MessageBus()
         self.audience_pool = AudiencePool(
             scenario.involved_persons, pool_size=30,
+            content_generator=self._comment_gen,
         )
 
         # 状态
@@ -667,9 +708,10 @@ class CrisisSimulation:
             )
             self.current_state.rumor_count += 1
 
-        # 7. 生成热搜和媒体
-        trending = self._generate_trending(phase, day_actions)
-        headlines = self._generate_headlines(phase, day_actions)
+        # 7. 生成热搜和媒体（一次 LLM 调用，结果缓存）
+        self._media_llm_result = self._generate_media_content(phase, day_actions)
+        trending = self._build_trending_from_result(phase, day_actions)
+        headlines = self._build_headlines_from_result(phase, day_actions)
 
         # 8. 自然衰减
         self._apply_daily_decay()
@@ -723,22 +765,61 @@ class CrisisSimulation:
 
         return new_state
 
-    def _generate_trending(
+    def _generate_media_content(
+        self, phase: CrisisPhase, actions: list[CrisisAction]
+    ) -> str:
+        """一次 LLM 调用同时生成热搜+头条内容"""
+        if not self._media_gen:
+            return ""
+        actions_summary = "、".join(
+            f"{a.actor}{a.free_action.label if a.free_action else a.action.label}"
+            for a in actions[:3]
+        ) or "无动作"
+        try:
+            return self._media_gen.generate({
+                "phase_label": phase.label,
+                "persons": "、".join(self.scenario.involved_persons[:5]),
+                "actions_summary": actions_summary,
+                "heat": round(self.current_state.heat_index),
+            })
+        except Exception as e:
+            logger.warning(f"LLM 媒体内容生成失败: {e}")
+            return ""
+
+    def _build_trending_from_result(
         self, phase: CrisisPhase, actions: list[CrisisAction]
     ) -> list[TrendingTopic]:
-        """生成热搜话题"""
-        templates = TRENDING_TEMPLATES.get(phase, TRENDING_TEMPLATES[CrisisPhase.BREAKOUT])
+        """从 LLM 结果中提取热搜话题"""
         topics = []
 
+        # 解析 LLM 结果中的热搜部分
+        llm_topics: list[str] = []
+        if self._media_llm_result:
+            in_trending = False
+            for line in self._media_llm_result.strip().split("\n"):
+                line = line.strip()
+                if "【热搜】" in line:
+                    in_trending = True
+                    continue
+                if "【媒体】" in line:
+                    in_trending = False
+                    continue
+                if in_trending and line.startswith("#"):
+                    llm_topics.append(line)
+
         for i, name in enumerate(self.scenario.involved_persons[:5]):
-            template = random.choice(templates)
-            title = template.format(
-                person=name,
-                action=(
-                    actions[0].free_action.label if actions[0].free_action
-                    else actions[0].action.label
-                ) if actions else "事件",
-            )
+            if llm_topics and i < len(llm_topics):
+                title = llm_topics[i]
+            else:
+                templates = TRENDING_TEMPLATES.get(phase, TRENDING_TEMPLATES[CrisisPhase.BREAKOUT])
+                template = random.choice(templates)
+                title = template.format(
+                    person=name,
+                    action=(
+                        actions[0].free_action.label if actions[0].free_action
+                        else actions[0].action.label
+                    ) if actions else "事件",
+                )
             heat = max(10, self.current_state.heat_index - i * 15 + random.uniform(-10, 10))
             topics.append(TrendingTopic(
                 rank=i + 1,
@@ -747,32 +828,56 @@ class CrisisSimulation:
                 category="娱乐",
             ))
 
-        # 按热度排序
         topics.sort(key=lambda t: t.heat, reverse=True)
         for i, t in enumerate(topics):
             t.rank = i + 1
 
         return topics
 
-    def _generate_headlines(
+    def _build_headlines_from_result(
         self, phase: CrisisPhase, actions: list[CrisisAction]
     ) -> list[MediaHeadline]:
-        """生成媒体头条"""
-        templates = MEDIA_TEMPLATES.get(phase, MEDIA_TEMPLATES[CrisisPhase.BREAKOUT])
+        """从 LLM 结果中提取媒体头条"""
         headlines = []
 
-        for outlet, template in random.sample(templates, min(len(templates), 3)):
-            person = random.choice(self.scenario.involved_persons)
-            action_text = actions[0].action.label if actions else "事件发酵"
-            headline = template.format(person=person, action=action_text)
-            headlines.append(MediaHeadline(
-                outlet=outlet,
-                headline=headline,
-                sentiment="negative" if phase in (
-                    CrisisPhase.BREAKOUT, CrisisPhase.ESCALATION, CrisisPhase.PEAK
-                ) else "neutral",
-                reach=random.uniform(0.3, 1.0),
-            ))
+        # 解析 LLM 结果中的媒体部分
+        llm_headlines: list[tuple[str, str]] = []
+        if self._media_llm_result:
+            in_media = False
+            for line in self._media_llm_result.strip().split("\n"):
+                line = line.strip()
+                if "【媒体】" in line:
+                    in_media = True
+                    continue
+                if in_media and "|" in line:
+                    parts = line.split("|", 1)
+                    if len(parts) == 2:
+                        llm_headlines.append((parts[0].strip(), parts[1].strip()))
+
+        if llm_headlines:
+            for outlet, title in llm_headlines[:3]:
+                headlines.append(MediaHeadline(
+                    outlet=outlet,
+                    headline=title,
+                    sentiment="negative" if phase in (
+                        CrisisPhase.BREAKOUT, CrisisPhase.ESCALATION, CrisisPhase.PEAK
+                    ) else "neutral",
+                    reach=random.uniform(0.3, 1.0),
+                ))
+        else:
+            templates = MEDIA_TEMPLATES.get(phase, MEDIA_TEMPLATES[CrisisPhase.BREAKOUT])
+            for outlet, template in random.sample(templates, min(len(templates), 3)):
+                person = random.choice(self.scenario.involved_persons)
+                action_text = actions[0].action.label if actions else "事件发酵"
+                headline = template.format(person=person, action=action_text)
+                headlines.append(MediaHeadline(
+                    outlet=outlet,
+                    headline=headline,
+                    sentiment="negative" if phase in (
+                        CrisisPhase.BREAKOUT, CrisisPhase.ESCALATION, CrisisPhase.PEAK
+                    ) else "neutral",
+                    reach=random.uniform(0.3, 1.0),
+                ))
 
         return headlines
 

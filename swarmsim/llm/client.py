@@ -188,25 +188,29 @@ class GeminiClient(LLMClient):
         history: list[Message] | None = None
     ) -> LLMResponse:
         """生成响应（异步）"""
-        # 构建内容
-        contents = []
-        if system_prompt:
-            contents.append(f"[系统指令]\n{system_prompt}\n")
+        # 构建 contents（对话历史）
+        contents: list[str] = []
         if history:
             for msg in history:
-                if msg.role == "user":
-                    contents.append(f"[{msg.role}]\n{msg.content}\n")
-                elif msg.role == "assistant":
-                    contents.append(f"[{msg.role}]\n{msg.content}\n")
-        contents.append(f"[user]\n{prompt}\n")
+                contents.append(msg.content)
 
-        content_text = "\n".join(contents)
+        # 当前用户 prompt
+        contents.append(prompt)
+
+        # 构建 generation config
+        config_dict: dict[str, Any] = {
+            "temperature": self.temperature,
+            "max_output_tokens": self.max_tokens,
+            "top_p": self.config.top_p,
+        }
+        if system_prompt:
+            config_dict["system_instruction"] = system_prompt
 
         try:
-            # 使用新 API
             response = self.client.models.generate_content(
                 model=self.model,
-                contents=content_text
+                contents=contents,
+                config=config_dict,
             )
 
             return LLMResponse(

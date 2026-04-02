@@ -321,14 +321,15 @@ class CelebrityPersonaAgent:
         peer_actions = peer_actions or []
         audience_reactions = audience_reactions or []
 
+        llm_desc = ""
         if forced_action:
             action = forced_action
         elif self.use_llm:
-            action = await self._llm_decide(phase, state, peer_actions, audience_reactions)
+            action, llm_desc = await self._llm_decide(phase, state, peer_actions, audience_reactions)
         else:
             action = self._rule_decide(phase, state, peer_actions, audience_reactions)
 
-        content = ACTION_DESCRIPTIONS.get(action, "").format(name=self.name)
+        content = llm_desc or ACTION_DESCRIPTIONS.get(action, "").format(name=self.name)
 
         # 检查是否被其他 Agent 触发
         triggered_by = None
@@ -754,8 +755,8 @@ class CelebrityPersonaAgent:
         state: dict,
         peer_actions: list[CrisisAction] | None = None,
         audience_reactions: list[AgentMessage] | None = None,
-    ) -> PRAction:
-        """LLM 模式决策"""
+    ) -> tuple[PRAction, str]:
+        """LLM 模式决策，返回 (动作, 描述文本)"""
         import logging
         logger = logging.getLogger(__name__)
         try:
@@ -768,19 +769,56 @@ class CelebrityPersonaAgent:
             content = response.content if hasattr(response, 'content') else str(response)
             logger.info(f"[LLM] {self.name} LLM 响应: {content[:100]}")
 
-            # 解析 LLM 返回的动作（使用正则匹配完整单词）
-            action_map = {a.value: a for a in PRAction}
-            for value, action in action_map.items():
-                if re.search(r'\b' + re.escape(value) + r'\b', content.lower()):
-                    logger.info(f"[LLM] {self.name} 选择动作: {action.label}")
-                    return action
+            # 解析动作和描述
+            action, desc = self._parse_llm_decision(content)
 
-            logger.warning(f"[LLM] {self.name} 无法解析 LLM 响应，fallback 到规则模式")
-            return self._rule_decide(phase, state, peer_actions, audience_reactions)
+            if action:
+                logger.info(f"[LLM] {self.name} 选择动作: {action.label}")
+                # 如果 LLM 没有返回有效描述，使用模板
+                if not desc:
+                    desc = ACTION_DESCRIPTIONS.get(action, "").format(name=self.name)
+                return action, desc
+            else:
+                logger.warning(f"[LLM] {self.name} 无法解析 LLM 响应，fallback 到规则模式")
+                action = self._rule_decide(phase, state, peer_actions, audience_reactions)
+                desc = ACTION_DESCRIPTIONS.get(action, "").format(name=self.name)
+                return action, desc
 
         except Exception as e:
             logger.warning(f"[LLM] {self.name} LLM 调用失败: {type(e).__name__}: {e}")
-            return self._rule_decide(phase, state, peer_actions, audience_reactions)
+            action = self._rule_decide(phase, state, peer_actions, audience_reactions)
+            desc = ACTION_DESCRIPTIONS.get(action, "").format(name=self.name)
+            return action, desc
+
+    def _parse_llm_decision(self, content: str) -> tuple[PRAction | None, str]:
+        """从 LLM 响应中解析动作和描述"""
+        action = None
+        desc = ""
+
+        lines = content.strip().split("\n")
+        for line in lines:
+            line = line.strip()
+            # 解析动作行：支持 "动作：xxx" 或 "动作:xxx" 格式
+            if line.startswith("动作：") or line.startswith("动作:"):
+                action_str = line.split("：", 1)[-1].split(":", 1)[-1].strip()
+                action_map = {a.value: a for a in PRAction}
+                for value, act in action_map.items():
+                    if re.search(r'\b' + re.escape(value) + r'\b', action_str.lower()):
+                        action = act
+                        break
+            # 解析描述行
+            elif line.startswith("描述：") or line.startswith("描述:"):
+                desc = line.split("：", 1)[-1].split(":", 1)[-1].strip()
+
+        # 如果没有匹配到格式化输出，尝试从原始文本中提取动作
+        if action is None:
+            action_map = {a.value: a for a in PRAction}
+            for value, act in action_map.items():
+                if re.search(r'\b' + re.escape(value) + r'\b', content.lower()):
+                    action = act
+                    break
+
+        return action, desc
 
     def _build_decision_prompt(
         self,
@@ -871,7 +909,9 @@ class CelebrityPersonaAgent:
             f"{graph_context}{timeline_summary}{memory_summary}"
             f"{peer_info}{audience_info}"
             f"可选动作：{actions_str}\n"
-            f"请从可选动作中选择一个，只回复动作的英文value。"
+            f"请按以下格式回复，不要输出其他内容：\n"
+            f"动作：[动作英文value]\n"
+            f"描述：[用第三人称描述你做了什么，20-40字，符合你的性格和当前处境]"
         )
 
     def _describe_personality(self) -> str:

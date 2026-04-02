@@ -9,9 +9,13 @@
 from __future__ import annotations
 
 import random
+import logging
 from datetime import datetime
+from typing import Any
 
 from swarmsim.crisis.models import PRAction, CrisisAction
+
+logger = logging.getLogger(__name__)
 
 
 # ── 谣言模板 ──
@@ -48,9 +52,10 @@ RUMOR_TEMPLATES: dict[str, list[str]] = {
 class InformationVacuumDetector:
     """信息真空检测器"""
 
-    def __init__(self):
+    def __init__(self, content_generator: Any | None = None):
         self.silence_days: dict[str, int] = {}    # person → 连续沉默天数
         self.generated_rumors: list[dict] = []
+        self._content_gen = content_generator
 
     def update(
         self,
@@ -103,18 +108,32 @@ class InformationVacuumDetector:
             if random.random() > prob:
                 continue
 
-            # 从模板池选择谣言
-            templates = RUMOR_TEMPLATES.get(
-                gossip_type, RUMOR_TEMPLATES["other"]
-            )
-            template = random.choice(templates)
-
             # 随机选择 target
             others = [p for p in involved_persons if p != person]
             target = random.choice(others) if others else "相关人员"
 
-            content = template.format(person=person, target=target)
+            # 计算严重度
             severity = min(0.9, 0.3 + days_silent * 0.1)
+
+            # 生成谣言内容
+            if self._content_gen:
+                try:
+                    content = self._content_gen.generate({
+                        "gossip_type": gossip_type,
+                        "person": person,
+                        "target": target,
+                        "days_silent": days_silent,
+                        "severity": severity,
+                    })
+                except Exception as e:
+                    logger.warning(f"ContentGen 谣言生成失败: {e}，回退模板")
+                    templates = RUMOR_TEMPLATES.get(gossip_type, RUMOR_TEMPLATES["other"])
+                    template = random.choice(templates)
+                    content = template.format(person=person, target=target)
+            else:
+                templates = RUMOR_TEMPLATES.get(gossip_type, RUMOR_TEMPLATES["other"])
+                template = random.choice(templates)
+                content = template.format(person=person, target=target)
 
             rumor = {
                 "day": day,

@@ -7,10 +7,13 @@
 
 from __future__ import annotations
 
+import logging
 import random
 from typing import Any
 
 from swarmsim.crisis.models import PRAction, CrisisAction, AgentMessage
+
+logger = logging.getLogger(__name__)
 
 
 # ── 观众类型定义 ──
@@ -191,9 +194,19 @@ class AudienceAgent:
         return False
 
     def react_to_action(
-        self, action: CrisisAction, day: int
+        self,
+        action: CrisisAction,
+        day: int,
+        comment_candidates: dict[str, list[str]] | None = None,
     ) -> AgentMessage | None:
-        """对一条明星动作生成评论"""
+        """对一条明星动作生成评论
+
+        Args:
+            action: 明星动作
+            day: 当前天数
+            comment_candidates: LLM 预生成的候选评论池，
+                key = f"{persona_type}:{action.value}"
+        """
         actor = action.actor
         bias = self.bias.get(actor, 0.0)
 
@@ -204,14 +217,21 @@ class AudienceAgent:
         if random.random() > comment_prob:
             return None
 
-        # 选择模板
-        templates = REACTION_TEMPLATES.get(self.persona_type, {})
-        action_templates = templates.get(action.action, templates.get("default", []))
-        if not action_templates:
-            return None
+        # 优先从候选池选择，fallback 到模板
+        content = None
+        if comment_candidates:
+            pool_key = f"{self.persona_type}:{action.action.value}"
+            candidates = comment_candidates.get(pool_key, [])
+            if candidates:
+                content = random.choice(candidates).replace("{actor}", actor)
 
-        template = random.choice(action_templates)
-        content = template.format(actor=actor)
+        if not content:
+            templates = REACTION_TEMPLATES.get(self.persona_type, {})
+            action_templates = templates.get(action.action, templates.get("default", []))
+            if not action_templates:
+                return None
+            template = random.choice(action_templates)
+            content = template.format(actor=actor)
 
         # 情绪判断
         if bias > 0.3:
@@ -240,9 +260,17 @@ class AudienceAgent:
 class AudiencePool:
     """管理一批观众 Agent"""
 
-    def __init__(self, persons: list[str], pool_size: int = 30):
+    def __init__(
+        self,
+        persons: list[str],
+        pool_size: int = 30,
+        content_generator: Any | None = None,
+    ):
         self.persons = persons
         self.agents: list[AudienceAgent] = []
+        self._content_gen = content_generator
+        # LLM 预生成的候选评论池: key = f"{persona_type}:{action.value}" → 候选文本列表
+        self._comment_candidates: dict[str, list[str]] = {}
 
         # 按比例生成观众
         for i in range(pool_size):
@@ -256,6 +284,66 @@ class AudiencePool:
                     break
             self.agents.append(AudienceAgent(chosen_type, persons))
 
+    async def _prefetch_comment_pool(
+        self,
+        day: int,
+        actions: list[CrisisAction],
+        state: dict,
+    ) -> None:
+        """按 (观众类型, 动作类型) 批量预生成候选评论
+
+        一次 LLM 调用生成 5-8 条评论，避免 30 个 agent 逐个调用。
+        仅在使用 LLM 时生效，纯模板模式跳过。
+        """
+        if not self._content_gen:
+            return
+
+        # 纯模板生成器无需预生成（模板由 agent 内部直接使用）
+        from swarmsim.llm.content_gen import TemplateContentGenerator
+        if isinstance(self._content_gen, TemplateContentGenerator):
+            return
+
+        # 收集需要生成的 (persona_type, action) 组合
+        needed_keys: set[str] = set()
+        for agent in self.agents:
+            for action in actions:
+                key = f"{agent.persona_type}:{action.action.value}"
+                needed_keys.add(key)
+
+        for key in needed_keys:
+            if key in self._comment_candidates:
+                continue
+
+            parts = key.split(":", 1)
+            persona_type = parts[0]
+            action_value = parts[1] if len(parts) > 1 else ""
+
+            # 从当天 actions 中找到 actor
+            actor = actions[0].actor if actions else "某明星"
+            for a in actions:
+                if a.action.value == action_value:
+                    actor = a.actor
+                    break
+
+            try:
+                result = await self._content_gen.generate_async({
+                    "persona_type": persona_type,
+                    "action_label": action_value,
+                    "actor": actor,
+                    "count": 6,
+                    "gossip_type": state.get("gossip_type", "scandal"),
+                    "day": day,
+                    "approval": state.get("approval_scores", {}).get(actor, 50),
+                })
+                # 按行拆分，过滤空行
+                lines = [line.strip() for line in result.strip().split("\n") if line.strip()]
+                if lines:
+                    self._comment_candidates[key] = lines
+                else:
+                    logger.warning(f"评论预生成返回空，key={key}")
+            except Exception as e:
+                logger.warning(f"评论预生成失败 key={key}: {e}")
+
     async def generate_reactions(
         self,
         day: int,
@@ -264,12 +352,16 @@ class AudiencePool:
     ) -> list[AgentMessage]:
         """根据当天明星动作生成观众评论
 
-        每个 audience agent 对每条 action 独立生成评论。
+        如果有 content_generator，先批量预生成候选评论池，
+        然后每个 audience agent 从池中选择。
         """
+        # 预生成候选评论
+        await self._prefetch_comment_pool(day, actions, state)
+
         reactions = []
         for agent in self.agents:
             for action in actions:
-                msg = agent.react_to_action(action, day)
+                msg = agent.react_to_action(action, day, self._comment_candidates)
                 if msg:
                     reactions.append(msg)
         return reactions
