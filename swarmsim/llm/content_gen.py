@@ -200,7 +200,7 @@ class FallbackContentGenerator(ContentGenerator):
 # ── Prompt Builder 工厂 ──
 
 def _build_rumor_prompt(context: dict[str, Any]) -> tuple[str, str]:
-    """谣言生成 prompt"""
+    """谣言生成 prompt — 基于具体事件上下文"""
     gossip_labels = {
         "cheating": "出轨", "scandal": "丑闻", "divorce": "离婚",
         "drugs": "涉毒", "tax_evasion": "偷税漏税", "other": "负面",
@@ -210,20 +210,33 @@ def _build_rumor_prompt(context: dict[str, Any]) -> tuple[str, str]:
     target = context.get("target", "相关人员")
     days_silent = context.get("days_silent", 2)
     severity = context.get("severity", 0.3)
+    scenario_desc = context.get("scenario_description", "")
+    scenario_title = context.get("scenario_title", "")
 
     severity_desc = "轻微" if severity < 0.4 else "中等" if severity < 0.6 else "严重" if severity < 0.8 else "极其离谱"
 
     system = (
-        "你是娱乐八卦爆料号写手。生成一条听起来像微博匿名爆料的传闻（20-50字）。\n"
-        "必须包含「据知情人透露」或「网友扒出」或「有爆料称」等话术中的一种。\n"
+        "你是娱乐八卦爆料号写手。根据具体的危机事件，生成一条听起来像微博匿名爆料的传闻（20-50字）。\n"
+        "谣言必须围绕该事件本身展开，编造该事件的升级版、内幕、隐瞒细节或牵连他人。\n"
+        "不要编造与该事件无关的内容（如家庭纠纷、个人感情等）。\n"
+        "必须包含「据知情人透露」或「网友扒出」或「有爆料称」或「圈内消息称」等话术中的一种。\n"
         "只输出爆料文本，不要解释，不要加引号。"
     )
+
+    event_info = ""
+    if scenario_title:
+        event_info += f"事件名称：{scenario_title}\n"
+    if scenario_desc:
+        # 截取前200字避免 prompt 过长
+        event_info += f"事件详情：{scenario_desc[:200]}\n"
+
     user = (
+        f"{event_info}"
         f"事件类型：{gossip_labels.get(gossip_type, '负面')}事件\n"
-        f"主角：{person}，涉及：{target}\n"
-        f"{person}已连续{days_silent}天未回应，沉默越久传闻越离谱\n"
-        f"当前严重度：{severity_desc}\n"
-        f"请生成一条网络传闻。"
+        f"沉默的当事人：{person}（已连续{days_silent}天未回应）\n"
+        f"其他涉事人：{target}\n"
+        f"沉默越久，传闻越离谱。当前离谱程度：{severity_desc}\n"
+        f"请生成一条围绕上述事件本身的网络传闻。"
     )
     return system, user
 

@@ -267,13 +267,18 @@ class InformationVacuumDetector:
 
             if self._content_gen:
                 try:
-                    content = self._content_gen.generate({
+                    ctx = {
                         "gossip_type": gossip_type,
                         "person": person,
                         "target": target,
                         "days_silent": days_silent,
                         "severity": severity,
-                    })
+                    }
+                    if self._scenario_description:
+                        ctx["scenario_description"] = self._scenario_description
+                    if self._scenario_title:
+                        ctx["scenario_title"] = self._scenario_title
+                    content = self._content_gen.generate(ctx)
                 except Exception as e:
                     logger.warning(f"ContentGen 谣言生成失败: {e}，回退模板")
                     content = None
