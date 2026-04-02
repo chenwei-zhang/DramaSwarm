@@ -54,7 +54,7 @@ CrisisSimulation.step() → per day:
   4. MessageBus    → audience reactions + celebrity actions broadcast to bus
   5. Effects       → CrisisActionSpace or FreeActionSpace (mode-dependent) → approval/heat/brand deltas
   6. Debunk        → STATEMENT/LAWSUIT can debunk rumors (40%/60% chance)
-  7. Reactions     → InformationVacuumDetector → silence → rumor cascade
+  7. Reactions     → InformationVacuumDetector → silence → event-driven rumor cascade
   8. Update        → trending topics, media headlines, brand statuses
   9. Decay         → heat -10%, approval regresses toward role-specific target
  10. Termination   → heat <15 for 3 days OR regulatory level 5 → early end
@@ -86,11 +86,17 @@ swarmsim/crisis/          # Crisis simulation engine
 │                         # Free mode: generate_free_response() / _rule_decide_free() / _llm_decide_free()
 │                         # Enhanced free LLM prompt: includes state/role/gossip_type/audience
 ├── vacuum_detector.py    # Silence → rumor cascade, probability escalates with days
+│                         # Event-driven rumor generation: extract topic from scenario description
+│                         # (e.g. "代言带货/虚假宣传", "出轨/婚变") → combine with rumor angles
+│                         # (escalation/coverup/chain/insider/digging) → context-relevant rumors
+│                         # Priority: LLM > event-context rumor > title-referenced fallback
 │                         # Debunk mechanism: STATEMENT/LAWSUIT can debunk rumors (severity → 20%)
 ├── intervention.py       # User what-if conditions with trigger types (TIME_ABSOLUTE/TIME_RELATIVE/STATE_THRESHOLD)
 │                         # External events (MEDIA_REPORT/VIDEO_LEAK/COMPETITOR_ANNOUNCE/etc.)
 ├── experiment.py         # ExperimentManager, Experiment, ExperimentGroup, ComparisonResult — A/B testing
 ├── scenario_engine.py    # CrisisScenarioEngine (load + role inference) + CrisisSimulation (async run loop)
+│                         # Scenario description uses gossip content (not just title + persons)
+│                         # list_crisis_scenarios() returns content field for rumor context
 │                         # _infer_person_roles(): auto-infer for CHEATING/DRUGS/TAX_EVASION/DIVORCE/SCANDAL
 │                         # Randomized decision order per day (avoids first-mover bias)
 │                         # MessageBus integration: audience reactions + celebrity actions broadcast
