@@ -302,24 +302,85 @@ class KnowledgeGraph:
                     edge_type="involved_in", role="subject")
 
     def _deduplicate_gossip_nodes(self) -> None:
-        """去重同标题的八卦节点（合并边）"""
+        """去重八卦节点：精确标题匹配 + 跨文件模糊匹配（同日期同类型同人重叠）"""
         gossip_nodes = [
             (n, d) for n, d in self._graph.nodes(data=True)
             if d.get("node_type") == "gossip"
         ]
+
+        # Phase 1: 精确标题去重
         seen_titles: dict[str, str] = {}
+        removed_nodes: set[str] = set()
         for node_id, data in gossip_nodes:
             title = data.get("title", "")
             if title in seen_titles:
-                # 合并边到已存在节点
                 existing_id = seen_titles[title]
-                for pred in list(self._graph.predecessors(node_id)):
-                    for key in list(self._graph.pred[node_id][pred].keys()):
-                        edge_data = dict(self._graph.edges[pred, node_id, key])
-                        self._graph.add_edge(pred, existing_id, **edge_data)
-                self._graph.remove_node(node_id)
+                self._merge_gossip_node(node_id, existing_id)
+                removed_nodes.add(node_id)
             else:
                 seen_titles[title] = node_id
+
+        # Phase 2: 模糊去重 — 同日期 + 同类型 + 涉及人物重叠
+        remaining = [
+            (n, d) for n, d in gossip_nodes
+            if n not in removed_nodes
+        ]
+
+        # 按 (date, gossip_type) 分组
+        groups: dict[tuple[str, str], list[tuple[str, dict]]] = {}
+        for node_id, data in remaining:
+            date = data.get("date", "")
+            gtype = data.get("gossip_type", "other")
+            if not date:
+                continue
+            key = (date, gtype)
+            if key not in groups:
+                groups[key] = []
+            groups[key].append((node_id, data))
+
+        for (date, gtype), nodes in groups.items():
+            if len(nodes) <= 1:
+                continue
+
+            # 收集每个节点的 involved persons
+            node_persons: dict[str, set[str]] = {}
+            for node_id, data in nodes:
+                persons = set()
+                for pred in self._graph.predecessors(node_id):
+                    pred_data = self._graph.nodes[pred]
+                    if pred_data.get("node_type") == "celebrity":
+                        persons.add(pred_data.get("name", ""))
+                node_persons[node_id] = persons
+
+            # 合并重叠的节点簇
+            merged_clusters: list[tuple[str, set[str]]] = []
+            for node_id, data in nodes:
+                persons = node_persons[node_id]
+                found_cluster = False
+                for i, (cluster_id, cluster_persons) in enumerate(merged_clusters):
+                    overlap = persons & cluster_persons
+                    # 至少 1 个共同涉及人且重叠比例 >= 30%
+                    if overlap and len(overlap) >= max(1, min(len(persons), len(cluster_persons)) * 0.3):
+                        self._merge_gossip_node(node_id, cluster_id)
+                        merged_clusters[i] = (cluster_id, cluster_persons | persons)
+                        found_cluster = True
+                        break
+                if not found_cluster:
+                    merged_clusters.append((node_id, persons))
+
+    def _merge_gossip_node(self, source_id: str, target_id: str) -> None:
+        """合并 source 八卦节点到 target（迁移边并删除 source）"""
+        for pred in list(self._graph.predecessors(source_id)):
+            for key in list(self._graph.pred[source_id][pred].keys()):
+                edge_data = dict(self._graph.edges[pred, source_id, key])
+                # 检查是否已存在到 target 的边
+                has_edge = any(
+                    v == target_id and d.get("edge_type") == edge_data.get("edge_type")
+                    for _, v, d in self._graph.edges(nbunch=[pred], data=True)
+                )
+                if not has_edge:
+                    self._graph.add_edge(pred, target_id, **edge_data)
+        self._graph.remove_node(source_id)
 
     # ── 仿真中动态变更 ──
 

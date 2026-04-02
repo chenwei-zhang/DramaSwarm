@@ -76,6 +76,59 @@ class TemporalKnowledgeGraph(KnowledgeGraph):
             }
             self._person_timelines[person_name].append(event_data)
 
+    # ── 去重后索引清理 ──
+
+    def _deduplicate_gossip_nodes(self) -> None:
+        """重写：先执行基类去重，再清理时间线索引"""
+        # 记录去重前的所有 gossip node_id
+        before_ids = {
+            n for n, d in self._graph.nodes(data=True)
+            if d.get("node_type") == "gossip"
+        }
+
+        # 调用基类去重（会删除重复节点）
+        super()._deduplicate_gossip_nodes()
+
+        # 找出被删除的节点
+        after_ids = {
+            n for n, d in self._graph.nodes(data=True)
+            if d.get("node_type") == "gossip"
+        }
+        removed_ids = before_ids - after_ids
+
+        if not removed_ids:
+            return
+
+        # 1. 清理 _timeline_index 中的悬空引用
+        self._timeline_index = [
+            (date_str, node_id)
+            for date_str, node_id in self._timeline_index
+            if node_id not in removed_ids
+        ]
+
+        # 2. 清理 _person_timelines 中的悬空引用和同日期同类型去重
+        for person in list(self._person_timelines.keys()):
+            entries = self._person_timelines[person]
+            # 过滤悬空节点
+            entries = [e for e in entries if e.get("node_id") not in removed_ids]
+            # 仅对 gossip 类型做同日期+同 gossip_type 去重（保留 importance 最高的）
+            seen_keys: dict[tuple[str, str], int] = {}
+            deduped: list[dict] = []
+            for e in entries:
+                if e.get("type") != "gossip":
+                    # news 等其他类型不去重
+                    deduped.append(e)
+                    continue
+                key = (e.get("date", ""), e.get("gossip_type", "other"))
+                if key in seen_keys:
+                    idx = seen_keys[key]
+                    if e.get("importance", 0) > deduped[idx].get("importance", 0):
+                        deduped[idx] = e
+                else:
+                    seen_keys[key] = len(deduped)
+                    deduped.append(e)
+            self._person_timelines[person] = deduped
+
     # ── 时序查询 ──
 
     def get_events_in_range(self, start_date: str, end_date: str) -> list[dict]:

@@ -35,24 +35,6 @@
   },
   "gossips": [
     {
-      "title": "李小璐PG One夜宿门事件",
-      "content": "2017年底李小璐被拍到与PG One深夜亲密互动。贾乃亮当时直播中表示「相信我老婆」，但两人最终于2019年离婚。事件导致PG One遭行业封杀，李小璐退出主流影视圈。贾乃亮转型直播带货成功。该事件至今仍是娱乐圈最具影响力的丑闻之一。",
-      "gossip_type": "cheating",
-      "date": "2017-12-29",
-      "involved_celebrities": [
-        "李小璐",
-        "贾乃亮",
-        "PG One"
-      ],
-      "tags": [],
-      "importance": 0.95,
-      "verified": true,
-      "sentiment": "negative",
-      "sentiment_score": -0.3,
-      "source_url": "",
-      "source_type": "sina"
-    },
-    {
       "title": "《中国有嘻哈》夺冠",
       "content": "PG One（王昊）在选秀节目《中国有嘻哈》中获得双冠军之一，一战成名。其说唱风格和个人魅力吸引大量粉丝，被视为中国说唱的未来之星。",
       "gossip_type": "other",
@@ -787,6 +769,6 @@
     "total_comments": 41,
     "total_news": 3,
     "total_relationships": 2,
-    "total_gossips": 5
+    "total_gossips": 4
   }
 }
