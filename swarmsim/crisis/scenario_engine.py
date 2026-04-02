@@ -477,6 +477,7 @@ class CrisisSimulation:
         self.vacuum_detector = InformationVacuumDetector(
             content_generator=self._rumor_gen,
             scenario_description=scenario.description,
+            scenario_title=scenario.title,
         )
         self.message_bus = MessageBus()
         self.audience_pool = AudiencePool(

@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 import random
+import re
 import logging
 from datetime import datetime
 from typing import Any
@@ -18,7 +19,149 @@ from swarmsim.crisis.models import PRAction, CrisisAction
 logger = logging.getLogger(__name__)
 
 
-# ── 谣言模板 ──
+# ── 事件关键词 → 事件主题提取 ──
+# 用于从场景描述中提取一个简短的"事件主题"标签，
+# 供谣言模板引用，确保谣言始终围绕具体事件展开。
+
+_TOPIC_RULES: list[tuple[list[str], str]] = [
+    # (关键词, 主题标签) — 按优先级排列，越具体越靠前
+    # 出轨/婚外情类（必须排在代言前面，避免"直播"误匹配）
+    (["亲密互动", "出轨", "夜宿", "婚外情", "第三者"], "出轨"),
+    # 虚假宣传/假洋品牌
+    (["假洋品牌", "造假", "虚假宣传", "假冒"], "虚假宣传"),
+    # 代言带货（排除单独的"直播"，避免误匹配）
+    (["代言", "带货", "直播带货", "主播", "选品"], "代言带货"),
+    (["吸毒", "毒品", "涉毒"], "涉毒"),
+    (["偷税", "逃税", "税务", "阴阳合同"], "偷逃税"),
+    (["离婚", "分手", "婚姻破裂"], "婚变"),
+    (["封杀", "封禁", "下架"], "封杀"),
+    (["抄袭", "剽窃"], "抄袭"),
+    (["家暴", "施暴"], "家暴"),
+]
+
+
+def _extract_topic(description: str) -> str:
+    """从场景描述中提取事件主题
+
+    Returns:
+        最多两个匹配的主题拼接，如 "代言带货/虚假宣传"
+        无匹配时返回 "争议"
+    """
+    matched: list[str] = []
+    for keywords, label in _TOPIC_RULES:
+        if any(kw in description for kw in keywords):
+            matched.append(label)
+    if matched:
+        # 最多取前两个，避免太长
+        return "/".join(matched[:2])
+    return "争议"
+
+
+# ── 谣言套路（角度） ──
+# 每个套路是一种谣言的"编造方向"，通过 {person} {target} {topic}
+# 三个变量与具体事件绑定，确保内容始终相关。
+#
+# 角度说明：
+#   escalation  — 事件比已知的更严重
+#   coverup     — 当事人早就知道/在隐瞒
+#   chain       — 牵连其他人
+#   insider     — 利益内幕
+#   digging     — 翻旧账
+
+_RUMOR_ANGLES: dict[str, list[str]] = {
+    "escalation": [
+        "据传{person}的{topic}问题远比曝光的更严重",
+        "知情人称这只是冰山一角，{person}的{topic}还有更多未公开的内幕",
+        "据传这次{topic}事件的规模比想象中大得多",
+        "有爆料称{person}在{topic}方面的问题不止这一次",
+    ],
+    "coverup": [
+        "知情人爆料{person}早就知道{topic}的问题，但选择了隐瞒",
+        "据传{person}团队正在紧急销毁{topic}相关证据",
+        "有消息称{person}私下已就{topic}与相关方达成秘密协议",
+        "据传{person}的道歉只是为了平息舆论，实际并未真正反思{topic}问题",
+    ],
+    "chain": [
+        "网友质疑{person}的{topic}风波是否也牵连了{target}",
+        "据传{target}也被卷入{person}的{topic}事件",
+        "知情人称{topic}事件可能还涉及更多圈内人",
+        "有消息称{person}和{target}在{topic}事件中是同一利益链条",
+    ],
+    "insider": [
+        "圈内人士爆料{person}在{topic}事件中获利巨大",
+        "据传{person}从{topic}中获得了{amount}的利益",
+        "知情人称{person}的{topic}事件背后有精心策划的团队运作",
+        "据传{person}在{topic}中的角色远不止表面看到的那么简单",
+    ],
+    "digging": [
+        "网友挖出{person}过去在{topic}方面的更多问题",
+        "据传{person}此前就因{topic}相关问题被内部警告过",
+        "知情人称{person}的{topic}问题由来已久，只是这次被曝光了",
+        "有人翻出{person}早年的言论，发现与{topic}事件的说法自相矛盾",
+    ],
+}
+
+_ANGLE_WEIGHTS = {
+    "escalation": 3,
+    "coverup": 3,
+    "chain": 2,
+    "insider": 2,
+    "digging": 2,
+}
+
+# ── 通用模板（最后兜底，引用事件标题） ──
+
+_GENERIC_FALLBACK_TEMPLATES: list[str] = [
+    "据传{person}正在秘密处理「{title}」相关事宜",
+    "圈内人士爆料{person}因「{title}」事件情绪崩溃",
+    "有消息称{person}准备就「{title}」事件退圈",
+    "知情人称「{title}」事件还有更多当事人即将站出来",
+    "据传相关部门已经就「{title}」介入调查",
+]
+
+
+def generate_rumor(
+    person: str,
+    target: str,
+    scenario_description: str,
+    scenario_title: str = "",
+) -> str:
+    """根据具体事件生成上下文相关的谣言
+
+    核心逻辑：从场景描述提取事件主题，结合谣言角度（升级/隐瞒/连锁/内幕/翻旧账），
+    生成始终围绕具体事件的谣言。
+
+    Args:
+        person: 谣言主角
+        target: 谣言中可能牵连的其他人
+        scenario_description: 场景描述（事件的详细内容）
+        scenario_title: 场景标题
+
+    Returns:
+        生成的谣言文本
+    """
+    topic = _extract_topic(scenario_description)
+
+    # 按权重随机选一个谣言角度
+    angles = list(_ANGLE_WEIGHTS.keys())
+    weights = [_ANGLE_WEIGHTS[a] for a in angles]
+    angle = random.choices(angles, weights=weights, k=1)[0]
+    template = random.choice(_RUMOR_ANGLES[angle])
+
+    # 随机金额
+    amount = random.choice(["数百万", "上千万", "数千万", "百万级", "天价"])
+
+    return template.format(
+        person=person,
+        target=target,
+        topic=topic,
+        amount=amount,
+    )
+
+
+# ── 向后兼容 ──
+# RUMOR_TEMPLATES 保留给 LLM content generator 作为 fallback，
+# 但 rule 模式下不再使用它。谣言生成统一走 generate_rumor()。
 
 RUMOR_TEMPLATES: dict[str, list[str]] = {
     "cheating": [
@@ -31,15 +174,15 @@ RUMOR_TEMPLATES: dict[str, list[str]] = {
     "divorce": [
         "据传两人早已秘密签署离婚协议",
         "知情人爆料{person}已搬出共同住所",
-        "据说孩子抚养权争夺激烈",
-        "有消息称{person}要求天价分手费",
+        "据说{person}对孩子的抚养权问题态度强硬",
+        "有消息称{person}要求高额财产分割",
     ],
     "scandal": [
-        "圈内人士爆料{person}背后还有更大的瓜",
-        "据说这次只是冰山一角",
-        "网友挖出{person}更多黑历史",
-        "知情人称有更多当事人即将站出来",
-        "据传相关部门已经介入调查",
+        "圈内人士爆料{person}的{topic}问题远比曝光的更严重",
+        "知情人称{person}在{topic}方面的内幕还有更多",
+        "网友质疑{person}的{topic}事件是否牵连了{target}",
+        "据传{person}从{topic}中获利巨大",
+        "据传相关部门已经就{person}的{topic}问题介入调查",
     ],
     "other": [
         "据传{person}正在秘密处理此事",
@@ -48,86 +191,18 @@ RUMOR_TEMPLATES: dict[str, list[str]] = {
     ],
 }
 
-# ── 场景感知谣言生成器 ──
-# 根据场景描述中的关键词生成上下文相关的谣言
-
-_CONTEXT_KEYWORD_RULES: list[tuple[list[str], list[str]]] = [
-    # (关键词列表, 谣言模板列表)
-    # 假洋品牌/代言/带货类
-    (["代言", "带货", "品牌", "直播", "主播", "假洋品牌", "造假", "虚假"],
-     [
-         "据传{person}早就知道产品有问题，但还是选择了代言",
-         "知情人爆料{person}拿了{amount}代言费，根本没做过选品审核",
-         "网友扒出{person}团队内部邮件，显示选品流程形同虚设",
-         "据传{person}私下已向品牌方要求退还代言费",
-         "有消息称{person}的退赔方案只是为了平息舆论",
-         "爆料称{person}还有其他未曝光的问题代言",
-         "据传{person}和品牌方签了保密协议，禁止透露内幕",
-         "知情人称{person}团队正在紧急销毁相关合作记录",
-         "网友质疑{person}的道歉声明是公关代笔",
-         "据传{person}已被多个品牌方悄悄解约",
-     ]),
-    # 吸毒/毒品类
-    (["吸毒", "毒品", "药物"],
-     [
-         "据传{person}曾多次在私人聚会中吸毒",
-         "知情人称{person}的吸毒史远比公开的更久",
-         "有消息称{person}曾秘密前往戒毒所",
-         "网友质疑{person}身边还有其他人参与",
-     ]),
-    # 偷税漏税类
-    (["偷税", "逃税", "税务", "阴阳合同"],
-     [
-         "据传{person}实际偷逃税金额远超通报数字",
-         "知情人爆料{person}在海外有多个隐秘账户",
-         "有消息称{person}通过阴阳合同转移资产",
-         "网友质疑{person}身边还有其他涉税人员",
-     ]),
-    # 出轨/绯闻类（已由 cheating 模板覆盖，此处补充深层谣言）
-    (["出轨", "夜宿", "亲密"],
-     [
-         "据传{person}给了{target}巨额封口费",
-         "知情人称{person}其实还有更多未曝光的对象",
-         "有消息称{person}早已和{target}秘密同居",
-     ]),
-]
-
-
-def _generate_contextual_rumor(
-    person: str,
-    target: str,
-    scenario_description: str,
-) -> str | None:
-    """根据场景描述关键词生成上下文相关的谣言
-
-    Returns:
-        生成的谣言文本，如果无匹配的关键词则返回 None
-    """
-    matched_templates: list[str] = []
-    for keywords, templates in _CONTEXT_KEYWORD_RULES:
-        if any(kw in scenario_description for kw in keywords):
-            matched_templates.extend(templates)
-
-    if not matched_templates:
-        return None
-
-    # 随机金额
-    amounts = ["数百万", "上千万", "数千万", "百万级", "天价"]
-    amount = random.choice(amounts)
-
-    template = random.choice(matched_templates)
-    return template.format(person=person, target=target, amount=amount)
-
 
 class InformationVacuumDetector:
     """信息真空检测器"""
 
     def __init__(self, content_generator: Any | None = None,
-                 scenario_description: str = ""):
+                 scenario_description: str = "",
+                 scenario_title: str = ""):
         self.silence_days: dict[str, int] = {}    # person → 连续沉默天数
         self.generated_rumors: list[dict] = []
         self._content_gen = content_generator
         self._scenario_description = scenario_description
+        self._scenario_title = scenario_title
 
     def update(
         self,
@@ -142,7 +217,7 @@ class InformationVacuumDetector:
             day: 当前天数
             day_actions: 当天的公关动作
             involved_persons: 涉及的人物
-            gossip_type: 八卦类型
+            gossip_type: 八卦类型（仅供 LLM 模式使用）
 
         Returns:
             新生成的谣言列表
@@ -187,8 +262,7 @@ class InformationVacuumDetector:
             # 计算严重度
             severity = min(0.9, 0.3 + days_silent * 0.1)
 
-            # 生成谣言内容
-            # 优先级：LLM > 场景上下文模板 > 通用模板
+            # 生成谣言内容 — 三级优先：LLM > 事件上下文 > 通用兜底
             content = None
 
             if self._content_gen:
@@ -205,13 +279,18 @@ class InformationVacuumDetector:
                     content = None
 
             if content is None and self._scenario_description:
-                content = _generate_contextual_rumor(
-                    person, target, self._scenario_description)
+                content = generate_rumor(
+                    person=person,
+                    target=target,
+                    scenario_description=self._scenario_description,
+                    scenario_title=self._scenario_title,
+                )
 
             if content is None:
-                templates = RUMOR_TEMPLATES.get(gossip_type, RUMOR_TEMPLATES["other"])
-                template = random.choice(templates)
-                content = template.format(person=person, target=target)
+                # 最终兜底：至少引用事件标题
+                title = self._scenario_title or "此事"
+                template = random.choice(_GENERIC_FALLBACK_TEMPLATES)
+                content = template.format(person=person, title=title)
 
             rumor = {
                 "day": day,
